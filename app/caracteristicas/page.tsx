@@ -15,13 +15,31 @@ import {
   Cloud,
   ArrowRight,
   Check,
+  Menu,
+  X,
+  ChevronRight,
+  Star,
+  Layers,
+  Database,
+  Workflow,
 } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function CaracteristicasPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   const mainFeatures = [
     {
       icon: Globe,
@@ -33,6 +51,7 @@ export default function CaracteristicasPage() {
         "Gestión de planes y suscripciones",
         "Escalabilidad automática",
       ],
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Shield,
@@ -44,6 +63,7 @@ export default function CaracteristicasPage() {
         "Auditoría completa de cambios",
         "Cumplimiento SOC 2 y GDPR",
       ],
+      color: "from-green-500 to-emerald-500",
     },
     {
       icon: Zap,
@@ -55,6 +75,7 @@ export default function CaracteristicasPage() {
         "Shopify, WooCommerce e-commerce",
         "API REST completa para desarrolladores",
       ],
+      color: "from-purple-500 to-violet-500",
     },
     {
       icon: BarChart3,
@@ -66,6 +87,7 @@ export default function CaracteristicasPage() {
         "Reportes programados automáticos",
         "Exportación a Excel/PDF",
       ],
+      color: "from-orange-500 to-red-500",
     },
   ]
 
@@ -73,76 +95,88 @@ export default function CaracteristicasPage() {
     {
       category: "Ventas y Comercial",
       icon: CreditCard,
-      color: "bg-green-100 text-green-600",
+      color: "bg-gradient-to-r from-green-500 to-emerald-500",
       features: [
         {
           name: "POS Punto de Venta",
           description: "Sistema completo para retail, restaurantes y gimnasios con caja integrada",
+          icon: Package,
         },
         {
           name: "CRM Avanzado",
           description: "Gestión 360° de clientes con pipelines, automatizaciones y campañas",
+          icon: Users,
         },
         {
           name: "E-commerce",
           description: "Tienda online integrada con sincronización automática de inventario",
+          icon: Globe,
         },
       ],
     },
     {
       category: "Operaciones",
       icon: Package,
-      color: "bg-blue-100 text-blue-600",
+      color: "bg-gradient-to-r from-blue-500 to-cyan-500",
       features: [
         {
           name: "Inventario Inteligente",
           description: "Control de stock en tiempo real con alertas automáticas y trazabilidad",
+          icon: Database,
         },
         {
           name: "PMS Hotelero",
           description: "Gestión completa de reservas, check-in/out y channel manager",
+          icon: Building2,
         },
         {
           name: "Transport Scheduler",
           description: "Planificación de rutas, tickets QR y control operacional",
+          icon: Clock,
         },
       ],
     },
     {
       category: "Recursos Humanos",
       icon: Users,
-      color: "bg-purple-100 text-purple-600",
+      color: "bg-gradient-to-r from-purple-500 to-violet-500",
       features: [
         {
           name: "HRM Completo",
           description: "Empleados, contratos, nómina y evaluaciones de desempeño",
+          icon: Users,
         },
         {
           name: "Control de Asistencia",
           description: "Turnos, horarios y vacaciones con check-in QR móvil",
+          icon: Clock,
         },
         {
           name: "Capacitación",
           description: "Planes de formación y seguimiento de competencias",
+          icon: Star,
         },
       ],
     },
     {
       category: "Finanzas",
       icon: Building2,
-      color: "bg-orange-100 text-orange-600",
+      color: "bg-gradient-to-r from-orange-500 to-red-500",
       features: [
         {
           name: "Facturación Electrónica",
           description: "Facturación automática con timbrado DIAN y notas crédito/débito",
+          icon: CreditCard,
         },
         {
           name: "Contabilidad Integrada",
           description: "PUC configurable con asientos automáticos y estados financieros",
+          icon: BarChart3,
         },
         {
           name: "CxC y CxP",
           description: "Gestión completa de cuentas por cobrar y pagar con aging",
+          icon: Building2,
         },
       ],
     },
@@ -153,79 +187,242 @@ export default function CaracteristicasPage() {
       icon: Cloud,
       title: "Cloud Native",
       description: "Infraestructura en la nube con 99.9% de disponibilidad y backup automático",
+      stats: "99.9% Uptime",
     },
     {
       icon: Smartphone,
       title: "Apps Móviles",
       description: "Aplicaciones nativas para iOS y Android con sincronización offline",
+      stats: "iOS & Android",
     },
     {
       icon: Lock,
       title: "Datos Seguros",
       description: "Cifrado end-to-end y cumplimiento de normativas internacionales",
+      stats: "SOC 2 & GDPR",
     },
     {
       icon: Clock,
       title: "Tiempo Real",
       description: "Sincronización instantánea entre todos los dispositivos y sucursales",
+      stats: "<100ms latencia",
+    },
+    {
+      icon: Layers,
+      title: "API Completa",
+      description: "REST API documentada para integraciones personalizadas",
+      stats: "200+ endpoints",
+    },
+    {
+      icon: Workflow,
+      title: "Automatización",
+      description: "Workflows personalizables para automatizar procesos de negocio",
+      stats: "Sin límites",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-sm">GO</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">GO Admin</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                GO Admin
+              </span>
             </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/caracteristicas" className="text-blue-600 font-medium">
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                Módulos
+              </Link>
+              <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                Industrias
+              </Link>
+              <Link href="/caracteristicas" className="text-blue-600 font-semibold">
                 Características
               </Link>
-              <Link href="/integraciones" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Integraciones
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
+              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
                 Precios
               </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Contacto
+              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                Centro de Ayuda
+              </Link>
+              <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                Blog
               </Link>
             </nav>
-            <div className="flex items-center space-x-4">
+
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center space-x-4">
               <Button
                 variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
               >
                 Iniciar Sesión
               </Button>
-              <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
+              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg">
+                Prueba Gratis
+              </Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <>
+            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden" onClick={closeMenu} />
+            <div className="absolute top-full left-0 right-0 bg-white border-b shadow-xl z-50 lg:hidden">
+              <div className="container mx-auto px-4 py-6">
+                <nav className="space-y-4">
+                  <Link
+                    href="/modulos"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Módulos</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/industrias"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Industrias</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/caracteristicas"
+                    className="flex items-center justify-between py-3 text-blue-600 font-semibold"
+                    onClick={closeMenu}
+                  >
+                    <span>Características</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/precios"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Precios</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/centro-ayuda"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Centro de Ayuda</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Blog</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/acerca-de"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Acerca de</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/carreras"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Carreras</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/contacto"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <span className="font-medium">Contacto</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </nav>
+                <div className="mt-6 pt-6 border-t space-y-3">
+                  <Button
+                    variant="outline"
+                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                    onClick={() => {
+                      window.open("https://app.goadmin.io/auth/login", "_blank")
+                      closeMenu()
+                    }}
+                  >
+                    Iniciar Sesión
+                  </Button>
+                  <Button
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                    onClick={closeMenu}
+                  >
+                    Prueba Gratis
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </header>
 
-      {/* Hero */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <Badge className="mb-4 bg-blue-100 text-blue-800">Características Completas</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Todo lo que necesitas en <span className="text-blue-600">una sola plataforma</span>
+      {/* Hero Section */}
+      <section className="py-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5" />
+        <div className="container mx-auto text-center relative">
+          <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border-blue-200">
+            Características Completas
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
+              Todo lo que necesitas en{" "}
+            </span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              una sola plataforma
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
             GO Admin combina la potencia de múltiples sistemas especializados en una solución integral que crece con tu
-            negocio.
+            negocio. Descubre por qué más de 10,000 empresas confían en nosotros.
           </p>
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-            Ver Demo en Vivo
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg"
+            >
+              Ver Demo en Vivo
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+            >
+              Explorar Características
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -233,27 +430,33 @@ export default function CaracteristicasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Características Principales</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Características Principales</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Funcionalidades empresariales diseñadas para maximizar la eficiencia de tu negocio
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {mainFeatures.map((feature, index) => (
-              <Card key={index} className="border-blue-100 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <feature.icon className="h-6 w-6 text-blue-600" />
+              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <CardHeader className="pb-4">
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <feature.icon className="h-7 w-7 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900 text-xl">{feature.title}</CardTitle>
-                  <CardDescription className="text-gray-600">{feature.description}</CardDescription>
+                  <CardTitle className="text-gray-900 text-xl mb-2">{feature.title}</CardTitle>
+                  <CardDescription className="text-gray-600 text-base leading-relaxed">
+                    {feature.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     {feature.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-start space-x-3">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                          <Check className="h-3 w-3 text-green-600" />
+                        </div>
                         <span className="text-gray-700">{benefit}</span>
                       </li>
                     ))}
@@ -266,32 +469,45 @@ export default function CaracteristicasPage() {
       </section>
 
       {/* Modules by Category */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Módulos por Categoría</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Módulos por Categoría</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               15 módulos especializados que cubren todas las áreas de tu negocio
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {modules.map((module, index) => (
-              <Card key={index} className="border-gray-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${module.color}`}>
-                      <module.icon className="h-5 w-5" />
+              <Card
+                key={index}
+                className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+              >
+                <CardHeader className="pb-6">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div
+                      className={`w-12 h-12 ${module.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <module.icon className="h-6 w-6 text-white" />
                     </div>
-                    <CardTitle className="text-gray-900">{module.category}</CardTitle>
+                    <CardTitle className="text-gray-900 text-xl">{module.category}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {module.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="border-l-2 border-blue-200 pl-4">
-                        <h4 className="font-semibold text-gray-900">{feature.name}</h4>
-                        <p className="text-sm text-gray-600">{feature.description}</p>
+                      <div
+                        key={featureIndex}
+                        className="flex items-start space-x-4 p-4 rounded-xl bg-white/50 hover:bg-white/80 transition-colors"
+                      >
+                        <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <feature.icon className="h-5 w-5 text-gray-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-1">{feature.name}</h4>
+                          <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -306,21 +522,25 @@ export default function CaracteristicasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tecnología de Vanguardia</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tecnología de Vanguardia</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Infraestructura moderna y segura que garantiza el mejor rendimiento
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {technicalFeatures.map((feature, index) => (
-              <Card key={index} className="text-center border-gray-200 hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="h-6 w-6 text-blue-600" />
+              <Card
+                key={index}
+                className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
+                  <h3 className="font-bold text-gray-900 mb-3 text-lg">{feature.title}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
+                  <Badge className="bg-blue-100 text-blue-800 font-medium">{feature.stats}</Badge>
                 </CardContent>
               </Card>
             ))}
@@ -328,24 +548,152 @@ export default function CaracteristicasPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-blue-600">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">¿Listo para ver GO Admin en acción?</h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-            Descubre cómo todas estas características pueden transformar la gestión de tu negocio.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              Solicitar Demo
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-              Prueba Gratis 14 Días
-            </Button>
+      {/* Stats Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Números que Hablan</h2>
+            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+              La confianza de miles de empresas respalda nuestra plataforma
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">10,000+</div>
+              <div className="text-blue-100">Empresas Activas</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">99.9%</div>
+              <div className="text-blue-100">Tiempo de Actividad</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">50M+</div>
+              <div className="text-blue-100">Transacciones/Mes</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">24/7</div>
+              <div className="text-blue-100">Soporte Técnico</div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">¿Listo para ver GO Admin en acción?</h2>
+          <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+            Descubre cómo todas estas características pueden transformar la gestión de tu negocio. Agenda una demo
+            personalizada o comienza tu prueba gratuita hoy mismo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg"
+            >
+              Solicitar Demo Personalizada
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+            >
+              Prueba Gratis 14 Días
+            </Button>
+          </div>
+          <p className="text-sm text-gray-500 mt-6">
+            Sin tarjeta de crédito • Configuración en 5 minutos • Soporte incluido
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">GO</span>
+                </div>
+                <span className="text-xl font-bold">GO Admin</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                La plataforma integral para gestionar tu negocio de manera eficiente y escalable.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Producto</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link href="/caracteristicas" className="hover:text-white transition-colors">
+                    Características
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/modulos" className="hover:text-white transition-colors">
+                    Módulos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/industrias" className="hover:text-white transition-colors">
+                    Industrias
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/precios" className="hover:text-white transition-colors">
+                    Precios
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Soporte</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link href="/centro-ayuda" className="hover:text-white transition-colors">
+                    Centro de Ayuda
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contacto" className="hover:text-white transition-colors">
+                    Contacto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/api" className="hover:text-white transition-colors">
+                    API
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Empresa</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link href="/acerca-de" className="hover:text-white transition-colors">
+                    Acerca de
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/carreras" className="hover:text-white transition-colors">
+                    Carreras
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>&copy; 2024 GO Admin. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

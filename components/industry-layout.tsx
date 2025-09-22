@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { useState } from "react"
+import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -25,6 +26,16 @@ export function IndustryLayout({
   prevIndustry,
   nextIndustry,
 }: IndustryLayoutProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   const colorClasses = {
     blue: "from-blue-50 to-blue-100",
     green: "from-green-50 to-green-100",
@@ -47,28 +58,139 @@ export function IndustryLayout({
               </div>
               <span className="text-xl font-bold text-gray-900">GO Admin</span>
             </Link>
+
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
+              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Módulos
+              </Link>
               <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors">
                 Todas las Industrias
               </Link>
-              <Link href="/#modulos" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Módulos
+              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Características
               </Link>
-              <Link href="/#precios" className="text-gray-600 hover:text-blue-600 transition-colors">
+              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
                 Precios
               </Link>
+              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Ayuda
+              </Link>
             </nav>
-            <div className="flex items-center space-x-4">
+
+            {/* Desktop CTA Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
               <Button
                 variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
               >
                 Iniciar Sesión
               </Button>
               <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
+              aria-label="Abrir menú de navegación"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <>
+              {/* Overlay */}
+              <div
+                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+                onClick={closeMobileMenu}
+                aria-hidden="true"
+              />
+
+              {/* Mobile Menu Panel */}
+              <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 md:hidden">
+                <nav className="px-4 py-6 space-y-4">
+                  <Link
+                    href="/modulos"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Módulos
+                  </Link>
+                  <Link
+                    href="/industrias"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Todas las Industrias
+                  </Link>
+                  <Link
+                    href="/caracteristicas"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Características
+                  </Link>
+                  <Link
+                    href="/precios"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Precios
+                  </Link>
+                  <Link
+                    href="/centro-ayuda"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Centro de Ayuda
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/acerca-de"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Acerca de
+                  </Link>
+                  <Link
+                    href="/carreras"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Carreras
+                  </Link>
+
+                  {/* Mobile CTA Buttons */}
+                  <div className="pt-4 border-t border-gray-200 space-y-3">
+                    <Button
+                      variant="outline"
+                      className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                      onClick={() => {
+                        window.open("https://app.goadmin.io/auth/login", "_blank")
+                        closeMobileMenu()
+                      }}
+                    >
+                      Iniciar Sesión
+                    </Button>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={closeMobileMenu}>
+                      Prueba Gratis
+                    </Button>
+                  </div>
+                </nav>
+              </div>
+            </>
+          )}
         </div>
       </header>
 
@@ -84,7 +206,11 @@ export function IndustryLayout({
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                 Probar para {title}
               </Button>
-              <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+              >
                 Ver Demo Especializada
               </Button>
             </div>

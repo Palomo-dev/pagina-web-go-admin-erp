@@ -1,116 +1,217 @@
 "use client"
 
 import type React from "react"
-
-import { ArrowLeft, ArrowRight, CheckCircle, Star, Users, TrendingUp } from "lucide-react"
+import { useState } from "react"
+import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
 
 interface ModuleLayoutProps {
+  children: React.ReactNode
   title: string
   description: string
-  icon: React.ReactNode
-  children: React.ReactNode
+  icon: string
+  color: string
   prevModule?: { name: string; href: string }
   nextModule?: { name: string; href: string }
 }
 
-export function ModuleLayout({ title, description, icon, children, prevModule, nextModule }: ModuleLayoutProps) {
+export function ModuleLayout({ children, title, description, icon, color, prevModule, nextModule }: ModuleLayoutProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
+  const colorClasses = {
+    blue: "from-blue-50 to-blue-100",
+    green: "from-green-50 to-green-100",
+    purple: "from-purple-50 to-purple-100",
+    orange: "from-orange-50 to-orange-100",
+    red: "from-red-50 to-red-100",
+    yellow: "from-yellow-50 to-yellow-100",
+    pink: "from-pink-50 to-pink-100",
+    indigo: "from-indigo-50 to-indigo-100",
+    teal: "from-teal-50 to-teal-100",
+    cyan: "from-cyan-50 to-cyan-100",
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Navigation Header */}
-      <div className="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      {/* Header */}
+      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">Volver al inicio</span>
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">GO</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">GO Admin</span>
             </Link>
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                Módulo ERP
-              </Badge>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Todos los Módulos
+              </Link>
+              <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Industrias
+              </Link>
+              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Características
+              </Link>
+              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Precios
+              </Link>
+              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors">
+                Ayuda
+              </Link>
+            </nav>
+
+            {/* Desktop CTA Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
               <Button
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
               >
-                Solicitar Demo
+                Iniciar Sesión
               </Button>
+              <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
+              aria-label="Abrir menú de navegación"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
+            </button>
           </div>
-        </div>
-      </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200/30 rounded-full blur-3xl"></div>
-        </div>
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <>
+              {/* Overlay */}
+              <div
+                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+                onClick={closeMobileMenu}
+                aria-hidden="true"
+              />
 
-        <div className="container mx-auto relative">
+              {/* Mobile Menu Panel */}
+              <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 md:hidden">
+                <nav className="px-4 py-6 space-y-4">
+                  <Link
+                    href="/modulos"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Todos los Módulos
+                  </Link>
+                  <Link
+                    href="/industrias"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Industrias
+                  </Link>
+                  <Link
+                    href="/caracteristicas"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Características
+                  </Link>
+                  <Link
+                    href="/precios"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Precios
+                  </Link>
+                  <Link
+                    href="/centro-ayuda"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Centro de Ayuda
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/acerca-de"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Acerca de
+                  </Link>
+                  <Link
+                    href="/carreras"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Carreras
+                  </Link>
+                  <Link
+                    href="/contacto"
+                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Contacto
+                  </Link>
+
+                  {/* Mobile CTA Buttons */}
+                  <div className="pt-4 border-t border-gray-200 space-y-3">
+                    <Button
+                      variant="outline"
+                      className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                      onClick={() => {
+                        window.open("https://app.goadmin.io/auth/login", "_blank")
+                        closeMobileMenu()
+                      }}
+                    >
+                      Iniciar Sesión
+                    </Button>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={closeMobileMenu}>
+                      Prueba Gratis
+                    </Button>
+                  </div>
+                </nav>
+              </div>
+            </>
+          )}
+        </div>
+      </header>
+
+      {/* Module Hero */}
+      <section className={`py-16 px-4 bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses]}`}>
+        <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Icon and Badge */}
-            <div className="flex justify-center mb-6">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
-                  {icon}
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-white" />
-                </div>
-              </div>
-            </div>
-
-            {/* Title and Description */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
-                {title}
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">{description}</p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <Users className="h-5 w-5 text-blue-600 mr-2" />
-                  <span className="text-2xl font-bold text-gray-900">500+</span>
-                </div>
-                <p className="text-sm text-gray-600">Empresas activas</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                  <span className="text-2xl font-bold text-gray-900">99.9%</span>
-                </div>
-                <p className="text-sm text-gray-600">Tiempo de actividad</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <Star className="h-5 w-5 text-yellow-500 mr-2" />
-                  <span className="text-2xl font-bold text-gray-900">4.9/5</span>
-                </div>
-                <p className="text-sm text-gray-600">Satisfacción cliente</p>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
+            <div className="text-6xl mb-6">{icon}</div>
+            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Módulo Especializado</Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">{description}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                Probar Gratis 30 Días
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                Probar {title}
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
               >
                 Ver Demo en Vivo
               </Button>
@@ -119,87 +220,45 @@ export function ModuleLayout({ title, description, icon, children, prevModule, n
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <div className="bg-white rounded-3xl shadow-xl border border-blue-100 p-8 md:p-12">{children}</div>
-        </div>
+      {/* Module Content */}
+      <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">{children}</div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-indigo-600">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">¿Por qué elegir este módulo?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="p-6 text-center">
-                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Implementación Rápida</h3>
-                <p className="text-blue-100 text-sm">Configuración en menos de 24 horas</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="p-6 text-center">
-                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Soporte 24/7</h3>
-                <p className="text-blue-100 text-sm">Asistencia técnica especializada</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="p-6 text-center">
-                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">ROI Garantizado</h3>
-                <p className="text-blue-100 text-sm">Retorno de inversión en 3 meses</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation Footer */}
-      <section className="py-12 px-4 bg-white border-t border-blue-100">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      {/* Navigation */}
+      <section className="py-12 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex justify-between items-center">
             {prevModule ? (
-              <Link
-                href={prevModule.href}
-                className="group flex items-center space-x-3 text-blue-600 hover:text-blue-700 transition-colors"
-              >
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                  <ArrowLeft className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Anterior</p>
-                  <p className="font-semibold">{prevModule.name}</p>
-                </div>
+              <Link href={prevModule.href} className="flex items-center space-x-2 text-blue-600 hover:text-blue-700">
+                <ArrowLeft className="h-4 w-4" />
+                <span>Anterior: {prevModule.name}</span>
               </Link>
             ) : (
               <div></div>
             )}
-
-            <div className="text-center">
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                Ver Todos los Módulos
-              </Button>
-            </div>
-
             {nextModule ? (
-              <Link
-                href={nextModule.href}
-                className="group flex items-center space-x-3 text-blue-600 hover:text-blue-700 transition-colors"
-              >
-                <div>
-                  <p className="text-sm text-gray-500 text-right">Siguiente</p>
-                  <p className="font-semibold">{nextModule.name}</p>
-                </div>
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
+              <Link href={nextModule.href} className="flex items-center space-x-2 text-blue-600 hover:text-blue-700">
+                <span>Siguiente: {nextModule.name}</span>
+                <ArrowRight className="h-4 w-4" />
               </Link>
             ) : (
               <div></div>
             )}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-blue-600">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">¿Listo para implementar {title}?</h2>
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+            Únete a miles de empresas que ya utilizan {title} para optimizar sus operaciones diarias.
+          </p>
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            Comenzar Prueba Gratuita
+          </Button>
         </div>
       </section>
     </div>
