@@ -218,7 +218,7 @@ export default function Component() {
             <div className="hidden md:flex items-center space-x-4">
               <Button
                 variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
               >
                 Iniciar Sesión
@@ -271,7 +271,7 @@ export default function Component() {
                 <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
                   <Button
                     variant="outline"
-                    className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full"
+                    className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full bg-transparent"
                     onClick={() => {
                       window.open("https://app.goadmin.io/auth/login", "_blank")
                       setMobileMenuOpen(false)
@@ -279,7 +279,13 @@ export default function Component() {
                   >
                     Iniciar Sesión
                   </Button>
-                  <Button className="bg-blue-600 hover:bg-blue-700 w-full" onClick={() => setMobileMenuOpen(false)}>
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-700 w-full"
+                    onClick={() => {
+                      window.open("https://app.goadmin.io/auth/signup", "_blank")
+                      setMobileMenuOpen(false)
+                    }}
+                  >
                     Prueba Gratis
                   </Button>
                 </div>
@@ -341,6 +347,7 @@ export default function Component() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
             >
               <span className="mr-2">🚀</span>
               Comenzar Prueba Gratuita
@@ -349,7 +356,8 @@ export default function Component() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-transparent"
+              onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
             >
               <span className="mr-2">📹</span>
               Ver Demo en Vivo
@@ -518,7 +526,7 @@ export default function Component() {
           </div>
           <div className="text-center mt-8">
             <Link href="/industrias">
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
                 Ver Todas las Industrias
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -819,7 +827,10 @@ export default function Component() {
                       <span className="text-gray-700">Backup automático diario</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3 mb-4">
+                  <Button
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3 mb-4"
+                    onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
+                  >
                     Comenzar Prueba Gratuita
                   </Button>
                   <p className="text-sm text-gray-500 text-center">
@@ -897,7 +908,10 @@ export default function Component() {
                       </div>
                     </div>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-lg py-3 mb-4 shadow-lg">
+                  <Button
+                    className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-lg py-3 mb-4"
+                    onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
+                  >
                     🚀 Comenzar con Descuento Anual
                   </Button>
                   <p className="text-sm text-gray-500 text-center">14 días gratis • Garantía de devolución 30 días</p>
@@ -988,11 +1002,20 @@ export default function Component() {
                 dinero. Sin preguntas, sin complicaciones.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700"
+                  onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
+                >
                   Probar 14 Días Gratis
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                  onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
+                >
                   Hablar con Ventas
                 </Button>
               </div>
@@ -1022,14 +1045,19 @@ export default function Component() {
             eficiente.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-gray-100"
+              onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
+            >
               Prueba Gratuita 14 Días
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-blue-600 hover:bg-white hover:text-blue-600"
+              className="border-white text-blue-600 hover:bg-white hover:text-blue-600 bg-transparent"
+              onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
             >
               Solicitar Demo
             </Button>
