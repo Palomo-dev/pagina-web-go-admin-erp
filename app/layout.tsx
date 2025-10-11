@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  openGraph: {
+    title: 'GO Admin ERP',
+    description: 'Sistema de administración ERP',
+    type: 'website',
+    locale: 'es_ES',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GO Admin ERP',
+    description: 'Sistema de administración ERP',
+  },
 }
 
 export default function RootLayout({
