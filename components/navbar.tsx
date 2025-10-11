@@ -20,6 +20,10 @@ export function Navbar({ currentPage }: NavbarProps) {
     setIsMobileMenuOpen(false)
   }
 
+  const handleSignupClick = () => {
+    window.open("https://app.goadmin.io/auth/signup", "_blank")
+  }
+
   const navItems = [
     { name: "Módulos", href: "/modulos" },
     { name: "Industrias", href: "/industrias" },
@@ -31,10 +35,6 @@ export function Navbar({ currentPage }: NavbarProps) {
     { name: "Carreras", href: "/carreras" },
     { name: "Contacto", href: "/contacto" },
   ]
-
-  const handleSignupClick = () => {
-    window.open("https://app.goadmin.io/auth/signup", "_blank")
-  }
 
   return (
     <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">

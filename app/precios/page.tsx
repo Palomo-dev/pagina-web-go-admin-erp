@@ -1,266 +1,183 @@
 "use client"
 
-import { ArrowRight, Check, Star } from "lucide-react"
-import Link from "next/link"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { PricingTable } from "@/components/pricing-table"
+import { CTASection } from "@/components/cta-section"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle, X } from "lucide-react"
 
 export default function PreciosPage() {
-  const plans = [
+  const comparisonFeatures = [
+    { feature: "Todos los módulos incluidos", monthly: true, annual: true },
+    { feature: "Usuarios ilimitados", monthly: true, annual: true },
+    { feature: "Sucursales ilimitadas", monthly: true, annual: true },
+    { feature: "Soporte por chat y email", monthly: true, annual: true },
+    { feature: "Integraciones premium", monthly: true, annual: true },
+    { feature: "Backup automático", monthly: true, annual: true },
+    { feature: "Apps móviles iOS/Android", monthly: true, annual: true },
+    { feature: "Soporte prioritario 24/7", monthly: false, annual: true },
+    { feature: "Onboarding personalizado 1:1", monthly: false, annual: true },
+    { feature: "Reportes avanzados exclusivos", monthly: false, annual: true },
+    { feature: "Acceso anticipado a nuevas funciones", monthly: false, annual: true },
+    { feature: "Account manager dedicado", monthly: false, annual: true },
+  ]
+
+  const annualBenefits = [
     {
-      name: "Plan Mensual",
-      price: "$20",
-      period: "/mes",
-      description: "Perfecto para empezar sin compromisos",
-      features: [
-        "Todos los 15 módulos incluidos",
-        "Usuarios ilimitados",
-        "Sucursales ilimitadas",
-        "Soporte técnico 24/7",
-        "Backup diario automático",
-        "Todas las integraciones premium",
-        "Reportes avanzados",
-        "API completa",
-      ],
-      popular: false,
-      color: "border-gray-200",
+      title: "Ahorro significativo",
+      description: "Ahorra $44 USD al año comparado con el plan mensual",
+      icon: "💰",
     },
     {
-      name: "Plan Anual",
-      price: "$196",
-      period: "/año",
-      description: "La opción más popular - Ahorra 2 meses",
-      features: [
-        "Todo del plan mensual incluido",
-        "2 meses completamente gratis",
-        "Soporte técnico prioritario",
-        "Onboarding personalizado 1:1",
-        "Reportes avanzados exclusivos",
-        "Acceso anticipado a nuevas funciones",
-        "Consultoría especializada",
-        "SLA garantizado 99.9%",
-      ],
-      popular: true,
-      color: "border-blue-600",
+      title: "Soporte prioritario",
+      description: "Acceso a soporte técnico prioritario 24/7 con tiempos de respuesta más rápidos",
+      icon: "🚀",
+    },
+    {
+      title: "Onboarding personalizado",
+      description: "Sesión 1:1 con nuestro equipo para configurar tu cuenta perfectamente",
+      icon: "🎯",
+    },
+    {
+      title: "Reportes exclusivos",
+      description: "Acceso a dashboards y reportes avanzados no disponibles en el plan mensual",
+      icon: "📊",
     },
   ]
 
-  const faqs = [
+  const testimonials = [
     {
-      question: "¿Puedo cambiar de plan en cualquier momento?",
-      answer:
-        "Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se reflejan inmediatamente y se facturan de forma proporcional.",
+      quote:
+        "El plan anual fue la mejor decisión. El ahorro es considerable y el soporte prioritario hace toda la diferencia.",
+      author: "Laura Martínez",
+      company: "Retail Express",
+      plan: "Plan Anual",
     },
     {
-      question: "¿Hay costos de implementación?",
-      answer:
-        "No hay costos de implementación para los planes Starter y Professional. El plan Enterprise incluye implementación dedicada sin costo adicional.",
+      quote: "Empezamos con el plan mensual y luego migramos al anual. ¡No hay vuelta atrás!",
+      author: "Carlos Rodríguez",
+      company: "Hotel Boutique Central",
+      plan: "Plan Anual",
     },
     {
-      question: "¿Qué métodos de pago aceptan?",
-      answer:
-        "Aceptamos todas las tarjetas de crédito principales, transferencias bancarias y PayPal. Para planes anuales ofrecemos descuentos especiales.",
-    },
-    {
-      question: "¿Hay límites en el volumen de transacciones?",
-      answer:
-        "No hay límites en el número de transacciones, productos, clientes o almacenamiento en ninguno de nuestros planes.",
-    },
-    {
-      question: "¿Ofrecen descuentos por pago anual?",
-      answer: "Sí, ofrecemos 2 meses gratis al pagar anualmente (equivale a 16.7% de descuento) en todos los planes.",
-    },
-    {
-      question: "¿Qué incluye el soporte técnico?",
-      answer:
-        "Incluye chat en vivo, soporte por email, base de conocimientos, tutoriales en video y onboarding personalizado según el plan.",
+      quote: "El plan mensual nos permitió probar sin compromiso. Una vez vimos los resultados, nos pasamos al anual.",
+      author: "Ana Silva",
+      company: "Gimnasio Vital",
+      plan: "Plan Mensual → Anual",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GO</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">GO Admin</span>
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Características
-              </Link>
-              <Link href="/integraciones" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Integraciones
-              </Link>
-              <Link href="/precios" className="text-blue-600 font-medium">
-                Precios
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Contacto
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
+      <Navbar currentPage="/precios" />
 
-      {/* Hero */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <Badge className="mb-4 bg-green-100 text-green-800">Precios Transparentes</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Planes que se adaptan a tu <span className="text-blue-600">crecimiento</span>
+      {/* Hero Section */}
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+        <div className="container mx-auto text-center relative z-10">
+          <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 hover:from-blue-200 hover:to-purple-200 px-4 py-2 text-sm font-semibold">
+            💎 Precios Transparentes y Justos
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
+              Precios simples
+            </span>
+            <br />
+            <span className="text-blue-600">para todos</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Desde pequeños negocios hasta grandes empresas. Encuentra el plan perfecto para tu organización con precios
-            transparentes y sin sorpresas.
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Un solo precio, todas las funcionalidades. Sin límites de usuarios, sin módulos premium ocultos, sin
+            sorpresas en la factura. Solo elige entre mensual o anual.
           </p>
-          <div className="flex items-center justify-center space-x-8 text-sm text-gray-500 mb-8">
-            <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
-              <span>14 días gratis</span>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-gray-700 font-medium">Sin permanencia</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
-              <span>Sin permanencia</span>
+            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <span className="text-gray-700 font-medium">Garantía 30 días</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
-              <span>Cancela cuando quieras</span>
+            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <span className="text-gray-700 font-medium">Soporte incluido</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Plans */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {plans.map((plan, index) => (
-              <Card
-                key={index}
-                className={`relative ${plan.color} ${plan.popular ? "border-2 scale-105 shadow-2xl" : "border"} hover:shadow-xl transition-all duration-300`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-blue-600 text-white px-6 py-2">
-                      <Star className="h-4 w-4 mr-1" />
-                      Más Popular
-                    </Badge>
-                  </div>
-                )}
-                <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-2xl font-bold text-gray-900">{plan.name}</CardTitle>
-                  <CardDescription className="text-gray-600 mt-2">{plan.description}</CardDescription>
-                  <div className="mt-6">
-                    <div className="flex items-center justify-center">
-                      <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                      {plan.period && <span className="text-gray-600 text-lg ml-2">{plan.period}</span>}
-                    </div>
-                    {plan.period && <p className="text-sm text-gray-500 mt-2">por organización</p>}
-                    {plan.name === "Plan Anual" && (
-                      <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full inline-block mb-2">
-                        <span className="font-semibold">Equivale a $16.33/mes</span>
-                      </div>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent className="px-6 pb-8">
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full ${plan.popular ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-900 hover:bg-gray-800"} text-white`}
-                    size="lg"
-                  >
-                    {plan.name === "Enterprise" ? "Contactar Ventas" : "Comenzar Prueba Gratuita"}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Pricing Table Component */}
+      <PricingTable showAllIncluded={true} showFAQ={true} showGuarantee={true} />
 
       {/* Comparison Table */}
       <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Comparación Detallada</h2>
-            <p className="text-gray-600">Todas las características incluidas en cada plan</p>
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Comparación detallada de planes</h2>
+            <p className="text-xl text-gray-600">Descubre todas las diferencias entre el plan mensual y anual</p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-6 font-semibold text-gray-900">Características</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Starter</th>
-                  <th className="text-center py-4 px-6 font-semibold text-blue-600">Professional</th>
-                  <th className="text-center py-4 px-6 font-semibold text-purple-600">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: "Usuarios", starter: "5", professional: "Ilimitados", enterprise: "Ilimitados" },
-                  { feature: "Sucursales", starter: "2", professional: "Ilimitadas", enterprise: "Ilimitadas" },
-                  { feature: "Módulos POS", starter: "✓", professional: "✓", enterprise: "✓" },
-                  { feature: "Inventario", starter: "✓", professional: "✓", enterprise: "✓" },
-                  { feature: "CRM", starter: "✓", professional: "✓", enterprise: "✓" },
-                  { feature: "PMS Hotel", starter: "✗", professional: "✓", enterprise: "✓" },
-                  { feature: "HRM", starter: "✗", professional: "✓", enterprise: "✓" },
-                  { feature: "Finanzas", starter: "✗", professional: "✓", enterprise: "✓" },
-                  { feature: "Reportes Avanzados", starter: "✗", professional: "✓", enterprise: "✓" },
-                  { feature: "API Completa", starter: "✗", professional: "✓", enterprise: "✓" },
-                  { feature: "Soporte", starter: "Email", professional: "24/7", enterprise: "Dedicado" },
-                  { feature: "SLA", starter: "✗", professional: "99%", enterprise: "99.9%" },
-                ].map((row, index) => (
-                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="py-4 px-6 font-medium text-gray-900">{row.feature}</td>
-                    <td className="py-4 px-6 text-center text-gray-600">{row.starter}</td>
-                    <td className="py-4 px-6 text-center text-blue-600 font-medium">{row.professional}</td>
-                    <td className="py-4 px-6 text-center text-purple-600 font-medium">{row.enterprise}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+            <div className="grid grid-cols-3 gap-4 p-6 bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-gray-200">
+              <div className="font-bold text-gray-900">Características</div>
+              <div className="text-center font-bold text-gray-900">Plan Mensual</div>
+              <div className="text-center font-bold text-blue-600">Plan Anual</div>
+            </div>
+
+            {comparisonFeatures.map((item, index) => (
+              <div
+                key={index}
+                className={`grid grid-cols-3 gap-4 p-6 border-b border-gray-100 ${
+                  index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                }`}
+              >
+                <div className="text-gray-700 font-medium">{item.feature}</div>
+                <div className="flex justify-center">
+                  {item.monthly ? (
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  ) : (
+                    <X className="h-6 w-6 text-gray-300" />
+                  )}
+                </div>
+                <div className="flex justify-center">
+                  {item.annual ? (
+                    <CheckCircle className="h-6 w-6 text-blue-600" />
+                  ) : (
+                    <X className="h-6 w-6 text-gray-300" />
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Preguntas Frecuentes</h2>
-            <p className="text-gray-600">Resolvemos las dudas más comunes sobre nuestros precios</p>
+      {/* Annual Benefits */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-blue-100 text-blue-800">Plan Anual</Badge>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">¿Por qué elegir el plan anual?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Además del ahorro económico, el plan anual incluye beneficios exclusivos para tu empresa
+            </p>
           </div>
 
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border-gray-200">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {annualBenefits.map((benefit, index) => (
+              <Card key={index} className="border-2 border-blue-200 bg-white hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="text-5xl">{benefit.icon}</div>
+                    <CardTitle className="text-xl text-gray-900">{benefit.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -268,28 +185,47 @@ export default function PreciosPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-blue-600">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">¿Listo para comenzar?</h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-            Prueba GO Admin gratis por 14 días. No necesitas tarjeta de crédito y puedes cancelar en cualquier momento.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              Comenzar Prueba Gratuita
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-blue-600 hover:bg-white hover:text-blue-600"
-            >
-              Hablar con Ventas
-            </Button>
+      {/* Testimonials */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
+            <p className="text-xl text-gray-600">Empresas que ya eligieron GO Admin</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-2 border-gray-100 hover:border-blue-300 transition-colors">
+                <CardContent className="p-8">
+                  <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.quote}"</p>
+                  <div className="border-t pt-4">
+                    <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                    <div className="text-sm text-gray-600">{testimonial.company}</div>
+                    <Badge className="mt-2 bg-blue-50 text-blue-700 text-xs">{testimonial.plan}</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection
+        title="¿Listo para comenzar con GO Admin?"
+        description="Elige el plan que mejor se adapte a tu negocio y comienza a transformar tu gestión empresarial hoy mismo. Sin permanencia, sin tarjeta de crédito para probar."
+        primaryButtonText="Comenzar Prueba Gratuita"
+        secondaryButtonText="Hablar con Ventas"
+        variant="gradient"
+        showStats={true}
+        stats={[
+          { label: "Empresas activas", value: "500+" },
+          { label: "Satisfacción", value: "98%" },
+          { label: "Ahorro promedio", value: "$2.5K/año" },
+        ]}
+      />
+
+      <Footer />
     </div>
   )
 }
