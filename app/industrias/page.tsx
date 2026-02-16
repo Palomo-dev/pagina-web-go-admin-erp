@@ -276,11 +276,11 @@ export default function IndustriasPage() {
                         <span className="font-bold text-gray-900">{industry.clients}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Crecimiento anual:</span>
+                        <span className="text-gray-600">{c.annualGrowth}</span>
                         <span className="font-bold text-green-600">{industry.growth}</span>
                       </div>
                       <div className="bg-white/80 p-3 rounded-lg">
-                        <div className="text-xs text-gray-600 mb-1">Destacado:</div>
+                        <div className="text-xs text-gray-600 mb-1">{c.featured}</div>
                         <div className="text-sm font-semibold text-gray-900">{industry.highlight}</div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
@@ -294,7 +294,7 @@ export default function IndustriasPage() {
                         ))}
                       </div>
                       <div className="flex items-center justify-center mt-6 text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
-                        <span className="mr-2">Explorar solución</span>
+                        <span className="mr-2">{c.exploreSolution}</span>
                         <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
@@ -311,11 +311,10 @@ export default function IndustriasPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-blue-100 text-blue-800">¿Por qué elegir GO Admin?</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Especialización que marca la diferencia</h2>
+              <Badge className="mb-4 bg-blue-100 text-blue-800">{c.whyChoose}</Badge>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">{c.whyTitle}</h2>
               <p className="text-xl text-gray-600 mb-8">
-                No somos un ERP genérico. Cada módulo está diseñado específicamente para las necesidades únicas de tu
-                industria, con flujos optimizados y características especializadas.
+                {c.whyDesc}
               </p>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -328,8 +327,8 @@ export default function IndustriasPage() {
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Implementación Express</h3>
-                <p className="text-gray-600">Tu ERP especializado listo en tiempo récord</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{c.expressImpl}</h3>
+                <p className="text-gray-600">{c.expressDesc}</p>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -337,8 +336,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">1</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Análisis de Necesidades</h4>
-                    <p className="text-sm text-gray-600">Evaluamos tu industria y procesos específicos</p>
+                    <h4 className="font-semibold text-gray-900">{c.step1}</h4>
+                    <p className="text-sm text-gray-600">{c.step1d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -346,8 +345,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">2</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Configuración Especializada</h4>
-                    <p className="text-sm text-gray-600">Adaptamos los módulos a tu operación</p>
+                    <h4 className="font-semibold text-gray-900">{c.step2}</h4>
+                    <p className="text-sm text-gray-600">{c.step2d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -355,8 +354,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">3</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Go Live en 48h</h4>
-                    <p className="text-sm text-gray-600">Tu equipo operando con el nuevo sistema</p>
+                    <h4 className="font-semibold text-gray-900">{c.step3}</h4>
+                    <p className="text-sm text-gray-600">{c.step3d}</p>
                   </div>
                 </div>
               </div>
@@ -369,8 +368,8 @@ export default function IndustriasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
-            <p className="text-xl text-gray-600">Empresas de diferentes industrias confían en GO Admin</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.testimonialsTitle}</h2>
+            <p className="text-xl text-gray-600">{c.testimonialsSubtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -400,10 +399,9 @@ export default function IndustriasPage() {
       <section className="py-24 px-4 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para revolucionar tu industria?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{c.ctaTitle}</h2>
           <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            Únete a miles de empresas que ya optimizaron sus operaciones con GO Admin. Solicita una demo personalizada
-            para tu industria y descubre el potencial de tu negocio.
+            {c.ctaDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
@@ -411,7 +409,7 @@ export default function IndustriasPage() {
               className="bg-white text-blue-600 hover:bg-gray-100 shadow-xl text-lg px-8 py-4 font-semibold"
               onClick={handleSignupClick}
             >
-              Solicitar Demo Personalizada
+              {c.requestPersonalDemo}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -419,11 +417,11 @@ export default function IndustriasPage() {
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold bg-transparent"
             >
-              Hablar con un Experto
+              {c.talkExpert}
             </Button>
           </div>
           <div className="mt-12 text-blue-100">
-            <p className="text-sm">✓ Demo gratuita de 30 minutos ✓ Sin compromiso ✓ Asesoría especializada</p>
+            <p className="text-sm">{c.ctaNote}</p>
           </div>
         </div>
       </section>
