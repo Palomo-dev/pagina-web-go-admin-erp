@@ -1,9 +1,14 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram, Youtube, Globe } from "lucide-react"
+import { useLanguage } from "@/lib/i18n"
 
 export function Footer() {
+  const { lang, setLang, t } = useLanguage()
+
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
@@ -18,20 +23,19 @@ export function Footer() {
               <span className="text-2xl font-bold">GO Admin</span>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              La plataforma ERP más completa del mercado. Gestiona tu negocio de manera eficiente con todos los módulos
-              integrados que necesitas.
+              {t("footer.description")}
             </p>
 
             {/* Newsletter */}
             <div className="mb-6">
-              <h4 className="font-semibold text-white mb-3">Suscríbete a nuestro newsletter</h4>
+              <h4 className="font-semibold text-white mb-3">{t("footer.newsletter")}</h4>
               <div className="flex gap-2">
                 <Input
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder={t("footer.emailPlaceholder")}
                   className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
                 />
-                <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">Suscribir</Button>
+                <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">{t("footer.subscribe")}</Button>
               </div>
             </div>
 
@@ -87,36 +91,36 @@ export function Footer() {
 
           {/* Producto */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Producto</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">{t("footer.product")}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/caracteristicas" className="text-gray-400 hover:text-white transition-colors">
-                  Características
+                  {t("nav.features")}
                 </Link>
               </li>
               <li>
                 <Link href="/modulos" className="text-gray-400 hover:text-white transition-colors">
-                  Módulos
+                  {t("nav.modules")}
                 </Link>
               </li>
               <li>
                 <Link href="/industrias" className="text-gray-400 hover:text-white transition-colors">
-                  Industrias
+                  {t("nav.industries")}
                 </Link>
               </li>
               <li>
                 <Link href="/integraciones" className="text-gray-400 hover:text-white transition-colors">
-                  Integraciones
+                  {t("footer.integrations")}
                 </Link>
               </li>
               <li>
                 <Link href="/api" className="text-gray-400 hover:text-white transition-colors">
-                  API
+                  {t("footer.api")}
                 </Link>
               </li>
               <li>
                 <Link href="/precios" className="text-gray-400 hover:text-white transition-colors">
-                  Precios
+                  {t("nav.pricing")}
                 </Link>
               </li>
             </ul>
@@ -124,31 +128,31 @@ export function Footer() {
 
           {/* Soporte */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Soporte</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">{t("footer.support")}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/centro-ayuda" className="text-gray-400 hover:text-white transition-colors">
-                  Centro de Ayuda
+                  {t("nav.helpCenter")}
                 </Link>
               </li>
               <li>
                 <Link href="/centro-ayuda" className="text-gray-400 hover:text-white transition-colors">
-                  Documentación
+                  {t("footer.documentation")}
                 </Link>
               </li>
               <li>
                 <Link href="/contacto" className="text-gray-400 hover:text-white transition-colors">
-                  Contacto
+                  {t("nav.contact")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Estado del Sistema
+                  {t("footer.systemStatus")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Comunidad
+                  {t("footer.community")}
                 </Link>
               </li>
             </ul>
@@ -156,36 +160,36 @@ export function Footer() {
 
           {/* Empresa */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Empresa</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">{t("footer.company")}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/acerca-de" className="text-gray-400 hover:text-white transition-colors">
-                  Acerca de
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
+                  {t("nav.blog")}
                 </Link>
               </li>
               <li>
                 <Link href="/carreras" className="text-gray-400 hover:text-white transition-colors">
-                  Carreras
+                  {t("nav.careers")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Prensa
+                  {t("footer.press")}
                 </Link>
               </li>
               <li>
                 <Link href="/privacidad" className="text-gray-400 hover:text-white transition-colors">
-                  Privacidad
+                  {t("footer.privacy")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Términos de Servicio
+                  {t("footer.terms")}
                 </Link>
               </li>
             </ul>
@@ -197,33 +201,33 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">© 2025 GO Admin. Todos los derechos reservados.</div>
+            <div className="text-gray-400 text-sm">{"© 2025 GO Admin. "}{t("footer.rights")}</div>
 
             {/* Trust Badges */}
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2 text-gray-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>99.9% Uptime</span>
+                <span>{t("footer.uptime")}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>SSL Seguro</span>
+                <span>{t("footer.ssl")}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span>GDPR Compliant</span>
+                <span>{t("footer.gdpr")}</span>
               </div>
             </div>
 
             {/* Language Selector */}
-            <div className="flex items-center space-x-2 text-gray-400 text-sm">
-              <span>🌐</span>
-              <select className="bg-transparent border-none text-gray-400 cursor-pointer hover:text-white transition-colors">
-                <option value="es">Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
-              </select>
-            </div>
+            <button
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              className="flex items-center space-x-2 text-gray-400 text-sm hover:text-white transition-colors cursor-pointer"
+              aria-label={lang === "es" ? "Switch to English" : "Cambiar a Español"}
+            >
+              <Globe className="h-4 w-4" />
+              <span>{lang === "es" ? "English" : "Español"}</span>
+            </button>
           </div>
         </div>
       </div>

@@ -1,7 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
 import {
   ArrowRight,
   Building2,
@@ -24,9 +22,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle } from "lucide-react"
 import { PricingTable } from "@/components/pricing-table"
+import { Navbar } from "@/components/navbar"
 
 export default function Component() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const modules = [
     {
       category: "Gestión Comercial",
@@ -105,20 +103,31 @@ export default function Component() {
 
   const testimonials = [
     {
-      name: "Maria Rodriguez",
-      company: "Restaurant La Casita",
+      name: "María González",
+      role: "Directora de Operaciones",
+      company: "Hotel Playa Dorada",
+      logo: "/hotel-playa-dorada-luxury-hotel-logo-gold-text-ele.jpg",
       quote:
-        "GO Admin ha transformado la gestión de mi restaurante. Ahora tengo control total de mi inventario y ventas.",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ce0e5e292c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "GO Admin ha revolucionado la gestión de nuestros hoteles. La integración del PMS con facturación electrónica nos ahorra 20 horas semanales.",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
     },
     {
-      name: "Carlos Perez",
-      company: "Hotel El Sol",
+      name: "Carlos Rodríguez",
+      role: "Gerente General",
+      company: "Restaurantes El Buen Sabor",
+      logo: "/el-buen-sabor-restaurant-logo-fork-spoon-red-orang.jpg",
       quote:
-        "La gestión de reservas y el check-in/out nunca fueron tan fáciles. GO Admin ha simplificado mi trabajo y mejorado la experiencia de mis clientes.",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00d5a4ee9baa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Con GO Admin controlamos inventario en tiempo real de nuestras 100+ sedes. La visibilidad de datos ha mejorado nuestra toma de decisiones.",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+    },
+    {
+      name: "Ana Martínez",
+      role: "CFO",
+      company: "FitLife Gimnasios",
+      logo: "/fitlife-gym-fitness-logo-dumbbell-blue-green-moder.jpg",
+      quote:
+        "La gestión de membresías y el control de acceso de GO Admin nos permite atender a más de 50,000 afiliados sin complicaciones.",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
     },
   ]
 
@@ -155,29 +164,77 @@ export default function Component() {
 
   const useCases = [
     {
-      industry: "Restaurante",
-      description: "Gestiona tu inventario, mesas, pedidos y ventas en tiempo real.",
-      image:
-        "https://images.unsplash.com/photo-1517248135469-4cd6edaaeb96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      industry: "Restaurantes y Cadenas",
+      description:
+        "Gestiona inventario, mesas, pedidos, cocina y ventas en tiempo real. Integración con apps de delivery.",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop",
+      companies: ["McDonald's", "Subway", "Domino's"],
     },
     {
-      industry: "Hotel",
-      description: "Gestiona tus reservas, habitaciones, check-ins/outs y facturación de manera eficiente.",
-      image:
-        "https://images.unsplash.com/photo-1566073771259-6a98b9d7a0e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      industry: "Hoteles y Resorts",
+      description: "Reservas, check-in/out, housekeeping, folios y facturación electrónica todo integrado.",
+      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=500&fit=crop",
+      companies: ["Marriott", "Hilton", "Decameron"],
     },
     {
-      industry: "Tienda",
-      description: "Gestiona tu inventario, ventas, clientes y promociones en un solo lugar.",
-      image:
-        "https://images.unsplash.com/photo-1555296891-4f5c3b589ee4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHN0b3JlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      industry: "Retail y Tiendas",
+      description: "Control de inventario multi-sede, e-commerce y gestión de proveedores.",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
+      companies: ["Zara", "H&M", "Falabella"],
+    },
+    {
+      industry: "Gimnasios y Fitness",
+      description: "Membresías, control de acceso biométrico, programación de clases y seguimiento de clientes.",
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=500&fit=crop",
+      companies: ["Bodytech", "SmartFit", "Gold's Gym"],
+    },
+    {
+      industry: "Transporte y Logística",
+      description: "Programación de rutas, venta de tickets, tracking de flotas y mantenimiento de vehículos.",
+      image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=500&fit=crop",
+      companies: ["DHL", "FedEx", "Servientrega"],
+    },
+    {
+      industry: "Parqueaderos",
+      description: "Control de acceso automatizado, tarifas dinámicas, reportes de ocupación y facturación.",
+      image: "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=800&h=500&fit=crop",
+      companies: ["City Parking", "Park & Go", "Valet Plus"],
     },
   ]
 
   const companies = [
-    { name: "Empresa A", logo: "https://via.placeholder.com/50" },
-    { name: "Empresa B", logo: "https://via.placeholder.com/50" },
-    { name: "Empresa C", logo: "https://via.placeholder.com/50" },
+    {
+      name: "Hotel Playa Dorada",
+      logo: "/hotel-playa-dorada-luxury-resort-logo-golden-sun-p.jpg",
+    },
+    {
+      name: "Café Central",
+      logo: "/cafe-central-coffee-shop-logo-brown-coffee-cup-ste.jpg",
+    },
+    {
+      name: "Supermercados FreshMart",
+      logo: "/freshmart-supermarket-grocery-logo-green-leaf-shop.jpg",
+    },
+    {
+      name: "Restaurantes El Buen Sabor",
+      logo: "/el-buen-sabor-restaurant-logo-chef-hat-fork-red-or.jpg",
+    },
+    {
+      name: "FitLife Gimnasios",
+      logo: "/fitlife-gym-fitness-center-logo-dumbbell-muscle-bl.jpg",
+    },
+    {
+      name: "TransRapido Logística",
+      logo: "/transrapido-logistics-shipping-logo-truck-arrow-sp.jpg",
+    },
+    {
+      name: "Farmacias SaludPlus",
+      logo: "/saludplus-pharmacy-drugstore-logo-cross-pill-green.jpg",
+    },
+    {
+      name: "Resort Caribe Azul",
+      logo: "/caribe-azul-beach-resort-hotel-logo-wave-palm-tree.jpg",
+    },
   ]
 
   const resources = [
@@ -188,118 +245,7 @@ export default function Component() {
 
   return (
     <div className="min-h-screen bg-blue-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GO</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">GO Admin</span>
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Módulos
-              </Link>
-              <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Industrias
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Precios
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Contacto
-              </Link>
-            </nav>
-
-            {/* Desktop Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700"
-                onClick={() => window.open("https://app.goadmin.io/auth/signup", "_blank")}
-              >
-                Prueba Gratis
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <Link
-                  href="/modulos"
-                  className="text-gray-600 hover:text-blue-600 transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Módulos
-                </Link>
-                <Link
-                  href="/industrias"
-                  className="text-gray-600 hover:text-blue-600 transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Industrias
-                </Link>
-                <Link
-                  href="/precios"
-                  className="text-gray-600 hover:text-blue-600 transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Precios
-                </Link>
-                <Link
-                  href="/contacto"
-                  className="text-gray-600 hover:text-blue-600 transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contacto
-                </Link>
-                <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
-                  <Button
-                    variant="outline"
-                    className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full bg-transparent"
-                    onClick={() => {
-                      window.open("https://app.goadmin.io/auth/login", "_blank")
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    Iniciar Sesión
-                  </Button>
-                  <Button
-                    className="bg-blue-600 hover:bg-blue-700 w-full"
-                    onClick={() => {
-                      window.open("https://app.goadmin.io/auth/signup", "_blank")
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    Prueba Gratis
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
+      <Navbar currentPage="/" />
 
       {/* Hero Section */}
       <section className="relative py-24 px-4 overflow-hidden">
@@ -542,32 +488,49 @@ export default function Component() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
+          <div className="text-center mb-16">
+            <Badge className="mb-6 bg-blue-100 text-blue-800 px-4 py-2">Testimonios</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Descubre cómo GO Admin ha ayudado a empresas como la tuya a crecer y optimizar sus operaciones.
+              Empresas líderes en Latinoamérica confían en GO Admin para gestionar sus operaciones diarias.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white border-blue-100 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center space-x-4">
-                    <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <CardTitle className="text-gray-900">{testimonial.name}</CardTitle>
-                      <CardDescription className="text-gray-600">{testimonial.company}</CardDescription>
+              <Card
+                key={index}
+                className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center space-x-4">
+                      <img
+                        src={testimonial.image || "/placeholder.svg"}
+                        alt={testimonial.name}
+                        className="w-16 h-16 rounded-full object-cover border-4 border-blue-100"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-500">{testimonial.role}</p>
+                        <p className="text-sm font-medium text-blue-600">{testimonial.company}</p>
+                      </div>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                  <div className="mb-6">
+                    <svg className="w-8 h-8 text-blue-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p className="text-gray-700 italic leading-relaxed">"{testimonial.quote}"</p>
+                  </div>
+                  <div className="pt-4 border-t border-gray-100">
+                    <img
+                      src={testimonial.logo || "/placeholder.svg"}
+                      alt={`Logo ${testimonial.company}`}
+                      className="h-8 object-contain opacity-60"
+                    />
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -634,25 +597,44 @@ export default function Component() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Casos de uso por industria</h2>
+          <div className="text-center mb-16">
+            <Badge className="mb-6 bg-blue-100 text-blue-800 px-4 py-2">Soluciones</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Casos de uso por industria</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Descubre cómo GO Admin se adapta a las necesidades específicas de tu industria.
+              Descubre cómo GO Admin se adapta a las necesidades específicas de tu industria con soluciones probadas.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {useCases.map((useCase, index) => (
-              <Card key={index} className="bg-white border-blue-100 hover:shadow-lg transition-shadow">
-                <img
-                  src={useCase.image || "/placeholder.svg"}
-                  alt={useCase.industry}
-                  className="w-full h-48 object-cover rounded-t-md"
-                />
+              <Card
+                key={index}
+                className="group bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              >
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={useCase.image || "/placeholder.svg"}
+                    alt={useCase.industry}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-bold text-white">{useCase.industry}</h3>
+                  </div>
+                </div>
                 <CardContent className="p-6">
-                  <CardTitle className="text-gray-900">{useCase.industry}</CardTitle>
-                  <CardDescription className="text-gray-600">{useCase.description}</CardDescription>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{useCase.description}</p>
+                  <div className="pt-4 border-t border-gray-100">
+                    <p className="text-xs text-gray-400 mb-2">Usado por empresas como:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {useCase.companies.map((company, idx) => (
+                        <span key={idx} className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                          {company}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -704,27 +686,54 @@ export default function Component() {
       </section>
 
       {/* Companies Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Empresas que confían en nosotros</h2>
+            <Badge className="mb-6 bg-blue-100 text-blue-800 px-4 py-2">Confianza</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Empresas que confían en nosotros</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Cientos de empresas ya confían en GO Admin para gestionar sus operaciones diarias.
+              Más de 500 empresas líderes en Latinoamérica utilizan GO Admin para gestionar sus operaciones.
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {companies.map((company, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <img src={company.logo || "/placeholder.svg"} alt={company.name} className="w-10 h-10 object-contain" />
-                <span className="text-gray-600">{company.name}</span>
-              </div>
-            ))}
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center">
+              {companies.map((company, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center p-4 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                >
+                  <img
+                    src={company.logo || "/placeholder.svg"}
+                    alt={company.name}
+                    className="h-10 md:h-12 object-contain max-w-full"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="text-3xl font-bold text-blue-600">500+</div>
+              <div className="text-gray-600 text-sm">Empresas activas</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="text-3xl font-bold text-blue-600">12</div>
+              <div className="text-gray-600 text-sm">Países</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="text-3xl font-bold text-blue-600">50K+</div>
+              <div className="text-gray-600 text-sm">Usuarios diarios</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="text-3xl font-bold text-blue-600">99.9%</div>
+              <div className="text-gray-600 text-sm">Uptime garantizado</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Resources Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Recursos y Contenido</h2>
