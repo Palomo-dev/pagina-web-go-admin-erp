@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Navbar } from "@/components/navbar"
 
 export default function APIPage() {
   const endpoints = [
@@ -145,43 +146,7 @@ $products = $client->products->list();`,
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GO</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">GO Admin</span>
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Características
-              </Link>
-              <Link href="/integraciones" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Integraciones
-              </Link>
-              <Link href="/api" className="text-blue-600 font-medium">
-                API
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Contacto
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navbar currentPage="/api" />
 
       {/* Hero */}
       <section className="py-20 px-4">

@@ -16,35 +16,12 @@ import {
   MessageCircle,
 } from "lucide-react"
 import Link from "next/link"
+import { Navbar } from "@/components/navbar"
 
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              GO Admin
-            </Link>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Inicio
-              </Link>
-              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Módulos
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Precios
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Contacto
-              </Link>
-            </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700">Suscribirse</Button>
-          </div>
-        </div>
-      </header>
+      <Navbar currentPage="/blog" />
 
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden">

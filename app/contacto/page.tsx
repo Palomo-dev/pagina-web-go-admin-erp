@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Navbar } from "@/components/navbar"
 
 export default function ContactoPage() {
   const contactMethods = [
@@ -60,43 +61,7 @@ export default function ContactoPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GO</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">GO Admin</span>
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Características
-              </Link>
-              <Link href="/integraciones" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Integraciones
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Precios
-              </Link>
-              <Link href="/contacto" className="text-blue-600 font-medium">
-                Contacto
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-blue-600 hover:bg-blue-700">Prueba Gratis</Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navbar currentPage="/contacto" />
 
       {/* Hero */}
       <section className="py-20 px-4">

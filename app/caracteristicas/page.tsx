@@ -15,31 +15,18 @@ import {
   Cloud,
   ArrowRight,
   Check,
-  Menu,
-  X,
-  ChevronRight,
   Star,
   Layers,
   Database,
   Workflow,
 } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Navbar } from "@/components/navbar"
 
 export default function CaracteristicasPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
-
   const mainFeatures = [
     {
       icon: Globe,
@@ -223,170 +210,7 @@ export default function CaracteristicasPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">GO</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                GO Admin
-              </span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Módulos
-              </Link>
-              <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Industrias
-              </Link>
-              <Link href="/caracteristicas" className="text-blue-600 font-semibold">
-                Características
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Precios
-              </Link>
-              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Centro de Ayuda
-              </Link>
-              <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Blog
-              </Link>
-            </nav>
-
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg">
-                Prueba Gratis
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <>
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden" onClick={closeMenu} />
-            <div className="absolute top-full left-0 right-0 bg-white border-b shadow-xl z-50 lg:hidden">
-              <div className="container mx-auto px-4 py-6">
-                <nav className="space-y-4">
-                  <Link
-                    href="/modulos"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Módulos</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/industrias"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Industrias</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/caracteristicas"
-                    className="flex items-center justify-between py-3 text-blue-600 font-semibold"
-                    onClick={closeMenu}
-                  >
-                    <span>Características</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/precios"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Precios</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/centro-ayuda"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Centro de Ayuda</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Blog</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/acerca-de"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Acerca de</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/carreras"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Carreras</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/contacto"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-blue-600 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <span className="font-medium">Contacto</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                </nav>
-                <div className="mt-6 pt-6 border-t space-y-3">
-                  <Button
-                    variant="outline"
-                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                    onClick={() => {
-                      window.open("https://app.goadmin.io/auth/login", "_blank")
-                      closeMenu()
-                    }}
-                  >
-                    Iniciar Sesión
-                  </Button>
-                  <Button
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                    onClick={closeMenu}
-                  >
-                    Prueba Gratis
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-      </header>
+      <Navbar currentPage="/caracteristicas" />
 
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden">
