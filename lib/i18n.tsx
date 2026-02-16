@@ -12,7 +12,6 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-// Flat translation dictionaries
 const translations: Record<Language, Record<string, string>> = {
   es: {
     // Navbar
@@ -29,7 +28,191 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.signup": "Prueba Gratis",
     "nav.openMenu": "Abrir menú de navegación",
 
-    // Footer
+    // Hero
+    "hero.badge": "ERP Empresarial • Más de 500 empresas confían en nosotros",
+    "hero.title1": "Transforma tu negocio con ",
+    "hero.subtitle": "La plataforma ERP más completa del mercado. Gestiona ventas, inventario, finanzas, recursos humanos y más desde una sola solución empresarial.",
+    "hero.benefit1": "15 módulos integrados",
+    "hero.benefit2": "Usuarios ilimitados",
+    "hero.benefit3": "Soporte 24/7",
+    "hero.cta1": "Comenzar Prueba Gratuita",
+    "hero.cta2": "Ver Demo en Vivo",
+    "hero.trustTitle": "Empresas líderes que confían en GO Admin",
+    "hero.hotels": "Hoteles",
+    "hero.restaurants": "Restaurantes",
+    "hero.retail": "Retail",
+    "hero.gyms": "Gimnasios",
+    "hero.transport": "Transporte",
+    "hero.sales": "Ventas +127%",
+    "hero.timeSaved": "Tiempo ahorrado 40h/sem",
+
+    // Features
+    "features.badge": "Características Empresariales",
+    "features.title1": "Todo lo que necesitas para ",
+    "features.title2": "hacer crecer tu empresa",
+    "features.subtitle": "GO Admin incluye todas las herramientas empresariales que necesitas para gestionar tu negocio de manera eficiente y profesional",
+    "feat.multiTenant": "Multi-tenant",
+    "feat.multiTenantDesc": "Múltiples organizaciones y sucursales",
+    "feat.security": "Seguridad",
+    "feat.securityDesc": "Autenticación MFA y control de acceso",
+    "feat.realTime": "Tiempo Real",
+    "feat.realTimeDesc": "Datos sincronizados instantáneamente",
+    "feat.notifications": "Notificaciones",
+    "feat.notificationsDesc": "Email, WhatsApp, SMS integrados",
+    "feat.calendar": "Calendario",
+    "feat.calendarDesc": "Actividades y recordatorios centralizados",
+    "feat.audit": "Auditoría",
+    "feat.auditDesc": "Trazabilidad completa de cambios",
+
+    // Modules section
+    "modules.title": "Módulos Integrados",
+    "modules.subtitle": "Todos los módulos trabajan juntos para darte una visión completa de tu negocio",
+    "mod.commercial": "Gestión Comercial",
+    "mod.pos": "POS Punto de Venta",
+    "mod.posDesc": "Retail, F&B, Gym con caja integrada",
+    "mod.inventory": "Inventario",
+    "mod.inventoryDesc": "Control de stock en tiempo real",
+    "mod.crm": "CRM",
+    "mod.crmDesc": "Gestión de clientes 360°",
+    "mod.hospitality": "Hotelería & Servicios",
+    "mod.pms": "PMS Hotel",
+    "mod.pmsDesc": "Reservas, check-in/out, folios",
+    "mod.parking": "Parking",
+    "mod.parkingDesc": "Control de estacionamientos",
+    "mod.transport": "Transport",
+    "mod.transportDesc": "Programación de rutas y tickets",
+    "mod.hr": "Recursos Humanos",
+    "mod.hrm": "HRM",
+    "mod.hrmDesc": "Empleados, contratos, nómina",
+    "mod.attendance": "Asistencia",
+    "mod.attendanceDesc": "Control de turnos y vacaciones",
+    "mod.evaluations": "Evaluaciones",
+    "mod.evaluationsDesc": "Desempeño y capacitación",
+    "mod.finance": "Finanzas",
+    "mod.billing": "Facturación",
+    "mod.billingDesc": "Facturación electrónica DIAN",
+    "mod.accounting": "Contabilidad",
+    "mod.accountingDesc": "PUC, asientos automáticos",
+    "mod.receivables": "CxC & CxP",
+    "mod.receivablesDesc": "Cuentas por cobrar y pagar",
+    "mod.analytics": "Analítica",
+    "mod.dashboards": "Dashboards",
+    "mod.dashboardsDesc": "Reportes personalizables",
+    "mod.kpis": "KPIs",
+    "mod.kpisDesc": "Indicadores en tiempo real",
+    "mod.alerts": "Alertas",
+    "mod.alertsDesc": "Notificaciones automáticas",
+    "mod.integrations": "Integraciones",
+    "mod.apis": "APIs",
+    "mod.apisDesc": "Conectores con terceros",
+    "mod.webhooks": "Webhooks",
+    "mod.webhooksDesc": "Automatizaciones",
+    "mod.marketplace": "Marketplace",
+    "mod.marketplaceDesc": "Stripe, MercadoPago, más",
+
+    // Industries section
+    "industries.title": "Soluciones por Industria",
+    "industries.subtitle": "GO Admin se especializa en diferentes tipos de negocio con módulos y flujos optimizados",
+    "ind.restaurant": "Restaurante",
+    "ind.hotel": "Hotel",
+    "ind.store": "Tienda",
+    "ind.saas": "SaaS",
+    "ind.gym": "Gimnasio",
+    "ind.parking": "Parking",
+    "ind.transport": "Transporte",
+    "ind.viewAll": "Ver Todas las Industrias",
+
+    // Testimonials
+    "testimonials.badge": "Testimonios",
+    "testimonials.title": "Lo que dicen nuestros clientes",
+    "testimonials.subtitle": "Empresas líderes en Latinoamérica confían en GO Admin para gestionar sus operaciones diarias.",
+    "test1.role": "Directora de Operaciones",
+    "test1.quote": "GO Admin ha revolucionado la gestión de nuestros hoteles. La integración del PMS con facturación electrónica nos ahorra 20 horas semanales.",
+    "test2.role": "Gerente General",
+    "test2.quote": "Con GO Admin controlamos inventario en tiempo real de nuestras 100+ sedes. La visibilidad de datos ha mejorado nuestra toma de decisiones.",
+    "test3.role": "CFO",
+    "test3.quote": "La gestión de membresías y el control de acceso de GO Admin nos permite atender a más de 50,000 afiliados sin complicaciones.",
+
+    // Stats
+    "stats.title": "Números que demuestran nuestro ",
+    "stats.titleHighlight": "impacto",
+    "stats.subtitle": "Miles de empresas ya confían en GO Admin para impulsar su crecimiento y optimizar sus operaciones",
+    "stats.companies": "Empresas que confían en nosotros",
+    "stats.modules": "Módulos integrados",
+    "stats.uptime": "Tiempo de actividad garantizado",
+    "stats.support": "Soporte técnico disponible",
+
+    // Why choose us
+    "why.title": "¿Por qué elegir GO Admin?",
+    "why.subtitle": "Descubre los beneficios clave que hacen de GO Admin la mejor opción para tu negocio.",
+    "why.easyTitle": "Fácil de usar",
+    "why.easyDesc": "Interfaz intuitiva y amigable para que puedas empezar a gestionar tu negocio en minutos.",
+    "why.customTitle": "Personalizable",
+    "why.customDesc": "Adapta GO Admin a las necesidades específicas de tu negocio con módulos y configuraciones flexibles.",
+    "why.supportTitle": "Soporte técnico",
+    "why.supportDesc": "Nuestro equipo de expertos está siempre disponible para ayudarte con cualquier duda o problema.",
+    "why.integrationsTitle": "Integraciones",
+    "why.integrationsDesc": "Conecta GO Admin con tus herramientas favoritas para una gestión aún más eficiente.",
+
+    // Use cases
+    "useCases.badge": "Soluciones",
+    "useCases.title": "Casos de uso por industria",
+    "useCases.subtitle": "Descubre cómo GO Admin se adapta a las necesidades específicas de tu industria con soluciones probadas.",
+    "uc.usedBy": "Usado por empresas como:",
+    "uc1.title": "Restaurantes y Cadenas",
+    "uc1.desc": "Gestiona inventario, mesas, pedidos, cocina y ventas en tiempo real. Integración con apps de delivery.",
+    "uc2.title": "Hoteles y Resorts",
+    "uc2.desc": "Reservas, check-in/out, housekeeping, folios y facturación electrónica todo integrado.",
+    "uc3.title": "Retail y Tiendas",
+    "uc3.desc": "Control de inventario multi-sede, e-commerce y gestión de proveedores.",
+    "uc4.title": "Gimnasios y Fitness",
+    "uc4.desc": "Membresías, control de acceso biométrico, programación de clases y seguimiento de clientes.",
+    "uc5.title": "Transporte y Logística",
+    "uc5.desc": "Programación de rutas, venta de tickets, tracking de flotas y mantenimiento de vehículos.",
+    "uc6.title": "Parqueaderos",
+    "uc6.desc": "Control de acceso automatizado, tarifas dinámicas, reportes de ocupación y facturación.",
+
+    // Security
+    "security.title": "Seguridad y Confianza",
+    "security.subtitle": "Protegemos tus datos con los más altos estándares de seguridad.",
+    "sec.encryption": "Encriptación de datos",
+    "sec.encryptionDesc": "Tus datos están protegidos con encriptación de última generación.",
+    "sec.twoFactor": "Autenticación de dos factores",
+    "sec.twoFactorDesc": "Protege tu cuenta con autenticación de dos factores.",
+    "sec.compliance": "Cumplimiento normativo",
+    "sec.complianceDesc": "Cumplimos con las normativas de seguridad más exigentes.",
+
+    // Companies
+    "companies.badge": "Confianza",
+    "companies.title": "Empresas que confían en nosotros",
+    "companies.subtitle": "Más de 500 empresas líderes en Latinoamérica utilizan GO Admin para gestionar sus operaciones.",
+    "companies.active": "Empresas activas",
+    "companies.countries": "Países",
+    "companies.dailyUsers": "Usuarios diarios",
+    "companies.uptimeGuaranteed": "Uptime garantizado",
+
+    // Resources
+    "resources.title": "Recursos y Contenido",
+    "resources.subtitle": "Aprende a sacar el máximo provecho de GO Admin con nuestros recursos y contenido.",
+    "res.quickStart": "Guía de inicio rápido",
+    "res.faq": "Preguntas frecuentes",
+    "res.blog": "Blog",
+    "res.readMore": "Leer más...",
+
+    // Page CTA (bottom of homepage)
+    "pageCta.title": "¿Listo para transformar tu negocio?",
+    "pageCta.subtitle": "Únete a cientos de empresas que ya confían en GO Admin para gestionar sus operaciones diarias de manera eficiente.",
+    "pageCta.primary": "Prueba Gratuita 14 Días",
+    "pageCta.secondary": "Solicitar Demo",
+
+    // Page footer (inline on homepage)
+    "pageFooter.desc": "El ERP completo para gestionar tu negocio de manera eficiente.",
+    "pageFooter.product": "Producto",
+    "pageFooter.support": "Soporte",
+    "pageFooter.company": "Empresa",
+    "pageFooter.rights": "Todos los derechos reservados.",
+
+    // Footer component
     "footer.description": "La plataforma ERP más completa del mercado. Gestiona tu negocio de manera eficiente con todos los módulos integrados que necesitas.",
     "footer.newsletter": "Suscríbete a nuestro newsletter",
     "footer.subscribe": "Suscribir",
@@ -50,7 +233,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.ssl": "SSL Seguro",
     "footer.gdpr": "GDPR Compliant",
 
-    // CTA
+    // CTA component
     "cta.title": "¿Listo para transformar tu negocio?",
     "cta.description": "Únete a cientos de empresas que ya confían en GO Admin para gestionar sus operaciones diarias de manera eficiente.",
     "cta.primary": "Prueba Gratuita 14 Días",
@@ -109,8 +292,6 @@ const translations: Record<Language, Record<string, string>> = {
     "pricing.faq3a": "Chat en vivo, soporte por email, base de conocimientos completa y onboarding personalizado.",
     "pricing.faq4q": "¿Hay límite de transacciones o almacenamiento?",
     "pricing.faq4a": "No hay límites en transacciones, productos, clientes o almacenamiento. Úsalo sin restricciones.",
-
-    // All included features
     "pricing.feat1": "Todos los 15 Módulos",
     "pricing.feat1d": "POS, Inventario, PMS, CRM, HRM, Finanzas y más",
     "pricing.feat2": "Sucursales Ilimitadas",
@@ -164,7 +345,191 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.signup": "Free Trial",
     "nav.openMenu": "Open navigation menu",
 
-    // Footer
+    // Hero
+    "hero.badge": "Enterprise ERP - Over 500 companies trust us",
+    "hero.title1": "Transform your business with ",
+    "hero.subtitle": "The most complete ERP platform on the market. Manage sales, inventory, finance, human resources and more from a single enterprise solution.",
+    "hero.benefit1": "15 integrated modules",
+    "hero.benefit2": "Unlimited users",
+    "hero.benefit3": "24/7 Support",
+    "hero.cta1": "Start Free Trial",
+    "hero.cta2": "Watch Live Demo",
+    "hero.trustTitle": "Leading companies that trust GO Admin",
+    "hero.hotels": "Hotels",
+    "hero.restaurants": "Restaurants",
+    "hero.retail": "Retail",
+    "hero.gyms": "Gyms",
+    "hero.transport": "Transport",
+    "hero.sales": "Sales +127%",
+    "hero.timeSaved": "Time saved 40h/week",
+
+    // Features
+    "features.badge": "Enterprise Features",
+    "features.title1": "Everything you need to ",
+    "features.title2": "grow your business",
+    "features.subtitle": "GO Admin includes all the enterprise tools you need to manage your business efficiently and professionally",
+    "feat.multiTenant": "Multi-tenant",
+    "feat.multiTenantDesc": "Multiple organizations and branches",
+    "feat.security": "Security",
+    "feat.securityDesc": "MFA authentication and access control",
+    "feat.realTime": "Real Time",
+    "feat.realTimeDesc": "Instantly synchronized data",
+    "feat.notifications": "Notifications",
+    "feat.notificationsDesc": "Email, WhatsApp, SMS integrated",
+    "feat.calendar": "Calendar",
+    "feat.calendarDesc": "Centralized activities and reminders",
+    "feat.audit": "Audit",
+    "feat.auditDesc": "Complete change traceability",
+
+    // Modules section
+    "modules.title": "Integrated Modules",
+    "modules.subtitle": "All modules work together to give you a complete view of your business",
+    "mod.commercial": "Commercial Management",
+    "mod.pos": "POS Point of Sale",
+    "mod.posDesc": "Retail, F&B, Gym with integrated cash register",
+    "mod.inventory": "Inventory",
+    "mod.inventoryDesc": "Real-time stock control",
+    "mod.crm": "CRM",
+    "mod.crmDesc": "360° customer management",
+    "mod.hospitality": "Hospitality & Services",
+    "mod.pms": "Hotel PMS",
+    "mod.pmsDesc": "Reservations, check-in/out, folios",
+    "mod.parking": "Parking",
+    "mod.parkingDesc": "Parking lot management",
+    "mod.transport": "Transport",
+    "mod.transportDesc": "Route scheduling and tickets",
+    "mod.hr": "Human Resources",
+    "mod.hrm": "HRM",
+    "mod.hrmDesc": "Employees, contracts, payroll",
+    "mod.attendance": "Attendance",
+    "mod.attendanceDesc": "Shift and vacation control",
+    "mod.evaluations": "Evaluations",
+    "mod.evaluationsDesc": "Performance and training",
+    "mod.finance": "Finance",
+    "mod.billing": "Billing",
+    "mod.billingDesc": "Electronic invoicing",
+    "mod.accounting": "Accounting",
+    "mod.accountingDesc": "Chart of accounts, automatic entries",
+    "mod.receivables": "AR & AP",
+    "mod.receivablesDesc": "Accounts receivable and payable",
+    "mod.analytics": "Analytics",
+    "mod.dashboards": "Dashboards",
+    "mod.dashboardsDesc": "Customizable reports",
+    "mod.kpis": "KPIs",
+    "mod.kpisDesc": "Real-time indicators",
+    "mod.alerts": "Alerts",
+    "mod.alertsDesc": "Automatic notifications",
+    "mod.integrations": "Integrations",
+    "mod.apis": "APIs",
+    "mod.apisDesc": "Third-party connectors",
+    "mod.webhooks": "Webhooks",
+    "mod.webhooksDesc": "Automations",
+    "mod.marketplace": "Marketplace",
+    "mod.marketplaceDesc": "Stripe, MercadoPago, more",
+
+    // Industries section
+    "industries.title": "Solutions by Industry",
+    "industries.subtitle": "GO Admin specializes in different types of business with optimized modules and workflows",
+    "ind.restaurant": "Restaurant",
+    "ind.hotel": "Hotel",
+    "ind.store": "Store",
+    "ind.saas": "SaaS",
+    "ind.gym": "Gym",
+    "ind.parking": "Parking",
+    "ind.transport": "Transport",
+    "ind.viewAll": "View All Industries",
+
+    // Testimonials
+    "testimonials.badge": "Testimonials",
+    "testimonials.title": "What our clients say",
+    "testimonials.subtitle": "Leading companies in Latin America trust GO Admin to manage their daily operations.",
+    "test1.role": "Operations Director",
+    "test1.quote": "GO Admin has revolutionized the management of our hotels. The PMS integration with electronic invoicing saves us 20 hours per week.",
+    "test2.role": "General Manager",
+    "test2.quote": "With GO Admin we control real-time inventory across our 100+ locations. Data visibility has improved our decision-making.",
+    "test3.role": "CFO",
+    "test3.quote": "GO Admin's membership management and access control allows us to serve over 50,000 members without complications.",
+
+    // Stats
+    "stats.title": "Numbers that prove our ",
+    "stats.titleHighlight": "impact",
+    "stats.subtitle": "Thousands of companies already trust GO Admin to drive their growth and optimize their operations",
+    "stats.companies": "Companies that trust us",
+    "stats.modules": "Integrated modules",
+    "stats.uptime": "Guaranteed uptime",
+    "stats.support": "Technical support available",
+
+    // Why choose us
+    "why.title": "Why choose GO Admin?",
+    "why.subtitle": "Discover the key benefits that make GO Admin the best choice for your business.",
+    "why.easyTitle": "Easy to use",
+    "why.easyDesc": "Intuitive and friendly interface so you can start managing your business in minutes.",
+    "why.customTitle": "Customizable",
+    "why.customDesc": "Adapt GO Admin to your specific business needs with flexible modules and configurations.",
+    "why.supportTitle": "Technical support",
+    "why.supportDesc": "Our expert team is always available to help you with any questions or issues.",
+    "why.integrationsTitle": "Integrations",
+    "why.integrationsDesc": "Connect GO Admin with your favorite tools for even more efficient management.",
+
+    // Use cases
+    "useCases.badge": "Solutions",
+    "useCases.title": "Use cases by industry",
+    "useCases.subtitle": "Discover how GO Admin adapts to the specific needs of your industry with proven solutions.",
+    "uc.usedBy": "Used by companies like:",
+    "uc1.title": "Restaurants & Chains",
+    "uc1.desc": "Manage inventory, tables, orders, kitchen and sales in real time. Integration with delivery apps.",
+    "uc2.title": "Hotels & Resorts",
+    "uc2.desc": "Reservations, check-in/out, housekeeping, folios and electronic invoicing all integrated.",
+    "uc3.title": "Retail & Stores",
+    "uc3.desc": "Multi-location inventory control, e-commerce and supplier management.",
+    "uc4.title": "Gyms & Fitness",
+    "uc4.desc": "Memberships, biometric access control, class scheduling and client tracking.",
+    "uc5.title": "Transport & Logistics",
+    "uc5.desc": "Route scheduling, ticket sales, fleet tracking and vehicle maintenance.",
+    "uc6.title": "Parking Lots",
+    "uc6.desc": "Automated access control, dynamic pricing, occupancy reports and billing.",
+
+    // Security
+    "security.title": "Security & Trust",
+    "security.subtitle": "We protect your data with the highest security standards.",
+    "sec.encryption": "Data encryption",
+    "sec.encryptionDesc": "Your data is protected with state-of-the-art encryption.",
+    "sec.twoFactor": "Two-factor authentication",
+    "sec.twoFactorDesc": "Protect your account with two-factor authentication.",
+    "sec.compliance": "Regulatory compliance",
+    "sec.complianceDesc": "We comply with the most demanding security regulations.",
+
+    // Companies
+    "companies.badge": "Trust",
+    "companies.title": "Companies that trust us",
+    "companies.subtitle": "Over 500 leading companies in Latin America use GO Admin to manage their operations.",
+    "companies.active": "Active companies",
+    "companies.countries": "Countries",
+    "companies.dailyUsers": "Daily users",
+    "companies.uptimeGuaranteed": "Guaranteed uptime",
+
+    // Resources
+    "resources.title": "Resources & Content",
+    "resources.subtitle": "Learn how to get the most out of GO Admin with our resources and content.",
+    "res.quickStart": "Quick start guide",
+    "res.faq": "Frequently asked questions",
+    "res.blog": "Blog",
+    "res.readMore": "Read more...",
+
+    // Page CTA
+    "pageCta.title": "Ready to transform your business?",
+    "pageCta.subtitle": "Join hundreds of companies that already trust GO Admin to manage their daily operations efficiently.",
+    "pageCta.primary": "Free 14-Day Trial",
+    "pageCta.secondary": "Request Demo",
+
+    // Page footer
+    "pageFooter.desc": "The complete ERP to manage your business efficiently.",
+    "pageFooter.product": "Product",
+    "pageFooter.support": "Support",
+    "pageFooter.company": "Company",
+    "pageFooter.rights": "All rights reserved.",
+
+    // Footer component
     "footer.description": "The most complete ERP platform on the market. Manage your business efficiently with all the integrated modules you need.",
     "footer.newsletter": "Subscribe to our newsletter",
     "footer.subscribe": "Subscribe",
@@ -185,7 +550,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.ssl": "SSL Secure",
     "footer.gdpr": "GDPR Compliant",
 
-    // CTA
+    // CTA component
     "cta.title": "Ready to transform your business?",
     "cta.description": "Join hundreds of companies that already trust GO Admin to manage their daily operations efficiently.",
     "cta.primary": "Free 14-Day Trial",
@@ -244,8 +609,6 @@ const translations: Record<Language, Record<string, string>> = {
     "pricing.faq3a": "Live chat, email support, complete knowledge base, and personalized onboarding.",
     "pricing.faq4q": "Is there a transaction or storage limit?",
     "pricing.faq4a": "There are no limits on transactions, products, customers, or storage. Use it without restrictions.",
-
-    // All included features
     "pricing.feat1": "All 15 Modules",
     "pricing.feat1d": "POS, Inventory, PMS, CRM, HRM, Finance and more",
     "pricing.feat2": "Unlimited Branches",
@@ -320,4 +683,14 @@ export function useLanguage() {
     throw new Error("useLanguage must be used within a LanguageProvider")
   }
   return context
+}
+
+/**
+ * Hook for page-level bilingual content.
+ * Define ES/EN content inline in each page component.
+ * Returns the content object for the current language.
+ */
+export function useContent<T>(content: Record<Language, T>): T {
+  const { lang } = useLanguage()
+  return content[lang]
 }

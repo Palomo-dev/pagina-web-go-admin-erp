@@ -6,8 +6,55 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navbar } from "@/components/navbar"
+import { useContent } from "@/lib/i18n"
 
 export default function IndustriasPage() {
+  const c = useContent({
+    es: {
+      badge: "Soluciones Especializadas por Industria",
+      heroTitle1: "ERP Especializado", heroTitle2: "para tu Industria",
+      heroSubtitle1: "GO Admin se adapta perfectamente a tu tipo de negocio con", heroSubtitleBold: "módulos especializados", heroSubtitle2: ", flujos optimizados y características únicas para cada industria.",
+      exploreIndustries: "Explorar Industrias", requestDemo: "Solicitar Demo",
+      activeCompanies: "Empresas Activas", specializedIndustries: "Industrias Especializadas", uptimeGuaranteed: "Uptime Garantizado", specializedSupport: "Soporte Especializado",
+      solutionsByIndustry: "Soluciones por Industria", solutionsDesc: "Cada industria tiene necesidades únicas. Nuestros módulos especializados están diseñados específicamente para optimizar las operaciones de tu sector.",
+      activeClients: "Clientes activos:", annualGrowth: "Crecimiento anual:", featured: "Destacado:", exploreSolution: "Explorar solución",
+      whyChoose: "¿Por qué elegir GO Admin?", whyTitle: "Especialización que marca la diferencia", whyDesc: "No somos un ERP genérico. Cada módulo está diseñado específicamente para las necesidades únicas de tu industria, con flujos optimizados y características especializadas.",
+      expressImpl: "Implementación Express", expressDesc: "Tu ERP especializado listo en tiempo récord",
+      step1: "Análisis de Necesidades", step1d: "Evaluamos tu industria y procesos específicos",
+      step2: "Configuración Especializada", step2d: "Adaptamos los módulos a tu operación",
+      step3: "Go Live en 48h", step3d: "Tu equipo operando con el nuevo sistema",
+      testimonialsTitle: "Lo que dicen nuestros clientes", testimonialsSubtitle: "Empresas de diferentes industrias confían en GO Admin",
+      ctaTitle: "¿Listo para revolucionar tu industria?", ctaDesc: "Únete a miles de empresas que ya optimizaron sus operaciones con GO Admin. Solicita una demo personalizada para tu industria y descubre el potencial de tu negocio.",
+      requestPersonalDemo: "Solicitar Demo Personalizada", talkExpert: "Hablar con un Experto",
+      ctaNote: "Demo gratuita de 30 minutos - Sin compromiso - Asesoría especializada",
+      benefits: [
+        "Módulos especializados por industria", "Implementación rápida en 48 horas", "Soporte técnico especializado 24/7",
+        "Actualizaciones automáticas incluidas", "Integración con sistemas existentes", "Capacitación completa del equipo",
+      ],
+    },
+    en: {
+      badge: "Specialized Solutions by Industry",
+      heroTitle1: "Specialized ERP", heroTitle2: "for your Industry",
+      heroSubtitle1: "GO Admin adapts perfectly to your business type with", heroSubtitleBold: "specialized modules", heroSubtitle2: ", optimized workflows and unique features for each industry.",
+      exploreIndustries: "Explore Industries", requestDemo: "Request Demo",
+      activeCompanies: "Active Companies", specializedIndustries: "Specialized Industries", uptimeGuaranteed: "Guaranteed Uptime", specializedSupport: "Specialized Support",
+      solutionsByIndustry: "Solutions by Industry", solutionsDesc: "Each industry has unique needs. Our specialized modules are specifically designed to optimize operations in your sector.",
+      activeClients: "Active clients:", annualGrowth: "Annual growth:", featured: "Featured:", exploreSolution: "Explore solution",
+      whyChoose: "Why choose GO Admin?", whyTitle: "Specialization that makes the difference", whyDesc: "We are not a generic ERP. Each module is specifically designed for the unique needs of your industry, with optimized workflows and specialized features.",
+      expressImpl: "Express Implementation", expressDesc: "Your specialized ERP ready in record time",
+      step1: "Needs Analysis", step1d: "We evaluate your industry and specific processes",
+      step2: "Specialized Configuration", step2d: "We adapt the modules to your operation",
+      step3: "Go Live in 48h", step3d: "Your team operating with the new system",
+      testimonialsTitle: "What our clients say", testimonialsSubtitle: "Companies from different industries trust GO Admin",
+      ctaTitle: "Ready to revolutionize your industry?", ctaDesc: "Join thousands of companies that have already optimized their operations with GO Admin. Request a personalized demo for your industry and discover your business potential.",
+      requestPersonalDemo: "Request Personalized Demo", talkExpert: "Talk to an Expert",
+      ctaNote: "Free 30-minute demo - No commitment - Specialized advice",
+      benefits: [
+        "Specialized modules per industry", "Quick implementation in 48 hours", "Specialized 24/7 technical support",
+        "Automatic updates included", "Integration with existing systems", "Full team training",
+      ],
+    },
+  })
   const handleSignupClick = () => {
     window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
@@ -106,10 +153,10 @@ export default function IndustriasPage() {
   ]
 
   const stats = [
-    { number: "2,000+", label: "Empresas Activas", icon: Building2 },
-    { number: "15+", label: "Industrias Especializadas", icon: TrendingUp },
-    { number: "99.9%", label: "Uptime Garantizado", icon: CheckCircle },
-    { number: "24/7", label: "Soporte Especializado", icon: Users },
+    { number: "2,000+", label: c.activeCompanies, icon: Building2 },
+    { number: "15+", label: c.specializedIndustries, icon: TrendingUp },
+    { number: "99.9%", label: c.uptimeGuaranteed, icon: CheckCircle },
+    { number: "24/7", label: c.specializedSupport, icon: Users },
   ]
 
   const testimonials = [
@@ -141,14 +188,7 @@ export default function IndustriasPage() {
     },
   ]
 
-  const benefits = [
-    "Módulos especializados por industria",
-    "Implementación rápida en 48 horas",
-    "Soporte técnico especializado 24/7",
-    "Actualizaciones automáticas incluidas",
-    "Integración con sistemas existentes",
-    "Capacitación completa del equipo",
-  ]
+  const benefits = c.benefits
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
@@ -159,25 +199,24 @@ export default function IndustriasPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
         <div className="container mx-auto text-center relative">
           <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 hover:from-blue-200 hover:to-purple-200 px-4 py-2 text-sm font-semibold">
-            ✨ Soluciones Especializadas por Industria
+            {c.badge}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">
             <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
-              ERP Especializado
+              {c.heroTitle1}
             </span>
             <br />
-            <span className="text-blue-600">para tu Industria</span>
+            <span className="text-blue-600">{c.heroTitle2}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-            GO Admin se adapta perfectamente a tu tipo de negocio con <strong>módulos especializados</strong>, flujos
-            optimizados y características únicas para cada industria.
+            {c.heroSubtitle1} <strong>{c.heroSubtitleBold}</strong>{c.heroSubtitle2}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-xl text-lg px-8 py-4"
             >
-              Explorar Industrias
+              {c.exploreIndustries}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -185,7 +224,7 @@ export default function IndustriasPage() {
               variant="outline"
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 bg-transparent"
             >
-              Solicitar Demo
+              {c.requestDemo}
             </Button>
           </div>
 
@@ -208,10 +247,9 @@ export default function IndustriasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Soluciones por Industria</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.solutionsByIndustry}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cada industria tiene necesidades únicas. Nuestros módulos especializados están diseñados específicamente
-              para optimizar las operaciones de tu sector.
+              {c.solutionsDesc}
             </p>
           </div>
 
@@ -234,7 +272,7 @@ export default function IndustriasPage() {
                   <CardContent className="relative z-10">
                     <div className="space-y-4">
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Clientes activos:</span>
+                        <span className="text-gray-600">{c.activeClients}</span>
                         <span className="font-bold text-gray-900">{industry.clients}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
