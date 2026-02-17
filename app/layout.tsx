@@ -2,24 +2,29 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/lib/i18n'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'GO Admin ERP',
-  description: 'Sistema de administración ERP',
+  title: 'v0 App',
+  description: 'Created with v0',
+  generator: 'v0.app',
   icons: {
-    icon: '/favicon.ico',
-  },
-  openGraph: {
-    title: 'GO Admin ERP',
-    description: 'Sistema de administración ERP',
-    type: 'website',
-    locale: 'es_ES',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'GO Admin ERP',
-    description: 'Sistema de administración ERP',
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
@@ -29,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <head>
         <style>{`
 html {
@@ -40,7 +45,9 @@ html {
         `}</style>
       </head>
       <body>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/lib/i18n"
 
 interface CTASectionProps {
   title?: string
@@ -16,20 +17,28 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  title = "¿Listo para transformar tu negocio?",
-  description = "Únete a cientos de empresas que ya confían en GO Admin para gestionar sus operaciones diarias de manera eficiente.",
-  primaryButtonText = "Prueba Gratuita 14 Días",
+  title,
+  description,
+  primaryButtonText,
   primaryButtonAction,
-  secondaryButtonText = "Solicitar Demo",
+  secondaryButtonText,
   secondaryButtonAction,
   variant = "blue",
   showStats = false,
-  stats = [
-    { label: "Empresas activas", value: "500+" },
-    { label: "Países", value: "15+" },
-    { label: "Satisfacción", value: "98%" },
-  ],
+  stats,
 }: CTASectionProps) {
+  const { t } = useLanguage()
+
+  const resolvedTitle = title || t("cta.title")
+  const resolvedDescription = description || t("cta.description")
+  const resolvedPrimary = primaryButtonText || t("cta.primary")
+  const resolvedSecondary = secondaryButtonText || t("cta.secondary")
+  const resolvedStats = stats || [
+    { label: t("cta.activeCompanies"), value: "500+" },
+    { label: t("cta.countries"), value: "15+" },
+    { label: t("cta.satisfaction"), value: "98%" },
+  ]
+
   const handlePrimaryClick = () => {
     if (primaryButtonAction) {
       primaryButtonAction()
@@ -86,9 +95,9 @@ export function CTASection({
       {variant === "gradient" && <div className="absolute inset-0 bg-black/20"></div>}
 
       <div className="container mx-auto text-center relative z-10">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${textColorClasses[variant]}`}>{title}</h2>
+        <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${textColorClasses[variant]}`}>{resolvedTitle}</h2>
         <p className={`text-lg md:text-xl mb-10 max-w-3xl mx-auto ${descriptionColorClasses[variant]}`}>
-          {description}
+          {resolvedDescription}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -97,24 +106,24 @@ export function CTASection({
             className={`${primaryButtonClasses[variant]} shadow-lg text-lg px-8 py-6`}
             onClick={handlePrimaryClick}
           >
-            {primaryButtonText}
+            {resolvedPrimary}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          {secondaryButtonText && (
+          {resolvedSecondary && (
             <Button
               size="lg"
               variant="outline"
               className={`${secondaryButtonClasses[variant]} bg-transparent text-lg px-8 py-6`}
               onClick={handleSecondaryClick}
             >
-              {secondaryButtonText}
+              {resolvedSecondary}
             </Button>
           )}
         </div>
 
         {showStats && (
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            {stats.map((stat, index) => (
+            {resolvedStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className={`text-3xl md:text-4xl font-bold mb-2 ${textColorClasses[variant]}`}>{stat.value}</div>
                 <div className={`text-sm ${descriptionColorClasses[variant]}`}>{stat.label}</div>

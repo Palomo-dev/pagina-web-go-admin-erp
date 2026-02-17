@@ -1,21 +1,62 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, CheckCircle, TrendingUp, Users, Building2, Star, Quote, Menu, X } from "lucide-react"
+import { ArrowRight, CheckCircle, TrendingUp, Users, Building2, Star, Quote } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Navbar } from "@/components/navbar"
+import { useContent } from "@/lib/i18n"
 
 export default function IndustriasPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+  const c = useContent({
+    es: {
+      badge: "Soluciones Especializadas por Industria",
+      heroTitle1: "ERP Especializado", heroTitle2: "para tu Industria",
+      heroSubtitle1: "GO Admin se adapta perfectamente a tu tipo de negocio con", heroSubtitleBold: "módulos especializados", heroSubtitle2: ", flujos optimizados y características únicas para cada industria.",
+      exploreIndustries: "Explorar Industrias", requestDemo: "Solicitar Demo",
+      activeCompanies: "Empresas Activas", specializedIndustries: "Industrias Especializadas", uptimeGuaranteed: "Uptime Garantizado", specializedSupport: "Soporte Especializado",
+      solutionsByIndustry: "Soluciones por Industria", solutionsDesc: "Cada industria tiene necesidades únicas. Nuestros módulos especializados están diseñados específicamente para optimizar las operaciones de tu sector.",
+      activeClients: "Clientes activos:", annualGrowth: "Crecimiento anual:", featured: "Destacado:", exploreSolution: "Explorar solución",
+      whyChoose: "¿Por qué elegir GO Admin?", whyTitle: "Especialización que marca la diferencia", whyDesc: "No somos un ERP genérico. Cada módulo está diseñado específicamente para las necesidades únicas de tu industria, con flujos optimizados y características especializadas.",
+      expressImpl: "Implementación Express", expressDesc: "Tu ERP especializado listo en tiempo récord",
+      step1: "Análisis de Necesidades", step1d: "Evaluamos tu industria y procesos específicos",
+      step2: "Configuración Especializada", step2d: "Adaptamos los módulos a tu operación",
+      step3: "Go Live en 48h", step3d: "Tu equipo operando con el nuevo sistema",
+      testimonialsTitle: "Lo que dicen nuestros clientes", testimonialsSubtitle: "Empresas de diferentes industrias confían en GO Admin",
+      ctaTitle: "¿Listo para revolucionar tu industria?", ctaDesc: "Únete a miles de empresas que ya optimizaron sus operaciones con GO Admin. Solicita una demo personalizada para tu industria y descubre el potencial de tu negocio.",
+      requestPersonalDemo: "Solicitar Demo Personalizada", talkExpert: "Hablar con un Experto",
+      ctaNote: "Demo gratuita de 30 minutos - Sin compromiso - Asesoría especializada",
+      benefits: [
+        "Módulos especializados por industria", "Implementación rápida en 48 horas", "Soporte técnico especializado 24/7",
+        "Actualizaciones automáticas incluidas", "Integración con sistemas existentes", "Capacitación completa del equipo",
+      ],
+    },
+    en: {
+      badge: "Specialized Solutions by Industry",
+      heroTitle1: "Specialized ERP", heroTitle2: "for your Industry",
+      heroSubtitle1: "GO Admin adapts perfectly to your business type with", heroSubtitleBold: "specialized modules", heroSubtitle2: ", optimized workflows and unique features for each industry.",
+      exploreIndustries: "Explore Industries", requestDemo: "Request Demo",
+      activeCompanies: "Active Companies", specializedIndustries: "Specialized Industries", uptimeGuaranteed: "Guaranteed Uptime", specializedSupport: "Specialized Support",
+      solutionsByIndustry: "Solutions by Industry", solutionsDesc: "Each industry has unique needs. Our specialized modules are specifically designed to optimize operations in your sector.",
+      activeClients: "Active clients:", annualGrowth: "Annual growth:", featured: "Featured:", exploreSolution: "Explore solution",
+      whyChoose: "Why choose GO Admin?", whyTitle: "Specialization that makes the difference", whyDesc: "We are not a generic ERP. Each module is specifically designed for the unique needs of your industry, with optimized workflows and specialized features.",
+      expressImpl: "Express Implementation", expressDesc: "Your specialized ERP ready in record time",
+      step1: "Needs Analysis", step1d: "We evaluate your industry and specific processes",
+      step2: "Specialized Configuration", step2d: "We adapt the modules to your operation",
+      step3: "Go Live in 48h", step3d: "Your team operating with the new system",
+      testimonialsTitle: "What our clients say", testimonialsSubtitle: "Companies from different industries trust GO Admin",
+      ctaTitle: "Ready to revolutionize your industry?", ctaDesc: "Join thousands of companies that have already optimized their operations with GO Admin. Request a personalized demo for your industry and discover your business potential.",
+      requestPersonalDemo: "Request Personalized Demo", talkExpert: "Talk to an Expert",
+      ctaNote: "Free 30-minute demo - No commitment - Specialized advice",
+      benefits: [
+        "Specialized modules per industry", "Quick implementation in 48 hours", "Specialized 24/7 technical support",
+        "Automatic updates included", "Integration with existing systems", "Full team training",
+      ],
+    },
+  })
+  const handleSignupClick = () => {
+    window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
 
   const industries = [
@@ -112,10 +153,10 @@ export default function IndustriasPage() {
   ]
 
   const stats = [
-    { number: "2,000+", label: "Empresas Activas", icon: Building2 },
-    { number: "15+", label: "Industrias Especializadas", icon: TrendingUp },
-    { number: "99.9%", label: "Uptime Garantizado", icon: CheckCircle },
-    { number: "24/7", label: "Soporte Especializado", icon: Users },
+    { number: "2,000+", label: c.activeCompanies, icon: Building2 },
+    { number: "15+", label: c.specializedIndustries, icon: TrendingUp },
+    { number: "99.9%", label: c.uptimeGuaranteed, icon: CheckCircle },
+    { number: "24/7", label: c.specializedSupport, icon: Users },
   ]
 
   const testimonials = [
@@ -147,191 +188,35 @@ export default function IndustriasPage() {
     },
   ]
 
-  const benefits = [
-    "Módulos especializados por industria",
-    "Implementación rápida en 48 horas",
-    "Soporte técnico especializado 24/7",
-    "Actualizaciones automáticas incluidas",
-    "Integración con sistemas existentes",
-    "Capacitación completa del equipo",
-  ]
+  const benefits = c.benefits
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">GO</span>
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                GO Admin
-              </span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/modulos" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Módulos
-              </Link>
-              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Características
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Precios
-              </Link>
-              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Ayuda
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Contacto
-              </Link>
-            </nav>
-
-            {/* Desktop CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 font-medium bg-transparent"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg font-medium">
-                Prueba Gratis
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
-              aria-label="Abrir menú de navegación"
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <>
-              {/* Overlay */}
-              <div
-                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
-                onClick={closeMobileMenu}
-                aria-hidden="true"
-              />
-
-              {/* Mobile Menu Panel */}
-              <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 md:hidden">
-                <nav className="px-4 py-6 space-y-4">
-                  <Link
-                    href="/modulos"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Módulos
-                  </Link>
-                  <Link
-                    href="/caracteristicas"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Características
-                  </Link>
-                  <Link
-                    href="/precios"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Precios
-                  </Link>
-                  <Link
-                    href="/centro-ayuda"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Centro de Ayuda
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    href="/acerca-de"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Acerca de
-                  </Link>
-                  <Link
-                    href="/carreras"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Carreras
-                  </Link>
-                  <Link
-                    href="/contacto"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Contacto
-                  </Link>
-
-                  {/* Mobile CTA Buttons */}
-                  <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <Button
-                      variant="outline"
-                      className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                      onClick={() => {
-                        window.open("https://app.goadmin.io/auth/login", "_blank")
-                        closeMobileMenu()
-                      }}
-                    >
-                      Iniciar Sesión
-                    </Button>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={closeMobileMenu}>
-                      Prueba Gratis
-                    </Button>
-                  </div>
-                </nav>
-              </div>
-            </>
-          )}
-        </div>
-      </header>
+      <Navbar currentPage="/industrias" />
 
       {/* Hero Section */}
       <section className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
         <div className="container mx-auto text-center relative">
           <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 hover:from-blue-200 hover:to-purple-200 px-4 py-2 text-sm font-semibold">
-            ✨ Soluciones Especializadas por Industria
+            {c.badge}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">
             <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
-              ERP Especializado
+              {c.heroTitle1}
             </span>
             <br />
-            <span className="text-blue-600">para tu Industria</span>
+            <span className="text-blue-600">{c.heroTitle2}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-            GO Admin se adapta perfectamente a tu tipo de negocio con <strong>módulos especializados</strong>, flujos
-            optimizados y características únicas para cada industria.
+            {c.heroSubtitle1} <strong>{c.heroSubtitleBold}</strong>{c.heroSubtitle2}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-xl text-lg px-8 py-4"
             >
-              Explorar Industrias
+              {c.exploreIndustries}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -339,7 +224,7 @@ export default function IndustriasPage() {
               variant="outline"
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 bg-transparent"
             >
-              Solicitar Demo
+              {c.requestDemo}
             </Button>
           </div>
 
@@ -362,10 +247,9 @@ export default function IndustriasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Soluciones por Industria</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.solutionsByIndustry}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cada industria tiene necesidades únicas. Nuestros módulos especializados están diseñados específicamente
-              para optimizar las operaciones de tu sector.
+              {c.solutionsDesc}
             </p>
           </div>
 
@@ -388,15 +272,15 @@ export default function IndustriasPage() {
                   <CardContent className="relative z-10">
                     <div className="space-y-4">
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Clientes activos:</span>
+                        <span className="text-gray-600">{c.activeClients}</span>
                         <span className="font-bold text-gray-900">{industry.clients}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Crecimiento anual:</span>
+                        <span className="text-gray-600">{c.annualGrowth}</span>
                         <span className="font-bold text-green-600">{industry.growth}</span>
                       </div>
                       <div className="bg-white/80 p-3 rounded-lg">
-                        <div className="text-xs text-gray-600 mb-1">Destacado:</div>
+                        <div className="text-xs text-gray-600 mb-1">{c.featured}</div>
                         <div className="text-sm font-semibold text-gray-900">{industry.highlight}</div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
@@ -410,7 +294,7 @@ export default function IndustriasPage() {
                         ))}
                       </div>
                       <div className="flex items-center justify-center mt-6 text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
-                        <span className="mr-2">Explorar solución</span>
+                        <span className="mr-2">{c.exploreSolution}</span>
                         <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
@@ -427,11 +311,10 @@ export default function IndustriasPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-blue-100 text-blue-800">¿Por qué elegir GO Admin?</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Especialización que marca la diferencia</h2>
+              <Badge className="mb-4 bg-blue-100 text-blue-800">{c.whyChoose}</Badge>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">{c.whyTitle}</h2>
               <p className="text-xl text-gray-600 mb-8">
-                No somos un ERP genérico. Cada módulo está diseñado específicamente para las necesidades únicas de tu
-                industria, con flujos optimizados y características especializadas.
+                {c.whyDesc}
               </p>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -444,8 +327,8 @@ export default function IndustriasPage() {
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Implementación Express</h3>
-                <p className="text-gray-600">Tu ERP especializado listo en tiempo récord</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{c.expressImpl}</h3>
+                <p className="text-gray-600">{c.expressDesc}</p>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -453,8 +336,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">1</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Análisis de Necesidades</h4>
-                    <p className="text-sm text-gray-600">Evaluamos tu industria y procesos específicos</p>
+                    <h4 className="font-semibold text-gray-900">{c.step1}</h4>
+                    <p className="text-sm text-gray-600">{c.step1d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -462,8 +345,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">2</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Configuración Especializada</h4>
-                    <p className="text-sm text-gray-600">Adaptamos los módulos a tu operación</p>
+                    <h4 className="font-semibold text-gray-900">{c.step2}</h4>
+                    <p className="text-sm text-gray-600">{c.step2d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -471,8 +354,8 @@ export default function IndustriasPage() {
                     <span className="text-blue-600 font-bold">3</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Go Live en 48h</h4>
-                    <p className="text-sm text-gray-600">Tu equipo operando con el nuevo sistema</p>
+                    <h4 className="font-semibold text-gray-900">{c.step3}</h4>
+                    <p className="text-sm text-gray-600">{c.step3d}</p>
                   </div>
                 </div>
               </div>
@@ -485,8 +368,8 @@ export default function IndustriasPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
-            <p className="text-xl text-gray-600">Empresas de diferentes industrias confían en GO Admin</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.testimonialsTitle}</h2>
+            <p className="text-xl text-gray-600">{c.testimonialsSubtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -516,29 +399,29 @@ export default function IndustriasPage() {
       <section className="py-24 px-4 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para revolucionar tu industria?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{c.ctaTitle}</h2>
           <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            Únete a miles de empresas que ya optimizaron sus operaciones con GO Admin. Solicita una demo personalizada
-            para tu industria y descubre el potencial de tu negocio.
+            {c.ctaDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 shadow-xl text-lg px-8 py-4 font-semibold"
+              onClick={handleSignupClick}
             >
-              Solicitar Demo Personalizada
+              {c.requestPersonalDemo}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold bg-transparent"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold bg-transparent"
             >
-              Hablar con un Experto
+              {c.talkExpert}
             </Button>
           </div>
           <div className="mt-12 text-blue-100">
-            <p className="text-sm">✓ Demo gratuita de 30 minutos ✓ Sin compromiso ✓ Asesoría especializada</p>
+            <p className="text-sm">{c.ctaNote}</p>
           </div>
         </div>
       </section>

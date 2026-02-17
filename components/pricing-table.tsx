@@ -4,6 +4,7 @@ import { Calendar, CreditCard, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { useLanguage } from "@/lib/i18n"
 
 interface PricingTableProps {
   showAllIncluded?: boolean
@@ -12,77 +13,54 @@ interface PricingTableProps {
 }
 
 export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuarantee = true }: PricingTableProps) {
+  const { t } = useLanguage()
+
   const handleSignupClick = () => {
     window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
 
   const allIncludedFeatures = [
-    { icon: "✅", title: "Todos los 15 Módulos", desc: "POS, Inventario, PMS, CRM, HRM, Finanzas y más" },
-    {
-      icon: "🏢",
-      title: "Sucursales Ilimitadas",
-      desc: "Gestiona todas tus ubicaciones desde un solo lugar",
-    },
-    { icon: "👥", title: "Usuarios Ilimitados", desc: "Agrega todo tu equipo sin costo adicional" },
-    {
-      icon: "📊",
-      title: "Reportes Avanzados",
-      desc: "Dashboards personalizables y métricas en tiempo real",
-    },
-    {
-      icon: "🔒",
-      title: "Seguridad Empresarial",
-      desc: "Autenticación MFA, roles granulares, auditoría completa",
-    },
-    { icon: "🌐", title: "Integraciones Premium", desc: "Stripe, MercadoPago, QuickBooks, Shopify y más" },
-    { icon: "📱", title: "Apps Móviles", desc: "iOS y Android para gestión sobre la marcha" },
-    { icon: "☁️", title: "Backup Automático", desc: "Respaldos diarios automáticos en la nube" },
-    { icon: "🎯", title: "Soporte Técnico", desc: "Chat en vivo, email y base de conocimientos" },
+    { icon: "check", title: t("pricing.feat1"), desc: t("pricing.feat1d") },
+    { icon: "check", title: t("pricing.feat2"), desc: t("pricing.feat2d") },
+    { icon: "check", title: t("pricing.feat3"), desc: t("pricing.feat3d") },
+    { icon: "check", title: t("pricing.feat4"), desc: t("pricing.feat4d") },
+    { icon: "check", title: t("pricing.feat5"), desc: t("pricing.feat5d") },
+    { icon: "check", title: t("pricing.feat6"), desc: t("pricing.feat6d") },
+    { icon: "check", title: t("pricing.feat7"), desc: t("pricing.feat7d") },
+    { icon: "check", title: t("pricing.feat8"), desc: t("pricing.feat8d") },
+    { icon: "check", title: t("pricing.feat9"), desc: t("pricing.feat9d") },
   ]
 
   const faqItems = [
-    {
-      q: "¿Hay costos ocultos o módulos premium?",
-      a: "No. El precio incluye acceso completo a todos los módulos, integraciones y características. Sin sorpresas.",
-    },
-    {
-      q: "¿Puedo cambiar de plan mensual a anual?",
-      a: "Sí, puedes cambiar en cualquier momento. Al cambiar a anual, se aplicará el descuento proporcionalmente.",
-    },
-    {
-      q: "¿Qué incluye el soporte técnico?",
-      a: "Chat en vivo, soporte por email, base de conocimientos completa y onboarding personalizado.",
-    },
-    {
-      q: "¿Hay límite de transacciones o almacenamiento?",
-      a: "No hay límites en transacciones, productos, clientes o almacenamiento. Úsalo sin restricciones.",
-    },
+    { q: t("pricing.faq1q"), a: t("pricing.faq1a") },
+    { q: t("pricing.faq2q"), a: t("pricing.faq2a") },
+    { q: t("pricing.faq3q"), a: t("pricing.faq3a") },
+    { q: t("pricing.faq4q"), a: t("pricing.faq4a") },
   ]
 
   return (
     <section id="precios" className="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-green-100 text-green-800">Precios Transparentes</Badge>
+          <Badge className="mb-4 bg-green-100 text-green-800">{t("pricing.badge")}</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Un solo plan, <span className="text-blue-600">todo incluido</span>
+            {t("pricing.title")} <span className="text-blue-600">{t("pricing.titleHighlight")}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Sin límites ocultos, sin módulos extra. Acceso completo a todos los módulos desde el primer día con soporte
-            técnico incluido.
+            {t("pricing.subtitle")}
           </p>
           <div className="flex items-center justify-center flex-wrap gap-4 md:gap-8 text-sm text-gray-500">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>Sin permanencia</span>
+              <span>{t("pricing.noCommitment")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>Cancela cuando quieras</span>
+              <span>{t("pricing.cancelAnytime")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>14 días gratis</span>
+              <span>{t("pricing.freeTrial")}</span>
             </div>
           </div>
         </div>
@@ -98,57 +76,41 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Calendar className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Plan Mensual</h3>
-                  <p className="text-gray-600 mt-2">Perfecto para empezar sin compromisos</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{t("pricing.monthly")}</h3>
+                  <p className="text-gray-600 mt-2">{t("pricing.monthlyDesc")}</p>
                 </div>
                 <div className="mb-6">
                   <div className="flex items-center justify-center mb-2">
                     <span className="text-5xl font-bold text-gray-900">$20</span>
                     <div className="ml-2">
-                      <div className="text-gray-600 text-lg">/mes</div>
-                      <div className="text-sm text-gray-500">por organización</div>
+                      <div className="text-gray-600 text-lg">{t("pricing.month")}</div>
+                      <div className="text-sm text-gray-500">{t("pricing.perOrg")}</div>
                     </div>
                   </div>
-                  <div className="text-sm text-gray-500">Facturación mensual • Sin permanencia</div>
+                  <div className="text-sm text-gray-500">{t("pricing.monthlyBilling")} {" - "} {t("pricing.noCommitment")}</div>
                 </div>
               </CardHeader>
               <CardContent className="px-4 md:px-8 pb-8">
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                  {[
+                    t("pricing.allModules"),
+                    t("pricing.unlimitedBranches"),
+                    t("pricing.supportChat"),
+                    t("pricing.premiumIntegrations"),
+                    t("pricing.autoBackup"),
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-700">{feature}</span>
                     </div>
-                    <span className="text-gray-700">Todos los 15 módulos incluidos</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    </div>
-                    <span className="text-gray-700">Sucursales y usuarios ilimitados</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    </div>
-                    <span className="text-gray-700">Soporte técnico por chat y email</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    </div>
-                    <span className="text-gray-700">Integraciones premium incluidas</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    </div>
-                    <span className="text-gray-700">Backup automático diario</span>
-                  </div>
+                  ))}
                 </div>
                 <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 mb-4" onClick={handleSignupClick}>
-                  Comenzar Prueba Gratuita
+                  {t("pricing.startTrial")}
                 </Button>
-                <p className="text-sm text-gray-500 text-center">14 días gratis • No se requiere tarjeta de crédito</p>
+                <p className="text-sm text-gray-500 text-center">{t("pricing.trialNote")}</p>
               </CardContent>
             </Card>
 
@@ -156,7 +118,7 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
             <Card className="border-2 border-blue-600 relative overflow-hidden bg-gradient-to-br from-sky-50 to-blue-50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
                 <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 text-sm font-bold shadow-lg">
-                  🔥 AHORRA 18% • MÁS POPULAR
+                  {t("pricing.savePopular")}
                 </Badge>
               </div>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-sky-600"></div>
@@ -165,8 +127,8 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
                   <div className="w-16 h-16 bg-gradient-to-br from-sky-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CreditCard className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Plan Anual</h3>
-                  <p className="text-gray-600 mt-2">El más elegido por empresas exitosas</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{t("pricing.annual")}</h3>
+                  <p className="text-gray-600 mt-2">{t("pricing.annualDesc")}</p>
                 </div>
                 <div className="mb-6">
                   <div className="flex items-center justify-center mb-2">
@@ -175,59 +137,43 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
                     </div>
                     <span className="text-5xl font-bold text-blue-600">$196</span>
                     <div className="ml-2">
-                      <div className="text-gray-600 text-lg">/año</div>
-                      <div className="text-sm text-gray-500">por organización</div>
+                      <div className="text-gray-600 text-lg">{t("pricing.year")}</div>
+                      <div className="text-sm text-gray-500">{t("pricing.perOrg")}</div>
                     </div>
                   </div>
                   <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full inline-block mb-2">
-                    <span className="font-semibold">Ahorra $44 al año</span>
+                    <span className="font-semibold">{t("pricing.saveYear")}</span>
                   </div>
-                  <div className="text-sm text-gray-500">Equivale a $16.33/mes • Facturación anual</div>
+                  <div className="text-sm text-gray-500">{t("pricing.annualEquiv")}</div>
                 </div>
               </CardHeader>
               <CardContent className="px-4 md:px-8 pb-8">
                 <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-blue-900 mb-3">✨ Todo del plan mensual, PLUS:</h4>
+                  <h4 className="font-semibold text-blue-900 mb-3">{t("pricing.annualPlus")}</h4>
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    {[
+                      t("pricing.freeMonths"),
+                      t("pricing.prioritySupport"),
+                      t("pricing.onboarding"),
+                      t("pricing.advancedReports"),
+                      t("pricing.earlyAccess"),
+                    ].map((feature, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                        </div>
+                        <span className="text-blue-800 font-medium">{feature}</span>
                       </div>
-                      <span className="text-blue-800 font-medium">2 meses completamente gratis</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-blue-800 font-medium">Soporte técnico prioritario</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-blue-800 font-medium">Onboarding personalizado 1:1</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-blue-800 font-medium">Reportes avanzados exclusivos</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-blue-800 font-medium">Acceso anticipado a nuevas funciones</span>
-                    </div>
+                    ))}
                   </div>
                 </div>
                 <Button
                   className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-lg py-6 mb-4 shadow-lg"
                   onClick={handleSignupClick}
                 >
-                  🚀 Comenzar con Descuento Anual
+                  {t("pricing.startAnnual")}
                 </Button>
-                <p className="text-sm text-gray-500 text-center">14 días gratis • Garantía de devolución 30 días</p>
+                <p className="text-sm text-gray-500 text-center">{t("pricing.annualNote")}</p>
               </CardContent>
             </Card>
           </div>
@@ -237,14 +183,16 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
         {showAllIncluded && (
           <div className="max-w-5xl mx-auto mb-16">
             <div className="text-center mb-8 md:mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Todo incluido en ambos planes</h3>
-              <p className="text-gray-600">Sin restricciones, sin módulos premium, sin sorpresas</p>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">{t("pricing.allIncluded")}</h3>
+              <p className="text-gray-600">{t("pricing.allIncludedDesc")}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allIncludedFeatures.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-gray-100">
-                  <div className="text-2xl flex-shrink-0">{feature.icon}</div>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-2.5 h-2.5 bg-green-600 rounded-full"></div>
+                  </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">{feature.title}</h4>
                     <p className="text-sm text-gray-600">{feature.desc}</p>
@@ -258,7 +206,7 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
         {/* Pricing FAQ */}
         {showFAQ && (
           <div className="max-w-4xl mx-auto mb-16 px-2">
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Preguntas Frecuentes</h3>
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">{t("pricing.faq")}</h3>
             <div className="space-y-6">
               {faqItems.map((faq, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 border border-gray-200">
@@ -274,15 +222,16 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
         {showGuarantee && (
           <div className="max-w-4xl mx-auto px-2">
             <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6 md:p-8 text-center border border-green-200">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Garantía de 30 días</h3>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-green-600">$</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("pricing.guarantee")}</h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Si no estás completamente satisfecho con GO Admin en los primeros 30 días, te devolvemos el 100% de tu
-                dinero. Sin preguntas, sin complicaciones.
+                {t("pricing.guaranteeDesc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={handleSignupClick}>
-                  Probar 14 Días Gratis
+                  {t("pricing.try14")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
@@ -291,7 +240,7 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                   onClick={handleSignupClick}
                 >
-                  Hablar con Ventas
+                  {t("pricing.talkSales")}
                 </Button>
               </div>
             </div>
@@ -300,13 +249,13 @@ export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuara
 
         {/* Trust Indicators */}
         <div className="mt-16 text-center px-2">
-          <p className="text-gray-500 mb-6">Más de 500 empresas confían en GO Admin</p>
+          <p className="text-gray-500 mb-6">{t("pricing.trustText")}</p>
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 opacity-60">
-            <div className="text-2xl">🏨</div>
-            <div className="text-2xl">🍽️</div>
-            <div className="text-2xl">🛍️</div>
-            <div className="text-2xl">💪</div>
-            <div className="text-2xl">🚌</div>
+            <div className="text-2xl">{"🏨"}</div>
+            <div className="text-2xl">{"🍽️"}</div>
+            <div className="text-2xl">{"🛍️"}</div>
+            <div className="text-2xl">{"💪"}</div>
+            <div className="text-2xl">{"🚌"}</div>
           </div>
         </div>
       </div>

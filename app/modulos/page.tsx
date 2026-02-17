@@ -13,24 +13,119 @@ import {
   CreditCard,
   PieChart,
   Lock,
-  Menu,
-  X,
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
+import { Navbar } from "@/components/navbar"
+import { useContent } from "@/lib/i18n"
 
 export default function ModulosPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+  const c = useContent({
+    es: {
+      badge: "15 Módulos Completamente Integrados",
+      heroTitle1: "Módulos ERP",
+      heroTitle2: "Todo Integrado",
+      heroSubtitle: "Descubre todos los módulos de GO Admin. Cada uno diseñado para trabajar en",
+      heroSubtitleBold: "perfecta armonía",
+      heroSubtitleEnd: ", compartiendo datos y automatizando procesos entre sí.",
+      exploreModules: "Explorar Módulos",
+      fullDemo: "Ver Demo Completa",
+      byCategory: "Módulos por Categoría",
+      byCategoryDesc: "Organizados por área funcional para una mejor comprensión de cómo cada módulo potencia tu negocio.",
+      allModules: "Todos los Módulos",
+      allModulesDesc: "Cada módulo está diseñado para integrarse perfectamente con los demás, creando un ecosistema empresarial completo y eficiente.",
+      featured: "Destacado:",
+      viewDetails: "Ver detalles",
+      nativeIntegration: "Integración Nativa",
+      modulesAsOne: "Módulos que trabajan como uno solo",
+      modulesAsOneDesc: "A diferencia de otros sistemas, nuestros módulos están diseñados desde cero para trabajar juntos. Los datos fluyen automáticamente entre módulos sin duplicación ni procesos manuales.",
+      integrationExample: "Ejemplo de Integración",
+      integrationExampleDesc: "Flujo automático entre módulos",
+      step1: "Venta en POS",
+      step1d: "Cliente compra producto en tienda",
+      step2: "Actualización Inventario",
+      step2d: "Stock se reduce automáticamente",
+      step3: "Registro Contable",
+      step3d: "Asiento contable automático",
+      step4: "Actualización CRM",
+      step4d: "Historial del cliente se actualiza",
+      testimonialsTitle: "Lo que dicen sobre nuestros módulos",
+      testimonialsSubtitle: "Empresas que aprovechan la integración completa",
+      ctaTitle: "¿Listo para integrar todos los módulos?",
+      ctaDesc: "Comienza con los módulos que necesitas hoy y activa nuevos módulos cuando tu negocio crezca. Todo integrado desde el primer día.",
+      startTrial: "Comenzar Prueba Gratuita",
+      seeIntegrationDemo: "Ver Demo de Integración",
+      ctaNote: "Todos los módulos incluidos - Sin costo adicional - Integración automática",
+      modules: "módulos",
+      integratedModules: "Módulos Integrados",
+      activeCompanies: "Empresas Activas",
+      uptimeGuaranteed: "Uptime Garantizado",
+      techSupport: "Soporte Técnico",
+      benefits: [
+        "Integración nativa entre todos los módulos",
+        "Datos unificados sin duplicación",
+        "Flujos de trabajo automatizados",
+        "Configuración modular flexible",
+        "Actualizaciones sincronizadas",
+        "Soporte especializado por módulo",
+      ],
+      catSales: "Ventas", catOps: "Operaciones", catFinance: "Finanzas", catHR: "RRHH", catAnalytics: "Analítica", catSecurity: "Seguridad",
+    },
+    en: {
+      badge: "15 Fully Integrated Modules",
+      heroTitle1: "ERP Modules",
+      heroTitle2: "All Integrated",
+      heroSubtitle: "Discover all GO Admin modules. Each one designed to work in",
+      heroSubtitleBold: "perfect harmony",
+      heroSubtitleEnd: ", sharing data and automating processes between them.",
+      exploreModules: "Explore Modules",
+      fullDemo: "Watch Full Demo",
+      byCategory: "Modules by Category",
+      byCategoryDesc: "Organized by functional area for a better understanding of how each module powers your business.",
+      allModules: "All Modules",
+      allModulesDesc: "Each module is designed to integrate seamlessly with others, creating a complete and efficient business ecosystem.",
+      featured: "Featured:",
+      viewDetails: "View details",
+      nativeIntegration: "Native Integration",
+      modulesAsOne: "Modules that work as one",
+      modulesAsOneDesc: "Unlike other systems, our modules are designed from scratch to work together. Data flows automatically between modules without duplication or manual processes.",
+      integrationExample: "Integration Example",
+      integrationExampleDesc: "Automatic flow between modules",
+      step1: "POS Sale",
+      step1d: "Customer buys product in store",
+      step2: "Inventory Update",
+      step2d: "Stock is reduced automatically",
+      step3: "Accounting Entry",
+      step3d: "Automatic accounting entry",
+      step4: "CRM Update",
+      step4d: "Customer history is updated",
+      testimonialsTitle: "What they say about our modules",
+      testimonialsSubtitle: "Companies that leverage full integration",
+      ctaTitle: "Ready to integrate all modules?",
+      ctaDesc: "Start with the modules you need today and activate new ones as your business grows. All integrated from day one.",
+      startTrial: "Start Free Trial",
+      seeIntegrationDemo: "Watch Integration Demo",
+      ctaNote: "All modules included - No additional cost - Automatic integration",
+      modules: "modules",
+      integratedModules: "Integrated Modules",
+      activeCompanies: "Active Companies",
+      uptimeGuaranteed: "Guaranteed Uptime",
+      techSupport: "Technical Support",
+      benefits: [
+        "Native integration between all modules",
+        "Unified data without duplication",
+        "Automated workflows",
+        "Flexible modular configuration",
+        "Synchronized updates",
+        "Specialized support per module",
+      ],
+      catSales: "Sales", catOps: "Operations", catFinance: "Finance", catHR: "HR", catAnalytics: "Analytics", catSecurity: "Security",
+    },
+  })
+  const handleSignupClick = () => {
+    window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
 
   const modules = [
@@ -214,19 +309,19 @@ export default function ModulosPage() {
   ]
 
   const categories = [
-    { name: "Ventas", count: 2, icon: ShoppingCart, color: "text-orange-600" },
-    { name: "Operaciones", count: 3, icon: Zap, color: "text-blue-600" },
-    { name: "Finanzas", count: 1, icon: CreditCard, color: "text-emerald-600" },
-    { name: "RRHH", count: 1, icon: Users, color: "text-indigo-600" },
-    { name: "Analítica", count: 1, icon: PieChart, color: "text-cyan-600" },
-    { name: "Seguridad", count: 2, icon: Lock, color: "text-gray-600" },
+    { name: c.catSales, count: 2, icon: ShoppingCart, color: "text-orange-600" },
+    { name: c.catOps, count: 3, icon: Zap, color: "text-blue-600" },
+    { name: c.catFinance, count: 1, icon: CreditCard, color: "text-emerald-600" },
+    { name: c.catHR, count: 1, icon: Users, color: "text-indigo-600" },
+    { name: c.catAnalytics, count: 1, icon: PieChart, color: "text-cyan-600" },
+    { name: c.catSecurity, count: 2, icon: Lock, color: "text-gray-600" },
   ]
 
   const stats = [
-    { number: "15+", label: "Módulos Integrados", icon: Building2 },
-    { number: "500+", label: "Empresas Activas", icon: TrendingUp },
-    { number: "99.9%", label: "Uptime Garantizado", icon: CheckCircle },
-    { number: "24/7", label: "Soporte Técnico", icon: Users },
+    { number: "15+", label: c.integratedModules, icon: Building2 },
+    { number: "500+", label: c.activeCompanies, icon: TrendingUp },
+    { number: "99.9%", label: c.uptimeGuaranteed, icon: CheckCircle },
+    { number: "24/7", label: c.techSupport, icon: Users },
   ]
 
   const testimonials = [
@@ -259,191 +354,35 @@ export default function ModulosPage() {
     },
   ]
 
-  const benefits = [
-    "Integración nativa entre todos los módulos",
-    "Datos unificados sin duplicación",
-    "Flujos de trabajo automatizados",
-    "Configuración modular flexible",
-    "Actualizaciones sincronizadas",
-    "Soporte especializado por módulo",
-  ]
+  const benefits = c.benefits
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
-      {/* Header */}
-      <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">GO</span>
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                GO Admin
-              </span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/industrias" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Industrias
-              </Link>
-              <Link href="/caracteristicas" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Características
-              </Link>
-              <Link href="/precios" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Precios
-              </Link>
-              <Link href="/centro-ayuda" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Ayuda
-              </Link>
-              <Link href="/contacto" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                Contacto
-              </Link>
-            </nav>
-
-            {/* Desktop CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 font-medium bg-transparent"
-                onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg font-medium">
-                Prueba Gratis
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
-              aria-label="Abrir menú de navegación"
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <>
-              {/* Overlay */}
-              <div
-                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
-                onClick={closeMobileMenu}
-                aria-hidden="true"
-              />
-
-              {/* Mobile Menu Panel */}
-              <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 md:hidden">
-                <nav className="px-4 py-6 space-y-4">
-                  <Link
-                    href="/industrias"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Industrias
-                  </Link>
-                  <Link
-                    href="/caracteristicas"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Características
-                  </Link>
-                  <Link
-                    href="/precios"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Precios
-                  </Link>
-                  <Link
-                    href="/centro-ayuda"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Centro de Ayuda
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    href="/acerca-de"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Acerca de
-                  </Link>
-                  <Link
-                    href="/carreras"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Carreras
-                  </Link>
-                  <Link
-                    href="/contacto"
-                    className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={closeMobileMenu}
-                  >
-                    Contacto
-                  </Link>
-
-                  {/* Mobile CTA Buttons */}
-                  <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <Button
-                      variant="outline"
-                      className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                      onClick={() => {
-                        window.open("https://app.goadmin.io/auth/login", "_blank")
-                        closeMobileMenu()
-                      }}
-                    >
-                      Iniciar Sesión
-                    </Button>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={closeMobileMenu}>
-                      Prueba Gratis
-                    </Button>
-                  </div>
-                </nav>
-              </div>
-            </>
-          )}
-        </div>
-      </header>
+      <Navbar currentPage="/modulos" />
 
       {/* Hero Section */}
       <section className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
         <div className="container mx-auto text-center relative">
           <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 hover:from-blue-200 hover:to-purple-200 px-4 py-2 text-sm font-semibold">
-            ✨ 15 Módulos Completamente Integrados
+            {c.badge}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">
             <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
-              Módulos ERP
+              {c.heroTitle1}
             </span>
             <br />
-            <span className="text-blue-600">Todo Integrado</span>
+            <span className="text-blue-600">{c.heroTitle2}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Descubre todos los módulos de GO Admin. Cada uno diseñado para trabajar en <strong>perfecta armonía</strong>
-            , compartiendo datos y automatizando procesos entre sí.
+            {c.heroSubtitle} <strong>{c.heroSubtitleBold}</strong>{c.heroSubtitleEnd}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-xl text-lg px-8 py-4"
             >
-              Explorar Módulos
+              {c.exploreModules}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -451,7 +390,7 @@ export default function ModulosPage() {
               variant="outline"
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 bg-transparent"
             >
-              Ver Demo Completa
+              {c.fullDemo}
             </Button>
           </div>
 
@@ -474,9 +413,9 @@ export default function ModulosPage() {
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Módulos por Categoría</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{c.byCategory}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Organizados por área funcional para una mejor comprensión de cómo cada módulo potencia tu negocio.
+              {c.byCategoryDesc}
             </p>
           </div>
 
@@ -491,7 +430,7 @@ export default function ModulosPage() {
                     <category.icon className={`h-6 w-6 ${category.color}`} />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{category.name}</h3>
-                  <p className="text-sm text-gray-600">{category.count} módulos</p>
+                  <p className="text-sm text-gray-600">{category.count} {c.modules}</p>
                 </CardContent>
               </Card>
             ))}
@@ -503,10 +442,9 @@ export default function ModulosPage() {
       <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Todos los Módulos</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.allModules}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cada módulo está diseñado para integrarse perfectamente con los demás, creando un ecosistema empresarial
-              completo y eficiente.
+              {c.allModulesDesc}
             </p>
           </div>
 
@@ -532,7 +470,7 @@ export default function ModulosPage() {
                   <CardContent className="relative z-10">
                     <div className="space-y-4">
                       <div className="bg-white/80 p-3 rounded-lg">
-                        <div className="text-xs text-gray-600 mb-1">Destacado:</div>
+                        <div className="text-xs text-gray-600 mb-1">{c.featured}</div>
                         <div className="text-sm font-semibold text-gray-900">{module.highlight}</div>
                       </div>
                       <div className="space-y-2">
@@ -544,7 +482,7 @@ export default function ModulosPage() {
                         ))}
                       </div>
                       <div className="flex items-center justify-center mt-6 text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
-                        <span className="mr-2">Ver detalles</span>
+                        <span className="mr-2">{c.viewDetails}</span>
                         <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
@@ -561,11 +499,10 @@ export default function ModulosPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-blue-100 text-blue-800">Integración Nativa</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Módulos que trabajan como uno solo</h2>
+              <Badge className="mb-4 bg-blue-100 text-blue-800">{c.nativeIntegration}</Badge>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">{c.modulesAsOne}</h2>
               <p className="text-xl text-gray-600 mb-8">
-                A diferencia de otros sistemas, nuestros módulos están diseñados desde cero para trabajar juntos. Los
-                datos fluyen automáticamente entre módulos sin duplicación ni procesos manuales.
+                {c.modulesAsOneDesc}
               </p>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -578,8 +515,8 @@ export default function ModulosPage() {
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-2xl">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Ejemplo de Integración</h3>
-                <p className="text-gray-600">Flujo automático entre módulos</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{c.integrationExample}</h3>
+                <p className="text-gray-600">{c.integrationExampleDesc}</p>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -587,8 +524,8 @@ export default function ModulosPage() {
                     <span className="text-orange-600 text-lg">🛒</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Venta en POS</h4>
-                    <p className="text-sm text-gray-600">Cliente compra producto en tienda</p>
+                    <h4 className="font-semibold text-gray-900">{c.step1}</h4>
+                    <p className="text-sm text-gray-600">{c.step1d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -596,8 +533,8 @@ export default function ModulosPage() {
                     <span className="text-blue-600 text-lg">📦</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Actualización Inventario</h4>
-                    <p className="text-sm text-gray-600">Stock se reduce automáticamente</p>
+                    <h4 className="font-semibold text-gray-900">{c.step2}</h4>
+                    <p className="text-sm text-gray-600">{c.step2d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -605,8 +542,8 @@ export default function ModulosPage() {
                     <span className="text-emerald-600 text-lg">💰</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Registro Contable</h4>
-                    <p className="text-sm text-gray-600">Asiento contable automático</p>
+                    <h4 className="font-semibold text-gray-900">{c.step3}</h4>
+                    <p className="text-sm text-gray-600">{c.step3d}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -614,8 +551,8 @@ export default function ModulosPage() {
                     <span className="text-pink-600 text-lg">👥</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Actualización CRM</h4>
-                    <p className="text-sm text-gray-600">Historial del cliente se actualiza</p>
+                    <h4 className="font-semibold text-gray-900">{c.step4}</h4>
+                    <p className="text-sm text-gray-600">{c.step4d}</p>
                   </div>
                 </div>
               </div>
@@ -628,8 +565,8 @@ export default function ModulosPage() {
       <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Lo que dicen sobre nuestros módulos</h2>
-            <p className="text-xl text-gray-600">Empresas que aprovechan la integración completa</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{c.testimonialsTitle}</h2>
+            <p className="text-xl text-gray-600">{c.testimonialsSubtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -659,29 +596,29 @@ export default function ModulosPage() {
       <section className="py-24 px-4 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para integrar todos los módulos?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{c.ctaTitle}</h2>
           <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            Comienza con los módulos que necesitas hoy y activa nuevos módulos cuando tu negocio crezca. Todo integrado
-            desde el primer día.
+            {c.ctaDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 shadow-xl text-lg px-8 py-4 font-semibold"
+              onClick={handleSignupClick}
             >
-              Comenzar Prueba Gratuita
+              {c.startTrial}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold bg-transparent"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold bg-transparent"
             >
-              Ver Demo de Integración
+              {c.seeIntegrationDemo}
             </Button>
           </div>
           <div className="mt-12 text-blue-100">
-            <p className="text-sm">✓ Todos los módulos incluidos ✓ Sin costo adicional ✓ Integración automática</p>
+            <p className="text-sm">{c.ctaNote}</p>
           </div>
         </div>
       </section>
