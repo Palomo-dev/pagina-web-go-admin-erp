@@ -59,7 +59,7 @@ export function Navbar({ currentPage }: NavbarProps) {
   ]
 
   return (
-    <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <header className="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -167,23 +167,23 @@ export function Navbar({ currentPage }: NavbarProps) {
           <>
             {/* Overlay */}
             <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/10 z-40 lg:hidden"
               onClick={closeMobileMenu}
               aria-hidden="true"
             />
 
             {/* Mobile Menu Panel */}
-            <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 lg:hidden max-h-[calc(100vh-70px)] overflow-y-auto">
-              <nav className="px-4 py-4 space-y-2">
+            <div className="absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-md z-50 lg:hidden max-h-[calc(100vh-70px)] overflow-y-auto">
+              <nav className="px-4 py-3 space-y-0">
                 {/* Navigation Items */}
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center justify-between py-2.5 px-3 rounded-lg transition-colors text-sm font-medium ${
+                    className={`flex items-center justify-between py-3 px-2 rounded-md transition-colors text-sm font-medium border-b border-gray-100 last:border-b-0 ${
                       currentPage === item.href
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                        ? "text-blue-600"
+                        : "text-gray-700 hover:text-blue-600"
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -193,38 +193,38 @@ export function Navbar({ currentPage }: NavbarProps) {
                 ))}
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 my-3" />
+                <div className="border-t border-gray-200 my-2" />
 
                 {/* Language Selection */}
-                <div className="space-y-2">
-                  <div className="px-3 py-1.5 flex items-center space-x-2">
+                <div className="space-y-1 py-2">
+                  <div className="px-2 py-2 flex items-center space-x-2">
                     <Globe className="h-4 w-4 text-gray-500" />
-                    <span className="text-xs font-semibold text-gray-500 uppercase">{t("nav.language") || "Idioma"}</span>
+                    <span className="text-xs font-semibold text-gray-600 uppercase tracking-wide">{t("nav.language") || "Idioma"}</span>
                   </div>
                   <button
                     onClick={() => handleLanguageChange("es")}
-                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-lg transition-colors text-sm font-medium ${
+                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-md transition-colors text-sm font-medium border ${
                       lang === "es"
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-gray-700 hover:bg-blue-50"
+                        ? "bg-blue-50 text-blue-600 border-blue-200"
+                        : "text-gray-700 border-gray-200 hover:border-blue-200"
                     }`}
                   >
                     <span className="flex items-center space-x-2">
-                      <span className="text-xs font-semibold text-gray-500">ES</span>
+                      <span className="text-xs font-bold text-gray-600">ES</span>
                       <span>Español</span>
                     </span>
                     {lang === "es" && <Check className="h-4 w-4" />}
                   </button>
                   <button
                     onClick={() => handleLanguageChange("en")}
-                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-lg transition-colors text-sm font-medium ${
+                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-md transition-colors text-sm font-medium border ${
                       lang === "en"
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-gray-700 hover:bg-blue-50"
+                        ? "bg-blue-50 text-blue-600 border-blue-200"
+                        : "text-gray-700 border-gray-200 hover:border-blue-200"
                     }`}
                   >
                     <span className="flex items-center space-x-2">
-                      <span className="text-xs font-semibold text-gray-500">US</span>
+                      <span className="text-xs font-bold text-gray-600">US</span>
                       <span>English</span>
                     </span>
                     {lang === "en" && <Check className="h-4 w-4" />}
@@ -232,13 +232,13 @@ export function Navbar({ currentPage }: NavbarProps) {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 my-3" />
+                <div className="border-t border-gray-200 my-2" />
 
                 {/* CTA Buttons */}
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2 pt-2 pb-2">
                   <Button
                     variant="outline"
-                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent text-sm font-medium"
+                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-white text-sm font-medium"
                     onClick={() => {
                       window.open("https://app.goadmin.io/auth/login", "_blank")
                       closeMobileMenu()
@@ -247,7 +247,7 @@ export function Navbar({ currentPage }: NavbarProps) {
                     {t("nav.login")}
                   </Button>
                   <Button
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-sm font-medium"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-sm font-medium shadow-md"
                     onClick={() => {
                       handleSignupClick()
                       closeMobileMenu()
