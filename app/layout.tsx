@@ -10,13 +10,17 @@ export const metadata: Metadata = {
   description: 'La plataforma ERP más completa del mercado. Gestiona ventas, inventario, finanzas, recursos humanos y más desde una sola solución empresarial. Prueba gratis por 15 días.',
   generator: 'goadmin.io',
   icons: {
-    icon: '/favicon-goadmin.png',
-    apple: '/apple-icon.png',
+    icon: '/favicon.ico',
   },
   openGraph: {
     title: 'GO Admin - ERP Empresarial Completo',
-    description: 'Plataforma ERP todo en uno para tu negocio. 15 módulos integrados, soporte 24/7',
+    description: 'Plataforma ERP todo en uno para tu negocio. 15 módulos integrados, soporte 24/7.',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GO Admin - ERP Empresarial Completo',
+    description: 'Plataforma ERP todo en uno para tu negocio. 15 módulos integrados, soporte 24/7.',
   },
 }
 
