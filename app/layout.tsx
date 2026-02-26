@@ -8,7 +8,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'GO Admin - ERP Empresarial Completo',
   description: 'La plataforma ERP más completa del mercado. Gestiona ventas, inventario, finanzas, recursos humanos y más desde una sola solución empresarial. Prueba gratis por 15 días.',
-  generator: 'v0.app',
+  generator: 'goadmin.io',
   icons: {
     icon: '/favicon-goadmin.png',
     apple: '/apple-icon.png',
