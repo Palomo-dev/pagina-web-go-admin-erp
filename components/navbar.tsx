@@ -151,15 +151,65 @@ export function Navbar({ currentPage }: NavbarProps) {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors flex-shrink-0"
-            aria-label={t("nav.openMenu")}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
-          </button>
+          {/* Mobile Menu Button + Language Dropdown */}
+          <div className="lg:hidden flex items-center space-x-2">
+            {/* Language Dropdown for Mobile */}
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-1 px-2.5 py-2 rounded-lg text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors border border-gray-200"
+                aria-label="Select language"
+                aria-expanded={isLanguageDropdownOpen}
+              >
+                <Globe className="h-4 w-4" />
+                <span>{lang === "es" ? "ES" : "EN"}</span>
+              </button>
+
+              {/* Language Dropdown Menu */}
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  <button
+                    onClick={() => handleLanguageChange("es")}
+                    className={`w-full px-4 py-2.5 flex items-center justify-between text-left text-xs font-medium transition-colors ${
+                      lang === "es"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-1.5">
+                      <span className="font-bold">ES</span>
+                      <span>Español</span>
+                    </span>
+                    {lang === "es" && <Check className="h-3 w-3" />}
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("en")}
+                    className={`w-full px-4 py-2.5 flex items-center justify-between text-left text-xs font-medium transition-colors ${
+                      lang === "en"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-1.5">
+                      <span className="font-bold">US</span>
+                      <span>English</span>
+                    </span>
+                    {lang === "en" && <Check className="h-3 w-3" />}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg hover:bg-blue-50 transition-colors flex-shrink-0"
+              aria-label={t("nav.openMenu")}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -191,45 +241,6 @@ export function Navbar({ currentPage }: NavbarProps) {
                     <ChevronRight className="h-4 w-4" />
                   </Link>
                 ))}
-
-                {/* Divider */}
-                <div className="border-t border-gray-200 my-2" />
-
-                {/* Language Selection */}
-                <div className="space-y-1 py-2">
-                  <div className="px-2 py-2 flex items-center space-x-2">
-                    <Globe className="h-4 w-4 text-gray-500" />
-                    <span className="text-xs font-semibold text-gray-600 uppercase tracking-wide">{t("nav.language") || "Idioma"}</span>
-                  </div>
-                  <button
-                    onClick={() => handleLanguageChange("es")}
-                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-md transition-colors text-sm font-medium border ${
-                      lang === "es"
-                        ? "bg-blue-50 text-blue-600 border-blue-200"
-                        : "text-gray-700 border-gray-200 hover:border-blue-200"
-                    }`}
-                  >
-                    <span className="flex items-center space-x-2">
-                      <span className="text-xs font-bold text-gray-600">ES</span>
-                      <span>Español</span>
-                    </span>
-                    {lang === "es" && <Check className="h-4 w-4" />}
-                  </button>
-                  <button
-                    onClick={() => handleLanguageChange("en")}
-                    className={`w-full flex items-center justify-between py-2.5 px-3 rounded-md transition-colors text-sm font-medium border ${
-                      lang === "en"
-                        ? "bg-blue-50 text-blue-600 border-blue-200"
-                        : "text-gray-700 border-gray-200 hover:border-blue-200"
-                    }`}
-                  >
-                    <span className="flex items-center space-x-2">
-                      <span className="text-xs font-bold text-gray-600">US</span>
-                      <span>English</span>
-                    </span>
-                    {lang === "en" && <Check className="h-4 w-4" />}
-                  </button>
-                </div>
 
                 {/* Divider */}
                 <div className="border-t border-gray-200 my-2" />
