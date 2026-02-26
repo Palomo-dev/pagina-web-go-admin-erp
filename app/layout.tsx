@@ -6,25 +6,17 @@ import { LanguageProvider } from '@/lib/i18n'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'GO Admin - ERP Empresarial Completo',
+  description: 'La plataforma ERP más completa del mercado. Gestiona ventas, inventario, finanzas, recursos humanos y más desde una sola solución empresarial. Prueba gratis por 15 días.',
+  generator: 'goadmin.io',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/favicon-goadmin.png',
     apple: '/apple-icon.png',
+  },
+  openGraph: {
+    title: 'GO Admin - ERP Empresarial Completo',
+    description: 'Plataforma ERP todo en uno para tu negocio. 15 módulos integrados, soporte 24/7',
+    type: 'website',
   },
 }
 

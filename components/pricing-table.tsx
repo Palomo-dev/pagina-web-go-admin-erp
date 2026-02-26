@@ -1,6 +1,7 @@
 "use client"
 
-import { Calendar, CreditCard, ArrowRight } from "lucide-react"
+import { useState } from "react"
+import { Check, Zap, Users, Building2, Brain, Headphones } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -8,256 +9,369 @@ import { useLanguage } from "@/lib/i18n"
 
 interface PricingTableProps {
   showAllIncluded?: boolean
-  showFAQ?: boolean
-  showGuarantee?: boolean
 }
 
-export function PricingTable({ showAllIncluded = true, showFAQ = true, showGuarantee = true }: PricingTableProps) {
-  const { t } = useLanguage()
+export function PricingTable({ showAllIncluded = true }: PricingTableProps) {
+  const { lang } = useLanguage()
+  const [isAnnual, setIsAnnual] = useState(false)
 
   const handleSignupClick = () => {
     window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
 
-  const allIncludedFeatures = [
-    { icon: "check", title: t("pricing.feat1"), desc: t("pricing.feat1d") },
-    { icon: "check", title: t("pricing.feat2"), desc: t("pricing.feat2d") },
-    { icon: "check", title: t("pricing.feat3"), desc: t("pricing.feat3d") },
-    { icon: "check", title: t("pricing.feat4"), desc: t("pricing.feat4d") },
-    { icon: "check", title: t("pricing.feat5"), desc: t("pricing.feat5d") },
-    { icon: "check", title: t("pricing.feat6"), desc: t("pricing.feat6d") },
-    { icon: "check", title: t("pricing.feat7"), desc: t("pricing.feat7d") },
-    { icon: "check", title: t("pricing.feat8"), desc: t("pricing.feat8d") },
-    { icon: "check", title: t("pricing.feat9"), desc: t("pricing.feat9d") },
+  // Planes con precios y descripciones mejoradas
+  const plans = [
+    {
+      id: "pro",
+      name: "Pro",
+      tagline: lang === "es" ? "Para Emprendedores" : "For Entrepreneurs",
+      description: lang === "es" 
+        ? "Perfecto para startups y emprendedores que inician su transformación digital"
+        : "Perfect for startups and entrepreneurs beginning their digital transformation",
+      monthlyPrice: 20,
+      annualPrice: 199,
+      freeDays: 15,
+      modules: 11,
+      branches: 1,
+      users: 3,
+      aiCredits: 500,
+      features: [
+        { icon: Building2, text: lang === "es" ? "1 sucursal" : "1 branch" },
+        { icon: Users, text: lang === "es" ? "Hasta 3 usuarios" : "Up to 3 users" },
+        { icon: Zap, text: lang === "es" ? "11 módulos esenciales" : "11 essential modules" },
+        { icon: Brain, text: lang === "es" ? "500 créditos IA/mes" : "500 AI credits/month" },
+        { text: lang === "es" ? "Soporte por email" : "Email support" },
+      ],
+      color: "blue",
+    },
+    {
+      id: "business",
+      name: "Business",
+      tagline: lang === "es" ? "Para Negocios en Crecimiento" : "For Growing Businesses",
+      description: lang === "es"
+        ? "Escalabilidad y características avanzadas para empresas en expansión"
+        : "Scalability and advanced features for expanding businesses",
+      monthlyPrice: 49,
+      annualPrice: 490,
+      freeDays: 30,
+      modules: 16,
+      branches: 5,
+      users: 10,
+      aiCredits: 2000,
+      recommended: true,
+      features: [
+        { icon: Building2, text: lang === "es" ? "Hasta 5 sucursales" : "Up to 5 branches" },
+        { icon: Users, text: lang === "es" ? "Hasta 10 usuarios" : "Up to 10 users" },
+        { icon: Zap, text: lang === "es" ? "16 módulos avanzados" : "16 advanced modules" },
+        { icon: Brain, text: lang === "es" ? "2,000 créditos IA/mes" : "2,000 AI credits/month" },
+        { icon: Headphones, text: lang === "es" ? "Soporte prioritario 24/7" : "24/7 priority support" },
+      ],
+      color: "blue",
+    },
+    {
+      id: "ultimate",
+      name: "Ultimate",
+      tagline: lang === "es" ? "Para Empresas Grandes" : "For Enterprise",
+      description: lang === "es"
+        ? "Solución completa con todos los módulos y soporte dedicado"
+        : "Complete solution with all modules and dedicated support",
+      monthlyPrice: 199,
+      annualPrice: 1990,
+      freeDays: 30,
+      modules: 18,
+      branches: 15,
+      users: 30,
+      aiCredits: 10000,
+      features: [
+        { icon: Building2, text: lang === "es" ? "Hasta 15 sucursales" : "Up to 15 branches" },
+        { icon: Users, text: lang === "es" ? "Hasta 30 usuarios" : "Up to 30 users" },
+        { icon: Zap, text: lang === "es" ? "18 módulos (todos)" : "18 modules (all)" },
+        { icon: Brain, text: lang === "es" ? "10,000 créditos IA/mes" : "10,000 AI credits/month" },
+        { icon: Headphones, text: lang === "es" ? "Soporte dedicado 24/7" : "24/7 dedicated support" },
+      ],
+      color: "blue",
+    },
   ]
 
-  const faqItems = [
-    { q: t("pricing.faq1q"), a: t("pricing.faq1a") },
-    { q: t("pricing.faq2q"), a: t("pricing.faq2a") },
-    { q: t("pricing.faq3q"), a: t("pricing.faq3a") },
-    { q: t("pricing.faq4q"), a: t("pricing.faq4a") },
-  ]
+  // Calcular descuento
+  const calculateDiscount = (monthlyPrice: number, annualPrice: number) => {
+    const monthlyAnnual = monthlyPrice * 12
+    const discount = ((monthlyAnnual - annualPrice) / monthlyAnnual) * 100
+    return Math.round(discount)
+  }
+
+  // Calcular precio por mes en plan anual
+  const calculateMonthlyEquivalent = (annualPrice: number) => {
+    return (annualPrice / 12).toFixed(2)
+  }
 
   return (
-    <section id="precios" className="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-green-100 text-green-800">{t("pricing.badge")}</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {t("pricing.title")} <span className="text-blue-600">{t("pricing.titleHighlight")}</span>
+    <section id="precios" className="py-24 px-4 md:px-8 bg-gradient-to-br from-white via-blue-50 to-indigo-50 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-100 px-4 py-2 rounded-full font-medium">
+            {lang === "es" ? "Planes Simples y Transparentes" : "Simple & Transparent Pricing"}
+          </Badge>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {lang === "es" ? "Elige tu plan" : "Choose your plan"}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            {t("pricing.subtitle")}
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+            {lang === "es" 
+              ? "Sin sorpresas, sin contratos a largo plazo. Cancela cuando quieras."
+              : "No surprises, no long-term contracts. Cancel anytime."}
           </p>
-          <div className="flex items-center justify-center flex-wrap gap-4 md:gap-8 text-sm text-gray-500">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>{t("pricing.noCommitment")}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>{t("pricing.cancelAnytime")}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>{t("pricing.freeTrial")}</span>
-            </div>
+
+          {/* Toggle Mensual/Anual */}
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            <span className={`font-semibold text-lg transition-colors ${!isAnnual ? "text-gray-900" : "text-gray-500"}`}>
+              {lang === "es" ? "Mensual" : "Monthly"}
+            </span>
+            <button
+              onClick={() => setIsAnnual(!isAnnual)}
+              className={`relative inline-flex h-12 w-24 items-center rounded-full transition-all duration-300 ${
+                isAnnual ? "bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg" : "bg-gray-200"
+              }`}
+            >
+              <span
+                className={`inline-block h-10 w-10 transform rounded-full bg-white shadow-md transition-transform duration-300 ${
+                  isAnnual ? "translate-x-12" : "translate-x-1"
+                }`}
+              />
+            </button>
+            <span className={`font-semibold text-lg transition-colors ${isAnnual ? "text-gray-900" : "text-gray-500"}`}>
+              {lang === "es" ? "Anual" : "Annual"}
+            </span>
+            {isAnnual && (
+              <Badge className="ml-4 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 hover:from-green-100 hover:to-emerald-100 font-semibold px-4 py-2">
+                {lang === "es" ? "Ahorra 20%" : "Save 20%"}
+              </Badge>
+            )}
           </div>
         </div>
 
-        {/* Main Pricing Cards */}
-        <div className="mx-auto mb-16">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-            {/* Monthly Plan */}
-            <Card className="border-2 border-gray-200 relative overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-              <CardHeader className="text-center pb-6 pt-8">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Calendar className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t("pricing.monthly")}</h3>
-                  <p className="text-gray-600 mt-2">{t("pricing.monthlyDesc")}</p>
-                </div>
-                <div className="mb-6">
-                  <div className="flex items-center justify-center mb-2">
-                    <span className="text-5xl font-bold text-gray-900">$20</span>
-                    <div className="ml-2">
-                      <div className="text-gray-600 text-lg">{t("pricing.month")}</div>
-                      <div className="text-sm text-gray-500">{t("pricing.perOrg")}</div>
-                    </div>
-                  </div>
-                  <div className="text-sm text-gray-500">{t("pricing.monthlyBilling")} {" - "} {t("pricing.noCommitment")}</div>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 md:px-8 pb-8">
-                <div className="space-y-4 mb-8">
-                  {[
-                    t("pricing.allModules"),
-                    t("pricing.unlimitedBranches"),
-                    t("pricing.supportChat"),
-                    t("pricing.premiumIntegrations"),
-                    t("pricing.autoBackup"),
-                  ].map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                      </div>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 mb-4" onClick={handleSignupClick}>
-                  {t("pricing.startTrial")}
-                </Button>
-                <p className="text-sm text-gray-500 text-center">{t("pricing.trialNote")}</p>
-              </CardContent>
-            </Card>
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {plans.map((plan) => {
+            const currentPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice
+            const discount = isAnnual ? calculateDiscount(plan.monthlyPrice, plan.annualPrice) : 0
+            const monthlyEquivalent = isAnnual ? calculateMonthlyEquivalent(plan.annualPrice) : null
 
-            {/* Annual Plan */}
-            <Card className="border-2 border-blue-600 relative overflow-hidden bg-gradient-to-br from-sky-50 to-blue-50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
-                <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 text-sm font-bold shadow-lg">
-                  {t("pricing.savePopular")}
-                </Badge>
-              </div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-sky-600"></div>
-              <CardHeader className="text-center pb-6 pt-10">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-sky-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CreditCard className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t("pricing.annual")}</h3>
-                  <p className="text-gray-600 mt-2">{t("pricing.annualDesc")}</p>
-                </div>
-                <div className="mb-6">
-                  <div className="flex items-center justify-center mb-2">
-                    <div className="text-right mr-3">
-                      <div className="text-lg text-gray-500 line-through">$240</div>
-                    </div>
-                    <span className="text-5xl font-bold text-blue-600">$196</span>
-                    <div className="ml-2">
-                      <div className="text-gray-600 text-lg">{t("pricing.year")}</div>
-                      <div className="text-sm text-gray-500">{t("pricing.perOrg")}</div>
-                    </div>
-                  </div>
-                  <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full inline-block mb-2">
-                    <span className="font-semibold">{t("pricing.saveYear")}</span>
-                  </div>
-                  <div className="text-sm text-gray-500">{t("pricing.annualEquiv")}</div>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 md:px-8 pb-8">
-                <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-blue-900 mb-3">{t("pricing.annualPlus")}</h4>
-                  <div className="space-y-3">
-                    {[
-                      t("pricing.freeMonths"),
-                      t("pricing.prioritySupport"),
-                      t("pricing.onboarding"),
-                      t("pricing.advancedReports"),
-                      t("pricing.earlyAccess"),
-                    ].map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                        </div>
-                        <span className="text-blue-800 font-medium">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <Button
-                  className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-lg py-6 mb-4 shadow-lg"
-                  onClick={handleSignupClick}
+            return (
+              <div key={plan.id} className={`relative ${plan.recommended ? "md:scale-105 md:-mt-4" : ""}`}>
+                {/* Recommended glow effect */}
+                {plan.recommended && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-2xl blur opacity-20" />
+                )}
+
+                <Card
+                  className={`relative overflow-hidden transition-all duration-300 h-full ${
+                    plan.recommended
+                      ? "border-2 border-blue-500 shadow-2xl"
+                      : "border border-gray-200 hover:shadow-lg hover:border-gray-300"
+                  }`}
                 >
-                  {t("pricing.startAnnual")}
-                </Button>
-                <p className="text-sm text-gray-500 text-center">{t("pricing.annualNote")}</p>
-              </CardContent>
-            </Card>
-          </div>
+                  {/* Gradient top bar */}
+                  <div className={`h-2 w-full ${
+                    plan.recommended 
+                      ? "bg-gradient-to-r from-blue-600 to-blue-500" 
+                      : "bg-gradient-to-r from-gray-300 to-gray-200"
+                  }`} />
+
+                  <CardHeader className="pb-8 pt-8">
+                    {/* Recommended Badge */}
+                    {plan.recommended && (
+                      <div className="mb-4">
+                        <Badge className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-1 font-semibold shadow-lg">
+                          {lang === "es" ? "⭐ Más Popular" : "⭐ Most Popular"}
+                        </Badge>
+                      </div>
+                    )}
+
+                    {/* Plan name and tagline */}
+                    <div className="mb-3">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                      <p className="text-sm font-medium text-blue-600">{plan.tagline}</p>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                      {plan.description}
+                    </p>
+
+                    {/* Price Display */}
+                    <div className="mb-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200">
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-5xl font-bold text-gray-900">${currentPrice}</span>
+                        <span className="text-gray-600 font-medium">{isAnnual ? "/año" : "/mes"}</span>
+                      </div>
+                      {isAnnual ? (
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-600">
+                            {lang === "es" ? "Solo" : "Just"} ${monthlyEquivalent}/mes
+                          </span>
+                          <Badge className="bg-green-100 text-green-700 text-xs font-semibold">
+                            {discount}% {lang === "es" ? "descuento" : "off"}
+                          </Badge>
+                        </div>
+                      ) : (
+                        <div className="text-sm text-gray-600">
+                          {lang === "es" ? "Facturación mensual" : "Monthly billing"}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Free Days */}
+                    <div className="text-center mb-6 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <span className="text-sm">
+                        <span className="font-bold text-blue-600">{plan.freeDays}</span>
+                        {` ${lang === "es" ? "días de prueba gratis" : "free trial days"}`}
+                      </span>
+                    </div>
+
+                    {/* CTA Button */}
+                    <Button
+                      onClick={handleSignupClick}
+                      className={`w-full mb-6 h-12 font-semibold text-base transition-all duration-300 ${
+                        plan.recommended
+                          ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl text-white"
+                          : "bg-gray-800 hover:bg-gray-900 text-white border border-gray-700"
+                      }`}
+                    >
+                      {lang === "es" ? "Comenzar Gratis" : "Start Free"}
+                    </Button>
+                  </CardHeader>
+
+                  <CardContent className="space-y-6">
+                    {/* Key Stats Grid */}
+                    <div className="grid grid-cols-2 gap-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-blue-600">{plan.modules}</div>
+                        <div className="text-xs text-gray-600 font-medium mt-1">{lang === "es" ? "Módulos" : "Modules"}</div>
+                      </div>
+                      <div className="text-center border-l border-gray-300">
+                        <div className="text-3xl font-bold text-blue-600">{plan.branches}</div>
+                        <div className="text-xs text-gray-600 font-medium mt-1">{lang === "es" ? "Sucursales" : "Branches"}</div>
+                      </div>
+                      <div className="text-center border-t border-gray-300">
+                        <div className="text-3xl font-bold text-indigo-600">{plan.users}</div>
+                        <div className="text-xs text-gray-600 font-medium mt-1">{lang === "es" ? "Usuarios" : "Users"}</div>
+                      </div>
+                      <div className="text-center border-l border-t border-gray-300">
+                        <div className="text-3xl font-bold text-purple-600">{(plan.aiCredits / 1000).toFixed(1)}K</div>
+                        <div className="text-xs text-gray-600 font-medium mt-1">{lang === "es" ? "Créditos IA" : "AI Credits"}</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="h-px bg-gray-200" />
+
+                    {/* Features List */}
+                    <div className="space-y-4 pb-2">
+                      {plan.features.map((feature, idx) => {
+                        const Icon = feature.icon ? feature.icon : null
+                        return (
+                          <div key={idx} className="flex items-start gap-4">
+                            <div className="flex-shrink-0 mt-1">
+                              {Icon ? (
+                                <Icon className="h-5 w-5 text-blue-600" />
+                              ) : (
+                                <Check className="h-5 w-5 text-green-600" />
+                              )}
+                            </div>
+                            <span className="text-sm text-gray-700 font-medium leading-relaxed">{feature.text}</span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
         </div>
 
         {/* What's Included */}
         {showAllIncluded && (
-          <div className="max-w-5xl mx-auto mb-16">
-            <div className="text-center mb-8 md:mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">{t("pricing.allIncluded")}</h3>
-              <p className="text-gray-600">{t("pricing.allIncludedDesc")}</p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                {lang === "es" ? "Incluido en Todos los Planes" : "Included in All Plans"}
+              </h3>
+              <p className="text-lg text-gray-600">
+                {lang === "es" 
+                  ? "Sin límites ocultos, sin módulos premium, sin sorpresas"
+                  : "No hidden limits, no premium modules, no surprises"}
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allIncludedFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-gray-100">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2.5 h-2.5 bg-green-600 rounded-full"></div>
+              {[
+                {
+                  icon: Zap,
+                  title: lang === "es" ? "Todos los Módulos" : "All Modules",
+                  desc: lang === "es" 
+                    ? "Acceso completo a POS, Inventario, CRM, Finanzas, RRHH y más"
+                    : "Full access to POS, Inventory, CRM, Finance, HR and more",
+                },
+                {
+                  icon: Headphones,
+                  title: lang === "es" ? "Soporte 24/7" : "24/7 Support",
+                  desc: lang === "es" 
+                    ? "Chat en vivo y soporte técnico siempre disponible"
+                    : "Live chat and technical support always available",
+                },
+                {
+                  icon: Brain,
+                  title: lang === "es" ? "IA Integrada" : "Built-in AI",
+                  desc: lang === "es" 
+                    ? "Automatización inteligente en todos tus procesos"
+                    : "Smart automation across all your processes",
+                },
+                {
+                  icon: Building2,
+                  title: lang === "es" ? "Integraciones Premium" : "Premium Integrations",
+                  desc: lang === "es" 
+                    ? "Conecta con tus herramientas favoritas sin costo extra"
+                    : "Connect with your favorite tools at no extra cost",
+                },
+                {
+                  icon: Users,
+                  title: lang === "es" ? "Seguridad Empresarial" : "Enterprise Security",
+                  desc: lang === "es" 
+                    ? "Encriptación de datos, backups automáticos y cumplimiento"
+                    : "Data encryption, automatic backups and compliance",
+                },
+                {
+                  icon: Check,
+                  title: lang === "es" ? "Garantía de 30 Días" : "30-Day Guarantee",
+                  desc: lang === "es" 
+                    ? "Devolución 100% si no estás completamente satisfecho"
+                    : "100% refund if you're not completely satisfied",
+                },
+              ].map((item, idx) => {
+                const Icon = item.icon
+                return (
+                  <div key={idx} className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors">
+                        <Icon className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h4 className="font-bold text-lg text-gray-900">{item.title}</h4>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{feature.title}</h4>
-                    <p className="text-sm text-gray-600">{feature.desc}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}
-
-        {/* Pricing FAQ */}
-        {showFAQ && (
-          <div className="max-w-4xl mx-auto mb-16 px-2">
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">{t("pricing.faq")}</h3>
-            <div className="space-y-6">
-              {faqItems.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-2">{faq.q}</h4>
-                  <p className="text-gray-600">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Money Back Guarantee */}
-        {showGuarantee && (
-          <div className="max-w-4xl mx-auto px-2">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6 md:p-8 text-center border border-green-200">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">$</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("pricing.guarantee")}</h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                {t("pricing.guaranteeDesc")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={handleSignupClick}>
-                  {t("pricing.try14")}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-                  onClick={handleSignupClick}
-                >
-                  {t("pricing.talkSales")}
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Trust Indicators */}
-        <div className="mt-16 text-center px-2">
-          <p className="text-gray-500 mb-6">{t("pricing.trustText")}</p>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 opacity-60">
-            <div className="text-2xl">{"🏨"}</div>
-            <div className="text-2xl">{"🍽️"}</div>
-            <div className="text-2xl">{"🛍️"}</div>
-            <div className="text-2xl">{"💪"}</div>
-            <div className="text-2xl">{"🚌"}</div>
-          </div>
-        </div>
       </div>
     </section>
   )

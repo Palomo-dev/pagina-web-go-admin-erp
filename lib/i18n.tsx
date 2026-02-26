@@ -651,12 +651,23 @@ const translations: Record<Language, Record<string, string>> = {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Language>("es")
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("go-admin-lang") : null
-    if (saved === "en" || saved === "es") {
-      setLangState(saved)
+    setMounted(true)
+    
+    // Check localStorage first
+    const savedLang = localStorage.getItem("language") as Language | null
+    if (savedLang && (savedLang === "es" || savedLang === "en")) {
+      setLangState(savedLang)
+      return
     }
+
+    // Detect browser language
+    const browserLang = navigator.language.toLowerCase()
+    const detectedLang: Language = browserLang.startsWith("es") ? "es" : "en"
+    setLangState(detectedLang)
+    localStorage.setItem("language", detectedLang)
   }, [])
 
   const setLang = (newLang: Language) => {

@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Menu, X, ChevronRight, Globe } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
+import { Menu, X, ChevronRight, Globe, Check } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/i18n"
@@ -12,6 +12,8 @@ interface NavbarProps {
 
 export function Navbar({ currentPage }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
+  const languageDropdownRef = useRef<HTMLDivElement>(null)
   const { lang, setLang, t } = useLanguage()
 
   const toggleMobileMenu = () => {
@@ -20,11 +22,29 @@ export function Navbar({ currentPage }: NavbarProps) {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
+    setIsLanguageDropdownOpen(false)
+  }
+
+  const handleLanguageChange = (newLang: "es" | "en") => {
+    setLang(newLang)
+    setIsLanguageDropdownOpen(false)
   }
 
   const handleSignupClick = () => {
     window.open("https://app.goadmin.io/auth/signup", "_blank")
   }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+        setIsLanguageDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   const navItems = [
     { name: t("nav.modules"), href: "/modulos" },
@@ -38,31 +58,27 @@ export function Navbar({ currentPage }: NavbarProps) {
     { name: t("nav.contact"), href: "/contacto" },
   ]
 
-  const toggleLanguage = () => {
-    setLang(lang === "es" ? "en" : "es")
-  }
-
   return (
-    <header className="border-b bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <header className="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
             <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">GO</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               GO Admin
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navItems.slice(0, 6).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors ${
                   currentPage === item.href ? "text-blue-600 font-semibold" : "text-gray-600 hover:text-blue-600"
                 }`}
               >
@@ -71,42 +87,129 @@ export function Navbar({ currentPage }: NavbarProps) {
             ))}
           </nav>
 
-          {/* Desktop CTA Buttons + Language */}
+          {/* Desktop CTA Buttons + Language Dropdown */}
           <div className="hidden lg:flex items-center space-x-3">
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors border border-gray-200"
-              aria-label={lang === "es" ? "Switch to English" : "Cambiar a Español"}
-            >
-              <Globe className="h-4 w-4" />
-              <span>{lang === "es" ? "EN" : "ES"}</span>
-            </button>
+            {/* Language Dropdown */}
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors border border-gray-200"
+                aria-label="Select language"
+                aria-expanded={isLanguageDropdownOpen}
+              >
+                <Globe className="h-4 w-4" />
+                <span>{lang === "es" ? "ES" : "EN"}</span>
+              </button>
+
+              {/* Language Dropdown Menu */}
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  <button
+                    onClick={() => handleLanguageChange("es")}
+                    className={`w-full px-4 py-3 flex items-center justify-between text-left text-sm font-medium transition-colors ${
+                      lang === "es"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-2">
+                      <span className="text-xs font-semibold text-gray-500">ES</span>
+                      <span>Español</span>
+                    </span>
+                    {lang === "es" && <Check className="h-4 w-4" />}
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("en")}
+                    className={`w-full px-4 py-3 flex items-center justify-between text-left text-sm font-medium transition-colors ${
+                      lang === "en"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-2">
+                      <span className="text-xs font-semibold text-gray-500">US</span>
+                      <span>English</span>
+                    </span>
+                    {lang === "en" && <Check className="h-4 w-4" />}
+                  </button>
+                </div>
+              )}
+            </div>
 
             <Button
               variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent font-medium"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent font-medium text-sm"
               onClick={() => window.open("https://app.goadmin.io/auth/login", "_blank")}
             >
               {t("nav.login")}
             </Button>
             <Button
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg font-medium"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg font-medium text-sm"
               onClick={handleSignupClick}
             >
               {t("nav.signup")}
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
-            aria-label={t("nav.openMenu")}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
-          </button>
+          {/* Mobile Menu Button + Language Dropdown */}
+          <div className="lg:hidden flex items-center space-x-2">
+            {/* Language Dropdown for Mobile */}
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-1 px-2.5 py-2 rounded-lg text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors border border-gray-200"
+                aria-label="Select language"
+                aria-expanded={isLanguageDropdownOpen}
+              >
+                <Globe className="h-4 w-4" />
+                <span>{lang === "es" ? "ES" : "EN"}</span>
+              </button>
+
+              {/* Language Dropdown Menu */}
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  <button
+                    onClick={() => handleLanguageChange("es")}
+                    className={`w-full px-4 py-2.5 flex items-center justify-between text-left text-xs font-medium transition-colors ${
+                      lang === "es"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-1.5">
+                      <span className="font-bold">ES</span>
+                      <span>Español</span>
+                    </span>
+                    {lang === "es" && <Check className="h-3 w-3" />}
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("en")}
+                    className={`w-full px-4 py-2.5 flex items-center justify-between text-left text-xs font-medium transition-colors ${
+                      lang === "en"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center space-x-1.5">
+                      <span className="font-bold">US</span>
+                      <span>English</span>
+                    </span>
+                    {lang === "en" && <Check className="h-3 w-3" />}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg hover:bg-blue-50 transition-colors flex-shrink-0"
+              aria-label={t("nav.openMenu")}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6 text-gray-600" /> : <Menu className="h-6 w-6 text-gray-600" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -114,47 +217,39 @@ export function Navbar({ currentPage }: NavbarProps) {
           <>
             {/* Overlay */}
             <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/10 z-40 lg:hidden"
               onClick={closeMobileMenu}
               aria-hidden="true"
             />
 
             {/* Mobile Menu Panel */}
-            <div className="absolute top-full left-0 right-0 bg-white border-b border-blue-100 shadow-lg z-50 lg:hidden">
-              <nav className="px-4 py-6 space-y-4">
+            <div className="absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-md z-50 lg:hidden max-h-[calc(100vh-70px)] overflow-y-auto">
+              <nav className="px-4 py-3 space-y-0">
+                {/* Navigation Items */}
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center justify-between py-3 px-4 rounded-lg transition-colors ${
+                    className={`flex items-center justify-between py-3 px-2 rounded-md transition-colors text-sm font-medium border-b border-gray-100 last:border-b-0 ${
                       currentPage === item.href
-                        ? "text-blue-600 bg-blue-50 font-semibold"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                        ? "text-blue-600"
+                        : "text-gray-700 hover:text-blue-600"
                     }`}
                     onClick={closeMobileMenu}
                   >
-                    <span className="font-medium">{item.name}</span>
+                    <span>{item.name}</span>
                     <ChevronRight className="h-4 w-4" />
                   </Link>
                 ))}
 
-                {/* Mobile Language Toggle */}
-                <button
-                  onClick={toggleLanguage}
-                  className="flex items-center justify-between w-full py-3 px-4 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                >
-                  <span className="flex items-center space-x-2 font-medium">
-                    <Globe className="h-5 w-5" />
-                    <span>{lang === "es" ? "English" : "Español"}</span>
-                  </span>
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+                {/* Divider */}
+                <div className="border-t border-gray-200 my-2" />
 
-                {/* Mobile CTA Buttons */}
-                <div className="pt-4 border-t border-gray-200 space-y-3">
+                {/* CTA Buttons */}
+                <div className="space-y-2 pt-2 pb-2">
                   <Button
                     variant="outline"
-                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-white text-sm font-medium"
                     onClick={() => {
                       window.open("https://app.goadmin.io/auth/login", "_blank")
                       closeMobileMenu()
@@ -163,7 +258,7 @@ export function Navbar({ currentPage }: NavbarProps) {
                     {t("nav.login")}
                   </Button>
                   <Button
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-sm font-medium shadow-md"
                     onClick={() => {
                       handleSignupClick()
                       closeMobileMenu()
