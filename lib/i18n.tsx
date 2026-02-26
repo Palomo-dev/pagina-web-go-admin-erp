@@ -672,12 +672,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLang = (newLang: Language) => {
     setLangState(newLang)
-    localStorage.setItem("language", newLang)
-  }
-  }, [])
-
-  const setLang = (newLang: Language) => {
-    setLangState(newLang)
     if (typeof window !== "undefined") {
       localStorage.setItem("go-admin-lang", newLang)
     }
