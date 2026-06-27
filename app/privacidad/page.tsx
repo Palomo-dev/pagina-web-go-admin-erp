@@ -1,458 +1,592 @@
-"use client"
+'use client'
 
-import { Mail, Phone, MapPin, Shield, Eye, Lock, FileText, Users, Globe, ChevronDown } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Navbar } from "@/components/navbar"
-import { useLanguage } from "@/lib/i18n"
+import { Mail, Phone, Globe, Shield, Lock, Users, Eye, FileText, ArrowRight, Check } from 'lucide-react'
+import Link from 'next/link'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
+import { useLanguage } from '@/lib/i18n'
 
 export default function PrivacidadPage() {
-  const { t, lang } = useLanguage()
-  const [expandedSection, setExpandedSection] = useState<number | null>(null)
+  const { lang } = useLanguage()
 
-  const sections = [
-    {
-      title: lang === "es" ? "1. Objeto de la Política" : "1. Purpose of This Policy",
-      content: lang === "es" ? [
-        "Esta Política de Privacidad establece cómo GO Admin (en adelante 'la Plataforma', 'nosotros' o 'nuestros') recopila, usa, protege y comparte la información personal de nuestros usuarios.",
-        "Cumplimos con la legislación colombiana, incluyendo la Ley Estatutaria 1581 de 2012 (LSIPA) y su decreto reglamentario 1377 de 2013, así como regulaciones internacionales como el RGPD (Reglamento General de Protección de Datos).",
-        "Nos comprometemos a ser transparentes sobre nuestras prácticas de privacidad y a proteger tus derechos como titular de datos.",
-      ] : [
-        "This Privacy Policy establishes how GO Admin (hereinafter 'the Platform', 'we' or 'our') collects, uses, protects and shares the personal information of our users.",
-        "We comply with Colombian legislation, including Law 1581 of 2012 (LSIPA) and its regulatory decree 1377 of 2013, as well as international regulations such as the GDPR (General Data Protection Regulation).",
-        "We are committed to being transparent about our privacy practices and protecting your rights as a data subject.",
+  const content = {
+    es: {
+      badge: 'Política de Privacidad',
+      title: 'Tu privacidad es',
+      titleHighlight: 'nuestra prioridad',
+      subtitle: 'En GO Admin, protegemos tu información personal con los más altos estándares de seguridad y transparencia. Conoce cómo recopilamos, usamos y protegemos tus datos.',
+      updated: 'Última actualización: 27 de junio de 2026',
+      
+      // Principios
+      principlesTitle: 'Nuestros Principios de Privacidad',
+      principlesSubtitle: 'Estos principios guían todas nuestras decisiones sobre el manejo de datos',
+      principles: [
+        {
+          icon: Shield,
+          title: 'Seguridad Máxima',
+          description: 'Protegemos tu información con los más altos estándares de encriptación y seguridad'
+        },
+        {
+          icon: Eye,
+          title: 'Transparencia Total',
+          description: 'Te explicamos claramente qué datos recopilamos y por qué'
+        },
+        {
+          icon: Users,
+          title: 'Control del Usuario',
+          description: 'Tú decides qué información compartir y cómo usarla'
+        },
+        {
+          icon: FileText,
+          title: 'Minimización de Datos',
+          description: 'Solo recopilamos la información necesaria para el servicio'
+        }
       ],
-    },
-    {
-      title: lang === "es" ? "2. Datos que Recopilamos" : "2. Data We Collect",
-      content: lang === "es" ? [
-        "Información de Registro: nombre completo, correo electrónico, número de teléfono, empresa, cargo y datos de facturación",
-        "Información del Perfil: foto de perfil, preferencias de idioma, zona horaria y configuración de cuenta",
-        "Datos de Uso: registro de acceso, módulos utilizados, informes generados, tiempo de sesión",
-        "Información Técnica: dirección IP, tipo de navegador, sistema operativo, dispositivo, identificador único",
-        "Datos Empresariales: información ingresada en los módulos (ventas, inventario, finanzas, recursos humanos, etc.)",
-        "Comunicaciones: mensajes de soporte, retroalimentación, encuestas y preferencias de contacto",
-        "Cookies y Tecnologías Similares: identificadores de sesión, preferencias de usuario, análisis de comportamiento",
-      ] : [
-        "Registration Information: full name, email address, phone number, company, position and billing data",
-        "Profile Information: profile picture, language preferences, timezone and account settings",
-        "Usage Data: access logs, modules used, generated reports, session time",
-        "Technical Information: IP address, browser type, operating system, device, unique identifier",
-        "Business Data: information entered in modules (sales, inventory, finance, human resources, etc.)",
-        "Communications: support messages, feedback, surveys and contact preferences",
-        "Cookies and Similar Technologies: session identifiers, user preferences, behavioral analytics",
+
+      // Cumplimiento Normativo
+      complianceTitle: 'Cumplimiento Normativo',
+      complianceSubtitle: 'Cumplimos con las principales regulaciones de privacidad a nivel mundial',
+      compliance: [
+        {
+          region: 'EU',
+          law: 'GDPR',
+          description: 'Reglamento General de Protección de Datos de la Unión Europea'
+        },
+        {
+          region: 'US',
+          law: 'CCPA',
+          description: 'Ley de Privacidad del Consumidor de California'
+        },
+        {
+          region: 'CO',
+          law: 'Ley 1581',
+          description: 'Ley de Protección de Datos Personales de Colombia'
+        }
       ],
-    },
-    {
-      title: lang === "es" ? "3. Base Legal para el Procesamiento" : "3. Legal Basis for Processing",
-      content: lang === "es" ? [
-        "Cumplimiento de Contrato: procesamos datos necesarios para cumplir con nuestros términos de servicio",
-        "Consentimiento: recopilamos datos adicionales solo con tu consentimiento explícito",
-        "Obligaciones Legales: cumplimos con requisitos de autoridades competentes y reguladores",
-        "Intereses Legítimos: mejora de servicios, seguridad y prevención de fraude",
-        "Acuerdos de Confidencialidad: protección de datos confidenciales de tu empresa",
-      ] : [
-        "Contract Performance: we process data necessary to fulfill our terms of service",
-        "Consent: we collect additional data only with your explicit consent",
-        "Legal Obligations: we comply with requirements from competent authorities and regulators",
-        "Legitimate Interests: service improvement, security and fraud prevention",
-        "Confidentiality Agreements: protection of your company's confidential data",
+
+      // Secciones de contenido
+      sections: [
+        {
+          title: '1. Información que Recopilamos',
+          items: [
+            'Información de Registro: nombre, correo electrónico, teléfono, empresa, cargo',
+            'Datos de Perfil: foto, preferencias de idioma, zona horaria, configuración de cuenta',
+            'Datos de Uso: registros de acceso, módulos utilizados, informes generados',
+            'Información Técnica: dirección IP, navegador, sistema operativo, dispositivo',
+            'Datos Empresariales: información ingresada en los módulos del sistema',
+            'Comunicaciones: mensajes de soporte, retroalimentación, preferencias de contacto'
+          ]
+        },
+        {
+          title: '2. Cómo Usamos tu Información',
+          items: [
+            'Proporcionar y mejorar nuestros servicios',
+            'Personalizar tu experiencia en la plataforma',
+            'Enviar notificaciones y actualizaciones importantes',
+            'Procesar pagos y facturación',
+            'Cumplir con obligaciones legales y regulatorias',
+            'Prevenir fraude y garantizar seguridad',
+            'Realizar análisis para mejorar el producto'
+          ]
+        },
+        {
+          title: '3. Base Legal para el Procesamiento',
+          items: [
+            'Consentimiento: recopilamos datos con tu consentimiento expreso',
+            'Contrato: procesamos datos necesarios para ejecutar nuestro acuerdo de servicios',
+            'Obligación Legal: cumplimos con leyes aplicables como LSIPA, CCPA y GDPR',
+            'Interés Legítimo: protegemos la seguridad de la plataforma y tus datos',
+            'Relación Comercial: mejoramos servicios basándonos en tu comportamiento'
+          ]
+        },
+        {
+          title: '4. Compartición de Datos',
+          items: [
+            'Proveedores de Servicios: servidores en la nube, análisis, seguridad',
+            'Cumplimiento Legal: autoridades cuando así lo requiera la ley',
+            'Transferencias Internacionales: con protecciones bajo Cláusulas Contractuales Estándar (SCC)',
+            'No vendemos tu información a terceros sin consentimiento',
+            'Podemos compartir datos agregados no identificables para investigación'
+          ]
+        },
+        {
+          title: '5. Tus Derechos como Titular de Datos',
+          items: [
+            'Derecho de Acceso: solicitar y recibir copia de tus datos personales',
+            'Derecho de Rectificación: corregir información inexacta o incompleta',
+            'Derecho de Eliminación: solicitar la supresión de tus datos (Art. 17 GDPR)',
+            'Derecho de Portabilidad: obtener tus datos en formato estructurado',
+            'Derecho a Oponertes: limitar o rechazar ciertos tipos de procesamiento',
+            'Derecho a no ser Perfilado: no ser sometido a perfilado automated'
+          ]
+        },
+        {
+          title: '6. Retención de Datos',
+          items: [
+            'Datos Activos: conservados mientras uses la plataforma',
+            'Datos Inactivos: retenidos 12 meses después de cancelación',
+            'Datos de Cumplimiento: conservados según requisitos legales (hasta 7 años)',
+            'Logs Técnicos: retenidos por 90 días para seguridad',
+            'Puedes solicitar eliminación inmediata sujeto a obligaciones legales'
+          ]
+        },
+        {
+          title: '7. Seguridad de Datos',
+          items: [
+            'Encriptación SSL/TLS para datos en tránsito',
+            'Encriptación AES-256 para datos en reposo',
+            'Certificación ISO 27001:2022 en nuestros servidores',
+            'Auditorías de seguridad regulares y penetration testing',
+            'Control de acceso basado en roles (RBAC)',
+            'Monitoreo 24/7 de actividades sospechosas'
+          ]
+        },
+        {
+          title: '8. Cookies y Tecnologías de Rastreo',
+          items: [
+            'Cookies Esenciales: necesarias para el funcionamiento de la plataforma',
+            'Cookies de Análisis: para entender cómo usas GO Admin',
+            'Cookies de Marketing: para mejorar nuestras campañas publicitarias',
+            'Puedes controlar cookies desde la configuración de tu navegador',
+            'No usamos cookies de terceros sin tu consentimiento'
+          ]
+        }
       ],
+
+      // Sección de contacto
+      questionsTitle: '¿Tienes preguntas sobre privacidad?',
+      questionsSubtitle: 'Nuestro equipo de privacidad está disponible para resolver cualquier duda sobre el manejo de tus datos.',
+      
+      dpo: {
+        title: 'Oficial de Protección de Datos',
+        description: 'Contacta directamente con nuestro DPO para consultas específicas sobre privacidad',
+        email: 'dpo@goadmin.io'
+      },
+      
+      exerciseRights: {
+        title: 'Ejercer tus Derechos',
+        description: 'Solicita acceso, corrección o eliminación de tus datos personales',
+        email: 'privacidad@goadmin.io'
+      },
+
+      contactButton: 'Contactar Equipo de Privacidad',
+      contactInfo: 'Juan Camilo Gallego | Servicio@goadmin.io | +57 311 3195711 | app.goadmin.io',
+
+      // Marco regulatorio
+      legalFrameworkTitle: 'Marco Legal y Regulatorio',
+      frameworks: [
+        {
+          title: 'Ley 1581 de 2012 (Colombia)',
+          items: [
+            'Ley Estatutaria de Protección de Datos Personales',
+            'Derecho fundamental del habeas data',
+            'Responsabilidad del responsable del tratamiento',
+            'Plazo de respuesta: 10 días hábiles'
+          ]
+        },
+        {
+          title: 'Decreto 1377 de 2013 (Colombia)',
+          items: [
+            'Reglamentación de la Ley 1581 de 2012',
+            'Requisitos para consentimiento válido',
+            'Deberes de los encargados del tratamiento',
+            'Transferencia internacional de datos'
+          ]
+        },
+        {
+          title: 'RGPD (Unión Europea)',
+          items: [
+            'Reglamento General de Protección de Datos',
+            'Derechos mejorados del interesado',
+            'Evaluación de Impacto (DPIA)',
+            'Derecho al olvido (Art. 17)'
+          ]
+        },
+        {
+          title: 'CCPA (California, USA)',
+          items: [
+            'Ley de Privacidad del Consumidor',
+            'Derechos de acceso, eliminación y opt-out',
+            'Transparencia en la venta de datos',
+            'Protección para residentes de California'
+          ]
+        }
+      ]
     },
-    {
-      title: lang === "es" ? "4. Uso de la Información" : "4. Use of Information",
-      content: lang === "es" ? [
-        "Proporcionar y mantener nuestros servicios ERP",
-        "Procesar pagos y gestionar tu suscripción",
-        "Comunicarnos contigo sobre actualizaciones, mantenimiento y cambios de política",
-        "Proporcionar soporte técnico y atención al cliente (24/7)",
-        "Personalizar tu experiencia y recomendaciones",
-        "Mejorar nuestros productos y desarrollar nuevas funcionalidades",
-        "Cumplir con obligaciones legales y regulatorias",
-        "Prevenir fraude, abuso y garantizar la seguridad de la plataforma",
-        "Análisis estadístico y reportes (datos agregados y anonimizados)",
-      ] : [
-        "Provide and maintain our ERP services",
-        "Process payments and manage your subscription",
-        "Communicate with you about updates, maintenance and policy changes",
-        "Provide technical support and customer service (24/7)",
-        "Personalize your experience and recommendations",
-        "Improve our products and develop new features",
-        "Comply with legal and regulatory obligations",
-        "Prevent fraud, abuse and ensure platform security",
-        "Statistical analysis and reporting (aggregated and anonymized data)",
+    en: {
+      badge: 'Privacy Policy',
+      title: 'Your privacy is',
+      titleHighlight: 'our priority',
+      subtitle: 'At GO Admin, we protect your personal information with the highest standards of security and transparency. Learn how we collect, use and protect your data.',
+      updated: 'Last updated: June 27, 2026',
+      
+      // Principles
+      principlesTitle: 'Our Privacy Principles',
+      principlesSubtitle: 'These principles guide all our decisions regarding data handling',
+      principles: [
+        {
+          icon: Shield,
+          title: 'Maximum Security',
+          description: 'We protect your information with the highest encryption and security standards'
+        },
+        {
+          icon: Eye,
+          title: 'Total Transparency',
+          description: 'We clearly explain what data we collect and why'
+        },
+        {
+          icon: Users,
+          title: 'User Control',
+          description: 'You decide what information to share and how it&apos;s used'
+        },
+        {
+          icon: FileText,
+          title: 'Data Minimization',
+          description: 'We only collect information necessary for the service'
+        }
       ],
-    },
-    {
-      title: lang === "es" ? "5. Compartir Información con Terceros" : "5. Sharing Information with Third Parties",
-      content: lang === "es" ? [
-        "NO VENDEMOS tu información personal a terceros bajo ninguna circunstancia",
-        "Compartimos datos solo cuando es necesario para cumplir nuestro servicio",
-        "Proveedores de Servicios: procesadores de pago, servidores cloud (bajo acuerdos de confidencialidad)",
-        "Autoridades Competentes: solo cuando lo requiera la ley (orden judicial, investigación)",
-        "Fusión o Adquisición: en caso de cambio de control, con previo aviso y oportunidad de oposición",
-        "Servicios Integrados: con tu consentimiento explícito para integraciones de terceros",
-        "Todos los procesadores de datos firman acuerdos de Encargo de Procesamiento (APT) según LSIPA",
-      ] : [
-        "WE DO NOT SELL your personal information to third parties under any circumstances",
-        "We share data only when necessary to provide our service",
-        "Service Providers: payment processors, cloud servers (under confidentiality agreements)",
-        "Competent Authorities: only when required by law (court order, investigation)",
-        "Merger or Acquisition: in case of change of control, with prior notice and opportunity to object",
-        "Third-Party Services: with your explicit consent for third-party integrations",
-        "All data processors sign Data Processing Agreements (DPA) according to LSIPA",
+
+      // Compliance
+      complianceTitle: 'Regulatory Compliance',
+      complianceSubtitle: 'We comply with major privacy regulations worldwide',
+      compliance: [
+        {
+          region: 'EU',
+          law: 'GDPR',
+          description: 'General Data Protection Regulation of the European Union'
+        },
+        {
+          region: 'US',
+          law: 'CCPA',
+          description: 'California Consumer Privacy Act'
+        },
+        {
+          region: 'CO',
+          law: 'Law 1581',
+          description: 'Personal Data Protection Law of Colombia'
+        }
       ],
-    },
-    {
-      title: lang === "es" ? "6. Seguridad y Protección de Datos" : "6. Security and Data Protection",
-      content: lang === "es" ? [
-        "Cifrado End-to-End: todos los datos en tránsito utilizan TLS 1.3",
-        "Almacenamiento Seguro: datos en reposo cifrados con AES-256",
-        "Servidores Certificados: infraestructura con certificaciones SOC 2 Type II, ISO 27001",
-        "Autenticación Fuerte: autenticación de dos factores (2FA) disponible",
-        "Acceso Restringido: principio de mínimo privilegio para personal autorizado",
-        "Monitoreo 24/7: detección de intrusiones y monitoreo de seguridad continuo",
-        "Backups Automáticos: copias de seguridad diarias en múltiples ubicaciones",
-        "Plan de Respuesta: protocolo de incidentes de seguridad y notificación a usuarios",
-        "Auditorías Regulares: pruebas de penetración y auditorías de seguridad anuales",
-      ] : [
-        "End-to-End Encryption: all data in transit uses TLS 1.3",
-        "Secure Storage: data at rest encrypted with AES-256",
-        "Certified Servers: infrastructure with SOC 2 Type II, ISO 27001 certifications",
-        "Strong Authentication: two-factor authentication (2FA) available",
-        "Restricted Access: principle of least privilege for authorized personnel",
-        "24/7 Monitoring: intrusion detection and continuous security monitoring",
-        "Automatic Backups: daily backups in multiple locations",
-        "Incident Response: security incident protocol and user notification",
-        "Regular Audits: annual penetration testing and security audits",
+
+      // Content sections
+      sections: [
+        {
+          title: '1. Information We Collect',
+          items: [
+            'Registration Information: name, email, phone, company, position',
+            'Profile Data: photo, language preferences, timezone, account settings',
+            'Usage Data: access logs, modules used, reports generated',
+            'Technical Information: IP address, browser, operating system, device',
+            'Business Data: information entered in system modules',
+            'Communications: support messages, feedback, contact preferences'
+          ]
+        },
+        {
+          title: '2. How We Use Your Information',
+          items: [
+            'Provide and improve our services',
+            'Personalize your platform experience',
+            'Send notifications and important updates',
+            'Process payments and billing',
+            'Comply with legal and regulatory obligations',
+            'Prevent fraud and ensure security',
+            'Perform analysis to improve the product'
+          ]
+        },
+        {
+          title: '3. Legal Basis for Processing',
+          items: [
+            'Consent: we collect data with your express consent',
+            'Contract: we process data necessary to execute our service agreement',
+            'Legal Obligation: we comply with applicable laws like LSIPA, CCPA and GDPR',
+            'Legitimate Interest: we protect the platform security and your data',
+            'Business Relationship: we improve services based on your behavior'
+          ]
+        },
+        {
+          title: '4. Data Sharing',
+          items: [
+            'Service Providers: cloud servers, analytics, security',
+            'Legal Compliance: authorities when required by law',
+            'International Transfers: with protections under Standard Contractual Clauses (SCC)',
+            'We do not sell your information to third parties without consent',
+            'We may share aggregated non-identifiable data for research'
+          ]
+        },
+        {
+          title: '5. Your Rights as a Data Subject',
+          items: [
+            'Right of Access: request and receive a copy of your personal data',
+            'Right of Rectification: correct inaccurate or incomplete information',
+            'Right of Deletion: request erasure of your data (GDPR Art. 17)',
+            'Right of Data Portability: obtain your data in structured format',
+            'Right to Object: restrict or reject certain types of processing',
+            'Right not to be Profiled: not be subject to automated profiling'
+          ]
+        },
+        {
+          title: '6. Data Retention',
+          items: [
+            'Active Data: retained while you use the platform',
+            'Inactive Data: retained 12 months after cancellation',
+            'Compliance Data: retained as required by law (up to 7 years)',
+            'Technical Logs: retained for 90 days for security',
+            'You can request immediate deletion subject to legal obligations'
+          ]
+        },
+        {
+          title: '7. Data Security',
+          items: [
+            'SSL/TLS encryption for data in transit',
+            'AES-256 encryption for data at rest',
+            'ISO 27001:2022 certification on our servers',
+            'Regular security audits and penetration testing',
+            'Role-based access control (RBAC)',
+            '24/7 monitoring of suspicious activity'
+          ]
+        },
+        {
+          title: '8. Cookies and Tracking Technologies',
+          items: [
+            'Essential Cookies: necessary for platform functionality',
+            'Analytics Cookies: to understand how you use GO Admin',
+            'Marketing Cookies: to improve our advertising campaigns',
+            'You can control cookies from your browser settings',
+            'We do not use third-party cookies without your consent'
+          ]
+        }
       ],
-    },
-    {
-      title: lang === "es" ? "7. Tus Derechos como Titular de Datos" : "7. Your Rights as a Data Subject",
-      content: lang === "es" ? [
-        "Derecho de Acceso: solicitar acceso a tu información personal (LSIPA Art. 14)",
-        "Derecho de Rectificación: corregir datos inexactos o incompletos",
-        "Derecho de Cancelación: solicitar eliminación de tus datos personales",
-        "Derecho de Oposición: oponerte al procesamiento de tus datos en ciertos casos",
-        "Derecho a la Portabilidad: recibir tus datos en formato estructurado y transferible",
-        "Derecho a no ser Sometido a Decisiones Automatizadas: exclusión de perfilado automatizado",
-        "Derecho a Retirar Consentimiento: revocar autorización en cualquier momento",
-        "Para ejercer estos derechos, contacta al Responsable del Tratamiento (ver sección de contacto)",
-      ] : [
-        "Right of Access: request access to your personal information (LSIPA Art. 14)",
-        "Right of Rectification: correct inaccurate or incomplete data",
-        "Right of Erasure: request deletion of your personal data",
-        "Right to Object: oppose processing of your data in certain cases",
-        "Right to Data Portability: receive your data in structured and transferable format",
-        "Right to Automated Decision-Making: exclusion from automated profiling",
-        "Right to Withdraw Consent: revoke authorization at any time",
-        "To exercise these rights, contact the Data Controller (see contact section)",
-      ],
-    },
-    {
-      title: lang === "es" ? "8. Retención de Datos" : "8. Data Retention",
-      content: lang === "es" ? [
-        "Datos de Cuenta: mantenidos mientras tu cuenta esté activa",
-        "Datos de Facturación: conservados por 7 años (requisito legal en Colombia)",
-        "Logs de Acceso: mantenidos por 2 años para seguridad y auditoría",
-        "Datos Empresariales: conservados según tu política de retención configurada",
-        "Al Cancelar Cuenta: datos eliminados en 30 días, excepto lo requerido legalmente",
-        "Solicitudes de Cancelación: procesadas en máximo 10 días hábiles (LSIPA)",
-      ] : [
-        "Account Data: retained while your account is active",
-        "Billing Data: retained for 7 years (legal requirement in Colombia)",
-        "Access Logs: retained for 2 years for security and audit purposes",
-        "Business Data: retained according to your configured retention policy",
-        "Upon Account Cancellation: data deleted within 30 days, except as legally required",
-        "Cancellation Requests: processed within maximum 10 business days (LSIPA)",
-      ],
-    },
-    {
-      title: lang === "es" ? "9. Transferencias Internacionales" : "9. International Transfers",
-      content: lang === "es" ? [
-        "Tus datos pueden procesarse en servidores ubicados en diferentes países",
-        "Garantizamos que todos nuestros proveedores mantienen estándares de protección equivalentes",
-        "Utilizamos Cláusulas Contractuales Estándar de la UE para transferencias",
-        "Cumplimos con decisiones de adecuación de la UE reconocidas internacionalmente",
-        "Protecciones Contractuales: acuerdos de confidencialidad y seguridad con proveedores",
-        "Puedes solicitar información detallada sobre ubicaciones de procesamiento",
-      ] : [
-        "Your data may be processed on servers located in different countries",
-        "We guarantee that all our providers maintain equivalent protection standards",
-        "We use EU Standard Contractual Clauses for transfers",
-        "We comply with internationally recognized EU adequacy decisions",
-        "Contractual Protections: confidentiality and security agreements with providers",
-        "You can request detailed information about processing locations",
-      ],
-    },
-    {
-      title: lang === "es" ? "10. Cookies y Tecnologías de Seguimiento" : "10. Cookies and Tracking Technologies",
-      content: lang === "es" ? [
-        "Cookies Esenciales: requeridas para el funcionamiento de la plataforma",
-        "Cookies de Sesión: mantienen tu sesión activa y segura",
-        "Cookies de Análisis: Google Analytics (anonimizado) para mejorar experiencia",
-        "Cookies de Preferencia: guardan tus preferencias de idioma y configuración",
-        "Sin Cookies de Publicidad: no utilizamos cookies de terceros para publicidad",
-        "Gestión: puedes desactivar cookies no esenciales en tu navegador (afectará funcionalidad)",
-        "Consentimiento: requiere tu consentimiento explícito para cookies opcionales",
-      ] : [
-        "Essential Cookies: required for platform functionality",
-        "Session Cookies: keep your session active and secure",
-        "Analytics Cookies: Google Analytics (anonymized) to improve experience",
-        "Preference Cookies: save your language preferences and settings",
-        "No Advertising Cookies: we do not use third-party cookies for advertising",
-        "Management: you can disable non-essential cookies in your browser (will affect functionality)",
-        "Consent: requires your explicit consent for optional cookies",
-      ],
-    },
-    {
-      title: lang === "es" ? "11. Menores de Edad" : "11. Minors",
-      content: lang === "es" ? [
-        "GO Admin está destinado a usuarios mayores de 18 años",
-        "No recopilamos conscientemente información de menores",
-        "Si descubrimos que un menor ha proporcionado información, la eliminaremos inmediatamente",
-        "Los padres/tutores pueden contactarnos para solicitar eliminación de datos de menores",
-        "Para cuentas empresariales, el responsable debe garantizar consentimiento de empleados mayores de edad",
-      ] : [
-        "GO Admin is intended for users over 18 years old",
-        "We do not knowingly collect information from minors",
-        "If we discover a minor has provided information, we will delete it immediately",
-        "Parents/guardians can contact us to request deletion of minor's data",
-        "For business accounts, the responsible person must ensure consent from employees over 18 years old",
-      ],
-    },
-    {
-      title: lang === "es" ? "12. Cambios a Esta Política" : "12. Changes to This Policy",
-      content: lang === "es" ? [
-        "Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento",
-        "Cambios Significativos: notificaremos mediante correo electrónico con 30 días de anticipación",
-        "Cambios Menores: pueden entrar en vigor inmediatamente",
-        "Continuación del Servicio: implica aceptación de la política actualizada",
-        "Versión Anterior: disponible bajo solicitud al Responsable del Tratamiento",
-      ] : [
-        "We reserve the right to update this Privacy Policy at any time",
-        "Significant Changes: we will notify via email with 30 days notice",
-        "Minor Changes: may take effect immediately",
-        "Continuation of Service: implies acceptance of the updated policy",
-        "Previous Version: available upon request to the Data Controller",
-      ],
-    },
-  ]
+
+      // Contact section
+      questionsTitle: 'Do you have questions about privacy?',
+      questionsSubtitle: 'Our privacy team is available to resolve any questions about how we handle your data.',
+      
+      dpo: {
+        title: 'Data Protection Officer',
+        description: 'Contact our DPO directly for specific privacy inquiries',
+        email: 'dpo@goadmin.io'
+      },
+      
+      exerciseRights: {
+        title: 'Exercise Your Rights',
+        description: 'Request access, correction or deletion of your personal data',
+        email: 'privacidad@goadmin.io'
+      },
+
+      contactButton: 'Contact Privacy Team',
+      contactInfo: 'Juan Camilo Gallego | Servicio@goadmin.io | +57 311 3195711 | app.goadmin.io',
+
+      // Legal framework
+      legalFrameworkTitle: 'Legal and Regulatory Framework',
+      frameworks: [
+        {
+          title: 'Law 1581 of 2012 (Colombia)',
+          items: [
+            'Constitutional Law of Personal Data Protection',
+            'Fundamental right of habeas data',
+            'Responsibility of the data controller',
+            'Response deadline: 10 business days'
+          ]
+        },
+        {
+          title: 'Decree 1377 of 2013 (Colombia)',
+          items: [
+            'Regulation of Law 1581 of 2012',
+            'Requirements for valid consent',
+            'Duties of data processors',
+            'International data transfer'
+          ]
+        },
+        {
+          title: 'GDPR (European Union)',
+          items: [
+            'General Data Protection Regulation',
+            'Enhanced data subject rights',
+            'Impact Assessment (DPIA)',
+            'Right to be forgotten (Art. 17)'
+          ]
+        },
+        {
+          title: 'CCPA (California, USA)',
+          items: [
+            'California Consumer Privacy Act',
+            'Rights to access, delete and opt-out',
+            'Transparency in data sales',
+            'Protection for California residents'
+          ]
+        }
+      ]
+    }
+  }
+
+  const currentContent = content[lang as keyof typeof content] || content.es
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-        {/* Header */}
-        <div className="bg-white border-b border-gray-200 py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <Badge className="mb-4 bg-blue-100 text-blue-800">
-                {lang === "es" ? "Política de Privacidad" : "Privacy Policy"}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                {lang === "es" ? "Política de Privacidad de GO Admin" : "GO Admin Privacy Policy"}
-              </h1>
-              <p className="text-lg text-gray-600 mb-4">
-                {lang === "es" 
-                  ? "Última actualización: Junio de 2026. Entra en vigor de inmediato para nuevos usuarios." 
-                  : "Last updated: June 2026. Effective immediately for new users."}
-              </p>
-              <p className="text-sm text-gray-500">
-                {lang === "es" ? "Versión en Español" : "Version in English"} • {lang === "es" ? "Cumple con LSIPA, RGPD e ISO 27001" : "Complies with LSIPA, GDPR and ISO 27001"}
-              </p>
+      <main className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-50 to-gray-50 py-16 md:py-24">
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <Badge className="mb-4 bg-green-100 text-green-700 hover:bg-green-100">{currentContent.badge}</Badge>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
+              {currentContent.title} <span className="text-blue-600">{currentContent.titleHighlight}</span>
+            </h1>
+            
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              {currentContent.subtitle}
+            </p>
+            
+            <p className="text-sm text-gray-500">{currentContent.updated}</p>
+          </div>
+        </section>
+
+        {/* Principles Section */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{currentContent.principlesTitle}</h2>
+              <p className="text-lg text-gray-600">{currentContent.principlesSubtitle}</p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {currentContent.principles.map((principle, idx) => {
+                const IconComponent = principle.icon
+                return (
+                  <Card key={idx} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardContent className="pt-6">
+                      <div className="mb-4 p-3 bg-blue-50 w-fit rounded-lg">
+                        <IconComponent className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">{principle.title}</h3>
+                      <p className="text-sm text-gray-600">{principle.description}</p>
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Main Content */}
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto">
-            {/* Principles Cards */}
-            <div className="grid md:grid-cols-3 gap-4 mb-12">
-              <Card className="border-0 bg-gradient-to-br from-blue-50 to-blue-100 shadow-sm">
-                <CardHeader className="pb-3">
-                  <Shield className="h-6 w-6 text-blue-600 mb-2" />
-                  <CardTitle className="text-sm font-semibold text-gray-900">
-                    {lang === "es" ? "Transparencia" : "Transparency"}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-gray-700">
-                  {lang === "es" 
-                    ? "Te explicamos clara y honestamente qué datos recopilamos" 
-                    : "We explain clearly what data we collect"}
-                </CardContent>
-              </Card>
-              <Card className="border-0 bg-gradient-to-br from-green-50 to-green-100 shadow-sm">
-                <CardHeader className="pb-3">
-                  <Lock className="h-6 w-6 text-green-600 mb-2" />
-                  <CardTitle className="text-sm font-semibold text-gray-900">
-                    {lang === "es" ? "Seguridad" : "Security"}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-gray-700">
-                  {lang === "es" 
-                    ? "Protegemos tus datos con estándares internacionales" 
-                    : "We protect your data with international standards"}
-                </CardContent>
-              </Card>
-              <Card className="border-0 bg-gradient-to-br from-purple-50 to-purple-100 shadow-sm">
-                <CardHeader className="pb-3">
-                  <Eye className="h-6 w-6 text-purple-600 mb-2" />
-                  <CardTitle className="text-sm font-semibold text-gray-900">
-                    {lang === "es" ? "Control" : "Control"}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-gray-700">
-                  {lang === "es" 
-                    ? "Tienes control total sobre tus datos personales" 
-                    : "You have full control over your personal data"}
-                </CardContent>
-              </Card>
+        {/* Compliance Section */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-12">
+              <div className="mb-4 flex justify-center">
+                <Globe className="h-12 w-12 text-blue-600" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{currentContent.complianceTitle}</h2>
+              <p className="text-lg text-gray-600">{currentContent.complianceSubtitle}</p>
             </div>
 
-            {/* Sections */}
-            <div className="space-y-3">
-              {sections.map((section, index) => (
-                <Card key={index} className="border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                  <button
-                    onClick={() => setExpandedSection(expandedSection === index ? null : index)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left"
-                  >
-                    <h2 className="text-lg font-semibold text-gray-900">{section.title}</h2>
-                    <ChevronDown 
-                      className={`h-5 w-5 text-gray-500 transition-transform ${expandedSection === index ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {expandedSection === index && (
-                    <CardContent className="px-6 pb-4 pt-0 border-t border-gray-200">
-                      <ul className="space-y-2">
-                        {section.content.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex gap-3 text-sm text-gray-700">
-                            <span className="text-blue-600 font-bold">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  )}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {currentContent.compliance.map((item, idx) => (
+                <Card key={idx} className={`border ${idx === 0 ? 'border-green-200 bg-green-50' : idx === 1 ? 'border-blue-200 bg-blue-50' : 'border-pink-200 bg-pink-50'}`}>
+                  <CardContent className="pt-6 text-center">
+                    <div className="text-2xl font-bold mb-2">{item.region}</div>
+                    <div className="text-xl font-semibold text-gray-900 mb-3">{item.law}</div>
+                    <p className="text-sm text-gray-600">{item.description}</p>
+                  </CardContent>
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Contact Section */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-8 mt-12 text-white">
-              <h2 className="text-2xl font-bold mb-6">
-                {lang === "es" ? "Responsable del Tratamiento de Datos" : "Data Controller"}
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-semibold mb-4">{lang === "es" ? "Contacto Directo" : "Direct Contact"}</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Users className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium">Juan Camilo Gallego</p>
-                        <p className="text-blue-100">{lang === "es" ? "Responsable de Privacidad" : "Privacy Officer"}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Mail className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium">{lang === "es" ? "Correo Electrónico" : "Email"}</p>
-                        <a href="mailto:Servicio@goadmin.io" className="text-blue-100 hover:text-white underline">
-                          Servicio@goadmin.io
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Phone className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium">{lang === "es" ? "Teléfono" : "Phone"}</p>
-                        <a href="tel:+573113195711" className="text-blue-100 hover:text-white underline">
-                          +57 311 3195711
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+        {/* Main Content Sections */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="space-y-8">
+              {currentContent.sections.map((section, idx) => (
+                <div key={idx} className="border-b border-gray-200 pb-8 last:border-b-0">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{section.title}</h3>
+                  <ul className="space-y-3">
+                    {section.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <div>
-                  <h3 className="font-semibold mb-4">{lang === "es" ? "Plataforma" : "Platform"}</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Globe className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium">{lang === "es" ? "Acceso a Aplicación" : "Application Access"}</p>
-                        <a href="https://app.goadmin.io/" target="_blank" rel="noopener noreferrer" className="text-blue-100 hover:text-white underline">
-                          app.goadmin.io
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <FileText className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium">{lang === "es" ? "Respuesta a Solicitudes" : "Response Time"}</p>
-                        <p className="text-blue-100">
-                          {lang === "es" ? "Máximo 10 días hábiles (LSIPA)" : "Maximum 10 business days (LSIPA)"}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer Info */}
-            <div className="bg-gray-50 rounded-lg p-6 mt-8 border border-gray-200">
-              <p className="text-sm text-gray-600 mb-4">
-                {lang === "es" 
-                  ? "Si tienes preguntas sobre esta Política de Privacidad o deseas ejercer cualquiera de tus derechos como titular de datos, por favor contacta al Responsable del Tratamiento. Nos comprometemos a responder todas las solicitudes dentro de los plazos establecidos por la ley." 
-                  : "If you have questions about this Privacy Policy or wish to exercise any of your rights as a data subject, please contact the Data Controller. We are committed to responding to all requests within the timelines established by law."}
-              </p>
-              <p className="text-xs text-gray-500">
-                {lang === "es" 
-                  ? "Esta política cumple con: Ley Estatutaria 1581 de 2012 (LSIPA), Decreto 1377 de 2013, RGPD (UE) 2016/679, ISO 27001:2022" 
-                  : "This policy complies with: Law 1581 of 2012 (LSIPA), Decree 1377 of 2013, GDPR (EU) 2016/679, ISO 27001:2022"}
-              </p>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* CTA Section */}
-        <div className="bg-blue-50 border-t border-gray-200 py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {lang === "es" ? "¿Preguntas sobre tu privacidad?" : "Questions about your privacy?"}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                {lang === "es" 
-                  ? "Nuestro equipo de privacidad está listo para ayudarte. Contacta con nosotros en cualquier momento." 
-                  : "Our privacy team is ready to help you. Contact us at any time."}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
-                  onClick={() => window.location.href = "mailto:Servicio@goadmin.io"}
-                >
-                  {lang === "es" ? "Enviar Email" : "Send Email"}
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50"
-                  onClick={() => window.location.href = "/contacto"}
-                >
-                  {lang === "es" ? "Formulario de Contacto" : "Contact Form"}
-                </Button>
-              </div>
+        {/* Questions Section */}
+        <section className="py-16 md:py-20 bg-blue-50">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-12">
+              <FileText className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{currentContent.questionsTitle}</h2>
+              <p className="text-lg text-gray-600">{currentContent.questionsSubtitle}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* DPO Card */}
+              <Card className="border-2 border-blue-200 bg-white">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{currentContent.dpo.title}</h3>
+                  <p className="text-gray-600 mb-4 text-sm">{currentContent.dpo.description}</p>
+                  <a href={`mailto:${currentContent.dpo.email}`} className="text-blue-600 font-semibold hover:text-blue-700">
+                    {currentContent.dpo.email}
+                  </a>
+                </CardContent>
+              </Card>
+
+              {/* Exercise Rights Card */}
+              <Card className="border-2 border-green-200 bg-white">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{currentContent.exerciseRights.title}</h3>
+                  <p className="text-gray-600 mb-4 text-sm">{currentContent.exerciseRights.description}</p>
+                  <a href={`mailto:${currentContent.exerciseRights.email}`} className="text-green-600 font-semibold hover:text-green-700">
+                    {currentContent.exerciseRights.email}
+                  </a>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg">
+                {currentContent.contactButton}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+
+            <div className="mt-8 text-center text-sm text-gray-600">
+              <p>{currentContent.contactInfo}</p>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+
+        {/* Legal Framework */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">{currentContent.legalFrameworkTitle}</h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {currentContent.frameworks.map((framework, idx) => (
+                <div key={idx} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{framework.title}</h3>
+                  <ul className="space-y-3">
+                    {framework.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-2 text-sm text-gray-700">
+                        <Check className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </>
   )
 }
