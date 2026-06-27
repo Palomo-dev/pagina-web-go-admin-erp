@@ -267,46 +267,49 @@ export default function PrivacidadPage() {
         </div>
       </section>
 
-      {/* Contact for Privacy */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <FileText className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">¿Tienes preguntas sobre privacidad?</h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Nuestro equipo de privacidad está disponible para resolver cualquier duda sobre el manejo de tus datos.
-          </p>
+      {/* Contact for Privacy - With Decorative Border */}
+      <section className="py-20 px-4 bg-white relative">
+        <div className="container mx-auto max-w-4xl relative">
+          {/* Decorative red wavy border */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" preserveAspectRatio="none" style={{pointerEvents: 'none'}}>
+            <path d="M 20,100 Q 50,80 100,90 T 200,100 T 300,90 T 380,100 L 380,400 Q 350,420 300,410 T 200,400 T 100,410 T 20,400 Z" 
+              stroke="#ef4444" strokeWidth="3" fill="none" opacity="0.4" />
+          </svg>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <Card className="border-blue-200">
+          <div className="text-center mb-12 relative z-10">
+            <FileText className="h-16 w-16 text-blue-600 mx-auto mb-6" />
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">¿Tienes preguntas sobre privacidad?</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Nuestro equipo de privacidad está disponible para resolver cualquier duda sobre el manejo de tus datos.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 relative z-10">
+            <Card className="border-blue-200 bg-white">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Responsable del Tratamiento de Datos</h3>
-                <div className="text-gray-600 text-sm space-y-2 mb-4">
-                  <p><strong>Nombre:</strong> Juan Camilo Gallego</p>
-                  <p><strong>Empresa:</strong> GO Admin</p>
-                  <p><strong>Email:</strong> Servicio@goadmin.io</p>
-                  <p><strong>Teléfono:</strong> +57 311 3195711</p>
-                  <p><strong>Plataforma:</strong> https://app.goadmin.io/</p>
-                </div>
-                <p className="text-xs text-gray-500">Cumplimiento: Ley 1581 de 2012, Decreto 1377 de 2013</p>
+                <h3 className="font-semibold text-gray-900 mb-2">Oficial de Protección de Datos</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Contacta directamente con nuestro DPO para consultas específicas sobre privacidad
+                </p>
+                <p className="text-blue-600 font-semibold">dpo@goadmin.io</p>
               </CardContent>
             </Card>
-            <Card className="border-green-200">
+            <Card className="border-green-200 bg-white">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Ejercer tus Derechos</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Ejercer tus Derechos</h3>
                 <p className="text-gray-600 text-sm mb-4">
-                  Solicita acceso, rectificación, eliminación o portabilidad de tus datos personales. Responderemos en máximo 10 días hábiles según Ley 1581.
+                  Solicita acceso, corrección o eliminación de tus datos personales
                 </p>
-                <div className="space-y-2">
-                  <p className="text-blue-600 font-medium text-sm">✉ Servicio@goadmin.io</p>
-                  <p className="text-blue-600 font-medium text-sm">📱 +57 311 3195711</p>
-                </div>
+                <p className="text-green-600 font-semibold">privacidad@goadmin.io</p>
               </CardContent>
             </Card>
           </div>
 
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-            Contactar Equipo de Privacidad
-          </Button>
+          <div className="text-center relative z-10">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+              Contactar Equipo de Privacidad
+            </Button>
+          </div>
         </div>
       </section>
     </div>
