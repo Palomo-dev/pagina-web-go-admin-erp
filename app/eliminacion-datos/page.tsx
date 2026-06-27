@@ -61,7 +61,7 @@ export default function EliminacionDatosPage() {
     {
       title: "En tu Cuenta",
       description: "Accede a tu perfil en:",
-      contact: "app.goadmin.io/configuracion/privacidad",
+      contact: "app.goadmin.io/perfil",
       details: "Selecciona 'Solicitar eliminación de datos' en configuración",
     },
   ]
@@ -82,7 +82,7 @@ export default function EliminacionDatosPage() {
     {
       title: "In Your Account",
       description: "Access your profile at:",
-      contact: "app.goadmin.io/settings/privacy",
+      contact: "app.goadmin.io/perfil",
       details: "Select 'Request data deletion' in settings",
     },
   ]
