@@ -24,6 +24,10 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.about": "Acerca de",
     "nav.careers": "Carreras",
     "nav.contact": "Contacto",
+    "nav.home": "Inicio",
+    "nav.product": "Producto",
+    "nav.ai": "IA",
+    "nav.integrations": "Integraciones",
     "nav.login": "Iniciar Sesión",
     "nav.signup": "Prueba Gratis",
     "nav.openMenu": "Abrir menú de navegación",
@@ -329,6 +333,26 @@ const translations: Record<Language, Record<string, string>> = {
     "industry.readyTitle": "¿Listo para optimizar tu",
     "industry.readyDesc1": "Únete a cientos de",
     "industry.readyDesc2": "que ya confían en GO Admin para gestionar sus operaciones.",
+
+    // Product Demos section
+    "demos.badge": "Mira el ERP en acción",
+    "demos.title": "Todo lo que tu negocio necesita",
+    "demos.subtitle": "Dashboard, reportes y facturación electrónica en un solo lugar. Así se ve GO Admin desde adentro.",
+    "demos.tabDashboard": "Dashboard",
+    "demos.tabReports": "Reportes",
+    "demos.tabInvoices": "Facturas",
+
+    // AI section
+    "ai.badge": "IA Integrada",
+    "ai.title": "Tu asistente contable con IA",
+    "ai.subtitle": "Reportes, análisis, imágenes y asistencia contable al instante. Solo pregunta y GO Admin IA responde.",
+    "ai.demoTitle": "Conversa con GO Admin IA",
+
+    // Integrations section
+    "integrations.badge": "Conecta todo",
+    "integrations.title": "Integraciones que potencian tu negocio",
+    "integrations.subtitle": "Conecta tus canales de venta, pasarelas de pago, delivery, redes sociales y mensajería en un solo ERP.",
+    "integrations.viewAll": "Ver todas las integraciones",
   },
   en: {
     // Navbar
@@ -341,6 +365,10 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.about": "About",
     "nav.careers": "Careers",
     "nav.contact": "Contact",
+    "nav.home": "Home",
+    "nav.product": "Product",
+    "nav.ai": "AI",
+    "nav.integrations": "Integrations",
     "nav.login": "Log In",
     "nav.signup": "Free Trial",
     "nav.openMenu": "Open navigation menu",
@@ -646,6 +674,26 @@ const translations: Record<Language, Record<string, string>> = {
     "industry.readyTitle": "Ready to optimize your",
     "industry.readyDesc1": "Join hundreds of",
     "industry.readyDesc2": "already trusting GO Admin to manage their operations.",
+
+    // Product Demos section
+    "demos.badge": "See the ERP in action",
+    "demos.title": "Everything your business needs",
+    "demos.subtitle": "Dashboard, reports and electronic invoicing in one place. This is what GO Admin looks like from the inside.",
+    "demos.tabDashboard": "Dashboard",
+    "demos.tabReports": "Reports",
+    "demos.tabInvoices": "Invoices",
+
+    // AI section
+    "ai.badge": "Built-in AI",
+    "ai.title": "Your AI accounting assistant",
+    "ai.subtitle": "Reports, analysis, images and accounting assistance instantly. Just ask and GO Admin AI responds.",
+    "ai.demoTitle": "Chat with GO Admin AI",
+
+    // Integrations section
+    "integrations.badge": "Connect everything",
+    "integrations.title": "Integrations that power your business",
+    "integrations.subtitle": "Connect your sales channels, payment gateways, delivery, social media and messaging in one ERP.",
+    "integrations.viewAll": "View all integrations",
   },
 }
 
@@ -656,8 +704,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMounted(true)
     
-    // Check localStorage first
-    const savedLang = localStorage.getItem("language") as Language | null
+    // Check localStorage first (misma clave que usa setLang)
+    const savedLang = localStorage.getItem("go-admin-lang") as Language | null
     if (savedLang && (savedLang === "es" || savedLang === "en")) {
       setLangState(savedLang)
       return
@@ -667,7 +715,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const browserLang = navigator.language.toLowerCase()
     const detectedLang: Language = browserLang.startsWith("es") ? "es" : "en"
     setLangState(detectedLang)
-    localStorage.setItem("language", detectedLang)
+    localStorage.setItem("go-admin-lang", detectedLang)
   }, [])
 
   const setLang = (newLang: Language) => {
