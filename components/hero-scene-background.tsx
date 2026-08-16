@@ -6,7 +6,7 @@ export default function HeroSceneBackground() {
       {/* Planeta que gira */}
       <div
         className="absolute top-1/4 right-[12%]"
-        style={{ opacity: 0.35, animation: 'auth-float 8s ease-in-out infinite' }}
+        style={{ opacity: 0.35, animationFillMode: 'both', animation: 'auth-float 8s ease-in-out infinite' }}
       >
         <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
           <ellipse
@@ -57,7 +57,7 @@ export default function HeroSceneBackground() {
           top: '5%',
           left: 0,
           opacity: 0.2,
-          animation: 'auth-cloud-drift 25s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 25s linear infinite',
           animationDelay: '0s',
         }}
       >
@@ -76,7 +76,7 @@ export default function HeroSceneBackground() {
           top: '12%',
           left: 0,
           opacity: 0.18,
-          animation: 'auth-cloud-drift 35s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 35s linear infinite',
           animationDelay: '-5s',
         }}
       >
@@ -95,7 +95,7 @@ export default function HeroSceneBackground() {
           top: '18%',
           left: 0,
           opacity: 0.22,
-          animation: 'auth-cloud-drift 30s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 30s linear infinite',
           animationDelay: '-10s',
         }}
       >
@@ -114,7 +114,7 @@ export default function HeroSceneBackground() {
           top: '28%',
           left: 0,
           opacity: 0.15,
-          animation: 'auth-cloud-drift 40s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 40s linear infinite',
           animationDelay: '-3s',
         }}
       >
@@ -133,7 +133,7 @@ export default function HeroSceneBackground() {
           top: '38%',
           left: 0,
           opacity: 0.2,
-          animation: 'auth-cloud-drift 28s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 28s linear infinite',
           animationDelay: '-15s',
         }}
       >
@@ -152,7 +152,7 @@ export default function HeroSceneBackground() {
           top: '48%',
           left: 0,
           opacity: 0.18,
-          animation: 'auth-cloud-drift 45s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 45s linear infinite',
           animationDelay: '-8s',
         }}
       >
@@ -171,7 +171,7 @@ export default function HeroSceneBackground() {
           top: '58%',
           left: 0,
           opacity: 0.22,
-          animation: 'auth-cloud-drift 32s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 32s linear infinite',
           animationDelay: '-20s',
         }}
       >
@@ -190,7 +190,7 @@ export default function HeroSceneBackground() {
           top: '68%',
           left: 0,
           opacity: 0.16,
-          animation: 'auth-cloud-drift 38s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 38s linear infinite',
           animationDelay: '-12s',
         }}
       >
@@ -209,7 +209,7 @@ export default function HeroSceneBackground() {
           top: '75%',
           left: 0,
           opacity: 0.19,
-          animation: 'auth-cloud-drift 27s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 27s linear infinite',
           animationDelay: '-6s',
         }}
       >
@@ -228,7 +228,7 @@ export default function HeroSceneBackground() {
           top: '82%',
           left: 0,
           opacity: 0.2,
-          animation: 'auth-cloud-drift 42s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 42s linear infinite',
           animationDelay: '-18s',
         }}
       >
@@ -247,7 +247,7 @@ export default function HeroSceneBackground() {
           top: '90%',
           left: 0,
           opacity: 0.17,
-          animation: 'auth-cloud-drift 33s linear infinite',
+          animationFillMode: 'both', animation: 'auth-cloud-drift-hero 33s linear infinite',
           animationDelay: '-25s',
         }}
       >
@@ -264,7 +264,7 @@ export default function HeroSceneBackground() {
         className="absolute bottom-[10%] right-[15%]"
         style={{
           opacity: 0.4,
-          animation: 'auth-rocket-float 6s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-rocket-float 6s ease-in-out infinite',
         }}
       >
         <svg width="60" height="100" viewBox="0 0 60 100" fill="none">
@@ -309,7 +309,7 @@ export default function HeroSceneBackground() {
         className="absolute top-[15%] left-[8%]"
         style={{
           opacity: 0.15,
-          animation: 'auth-rocket-float 6s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-rocket-float 6s ease-in-out infinite',
           animationDelay: '-3s',
         }}
       >
@@ -358,7 +358,7 @@ export default function HeroSceneBackground() {
           top: '8%',
           left: '5%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0s',
         }}
       >
@@ -374,7 +374,7 @@ export default function HeroSceneBackground() {
           top: '15%',
           left: '18%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.5s',
         }}
       >
@@ -390,7 +390,7 @@ export default function HeroSceneBackground() {
           top: '5%',
           left: '30%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '1s',
         }}
       >
@@ -406,7 +406,7 @@ export default function HeroSceneBackground() {
           top: '22%',
           left: '8%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '1.5s',
         }}
       >
@@ -422,7 +422,7 @@ export default function HeroSceneBackground() {
           top: '12%',
           left: '42%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.3s',
         }}
       >
@@ -438,7 +438,7 @@ export default function HeroSceneBackground() {
           top: '30%',
           left: '25%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '2s',
         }}
       >
@@ -454,7 +454,7 @@ export default function HeroSceneBackground() {
           top: '18%',
           left: '55%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.8s',
         }}
       >
@@ -470,7 +470,7 @@ export default function HeroSceneBackground() {
           top: '8%',
           left: '68%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '1.2s',
         }}
       >
@@ -486,7 +486,7 @@ export default function HeroSceneBackground() {
           top: '25%',
           left: '48%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.6s',
         }}
       >
@@ -502,7 +502,7 @@ export default function HeroSceneBackground() {
           top: '35%',
           left: '15%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '2.5s',
         }}
       >
@@ -518,7 +518,7 @@ export default function HeroSceneBackground() {
           top: '15%',
           left: '75%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '1.8s',
         }}
       >
@@ -534,7 +534,7 @@ export default function HeroSceneBackground() {
           top: '28%',
           left: '62%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.4s',
         }}
       >
@@ -550,7 +550,7 @@ export default function HeroSceneBackground() {
           top: '40%',
           left: '35%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '2.2s',
         }}
       >
@@ -566,7 +566,7 @@ export default function HeroSceneBackground() {
           top: '20%',
           left: '85%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '1.6s',
         }}
       >
@@ -582,7 +582,7 @@ export default function HeroSceneBackground() {
           top: '10%',
           left: '50%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '0.9s',
         }}
       >
@@ -598,7 +598,7 @@ export default function HeroSceneBackground() {
           top: '32%',
           left: '78%',
           opacity: 0.6,
-          animation: 'auth-twinkle 3s ease-in-out infinite',
+          animationFillMode: 'both', animation: 'auth-twinkle 3s ease-in-out infinite',
           animationDelay: '2.8s',
         }}
       >
@@ -607,74 +607,6 @@ export default function HeroSceneBackground() {
         </svg>
       </div>
 
-      {/* Keyframes */}
-      <style jsx>{`
-        @keyframes auth-spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes auth-float {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-15px);
-          }
-        }
-
-        @keyframes auth-cloud-drift {
-          from {
-            transform: translateX(110vw);
-          }
-          to {
-            transform: translateX(-250px);
-          }
-        }
-
-        @keyframes auth-rocket-float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(-15deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(-12deg);
-          }
-        }
-
-        @keyframes auth-twinkle {
-          0%,
-          100% {
-            opacity: 0.6;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.2;
-            transform: scale(0.8);
-          }
-        }
-
-        @keyframes auth-flicker {
-          0%,
-          100% {
-            opacity: 0.8;
-          }
-          25% {
-            opacity: 0.4;
-          }
-          50% {
-            opacity: 0.9;
-          }
-          75% {
-            opacity: 0.3;
-          }
-        }
-      `}</style>
     </div>
   );
 }

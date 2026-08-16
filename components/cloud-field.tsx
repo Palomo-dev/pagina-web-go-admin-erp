@@ -47,17 +47,6 @@ export function CloudField({
 
   return (
     <>
-      <style jsx>{`
-        @keyframes auth-cloud-drift {
-          0% {
-            transform: translateX(-30px);
-          }
-          100% {
-            transform: translateX(calc(100vw + 30px));
-          }
-        }
-      `}</style>
-
       <div
         className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
         aria-hidden="true"
@@ -71,6 +60,7 @@ export function CloudField({
               left: cloud.left,
               width: cloud.width,
               animation: `auth-cloud-drift ${cloud.duration} linear infinite`,
+              animationFillMode: 'both',
               animationDelay: cloud.delay,
             }}
           >

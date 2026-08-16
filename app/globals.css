@@ -90,3 +90,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ===== Animaciones del hero (en globals.css para evitar FOUC) ===== */
+@keyframes auth-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes auth-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes auth-cloud-drift-hero {
+  from { transform: translateX(110vw); }
+  to { transform: translateX(-250px); }
+}
+
+@keyframes auth-cloud-drift {
+  0% { transform: translateX(-30px); }
+  100% { transform: translateX(calc(100vw + 30px)); }
+}
+
+@keyframes auth-rocket-float {
+  0%, 100% { transform: translateY(0px) rotate(-15deg); }
+  50% { transform: translateY(-20px) rotate(-12deg); }
+}
+
+@keyframes auth-twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(0.8); }
+}
+
+@keyframes auth-flicker {
+  0%, 100% { opacity: 0.8; }
+  25% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  75% { opacity: 0.3; }
+}
