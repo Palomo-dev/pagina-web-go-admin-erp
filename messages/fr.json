@@ -1,0 +1,1747 @@
+{
+  "meta": {
+    "title": "GO Admin · Votre entreprise, au même endroit",
+    "description": "Inventaire, ventes, facturation, paie et clients reliés au même endroit. Un logiciel pour restaurants, hébergements, commerces, centres sportifs, stationnements et entreprises de services {inCountry}."
+  },
+  "common": {
+    "skipToContent": "Aller au contenu",
+    "learnMore": "En savoir plus",
+    "faqEyebrow": "Questions fréquentes",
+    "faqTitle": "Ce qu’on nous demande souvent.",
+    "signup": "Essai gratuit",
+    "signupLong": "Créer mon compte gratuit",
+    "login": "Se connecter",
+    "talkToSales": "Parler aux ventes",
+    "contact": "Nous joindre",
+    "example": "Exemple",
+    "sampleData": "Données d’exemple",
+    "home": "Accueil",
+    "breadcrumb": "Fil d’Ariane",
+    "included": "Inclus",
+    "seePlans": "Voir les forfaits"
+  },
+  "home": {
+    "hero": {
+      "badgeShort": "{status, select, integrated {Facturation {authority} incluse} other {GO Admin {inCountry}}}",
+      "badge": "{status, select, integrated {Facturation électronique {authority} incluse dans tous les forfaits} other {Inventaire, ventes et facturation {inCountry}}}",
+      "title1": "Votre entreprise,",
+      "title2": "au même endroit.",
+      "subtitle": "Inventaire, ventes, facturation, paie et clients reliés. Pour que votre entreprise ne dépende plus de votre mémoire.",
+      "ctaSecondary": "Voir GO Admin de l’intérieur",
+      "fine": "À partir de 15 jours gratuits · Sans carte de crédit · Assistance par WhatsApp et courriel",
+      "travelerTitle": "Le voyageur de GO Admin tient une pièce bleue sur sa petite planète"
+    },
+    "problem": {
+      "eyebrow": "Au quotidien",
+      "title": "Tout passe par vous ?",
+      "subtitle": "Achats, paiements, commandes et tâches en attente. Quand tout dépend d’une seule personne, même une petite tâche devient un goulot d’étranglement.",
+      "chips": [
+        {
+          "messy": "Cahier de commandes",
+          "tidy": "Commandes"
+        },
+        {
+          "messy": "WhatsApp des fournisseurs",
+          "tidy": "Fournisseurs"
+        },
+        {
+          "messy": "Feuille d’inventaire",
+          "tidy": "Inventaire"
+        },
+        {
+          "messy": "Factures papier",
+          "tidy": "{status, select, integrated {Facturation {authority}} other {Facturation}}"
+        },
+        {
+          "messy": "Caisse enregistreuse",
+          "tidy": "Caisse"
+        }
+      ],
+      "bullets": [
+        {
+          "title": "Ne saisissez plus deux fois",
+          "text": "Ce que vous vendez en caisse arrive seul dans l’inventaire et la comptabilité."
+        },
+        {
+          "title": "Sachez ce que vous avez, et où",
+          "text": "Stocks par entrepôt et par succursale, avec alertes de stock bas."
+        },
+        {
+          "title": "Fermez la caisse sans surprise",
+          "text": "Comptage, modes de paiement et écarts dans un seul rapport."
+        }
+      ],
+      "connected": "Tout est relié dans GO Admin",
+      "aria": "Des tâches dispersées — cahier, WhatsApp, tableurs, factures et caisse — s’assemblent en pièces reliées dans GO Admin"
+    },
+    "journey": {
+      "eyebrow": "Modules reliés",
+      "title": "Chaque partie compte. Reliez-les.",
+      "subtitle": "Parcourez votre entreprise comme un petit système de planètes. Chaque module a sa place et tous partagent la même information.",
+      "swipe": "Glissez pour parcourir les planètes",
+      "planet": "Planète {n} · {name}",
+      "cta": "Découvrir {name}",
+      "modules": {
+        "pos": {
+          "name": "Ventes et point de vente",
+          "planet": "Vendre",
+          "description": "Encaissez au comptoir, à table ou en ligne. Chaque vente déduit l’inventaire et est prête à facturer.",
+          "points": [
+            "Caisse avec comptage et fermeture quotidienne",
+            "Paiements en espèces, par carte et par QR",
+            "Vente par table et bons de commande"
+          ]
+        },
+        "inventario": {
+          "name": "Inventaire",
+          "planet": "Stocker",
+          "description": "Stocks par entrepôt et par succursale, lots, coûts et transferts, sans tableurs.",
+          "points": [
+            "Alertes de stock bas",
+            "Fiche de stock et coût moyen",
+            "Transferts entre succursales"
+          ]
+        },
+        "finanzas": {
+          "name": "Facturation et finances",
+          "planet": "Facturer",
+          "description": "{status, select, integrated {Factures électroniques validées par {theAuthority}, comptes clients, banques et comptabilité à jour.} other {Factures avec {taxes}, comptes clients, banques et comptabilité à jour.}}",
+          "points": [
+            "{status, select, integrated {Factures et notes de crédit auprès de {theAuthority}} other {Factures et notes de crédit}}",
+            "Comptes clients et fournisseurs",
+            "Écritures automatiques"
+          ]
+        },
+        "crm": {
+          "name": "Clients (CRM)",
+          "planet": "Fidéliser",
+          "description": "Historique d’achats, suivis, occasions d’affaires et campagnes par WhatsApp ou par courriel.",
+          "points": [
+            "Fiche client 360°",
+            "Suivis avec rappel",
+            "Campagnes segmentées"
+          ]
+        },
+        "hrm": {
+          "name": "Paie et équipe",
+          "planet": "Accompagner",
+          "description": "{ePayroll, select, yes {Contrats, quarts de travail, présences, vacances et paie électronique sans ressaisie.} other {Contrats, quarts de travail, présences, vacances et paie selon les règles de votre pays.}}",
+          "points": [
+            "{ePayroll, select, yes {Paie électronique} other {Calcul de la paie}}",
+            "Quarts et présences",
+            "Vacances et événements de paie"
+          ]
+        },
+        "pms": {
+          "name": "Hôtellerie (PMS)",
+          "planet": "Héberger",
+          "description": "Calendrier des réservations, arrivées et départs, folios et connexion avec des canaux comme Booking.com.",
+          "points": [
+            "Calendrier d’occupation",
+            "Folios par client",
+            "Canaux de réservation"
+          ]
+        },
+        "reportes": {
+          "name": "Rapports",
+          "planet": "Comprendre",
+          "description": "Tableaux de bord des ventes, des marges, des comptes clients et de l’inventaire, prêts dès le premier jour.",
+          "points": [
+            "Tableaux de bord par succursale",
+            "Comparaisons par période",
+            "Exportation vers Excel et PDF"
+          ]
+        },
+        "ia": {
+          "name": "GO Admin IA",
+          "planet": "Demander",
+          "description": "Écrivez comme vous parleriez à votre comptable et recevez chiffres, graphiques et rapports en un instant.",
+          "points": [
+            "Assistant comptable",
+            "Des rapports à partir d’une question",
+            "Des images pour vos produits"
+          ]
+        }
+      }
+    },
+    "channels": {
+      "eyebrow": "Canaux numériques inclus",
+      "title": "Votre entreprise vend aussi en ligne.",
+      "subtitle": "Chaque organisation qui s’inscrit reçoit son site Web, sa boutique en ligne et son moteur de réservation, avec sa propre adresse, reliés au même inventaire et au même calendrier.",
+      "cta": "Tout sur les canaux numériques"
+    },
+    "industries": {
+      "eyebrow": "Solutions",
+      "title": "Conçu pour votre façon de travailler.",
+      "subtitle": "Restaurants, hébergements, commerces, cabinets, terrains de sport ou entreprises de services : choisissez ce qui ressemble le plus à votre entreprise et GO Admin arrive avec les modules, les rapports et les processus que vous utilisez tous les jours.",
+      "andMore": "{list} et plus",
+      "cta": "Voir la solution",
+      "otherTitle": "Votre secteur n’apparaît pas ?",
+      "otherText": "GO Admin fonctionne par modules : vous activez ce que vous utilisez et vous le configurez à votre mesure. Dites-nous comment vous travaillez et nous vous montrerons à quoi cela ressemblerait."
+    },
+    "integrations": {
+      "eyebrow": "Intégrations",
+      "title": "Reliez ce que vous utilisez déjà.",
+      "subtitle": "Passerelles de paiement, banques, canaux de réservation, livraison et messagerie communiquent avec GO Admin.",
+      "aria": "Intégrations disponibles",
+      "cta": "Voir toutes les intégrations",
+      "trust": {
+        "invoicing": "{status, select, integrated {Facturation électronique {authority}} other {Taxes locales configurées · {country}}}",
+        "backups": "Données chiffrées et sauvegardes quotidiennes",
+        "roles": "Rôles et permissions par utilisateur",
+        "madeIn": "Conçu à Medellín, en Colombie"
+      }
+    },
+    "plans": {
+      "eyebrow": "Forfaits",
+      "title": "Commencez aujourd’hui. Grandissez à votre rythme.",
+      "subtitle": "{status, select, integrated {Tous les forfaits incluent la facturation électronique, l’assistance et les mises à jour.} other {Tous les forfaits incluent la facturation, l’assistance et les mises à jour.}}",
+      "steps": [
+        {
+          "title": "Créez votre compte",
+          "text": "Sans carte de crédit. Choisissez votre secteur et GO Admin se configure avec ce dont vous avez besoin."
+        },
+        {
+          "title": "Chargez vos données",
+          "text": "Importez produits, clients et soldes depuis votre tableur. Nous vous accompagnons tout au long du processus."
+        },
+        {
+          "title": "Vendez et facturez",
+          "text": "{status, select, integrated {Commencez à vendre, à facturer auprès de {theAuthority} et à consulter vos rapports dès le premier jour.} other {Commencez à vendre, à facturer et à consulter vos rapports dès le premier jour.}}"
+        }
+      ],
+      "cta": "Comparer tous les forfaits et compléments"
+    },
+    "support": {
+      "eyebrow": "Assistance",
+      "title": "Vous n’êtes pas seul.",
+      "subtitle": "De vraies personnes qui connaissent votre entreprise. Nous vous accompagnons de la configuration jusqu’à la première fermeture de mois.",
+      "travelerTitle": "Le voyageur de GO Admin accompagne votre entreprise"
+    },
+    "ai": {
+      "eyebrow": "GO Admin IA",
+      "title": "Interrogez votre entreprise.",
+      "subtitle": "Écrivez comme vous parleriez à votre comptable. L’IA consulte vos ventes, votre inventaire et vos comptes clients, et vous répond avec des chiffres et des graphiques.",
+      "question": "Combien ai-je vendu cette semaine par rapport à la précédente ?",
+      "answer": "Cette semaine, vous avez vendu {amount}, soit 6 % de plus que la précédente. Jeudi a été votre meilleure journée. Voici ce qui s’est le plus vendu :",
+      "top": [
+        "Café d’origine 500 g",
+        "Pains au fromage x 6",
+        "Jus naturel 350 ml",
+        "Croissant"
+      ],
+      "prompts": [
+        "Quels produits sont presque en rupture de stock ?",
+        "Qui me doit de l’argent depuis plus de 30 jours ?",
+        "Faites-moi le rapport des ventes de septembre par succursale"
+      ],
+      "placeholder": "Posez n’importe quelle question sur votre entreprise…"
+    }
+  },
+  "nav": {
+    "main": "Principal",
+    "homeLabel": "GO Admin, accueil",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menu": "Menu",
+    "items": {
+      "product": "Produit",
+      "solutions": "Solutions",
+      "pricing": "Tarifs",
+      "support": "Assistance",
+      "resources": "Ressources",
+      "contact": "Nous joindre"
+    },
+    "channelsEyebrow": "Canaux numériques",
+    "channelsTitle": "Votre entreprise en ligne dès le premier jour",
+    "channelsCta": "Découvrir les canaux numériques",
+    "resourceItems": {
+      "help": {
+        "label": "Centre d’aide",
+        "description": "Guides, canaux et horaires d’assistance."
+      },
+      "training": {
+        "label": "Formations",
+        "description": "Séances en direct et parcours par rôle."
+      },
+      "blog": {
+        "label": "Blogue",
+        "description": "Des idées pour organiser votre entreprise."
+      },
+      "integrations": {
+        "label": "Intégrations",
+        "description": "Paiements, réservations, livraison et messagerie."
+      },
+      "api": {
+        "label": "API pour développeurs",
+        "description": "Reliez vos systèmes à GO Admin."
+      },
+      "security": {
+        "label": "Sécurité",
+        "description": "Comment nous protégeons vos données."
+      },
+      "about": {
+        "label": "À propos de GO Admin",
+        "description": "Qui nous sommes et comment nous travaillons."
+      },
+      "careers": {
+        "label": "Carrières",
+        "description": "Bâtissez avec nous depuis Medellín."
+      },
+      "changelog": {
+        "label": "Nouveautés",
+        "description": "Les nouveautés de GO Admin, mois après mois."
+      },
+      "customers": {
+        "label": "Témoignages clients",
+        "description": "Des histoires réelles d’entreprises."
+      },
+      "partners": {
+        "label": "Programme de partenaires",
+        "description": "Recommandez GO Admin et touchez une commission."
+      }
+    }
+  },
+  "market": {
+    "label": "Pays et langue",
+    "title": "Choisissez votre pays et votre langue",
+    "subtitle": "Vous verrez les prix, les taxes, les modes de paiement et la facturation de votre pays.",
+    "current": "{country} · {language}",
+    "close": "Fermer",
+    "prices": "Prix en {currency}"
+  },
+  "footer": {
+    "tagline": "Votre entreprise, au même endroit. Inventaire, ventes, facturation et équipe reliés pour que vous puissiez décider sereinement.",
+    "columns": {
+      "product": "Produit",
+      "channels": "Canaux numériques",
+      "solutions": "Solutions",
+      "resources": "Ressources",
+      "company": "Entreprise"
+    },
+    "links": {
+      "allModules": "Tous les modules",
+      "pos": "Ventes et PDV",
+      "invoicing": "{invoicing}",
+      "accounting": "Comptabilité",
+      "inventory": "Inventaire",
+      "payroll": "Paie et équipe",
+      "crm": "Clients (CRM)",
+      "reports": "Rapports",
+      "ai": "GO Admin IA",
+      "pricing": "Tarifs",
+      "website": "Site Web",
+      "store": "Boutique en ligne",
+      "booking": "Moteur de réservation",
+      "chat": "Clavardage omnicanal",
+      "integrations": "Intégrations",
+      "help": "Centre d’aide",
+      "training": "Formations",
+      "blog": "Blogue",
+      "api": "API pour développeurs",
+      "security": "Sécurité",
+      "contact": "Nous joindre",
+      "about": "À propos",
+      "careers": "Carrières",
+      "privacy": "Confidentialité",
+      "deletion": "Suppression des données",
+      "changelog": "Nouveautés",
+      "customers": "Témoignages clients",
+      "partners": "Programme de partenaires",
+      "countries": "Pays",
+      "terms": "Conditions d’utilisation",
+      "cookies": "Témoins",
+      "investors": "Investisseurs"
+    },
+    "legal": "© {year} {legalName} · NIT {nit} · {city}",
+    "cookieSettings": "Paramètres des témoins"
+  },
+  "contact": {
+    "hours": "Lun au ven · 8 h – 18 h",
+    "hoursZone": "Lun au ven · 8 h – 18 h (heure de la Colombie, UTC−5)"
+  },
+  "pricing": {
+    "plans": {
+      "pro": {
+        "forWho": "Pour commencer à vous organiser",
+        "features": [
+          "12 modules",
+          "1 succursale · 10 utilisateurs",
+          "{status, select, integrated {1 000 factures électroniques par mois} other {1 000 factures par mois}}",
+          "500 crédits d’IA par mois",
+          "Rapports et assistant comptable avec IA"
+        ]
+      },
+      "business": {
+        "forWho": "Pour les entreprises en croissance",
+        "features": [
+          "16 modules",
+          "5 succursales · 20 utilisateurs",
+          "{status, select, integrated {3 000 factures électroniques par mois} other {3 000 factures par mois}}",
+          "2 000 crédits d’IA par mois",
+          "Encaissements par QR et paiements instantanés"
+        ]
+      },
+      "ultimate": {
+        "forWho": "Pour les activités sur plusieurs sites",
+        "features": [
+          "18 modules (tous)",
+          "15 succursales · 60 utilisateurs",
+          "{status, select, integrated {Factures électroniques illimitées} other {Factures illimitées}}",
+          "10 000 crédits d’IA par mois",
+          "Paiements en ligne, paie par lot et rapprochement",
+          "Assistance dédiée"
+        ]
+      }
+    },
+    "toggle": {
+      "monthly": "Mensuel",
+      "annual": "Annuel",
+      "save": "2 mois gratuits",
+      "label": "Période de facturation"
+    },
+    "recommended": "Recommandé",
+    "perMonth": "/ mois",
+    "perYear": "/ an",
+    "equivalent": "Soit {price} par mois",
+    "perYearTotal": "{price} par an",
+    "trial": "{days} jours gratuits",
+    "cta": "Commencer l’essai gratuit",
+    "note": "{planCurrency, select, COP {Prix en pesos colombiens. Annulez quand vous voulez.} other {Prix en dollars américains (USD). Annulez quand vous voulez.}}",
+    "compare": {
+      "title": "Comparez les forfaits",
+      "feature": "Fonction",
+      "yes": "Inclus",
+      "no": "Non inclus",
+      "all": "{n} (tous)",
+      "unlimited": "Illimitées",
+      "standard": "WhatsApp et courriel",
+      "dedicated": "Dédiée",
+      "rows": {
+        "modules": "Modules",
+        "branches": "Succursales",
+        "users": "Utilisateurs",
+        "invoices": "{status, select, integrated {Factures électroniques par mois} other {Factures par mois}}",
+        "aiCredits": "Crédits d’IA par mois",
+        "trialDays": "Jours d’essai",
+        "aiReports": "Rapports et assistant comptable avec IA",
+        "integrations": "Intégrations externes",
+        "qr": "Encaissements par QR et paiements instantanés",
+        "payFromErp": "Payez et encaissez depuis l’ERP",
+        "paymentLinks": "{status, select, integrated {Encaissements par PSE et liens de paiement par WhatsApp} other {Liens de paiement par WhatsApp}}",
+        "batchPayroll": "Paie par lot et avances aux employés",
+        "reconciliation": "Rapprochement bancaire automatique",
+        "support": "Assistance"
+      }
+    },
+    "addons": {
+      "title": "Compléments",
+      "users": "Utilisateurs supplémentaires",
+      "branches": "Succursales supplémentaires",
+      "ai": "Crédits d’IA supplémentaires",
+      "invoices": "Factures supplémentaires"
+    },
+    "faq": [
+      {
+        "q": "Y a-t-il des frais cachés ?",
+        "a": "Non. Vous payez le forfait choisi et, si vous en avez besoin, les compléments que vous ajoutez. Tout figure sur votre facture."
+      },
+      {
+        "q": "Quels modes de paiement acceptez-vous ?",
+        "a": "{planCurrency, select, COP {Carte de crédit ou de débit, PSE et virement. Vous recevez une facture électronique de GO Admin à chaque paiement.} other {Carte de crédit ou de débit, avec facturation en dollars américains. Vous recevez la facture de chaque paiement par courriel.}}"
+      },
+      {
+        "q": "Puis-je changer de forfait ?",
+        "a": "Oui, quand vous voulez. Le montant est ajusté au prorata à partir du jour du changement."
+      },
+      {
+        "q": "Que se passe-t-il si j’annule ?",
+        "a": "Votre compte reste actif jusqu’à la fin de la période payée et vous pouvez télécharger vos données."
+      }
+    ],
+    "mostChosen": "Le plus choisi",
+    "annualNote": "{price} par an · 2 mois gratuits",
+    "trialNote": "{days} jours d’essai",
+    "tryPlan": "Essayer {name} gratuitement"
+  },
+  "faqHome": {
+    "items": [
+      {
+        "q": "Dois-je installer quelque chose pour utiliser GO Admin ?",
+        "a": "Non. GO Admin fonctionne dans le navigateur de votre ordinateur, de votre tablette ou de votre cellulaire. Il vous suffit d’une connexion Internet et de votre nom d’utilisateur."
+      },
+      {
+        "q": "{status, select, integrated {La facturation électronique est-elle incluse ?} other {Comment fonctionne la facturation {inCountry} ?}}",
+        "a": "{status, select, integrated {Oui. Tous les forfaits incluent la facturation électronique auprès de {theAuthority}. Le certificat de signature numérique s’achète séparément si vous ne l’avez pas encore.} other {Vous émettez des factures et des notes de crédit avec {taxes} depuis GO Admin. {einvoiceNote}}}"
+      },
+      {
+        "q": "Puis-je transférer les données que j’ai déjà ?",
+        "a": "Oui. Vous importez produits, clients et soldes depuis Excel, et nous vous accompagnons lors du premier chargement."
+      },
+      {
+        "q": "Que se passe-t-il à la fin de l’essai gratuit ?",
+        "a": "Vous choisissez un forfait pour continuer. Si vous décidez d’arrêter, vous pouvez télécharger vos données avant de fermer le compte."
+      },
+      {
+        "q": "Puis-je changer de forfait plus tard ?",
+        "a": "Oui, vous passez à un forfait supérieur ou inférieur quand vous en avez besoin, et le montant est ajusté au prorata."
+      },
+      {
+        "q": "Mes données sont-elles en sécurité ?",
+        "a": "Vos données circulent chiffrées, sont sauvegardées tous les jours et chaque utilisateur ne voit que ce que son rôle lui permet."
+      }
+    ]
+  },
+  "support": {
+    "channels": {
+      "whatsapp": {
+        "title": "WhatsApp d’assistance",
+        "text": "Écrivez-nous et une personne de l’équipe vous répond avec votre dossier en main.",
+        "cta": "Ouvrir WhatsApp"
+      },
+      "help": {
+        "title": "Centre d’aide",
+        "text": "Guides étape par étape, courtes vidéos et réponses aux questions les plus courantes.",
+        "meta": "Toujours disponible",
+        "cta": "Aller au centre d’aide"
+      },
+      "onboarding": {
+        "title": "Mise en place accompagnée",
+        "text": "Nous configurons avec vous l’entreprise, les succursales, les produits et la facturation.",
+        "meta": "Incluse dans tous les forfaits",
+        "cta": "Planifier la mise en place"
+      },
+      "training": {
+        "title": "Formations en direct",
+        "text": "Des séances pour votre équipe de caisse, d’entrepôt et de comptabilité.",
+        "meta": "Chaque semaine",
+        "cta": "Voir les formations"
+      }
+    },
+    "guides": {
+      "start": {
+        "title": "Premiers pas",
+        "articles": [
+          "Créez votre entreprise et vos succursales",
+          "Invitez votre équipe",
+          "Configurez les taxes"
+        ]
+      },
+      "invoicing": {
+        "title": "{invoicing}",
+        "articles": [
+          "{status, select, integrated {Obtenez votre habilitation auprès de {theAuthority}} other {Configurez votre numérotation}}",
+          "Émettez votre première facture",
+          "Notes de crédit et de débit"
+        ]
+      },
+      "inventory": {
+        "title": "Inventaire",
+        "articles": [
+          "Importez des produits depuis Excel",
+          "Transferts entre entrepôts",
+          "Ajustements d’inventaire"
+        ]
+      },
+      "pos": {
+        "title": "Point de vente",
+        "articles": [
+          "Ouvrez et fermez la caisse",
+          "Ventes par table",
+          "Modes de paiement"
+        ]
+      },
+      "payroll": {
+        "title": "Paie et équipe",
+        "articles": [
+          "Enregistrez vos employés",
+          "Calculez la paie",
+          "{ePayroll, select, yes {Paie électronique} other {Vacances et événements de paie}}"
+        ]
+      },
+      "integrations": {
+        "title": "Intégrations",
+        "articles": [
+          "Reliez votre passerelle de paiement",
+          "Booking et canaux de réservation",
+          "WhatsApp Business"
+        ]
+      }
+    },
+    "hub": {
+      "eyebrow": "Centre d’aide",
+      "title": "Comment pouvons-nous vous aider ?",
+      "subtitle": "Des guides, des personnes et des formations pour que GO Admin travaille à votre rythme.",
+      "searchLabel": "Rechercher dans le centre d’aide",
+      "placeholder": "Recherchez : « facture », « fermer la caisse »…",
+      "search": "Rechercher",
+      "popular": "Populaires :",
+      "popularItems": [
+        {
+          "label": "Premier accès",
+          "q": "entreprise"
+        },
+        {
+          "label": "{invoicing}",
+          "q": "factur"
+        },
+        {
+          "label": "Importer des produits",
+          "q": "import"
+        },
+        {
+          "label": "Fermeture de caisse",
+          "q": "caisse"
+        }
+      ],
+      "guidesEyebrow": "Guides",
+      "guidesTitle": "Apprenez à votre rythme.",
+      "guidesSubtitle": "De courts articles avec captures d’écran et des vidéos de moins de trois minutes.",
+      "notFound": "Aucun résultat pour « {q} ».",
+      "notFoundText": "Écrivez-nous et nous vous répondrons avec votre dossier en main.",
+      "askWhatsapp": "Poser la question par WhatsApp",
+      "seeAll": "Voir tous les guides"
+    }
+  },
+  "mock": {
+    "dashboard": {
+      "aria": "Aperçu d’exemple du tableau de bord de GO Admin avec les ventes du jour, les factures émises, les alertes de stock et l’activité récente",
+      "days": [
+        "Lun",
+        "Mar",
+        "Mer",
+        "Jeu",
+        "Ven",
+        "Sam",
+        "Dim"
+      ],
+      "side": [
+        "Accueil",
+        "Ventes",
+        "Inventaire",
+        "Facturation",
+        "Clients",
+        "Rapports",
+        "IA"
+      ],
+      "greeting": "Bonjour, Ana",
+      "where": "Jeudi · Succursale Laureles",
+      "salesToday": "Ventes du jour",
+      "salesNote": "+8 % par rapport à hier",
+      "invoices": "Factures émises",
+      "invoicesNote": "{status, select, integrated {Acceptées par {theAuthority}} other {Envoyées à vos clients}}",
+      "lowStock": "Stock bas",
+      "lowStockValue": "5 produits",
+      "lowStockNote": "À vérifier avant vendredi",
+      "weekSales": "Ventes de la semaine",
+      "weekUnit": "En {currency}",
+      "activity": "Activité récente",
+      "act1": "Facture FE-001234 {status, select, integrated {acceptée} other {envoyée}}",
+      "act1Time": "Il y a 2 min",
+      "act2": "Commande n° 482 expédiée",
+      "act2Time": "Il y a 18 min",
+      "act3": "Fermeture de caisse · Laureles",
+      "act3Time": "Il y a 1 h",
+      "act4": "Nouveau client : Café Aroma",
+      "act4Time": "Il y a 3 h"
+    },
+    "viewLabel": "Aperçu d’exemple : {label}",
+    "labels": {
+      "pos": "point de vente avec addition de table",
+      "stock": "stocks par entrepôt",
+      "pms": "calendrier d’occupation de l’hôtel",
+      "invoice": "{status, select, integrated {facture électronique acceptée par {theAuthority}} other {facture de vente}}",
+      "ledger": "écriture comptable automatique",
+      "payroll": "calcul de la paie",
+      "pipeline": "entonnoir des occasions d’affaires",
+      "chat": "boîte de réception des conversations",
+      "site": "site Web d’une entreprise",
+      "store": "boutique en ligne avec panier",
+      "booking": "réservation de table",
+      "dashboard": "tableau de bord des ventes",
+      "ai": "assistant IA"
+    },
+    "pos": {
+      "items": [
+        "Assiette de poulet grillé",
+        "Limonade à la noix de coco",
+        "Galette au fromage"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Bar",
+        "Terrasse"
+      ],
+      "open": "Ouverte · 3 pers.",
+      "free": "Libre",
+      "busy": "Occupée",
+      "current": "Table 3",
+      "tip": "Pourboire suggéré",
+      "total": "Total",
+      "methods": [
+        "Espèces",
+        "Carte",
+        "QR"
+      ]
+    },
+    "stock": {
+      "title": "Stocks · Succursale Laureles",
+      "search": "Rechercher",
+      "head": [
+        "Produit",
+        "Entrepôt",
+        "Stock",
+        "État"
+      ],
+      "rows": [
+        "Café d’origine 500 g",
+        "Pains au fromage x 6",
+        "T-shirt basique · M · Bleu",
+        "Gobelet compostable 12 oz"
+      ],
+      "main": "Principal",
+      "kitchen": "Cuisine",
+      "ok": "Suffisant",
+      "low": "Stock bas",
+      "out": "Épuisé"
+    },
+    "pms": {
+      "rooms": [
+        "101 · Double",
+        "102 · Double",
+        "201 · Suite",
+        "202 · Simple"
+      ],
+      "direct": "Directe",
+      "group": "Groupe Andes"
+    },
+    "invoice": {
+      "company": "Café Aroma S.A.S.",
+      "accepted": "{status, select, integrated {Acceptée {authority}} other {Envoyée}}",
+      "docType": "{status, select, integrated {Facture de vente électronique} other {Facture de vente}}",
+      "subtotal": "Sous-total",
+      "total": "Total",
+      "sent": "Envoyée au client par courriel"
+    },
+    "ledger": {
+      "title": "Écriture automatique · Vente FE-001234",
+      "generated": "Générée",
+      "head": [
+        "Compte",
+        "Débit",
+        "Crédit"
+      ],
+      "cash": "Caisse générale",
+      "sales": "Ventes",
+      "taxPayable": "{tax} à payer",
+      "balance": "Débits = Crédits · {amount}"
+    },
+    "payroll": {
+      "title": "Paie · Première quinzaine",
+      "ready": "Prête à payer",
+      "head": [
+        "Employé",
+        "Poste",
+        "Événements",
+        "Net"
+      ],
+      "roles": [
+        "Caissière",
+        "Cuisinier",
+        "Gérante"
+      ],
+      "notes": [
+        "2 h supp.",
+        "—",
+        "Vacances 3 j"
+      ]
+    },
+    "pipeline": {
+      "cols": [
+        "Nouveau",
+        "Soumission envoyée",
+        "Négociation",
+        "Gagné"
+      ]
+    },
+    "chat": {
+      "list": [
+        "Avez-vous une table pour 4 ce soir ?",
+        "Livrez-vous à Envigado ?",
+        "À quelle heure ouvrez-vous dimanche ?"
+      ],
+      "visitor": "Visiteur",
+      "web": "Web",
+      "q": "Avez-vous une table pour 4 ce soir à 20 h ?",
+      "a": "Oui, nous avons de la disponibilité à {time}. Je la réserve au nom de María ?",
+      "yes": "Oui, s’il vous plaît.",
+      "done": "Réservation créée · Table 6"
+    },
+    "site": {
+      "menu": "Menu",
+      "bookings": "Réservations",
+      "about": "À propos",
+      "order": "Commander en ligne",
+      "since": "Depuis 2012 à Laureles",
+      "headline": "Café d’origine, pain du jour.",
+      "open": "Ouvert aujourd’hui · {from} – {to}",
+      "seeMenu": "Voir le menu",
+      "book": "Réserver",
+      "template": "Modèle Restaurant · Couleurs de votre marque",
+      "madeWith": "Créé avec GO Admin"
+    },
+    "store": {
+      "products": [
+        "Café d’origine 500 g",
+        "Pains au fromage x 6",
+        "Tasse en céramique"
+      ],
+      "order": "Votre commande",
+      "item": "Café 500 g",
+      "delivery": "Livraison",
+      "free": "Gratuite",
+      "total": "Total",
+      "pay": "Payer"
+    },
+    "booking": {
+      "title": "Réservez votre table",
+      "people": "Personnes",
+      "times": "Heures disponibles",
+      "confirm": "Confirmer la réservation",
+      "reminder": "Rappel par WhatsApp"
+    },
+    "ai": {
+      "q": "Quels produits sont presque en rupture de stock ?",
+      "intro": "Au rythme de vente actuel, ces 3 produits seront épuisés avant vendredi :",
+      "items": [
+        "Pains au fromage x 6",
+        "Lait entier 1 L",
+        "Gobelet 12 oz"
+      ],
+      "days": "{n} jours",
+      "out": "Épuisé",
+      "cta": "Créer un bon de commande"
+    }
+  },
+  "channels": {
+    "aria": "Canaux numériques",
+    "tabs": {
+      "web": {
+        "label": "Site Web",
+        "title": "Votre site, à votre image",
+        "points": [
+          "Modèles par secteur",
+          "Adresse GO Admin ou votre propre domaine",
+          "Produits, prix et horaires synchronisés"
+        ],
+        "cta": "Découvrir le site Web"
+      },
+      "tienda": {
+        "label": "Boutique en ligne",
+        "title": "Vendez avec l’inventaire que vous avez déjà",
+        "points": [
+          "Panier et paiements en ligne",
+          "Livraison, cueillette et coupons",
+          "Chaque commande arrive dans l’ERP"
+        ],
+        "cta": "Découvrir la boutique en ligne"
+      },
+      "reservas": {
+        "label": "Moteur de réservation",
+        "title": "Réservations directes, sans intermédiaires",
+        "points": [
+          "Chambres, tables, rendez-vous et cours",
+          "Dépôts et rappels",
+          "Le même calendrier que vos canaux"
+        ],
+        "cta": "Découvrir le moteur de réservation"
+      }
+    },
+    "included": "Inclus",
+    "ownDomain": "Votre domaine"
+  },
+  "nightCta": {
+    "eyebrow": "À partir de 15 jours gratuits · Sans carte de crédit",
+    "title": "Mettez de l’ordre dans ce qui s’en vient.",
+    "text": "Créez votre compte en quelques minutes. Demain, en ouvrant, vous saurez déjà ce que vous avez, ce que vous avez vendu et ce qu’on vous doit.",
+    "travelerTitle": "Le voyageur, assis sur sa planète, regarde les étoiles"
+  },
+  "legal": {
+    "updated": "Dernière mise à jour : {date}",
+    "toc": "Contenu du document",
+    "reference": "Traduction de référence. La version qui fait foi est celle publiée en espagnol.",
+    "seeSpanish": "Voir la version espagnole"
+  },
+  "contactForm": {
+    "hello": "Bonjour, je m’appelle {name}.",
+    "helloCompany": "Bonjour, je m’appelle {name}, de {company}.",
+    "industryLine": "Secteur : {value}.",
+    "branchesLine": "Succursales : {value}.",
+    "countryLine": "Pays : {country}.",
+    "required": "Écrivez votre nom et dites-nous comment nous pouvons vous aider.",
+    "subject": "Je veux découvrir GO Admin",
+    "name": "Nom",
+    "namePh": "Votre nom",
+    "company": "Entreprise",
+    "companyPh": "Nom de votre entreprise",
+    "industry": "Type d’entreprise",
+    "select": "Sélectionnez",
+    "other": "Autre",
+    "branches": "Combien de succursales avez-vous ?",
+    "b1": "1",
+    "b2": "2 à 5",
+    "b3": "6 à 15",
+    "b4": "Plus de 15",
+    "message": "Comment pouvons-nous vous aider ?",
+    "messagePh": "Dites-nous comment vous travaillez aujourd’hui et ce que vous aimeriez mieux organiser.",
+    "whatsapp": "Envoyer par WhatsApp",
+    "email": "Envoyer par courriel",
+    "consent": "En envoyant, nous ouvrons votre WhatsApp ou votre courriel avec le message prêt. Nous traitons vos données conformément à notre",
+    "privacy": "politique de confidentialité"
+  },
+  "pages": {
+    "productIndex": {
+      "meta": {
+        "title": "Produit",
+        "description": "Ventes et PDV, inventaire, {invoicing}, comptabilité, paie, CRM, clavardage omnicanal, site Web, boutique en ligne, moteur de réservation, rapports et IA dans GO Admin."
+      },
+      "eyebrow": "Produit",
+      "title": "Tous les modules, une seule opération.",
+      "subtitle": "Ce que vous vendez, stockez, facturez et payez vit au même endroit. Et votre entreprise se met en ligne avec son site, sa boutique et ses réservations.",
+      "channelsEyebrow": "Canaux numériques",
+      "channelsTitle": "Votre entreprise en ligne dès le premier jour.",
+      "channelsSubtitle": "Chaque organisation qui s’inscrit reçoit son site Web, sa boutique en ligne et son moteur de réservation, reliés au même inventaire et au même calendrier.",
+      "ctaTitle": "Vous ne savez pas par où commencer ?",
+      "ctaText": "Dites-nous comment vous travaillez et nous vous montrerons les modules dont vous avez besoin aujourd’hui."
+    },
+    "product": {
+      "breadcrumb": "Produit",
+      "includedTag": "Inclus à l’inscription de votre organisation",
+      "connectedTitle": "{name}, relié à tout le reste.",
+      "solvesEyebrow": "Ce que ça règle",
+      "solvesTitle": "De la situation actuelle à ce qu’elle peut être.",
+      "featuresEyebrow": "Fonctions",
+      "featuresTitle": "Tout ce dont vous avez besoin, sans modules isolés.",
+      "howEyebrow": "Fonctionnement",
+      "howTitle": "Commencez en quatre étapes.",
+      "connectsEyebrow": "Modules reliés",
+      "connectsTitle": "L’information circule sans ressaisie.",
+      "solutionsEyebrow": "Solutions",
+      "solutionsTitle": "Voici comment différentes entreprises l’utilisent.",
+      "ctaTitle": "Commencez avec {name} aujourd’hui.",
+      "fiscal": {
+        "eyebrow": "La facturation dans chaque pays",
+        "title": "Vos factures, selon les règles de votre pays.",
+        "subtitle": "GO Admin est présent dans 10 pays. Voici où en est la facturation dans chacun d’eux.",
+        "country": "Pays",
+        "authority": "Autorité",
+        "system": "Système",
+        "statusLabel": "Dans GO Admin",
+        "taxes": "Taxes",
+        "status": {
+          "integrated": "Émission et validation connectées",
+          "not_integrated": "Factures avec les taxes locales; connexion avec l’autorité en attente",
+          "not_mandatory": "Factures avec les taxes locales; aucun système national obligatoire"
+        },
+        "none": "Sans objet",
+        "note": "Quand nous connecterons un nouveau pays, nous l’annoncerons ici. Si vous avez besoin de l’émission électronique dans votre pays, écrivez-nous.",
+        "you": "Votre pays"
+      }
+    },
+    "solution": {
+      "metaTitle": "GO Admin pour {name}",
+      "breadcrumb": "Solutions",
+      "forEyebrow": "Pour qui",
+      "forTitle": "Conçu pour des entreprises comme la vôtre.",
+      "forSubtitle": "Voici quelques exemples. Si votre entreprise fonctionne de façon semblable, GO Admin s’adapte : vous activez les modules que vous utilisez et configurez vos produits, vos tarifs et vos rôles.",
+      "changesTitle": "Ce qui change au quotidien.",
+      "dayEyebrow": "Une journée avec vous",
+      "dayTitle": "Une journée dans votre entreprise avec GO Admin.",
+      "featuresEyebrow": "Pensé pour vos activités",
+      "featuresTitle": "Des fonctions que vous utiliserez tous les jours.",
+      "channelTag": "Canal numérique inclus",
+      "channelCta": "Découvrir : {name}",
+      "modulesEyebrow": "Modules",
+      "modulesTitle": "Ce qu’inclut votre solution.",
+      "othersEyebrow": "Autres solutions",
+      "othersTitle": "Nous travaillons aussi avec…"
+    },
+    "solutions": {
+      "meta": {
+        "title": "Solutions par type d’entreprise",
+        "description": "GO Admin pour restaurants, bars, hôtels, chalets, commerces, salons de beauté, cabinets, centres sportifs, terrains de sport, stationnements, transport et entreprises de services {inCountry}."
+      },
+      "eyebrow": "Solutions",
+      "title": "Chaque entreprise est une petite planète.",
+      "subtitle": "Un restaurant ne se gère pas comme un hôtel. Choisissez la famille qui ressemble le plus à votre entreprise et commencez avec les modules, les rapports et les canaux que vous utilisez déjà.",
+      "otherTitle": "Votre secteur n’apparaît pas ?",
+      "otherText": "GO Admin fonctionne par modules : vous activez ce que vous utilisez et configurez vos produits, vos tarifs et vos rôles. Dites-nous comment vous travaillez et nous vous montrerons à quoi cela ressemblerait.",
+      "channelsEyebrow": "Pour toutes les entreprises",
+      "channelsTitle": "Votre site, votre boutique et vos réservations, inclus."
+    },
+    "channels": {
+      "meta": {
+        "title": "Canaux numériques",
+        "description": "Chaque organisation dans GO Admin reçoit son site Web, sa boutique en ligne et son moteur de réservation, avec sous-domaine inclus ou domaine personnalisé, reliés à l’inventaire et au calendrier."
+      },
+      "eyebrow": "Canaux numériques",
+      "title": "Votre entreprise en ligne dès le premier jour.",
+      "subtitle": "Chaque organisation qui s’inscrit à GO Admin reçoit son site Web, sa boutique en ligne et son moteur de réservation, reliés au même inventaire, au même calendrier et à la même caisse.",
+      "stepsEyebrow": "Dès l’inscription",
+      "stepsTitle": "De l’inscription à la vente en ligne.",
+      "steps": [
+        {
+          "title": "Inscrivez votre organisation",
+          "text": "Vous recevez votre adresse votreentreprise.goadmin.io."
+        },
+        {
+          "title": "Choisissez un modèle",
+          "text": "Par secteur, avec vos couleurs et votre logo."
+        },
+        {
+          "title": "Activez ce dont vous avez besoin",
+          "text": "Boutique, réservations, rendez-vous ou commandes."
+        },
+        {
+          "title": "Reliez votre domaine",
+          "text": "Quand vous voulez, sans perdre ce qui est publié."
+        }
+      ],
+      "templatesEyebrow": "Modèles",
+      "templatesTitle": "Commencez avec un modèle conçu pour votre secteur.",
+      "templates": {
+        "modern": {
+          "name": "Moderne",
+          "for": "Toute entreprise"
+        },
+        "classic": {
+          "name": "Classique",
+          "for": "Services"
+        },
+        "elegant": {
+          "name": "Élégant",
+          "for": "Marques haut de gamme"
+        },
+        "restaurant": {
+          "name": "Restaurant",
+          "for": "Menu, commandes et tables"
+        },
+        "hotel": {
+          "name": "Hôtel",
+          "for": "Chambres et réservations"
+        },
+        "ecommerce": {
+          "name": "Boutique",
+          "for": "Catalogue et panier"
+        },
+        "parking": {
+          "name": "Stationnement",
+          "for": "Tarifs et abonnements mensuels"
+        }
+      },
+      "includedEyebrow": "Inclus",
+      "includedTitle": "Tout ce dont votre site a besoin pour vendre.",
+      "features": [
+        {
+          "title": "Sous-domaine inclus",
+          "text": "Une adresse votreentreprise.goadmin.io dès l’inscription."
+        },
+        {
+          "title": "Domaine personnalisé",
+          "text": "Reliez le vôtre avec une vérification DNS ou achetez-le depuis GO Admin."
+        },
+        {
+          "title": "Créateur de pages",
+          "text": "Sections modifiables, brouillons, versions et publication."
+        },
+        {
+          "title": "Moteurs de recherche et réseaux sociaux",
+          "text": "Titre, description, image de partage et vérification Google."
+        },
+        {
+          "title": "Clavardage sur votre site",
+          "text": "Le widget arrive dans la boîte de réception omnicanale avec un assistant IA."
+        },
+        {
+          "title": "Visites et avis",
+          "text": "Statistiques de visites et avis modérés de vos clients."
+        }
+      ],
+      "eachEyebrow": "Découvrez chaque canal",
+      "eachTitle": "Site, boutique, réservations et conversations.",
+      "faq": [
+        {
+          "q": "Le site Web entraîne-t-il des frais supplémentaires ?",
+          "a": "Le site avec sous-domaine GO Admin est créé à l’inscription de votre organisation. Consultez la page Tarifs pour voir les fonctions incluses dans chaque forfait."
+        },
+        {
+          "q": "Puis-je utiliser mon propre domaine ?",
+          "a": "Oui. Vous reliez votre domaine avec une vérification DNS ou vous l’achetez depuis GO Admin."
+        },
+        {
+          "q": "Les ventes en ligne sont-elles facturées ?",
+          "a": "Oui. Chaque commande arrive dans l’ERP et est prête à facturer."
+        },
+        {
+          "q": "Puis-je avoir plusieurs succursales avec un seul site ?",
+          "a": "Oui. Le site peut afficher l’information et les réservations par succursale."
+        }
+      ],
+      "ctaTitle": "Mettez votre entreprise en ligne aujourd’hui."
+    },
+    "pricing": {
+      "meta": {
+        "title": "Tarifs",
+        "description": "{planCurrency, select, COP {Forfaits Pro, Business et Ultimate en pesos colombiens. Tous incluent la facturation électronique {authority}, l’assistance et les mises à jour.} other {Forfaits Pro, Business et Ultimate en dollars américains. Tous incluent la facturation avec les taxes de votre pays, l’assistance et les mises à jour.}}"
+      },
+      "eyebrow": "{planCurrency, select, COP {Prix en pesos colombiens} other {Prix en dollars américains (USD)}}",
+      "title": "Des forfaits clairs, sans petits caractères.",
+      "subtitle": "{status, select, integrated {Tous incluent la facturation électronique {authority}, l’assistance et les mises à jour. Choisissez selon la taille de vos activités.} other {Tous incluent la facturation avec {taxes}, l’assistance et les mises à jour. Choisissez selon la taille de vos activités.}}",
+      "compareEyebrow": "Comparatif",
+      "compareTitle": "Ce qu’inclut chaque forfait.",
+      "compareCaption": "Comparatif des forfaits Pro, Business et Ultimate",
+      "feature": "Caractéristique",
+      "addonsEyebrow": "Compléments",
+      "addonsTitle": "Besoin de plus de capacité ?",
+      "addonsSubtitle": "Ajoutez seulement ce qui vous manque, dans n’importe quel forfait.",
+      "certTitle": "Certificat de signature numérique {authority}",
+      "certText": "Nécessaire pour signer vos factures électroniques. Valide pendant un an.",
+      "perYear": "/ an",
+      "request": "Demander",
+      "faqEyebrow": "Questions sur la facturation",
+      "faqTitle": "Paiements et forfaits.",
+      "ctaTitle": "Vous ne savez pas quel forfait choisir ?",
+      "ctaText": "Dites-nous combien de succursales, d’utilisateurs et de factures vous gérez, et nous vous recommanderons le forfait qui vous convient."
+    },
+    "support": {
+      "meta": {
+        "title": "Assistance et centre d’aide",
+        "description": "Parlez à une personne par WhatsApp, consultez des guides étape par étape et planifiez votre mise en place accompagnée avec GO Admin."
+      },
+      "channelsEyebrow": "Canaux",
+      "channelsTitle": "Parlez à une personne.",
+      "channelsSubtitle": "Nous répondons avec votre dossier en main. Les horaires sont à l’heure de la Colombie.",
+      "implEyebrow": "Mise en place",
+      "implTitle": "Voici comment nous vous accompagnons.",
+      "implSubtitle": "Du premier accès à la première fermeture de mois, avec une personne qui connaît votre dossier.",
+      "steps": [
+        {
+          "title": "Nous configurons avec vous",
+          "text": "Entreprise, succursales, taxes, numérotation des factures et utilisateurs."
+        },
+        {
+          "title": "Nous chargeons vos données",
+          "text": "Produits, clients, fournisseurs et soldes d’ouverture."
+        },
+        {
+          "title": "Nous formons votre équipe",
+          "text": "Caisse, entrepôt et comptabilité : chacun dans son domaine."
+        },
+        {
+          "title": "Nous vous accompagnons jusqu’à la fermeture",
+          "text": "Nous révisons ensemble votre première fermeture de mois."
+        }
+      ],
+      "directEyebrow": "Contact direct",
+      "directTitle": "Vous préférez écrire ou appeler ?",
+      "whatsapp": "WhatsApp",
+      "email": "Courriel",
+      "phone": "Téléphone"
+    },
+    "contact": {
+      "meta": {
+        "title": "Nous joindre",
+        "description": "Parlez à l’équipe GO Admin par WhatsApp ou par courriel. Nous vous aidons à choisir le forfait et à configurer votre entreprise."
+      },
+      "eyebrow": "Nous joindre",
+      "title": "Dites-nous comment vous travaillez.",
+      "subtitle": "Nous vous montrons à quoi ressemblerait votre entreprise dans GO Admin et nous vous aidons à choisir le bon forfait. Sans engagement.",
+      "whatsapp": "WhatsApp",
+      "email": "Courriel",
+      "hours": "Heures d’ouverture",
+      "where": "Où nous trouver"
+    },
+    "integrations": {
+      "meta": {
+        "title": "Intégrations",
+        "description": "Paiements, banques, canaux de réservation, livraison, transporteurs, messagerie et réseaux sociaux reliés à GO Admin {inCountry}. API et webhooks pour développeurs."
+      },
+      "eyebrow": "Intégrations",
+      "title": "Reliez ce que vous utilisez déjà.",
+      "subtitle": "Passerelles de paiement, banques, canaux de réservation, applications de livraison, transporteurs et messagerie communiquent avec GO Admin. Nous vous montrons celles qui sont disponibles {inCountry}.",
+      "categories": "Catégories d’intégrations",
+      "devEyebrow": "Pour les développeurs",
+      "devTitle": "API, webhooks et synchronisations.",
+      "ctaTitle": "Besoin d’une autre intégration ?",
+      "ctaText": "Dites-nous quel outil vous utilisez et nous évaluerons comment le relier.",
+      "cta": "Nous écrire"
+    },
+    "about": {
+      "meta": {
+        "title": "À propos",
+        "description": "GO Admin réunit les outils pour organiser les activités des petites et moyennes entreprises. Depuis Medellín, pour des entreprises de 10 pays."
+      },
+      "eyebrow": "À propos de GO Admin",
+      "title": "L’entreprise au centre.",
+      "subtitle": "Inventaire, ventes, comptabilité, paie, clients et canaux numériques font partie d’une même histoire : comprendre ce qui se passe dans l’entreprise et pouvoir agir.",
+      "travelerTitle": "Le voyageur de GO Admin",
+      "missionEyebrow": "Mission",
+      "missionTitle": "Votre entreprise, au même endroit.",
+      "valuesEyebrow": "Qui nous sommes",
+      "valuesTitle": "Notre façon de travailler et de vous parler.",
+      "originEyebrow": "Depuis Medellín",
+      "originTitle": "Conçu en Colombie, pour des entreprises de 10 pays.",
+      "originSubtitle": "{legalName} · NIT {nit} · {city}",
+      "links": [
+        {
+          "title": "Carrières",
+          "text": "Bâtissez avec nous."
+        },
+        {
+          "title": "Blogue",
+          "text": "Des idées pour organiser votre entreprise."
+        },
+        {
+          "title": "Nous joindre",
+          "text": "Parlons de votre entreprise."
+        }
+      ]
+    },
+    "security": {
+      "meta": {
+        "title": "Sécurité",
+        "description": "Rôles et permissions par succursale, isolement des données entre organisations, journal des modifications, authentification et sauvegardes dans GO Admin."
+      },
+      "eyebrow": "Sécurité",
+      "title": "Vos données, entre de bonnes mains.",
+      "subtitle": "Comment nous protégeons les données de votre entreprise et comment vous décidez qui voit quoi.",
+      "controls": [
+        {
+          "title": "Chaque organisation, isolée",
+          "text": "Les règles d’accès de la base de données empêchent une organisation de voir l’information d’une autre."
+        },
+        {
+          "title": "Rôles et permissions",
+          "text": "Permissions par module, par page et par succursale. Une personne peut avoir des rôles différents dans chaque succursale."
+        },
+        {
+          "title": "Journal des modifications",
+          "text": "Registre de qui a modifié quoi dans les finances, les produits, les rôles et les opérations."
+        },
+        {
+          "title": "Accès sécurisé",
+          "text": "Connexion avec vérification en deux étapes et sessions par appareil."
+        },
+        {
+          "title": "Connexion chiffrée",
+          "text": "L’information circule chiffrée entre votre navigateur et GO Admin."
+        },
+        {
+          "title": "Sauvegardes",
+          "text": "Copies de sécurité de la base de données pour récupérer l’information."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Qui peut voir l’information de mon entreprise ?",
+          "a": "Seuls les utilisateurs de votre organisation, selon les permissions de leur rôle. L’équipe d’assistance y accède uniquement lorsque vous le demandez pour résoudre un dossier."
+        },
+        {
+          "q": "Puis-je télécharger mes données ?",
+          "a": "Oui. Les rapports s’exportent vers Excel et PDF, et vous pouvez demander la remise de vos données."
+        },
+        {
+          "q": "Comment demander la suppression de mes données ?",
+          "a": "Suivez la procédure décrite sur la page de suppression des données."
+        }
+      ],
+      "ctaTitle": "Vous avez une question sur la sécurité ?",
+      "ctaText": "Écrivez-nous et nous vous répondrons avec le niveau de détail technique dont vous avez besoin."
+    },
+    "careers": {
+      "meta": {
+        "title": "Carrières",
+        "description": "Travaillez chez GO Admin : nous créons le logiciel avec lequel les entreprises organisent leurs activités."
+      },
+      "eyebrow": "Carrières",
+      "title": "Bâtissez ce qu’une entreprise utilisera demain.",
+      "subtitle": "Nous sommes une équipe à Medellín qui crée des logiciels pour des restaurants, des hôtels, des commerces et des entreprises de 10 pays.",
+      "openEyebrow": "Postes",
+      "open": "Postes ouverts.",
+      "none": "Nous n’avons aucun poste ouvert pour le moment.",
+      "noneText": "Si vous voulez travailler avec nous, envoyez-nous votre CV et dites-nous ce que vous aimeriez bâtir. Nous vous écrirons quand un poste qui vous correspond s’ouvrira.",
+      "send": "Envoyer mon CV",
+      "apply": "Postuler",
+      "subject": "CV · Carrières GO Admin",
+      "howEyebrow": "Notre façon de travailler",
+      "howTitle": "Ce à quoi vous pouvez vous attendre.",
+      "processEyebrow": "Processus",
+      "processTitle": "Comment se déroule le processus."
+    },
+    "training": {
+      "meta": {
+        "title": "Formations",
+        "description": "Mise en place accompagnée, séances en direct et parcours d’apprentissage par rôle pour votre équipe de caisse, d’entrepôt, de comptabilité et d’administration."
+      },
+      "eyebrow": "Formations",
+      "title": "Que toute votre équipe sache s’en servir.",
+      "subtitle": "Un accompagnement au démarrage, des séances en direct et des parcours par rôle pour que chaque personne apprenne ce dont elle a besoin.",
+      "pathsEyebrow": "Parcours par rôle",
+      "pathsTitle": "Chacun apprend ce qui le concerne.",
+      "guides": "Guides avec captures d’écran dans le centre d’aide",
+      "ctaTitle": "Planifiez une séance pour votre équipe",
+      "ctaText": "Écrivez-nous et nous conviendrons de la date et des sujets. Nous sommes disponibles {hours}.",
+      "cta": "Planifier par WhatsApp"
+    },
+    "blog": {
+      "meta": {
+        "title": "Blogue",
+        "description": "Des idées pratiques pour organiser votre entreprise : caisse, inventaire, finances, facturation et canaux numériques."
+      },
+      "eyebrow": "Blogue",
+      "title": "Des idées pour organiser votre entreprise.",
+      "subtitle": "Des listes, des questions et de courts guides pour le quotidien.",
+      "read": "Lire",
+      "minutes": "{n} min",
+      "readingTime": "{n} min de lecture",
+      "back": "Blogue"
+    },
+    "privacy": {
+      "meta": {
+        "title": "Politique de confidentialité",
+        "description": "Comment GO Admin recueille, utilise et protège vos renseignements personnels."
+      },
+      "eyebrow": "Mentions légales",
+      "principles": "Principes",
+      "principlesTitle": "Nos principes",
+      "contact": "Contact",
+      "contactTitle": "Vous avez des questions sur la confidentialité ?"
+    },
+    "deletion": {
+      "meta": {
+        "title": "Suppression des données",
+        "description": "Comment demander la suppression de vos renseignements personnels dans GO Admin, les délais et ce qu’il advient de chaque type de données."
+      },
+      "eyebrow": "Vos droits",
+      "toc": {
+        "como": "Comment la demander",
+        "proceso": "Processus",
+        "datos": "Ce qu’il advient de vos données",
+        "plazos": "Délais selon la réglementation",
+        "preguntas": "Questions fréquentes"
+      },
+      "howTitle": "Comment demander la suppression ?",
+      "processTitle": "Processus de suppression",
+      "dataTitle": "Qu’advient-il de mes données ?",
+      "termsTitle": "Délais selon la réglementation",
+      "faqTitle": "Questions fréquentes"
+    },
+    "api": {
+      "meta": {
+        "title": "API pour développeurs",
+        "description": "Reliez vos systèmes à GO Admin : API avec clés d’accès, webhooks d’événements et synchronisations programmées."
+      },
+      "eyebrow": "API pour développeurs",
+      "title": "Reliez vos systèmes à GO Admin.",
+      "subtitle": "Consultez et créez l’information de votre organisation, recevez des événements en temps réel et programmez des synchronisations.",
+      "toolsEyebrow": "Outils",
+      "toolsTitle": "Ce que vous pouvez utiliser dès aujourd’hui.",
+      "stepsEyebrow": "Pour commencer",
+      "stepsTitle": "De la clé au premier événement.",
+      "steps": [
+        {
+          "title": "Créez une clé",
+          "text": "Depuis la configuration de votre organisation, avec les permissions dont vous avez besoin."
+        },
+        {
+          "title": "Consultez la documentation",
+          "text": "Nous vous transmettons la référence des ressources et des exemples adaptés à votre cas."
+        },
+        {
+          "title": "Abonnez-vous aux événements",
+          "text": "Recevez les ventes, les réservations ou les paiements dans votre propre système."
+        },
+        {
+          "title": "Testez et publiez",
+          "text": "Consultez le journal de chaque appel et de chaque livraison."
+        }
+      ],
+      "docsTitle": "Besoin de la documentation technique ?",
+      "docsText": "Écrivez-nous ce que vous voulez relier et nous vous transmettrons la référence de l’API et un accès de test.",
+      "docsCta": "Demander l’accès"
+    },
+    "terms": {
+      "meta": {
+        "title": "Conditions d’utilisation",
+        "description": "Les conditions d’utilisation de GO Admin : compte, forfaits, paiements, annulation, données et responsabilités."
+      },
+      "eyebrow": "Juridique",
+      "draft": "Version préliminaire en cours de révision juridique. Elle peut changer avant sa publication définitive.",
+      "contact": "Contact"
+    },
+    "cookies": {
+      "meta": {
+        "title": "Politique relative aux témoins",
+        "description": "Quels témoins goadmin.io utilise, à quoi ils servent et comment modifier votre choix."
+      },
+      "eyebrow": "Juridique",
+      "toc": {
+        "que-son": "Définition",
+        "tipos": "Types",
+        "lista": "Liste des témoins",
+        "gestionar": "Modifier votre choix",
+        "contacto": "Contact"
+      },
+      "whatTitle": "Qu’est-ce qu’un témoin ?",
+      "typesTitle": "Types de témoins que nous utilisons",
+      "always": "Toujours actifs",
+      "optional": "Avec votre permission",
+      "listTitle": "Liste des témoins",
+      "table": {
+        "name": "Nom",
+        "category": "Type",
+        "purpose": "À quoi il sert",
+        "duration": "Durée",
+        "provider": "Fournisseur"
+      },
+      "manageTitle": "Modifier votre choix",
+      "settings": "Paramètres des témoins"
+    },
+    "partners": {
+      "meta": {
+        "title": "Programme de partenaires et de revendeurs",
+        "description": "Recommandez GO Admin à d’autres entreprises et touchez une commission à chaque renouvellement tant que l’abonnement reste actif."
+      },
+      "eyebrow": "Programme de partenaires",
+      "title": "Recommandez GO Admin et gagnez à chaque renouvellement.",
+      "subtitle": "Pour les comptables, consultants, agences et distributeurs qui accompagnent d’autres entreprises. Partagez votre lien et touchez une commission chaque fois que votre référence paie son forfait.",
+      "signup": "M’inscrire comme partenaire",
+      "login": "Je suis déjà partenaire",
+      "howEyebrow": "Comment ça fonctionne",
+      "howTitle": "Quatre étapes, sans formalités.",
+      "steps": [
+        {
+          "title": "Inscrivez-vous",
+          "text": "Créez votre compte dans le portail des partenaires avec votre nom et votre courriel. Si vous utilisez déjà GO Admin, activez-le depuis votre profil."
+        },
+        {
+          "title": "Partagez votre lien",
+          "text": "Vous recevez un code et un lien personnels. Partagez-les avec les entreprises que vous conseillez."
+        },
+        {
+          "title": "Votre référence s’abonne",
+          "text": "Quand l’entreprise paie son forfait, la commission est enregistrée à votre nom."
+        },
+        {
+          "title": "Recevez votre paiement",
+          "text": "Chaque mois, à la date de clôture, nous virons les commissions approuvées dans votre compte bancaire."
+        }
+      ],
+      "termsEyebrow": "Conditions",
+      "termsTitle": "Claires dès le premier jour.",
+      "termsSubtitle": "Voici les valeurs standard du programme. Dans le portail, vous voyez les conditions exactes de votre compte.",
+      "terms": {
+        "commission": {
+          "label": "Commission",
+          "text": "Sur chaque paiement du forfait de votre référence."
+        },
+        "recurring": {
+          "label": "Récurrente",
+          "value": "À chaque renouvellement",
+          "text": "Tant que l’abonnement reste actif. Si l’entreprise annule, les commissions cessent."
+        },
+        "minimum": {
+          "label": "Paiement minimum",
+          "text": "Les commissions s’accumulent jusqu’à atteindre ce montant."
+        },
+        "cutoff": {
+          "label": "Clôture",
+          "value": "Le {day} de chaque mois",
+          "text": "Les commissions approuvées jusqu’à cette date sont réglées."
+        },
+        "processing": {
+          "label": "Traitement",
+          "value": "{days} jours ouvrables",
+          "text": "Après la clôture et la vérification par l’équipe."
+        },
+        "method": {
+          "label": "Mode de paiement",
+          "value": "Virement bancaire",
+          "text": "Vers un compte vérifié, avec vos données fiscales à jour. Paiements en dollars américains (USD)."
+        }
+      },
+      "termsNote": "La commission est enregistrée lorsque le paiement de la référence est confirmé. Les commissions sur des paiements remboursés ou annulés ne sont pas versées.",
+      "profilesEyebrow": "Pour qui",
+      "profilesTitle": "Si vous accompagnez des entreprises, c’est pour vous.",
+      "profiles": {
+        "accountants": {
+          "title": "Comptables",
+          "text": "Vos clients tiennent leurs ventes, leurs achats et leurs taxes en ordre, et vous recevez l’information prête à utiliser."
+        },
+        "consultants": {
+          "title": "Consultants",
+          "text": "Recommandez un outil qui organise les opérations et accompagnez sa mise en place."
+        },
+        "agencies": {
+          "title": "Agences",
+          "text": "Site Web, boutique en ligne et réservations reliés à l’inventaire et à la caisse de l’entreprise."
+        },
+        "resellers": {
+          "title": "Distributeurs",
+          "text": "Si vous vendez de l’équipement de point de vente, ajoutez le logiciel qui le fait travailler."
+        }
+      },
+      "tiersEyebrow": "Niveaux",
+      "tiersTitle": "Votre progression, bien visible.",
+      "tiersSubtitle": "Le portail vous montre votre niveau selon vos références actives et les ventes cumulées de vos références.",
+      "tierN": "Niveau {n}",
+      "tiers": {
+        "bronze": "Bronze",
+        "silver": "Argent",
+        "gold": "Or",
+        "platinum": "Platine"
+      },
+      "tierStart": "Votre point de départ à l’inscription.",
+      "tierGoal": "{referrals} références actives ou {sales} en ventes.",
+      "portal": {
+        "eyebrow": "Portail des partenaires",
+        "title": "Tout au même endroit.",
+        "items": [
+          {
+            "title": "Vos références",
+            "text": "Quelles entreprises se sont inscrites avec votre lien et à quel forfait elles sont abonnées."
+          },
+          {
+            "title": "Vos commissions",
+            "text": "Chaque commission avec son état : en attente, payée ou annulée."
+          },
+          {
+            "title": "Vos paiements",
+            "text": "L’historique des virements et le montant cumulé pour la prochaine clôture."
+          },
+          {
+            "title": "Votre lien et votre code",
+            "text": "Copiez-les pour les partager par WhatsApp, par courriel ou sur les réseaux sociaux."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "q": "Combien coûte le fait de devenir partenaire ?",
+          "a": "Rien. L’inscription est gratuite et votre compte est actif dès que vous la terminez."
+        },
+        {
+          "q": "Dois-je être client de GO Admin ?",
+          "a": "Non. Si vous l’êtes déjà, vous pouvez activer votre compte de partenaire depuis votre profil dans GO Admin."
+        },
+        {
+          "q": "Quand une commission est-elle générée ?",
+          "a": "Quand le paiement du forfait de votre référence est confirmé. Elle se répète à chaque renouvellement tant que l’abonnement reste actif."
+        },
+        {
+          "q": "Comment et quand suis-je payé ?",
+          "a": "Par virement bancaire, en dollars américains (USD), après la clôture mensuelle et la vérification par l’équipe, lorsque vos commissions approuvées dépassent le paiement minimum."
+        },
+        {
+          "q": "De quoi ai-je besoin pour recevoir des paiements ?",
+          "a": "Vos données fiscales et un compte bancaire vérifié dans le portail."
+        }
+      ],
+      "ctaTitle": "Commencez à recommander dès aujourd’hui.",
+      "ctaText": "Inscrivez-vous au portail des partenaires, recevez votre lien et partagez-le avec les entreprises que vous accompagnez.",
+      "ctaContact": "Parler avec l’équipe",
+      "ctaEyebrow": "Inscription gratuite"
+    },
+    "changelog": {
+      "meta": {
+        "title": "Nouveautés du produit",
+        "description": "Les nouveautés de GO Admin, mois après mois : fonctions, améliorations et modules."
+      },
+      "eyebrow": "Nouveautés",
+      "title": "Les nouveautés de GO Admin.",
+      "subtitle": "Nous améliorons GO Admin chaque semaine. Voici les changements les plus importants, mois après mois.",
+      "note": "Nous affichons les nouveautés qui s’appliquent {inCountry}. Certaines fonctions dépendent du forfait.",
+      "ctaTitle": "Essayez-le avec votre entreprise.",
+      "ctaText": "Toutes ces nouveautés sont déjà offertes dans GO Admin.",
+      "cta": "Créer un compte gratuit"
+    },
+    "customers": {
+      "meta": {
+        "title": "Témoignages clients",
+        "description": "Des histoires réelles d’entreprises qui utilisent GO Admin, racontées avec leur autorisation."
+      },
+      "eyebrow": "Témoignages clients",
+      "title": "Des histoires réelles, racontées par ceux qui les vivent.",
+      "subtitle": "Nous publions seulement les témoignages d’entreprises qui utilisent GO Admin, avec leur autorisation et avec les résultats qu’elles mesurent elles-mêmes.",
+      "emptyTitle": "Nous rassemblons les premières histoires.",
+      "emptyText": "Si vous utilisez GO Admin dans votre entreprise, racontez-nous comment ça se passe. Nous aimerions beaucoup raconter votre histoire.",
+      "share": "Raconter mon histoire",
+      "subject": "Je veux raconter mon histoire avec GO Admin",
+      "processEyebrow": "Comment nous publions un témoignage",
+      "processTitle": "Votre histoire, avec votre approbation.",
+      "steps": [
+        {
+          "title": "Vous nous écrivez",
+          "text": "Décrivez-nous en quelques lignes ce que fait votre entreprise et comment vous utilisez GO Admin."
+        },
+        {
+          "title": "Nous discutons",
+          "text": "Une courte entrevue pour comprendre vos opérations, l’avant et l’après."
+        },
+        {
+          "title": "Vous révisez",
+          "text": "Nous vous envoyons le texte. Vous corrigez ce que vous voulez et approuvez les chiffres publiés."
+        },
+        {
+          "title": "Nous publions",
+          "text": "Le témoignage paraît sur cette page avec votre nom, votre logo et le lien vers votre entreprise."
+        }
+      ],
+      "includeEyebrow": "Ce que raconte chaque témoignage",
+      "includeTitle": "Ce que les autres entreprises veulent savoir.",
+      "include": [
+        "Comment se déroulaient les opérations avant et quel problème l’entreprise voulait régler.",
+        "Quels modules elle utilise et comment elle les a configurés.",
+        "Combien de temps a pris la mise en route.",
+        "Ce qui a changé au quotidien, avec des chiffres que l’entreprise mesure et approuve."
+      ],
+      "industriesEyebrow": "Par type d’entreprise",
+      "industriesTitle": "Comment GO Admin s’utilise dans chaque secteur.",
+      "industriesSubtitle": "En attendant la publication des premiers témoignages, voyez comment GO Admin se configure pour des entreprises comme la vôtre."
+    },
+    "countries": {
+      "meta": {
+        "title": "GO Admin dans chaque pays",
+        "description": "Facturation, taxes, modes de paiement et prix de GO Admin dans les 10 pays où il est présent."
+      },
+      "eyebrow": "Pays",
+      "title": "GO Admin dans 10 pays.",
+      "subtitle": "Chaque pays a ses taxes, son autorité fiscale et ses modes de paiement. Voyez ce que GO Admin fait aujourd’hui dans le vôtre.",
+      "status": {
+        "integrated": "Facturation électronique connectée",
+        "not_integrated": "Connexion avec l’autorité en attente",
+        "not_mandatory": "Aucun système national obligatoire"
+      },
+      "plansIn": "Forfaits en {currency}",
+      "cardText": "Autorité : {authority}. Taxes : {taxes}.",
+      "see": "Voir {country}"
+    },
+    "country": {
+      "meta": {
+        "title": "GO Admin {inCountry}",
+        "description": "Facturation, taxes, modes de paiement, intégrations et prix de GO Admin {inCountry}."
+      },
+      "eyebrow": "{country}",
+      "title": "GO Admin {inCountry}.",
+      "subtitle": "{status, select, integrated {Émettez et validez vos documents électroniques auprès de {theAuthority}, avec {taxes}, depuis l’endroit même où vous vendez.} not_integrated {Facturez avec {taxes} et gérez toutes vos opérations. La connexion avec {theAuthority} est toujours en attente.} other {Facturez avec {taxes} et gérez toutes vos opérations au même endroit.}}",
+      "visit": "Voir le site en {language}",
+      "fiscalEyebrow": "Facturation et taxes",
+      "fiscalTitle": "Ce que vous devez savoir.",
+      "facts": {
+        "authority": "Autorité fiscale",
+        "system": "Document électronique",
+        "status": "Dans GO Admin",
+        "taxes": "Taxes",
+        "taxId": "Identifiant fiscal",
+        "chart": "Plan comptable",
+        "ePayroll": "Paie électronique",
+        "currency": "Monnaie locale",
+        "planCurrency": "Devise des forfaits"
+      },
+      "status": {
+        "integrated": "Émission et validation connectées",
+        "not_integrated": "Connexion en attente",
+        "not_mandatory": "Aucun système obligatoire"
+      },
+      "none": "Sans objet",
+      "yes": "Incluse",
+      "noEPayroll": "Paie selon les règles locales, sans émission auprès de l’autorité",
+      "paymentsEyebrow": "Modes de paiement",
+      "paymentsTitle": "Encaissez comme on paie {inCountry}.",
+      "integrationsEyebrow": "Intégrations",
+      "integrationsTitle": "Relié aux services du pays.",
+      "allIntegrations": "Voir toutes les intégrations",
+      "pricingEyebrow": "Tarifs",
+      "pricingTitle": "Forfaits en {planCurrency}.",
+      "pricingSubtitle": "Prix mensuel de chaque forfait. Avec le paiement annuel, vous payez moins.",
+      "perMonth": "par mois",
+      "seePricing": "Voir les tarifs et comparer les forfaits"
+    },
+    "investors": {
+      "meta": {
+        "title": "Investisseurs",
+        "description": "Information pour les investisseurs de GO Admin. L’accès au portail se fait uniquement sur invitation."
+      },
+      "eyebrow": "Investisseurs",
+      "title": "Nous créons le logiciel qui aide les entreprises à s’organiser.",
+      "subtitle": "Cette section s’adresse aux investisseurs et aux personnes invitées par GO Admin. Le portail des investisseurs fonctionne uniquement sur invitation.",
+      "login": "Accéder au portail",
+      "contact": "Nous écrire",
+      "subject": "Investisseurs GO Admin",
+      "portalEyebrow": "Portail des investisseurs",
+      "portalTitle": "L’information, dans un endroit sécurisé.",
+      "portalSubtitle": "Les personnes invitées trouvent sur investors.goadmin.io :",
+      "portal": [
+        {
+          "title": "Indicateurs de l’entreprise",
+          "text": "Clients, revenus et rétention, mis à jour chaque mois."
+        },
+        {
+          "title": "Documents",
+          "text": "États financiers, ententes et présentations, avec un registre de chaque consultation."
+        },
+        {
+          "title": "Accès protégé",
+          "text": "Connexion avec vérification en deux étapes et permissions par personne."
+        },
+        {
+          "title": "Rapports périodiques",
+          "text": "Nouvelles de l’équipe, du produit et des résultats."
+        }
+      ],
+      "accessEyebrow": "Comment fonctionne l’accès",
+      "accessTitle": "Uniquement sur invitation.",
+      "steps": [
+        {
+          "title": "Nous vous invitons",
+          "text": "L’équipe de GO Admin envoie une invitation personnelle à votre courriel."
+        },
+        {
+          "title": "Vous créez votre accès",
+          "text": "Vous choisissez votre mot de passe et activez la vérification en deux étapes."
+        },
+        {
+          "title": "Nous vérifions votre identité",
+          "text": "Vous remplissez les renseignements exigés par la loi pour connaître nos investisseurs."
+        },
+        {
+          "title": "Vous consultez l’information",
+          "text": "Vous voyez les indicateurs, les documents et les rapports partagés avec vous."
+        }
+      ],
+      "inviteTitle": "Vous souhaitez investir dans GO Admin ?",
+      "inviteText": "Écrivez-nous, dites-nous qui vous êtes et nous communiquerons avec vous.",
+      "company": "{legalName} · NIT {nit} · {city}",
+      "disclaimer": "Cette page est informative et ne constitue pas une offre publique de valeurs mobilières. L’information sur l’investissement est transmise uniquement aux personnes invitées, par l’entremise du portail."
+    }
+  },
+  "notFound": {
+    "meta": "Page introuvable",
+    "eyebrow": "Erreur 404",
+    "title": "Cette planète n’existe pas encore.",
+    "text": "La page que vous cherchez a changé de place ou n’a jamais été ici. Retournons en terrain connu.",
+    "home": "Retour à l’accueil",
+    "help": "Aller au centre d’aide"
+  },
+  "consent": {
+    "label": "Avis sur les témoins",
+    "title": "Nous utilisons peu de témoins",
+    "text": "Les témoins nécessaires mémorisent votre pays et votre langue. Avec votre permission, nous mesurons aussi de façon agrégée les pages visitées afin d’améliorer le site.",
+    "policy": "Politique relative aux témoins",
+    "necessary": "Nécessaires seulement",
+    "accept": "Tout accepter"
+  }
+}
