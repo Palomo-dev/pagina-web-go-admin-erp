@@ -16,6 +16,9 @@ export const LOGIN_URL = `${APP_URL}/auth/login`
 export const SELLERS_URL = 'https://sellers.goadmin.io'
 export const SELLERS_SIGNUP_URL = `${SELLERS_URL}/register`
 
+// Portal de inversionistas (solo por invitación)
+export const INVESTORS_URL = 'https://investors.goadmin.io'
+
 // Canales de contacto (tomados de /eliminacion-datos). El horario está en messages › contact.hours.
 export const CONTACT = {
   email: 'Servicio@goadmin.io',
@@ -251,6 +254,7 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
       { key: 'about', href: '/acerca-de' },
       { key: 'customers', href: '/clientes' },
       { key: 'partners', href: '/aliados' },
+      { key: 'investors', href: '/inversionistas' },
       { key: 'careers', href: '/carreras' },
       { key: 'countries', href: '/paises' },
       { key: 'terms', href: '/terminos' },

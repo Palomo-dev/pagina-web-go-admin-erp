@@ -131,7 +131,7 @@ export const PRIVACY = {
   ] as LegalSection[],
   contacts: [
     { title: 'Oficial de protección de datos', text: 'Consultas específicas sobre privacidad.', email: CONTACT.email },
-    { title: 'Ejercer tus derechos', text: 'Solicita acceso, corrección o eliminación de tus datos personales.', email: 'privacidad@goadmin.io' },
+    { title: 'Ejercer tus derechos', text: 'Solicita acceso, corrección o eliminación de tus datos personales.', email: CONTACT.email },
   ],
 }
 
@@ -348,5 +348,5 @@ export const COOKIES = {
     'Puedes cambiar tu elección en cualquier momento con el botón «Configurar cookies» de esta página o del pie de página.',
     'También puedes borrar o bloquear cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país e idioma.',
   ],
-  contact: { title: '¿Tienes preguntas sobre cookies?', text: 'Escríbenos y te respondemos.', email: 'privacidad@goadmin.io' },
+  contact: { title: '¿Tienes preguntas sobre cookies?', text: 'Escríbenos y te respondemos.', email: CONTACT.email },
 }

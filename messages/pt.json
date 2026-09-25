@@ -350,7 +350,8 @@
       "partners": "Programa de parceiros",
       "countries": "Países",
       "terms": "Termos e condições",
-      "cookies": "Cookies"
+      "cookies": "Cookies",
+      "investors": "Investidores"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Configurar cookies"
@@ -1668,6 +1669,63 @@
       "pricingSubtitle": "Preço mensal de cada plano. Com pagamento anual, você paga menos.",
       "perMonth": "por mês",
       "seePricing": "Ver preços e comparar planos"
+    },
+    "investors": {
+      "meta": {
+        "title": "Investidores",
+        "description": "Informações para investidores do GO Admin. O acesso ao portal é somente por convite."
+      },
+      "eyebrow": "Investidores",
+      "title": "Construímos o software com que os negócios se organizam.",
+      "subtitle": "Esta seção é para investidores e pessoas convidadas pelo GO Admin. O portal de investidores funciona somente por convite.",
+      "login": "Entrar no portal",
+      "contact": "Fale conosco",
+      "subject": "Investidores GO Admin",
+      "portalEyebrow": "Portal de investidores",
+      "portalTitle": "As informações, em um lugar seguro.",
+      "portalSubtitle": "Quem recebe um convite encontra em investors.goadmin.io:",
+      "portal": [
+        {
+          "title": "Métricas do negócio",
+          "text": "Indicadores de clientes, receita e retenção, atualizados todo mês."
+        },
+        {
+          "title": "Documentos",
+          "text": "Demonstrações financeiras, acordos e apresentações, com registro de cada consulta."
+        },
+        {
+          "title": "Acesso protegido",
+          "text": "Login com verificação em duas etapas e permissões por pessoa."
+        },
+        {
+          "title": "Relatórios periódicos",
+          "text": "Novidades da equipe, do produto e dos resultados."
+        }
+      ],
+      "accessEyebrow": "Como funciona o acesso",
+      "accessTitle": "Somente por convite.",
+      "steps": [
+        {
+          "title": "Convidamos você",
+          "text": "A equipe do GO Admin envia um convite pessoal para o seu e-mail."
+        },
+        {
+          "title": "Você cria seu acesso",
+          "text": "Você define sua senha e ativa a verificação em duas etapas."
+        },
+        {
+          "title": "Verificamos sua identidade",
+          "text": "Você preenche os dados que a lei exige para conhecermos nossos investidores."
+        },
+        {
+          "title": "Você consulta as informações",
+          "text": "Você vê as métricas, os documentos e os relatórios compartilhados com você."
+        }
+      ],
+      "inviteTitle": "Tem interesse em investir no GO Admin?",
+      "inviteText": "Escreva para nós, conte quem você é e entraremos em contato.",
+      "company": "{legalName} · NIT {nit} · {city}",
+      "disclaimer": "Esta página é informativa e não constitui uma oferta pública de valores mobiliários. As informações sobre investimento são entregues somente a pessoas convidadas, por meio do portal."
     }
   },
   "notFound": {

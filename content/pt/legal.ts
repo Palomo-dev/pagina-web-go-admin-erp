@@ -130,7 +130,7 @@ export const PRIVACY: typeof Es.PRIVACY = {
   ] as Es.LegalSection[],
   contacts: [
     { title: 'Encarregado de proteção de dados', text: 'Consultas específicas sobre privacidade.', email: CONTACT.email },
-    { title: 'Exercer seus direitos', text: 'Solicite acesso, correção ou exclusão dos seus dados pessoais.', email: 'privacidad@goadmin.io' },
+    { title: 'Exercer seus direitos', text: 'Solicite acesso, correção ou exclusão dos seus dados pessoais.', email: CONTACT.email },
   ],
 }
 
@@ -344,5 +344,5 @@ export const COOKIES: typeof Es.COOKIES = {
     'Você pode alterar sua escolha a qualquer momento com o botão «Configurar cookies» desta página ou do rodapé.',
     'Você também pode apagar ou bloquear cookies nas configurações do seu navegador. Se bloquear os necessários, o site pode não lembrar seu país e idioma.',
   ],
-  contact: { title: 'Tem dúvidas sobre cookies?', text: 'Escreva para nós e responderemos.', email: 'privacidad@goadmin.io' },
+  contact: { title: 'Tem dúvidas sobre cookies?', text: 'Escreva para nós e responderemos.', email: CONTACT.email },
 }

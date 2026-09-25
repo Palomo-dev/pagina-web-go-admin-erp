@@ -130,7 +130,7 @@ export const PRIVACY: typeof Es.PRIVACY = {
   ],
   contacts: [
     { title: 'Responsable de la protection des données', text: 'Questions précises sur la confidentialité.', email: CONTACT.email },
-    { title: 'Exercer vos droits', text: 'Demandez l’accès à vos renseignements personnels, leur correction ou leur suppression.', email: 'privacidad@goadmin.io' },
+    { title: 'Exercer vos droits', text: 'Demandez l’accès à vos renseignements personnels, leur correction ou leur suppression.', email: CONTACT.email },
   ],
 }
 
@@ -341,5 +341,5 @@ export const COOKIES: typeof Es.COOKIES = {
     'Vous pouvez modifier votre choix en tout temps avec le bouton « Paramètres des témoins » de cette page ou du pied de page.',
     'Vous pouvez aussi supprimer ou bloquer les témoins depuis les paramètres de votre navigateur. Si vous bloquez les témoins nécessaires, le site pourrait ne pas se souvenir de votre pays et de votre langue.',
   ],
-  contact: { title: 'Vous avez des questions sur les témoins ?', text: 'Écrivez-nous et nous vous répondrons.', email: 'privacidad@goadmin.io' },
+  contact: { title: 'Vous avez des questions sur les témoins ?', text: 'Écrivez-nous et nous vous répondrons.', email: CONTACT.email },
 }

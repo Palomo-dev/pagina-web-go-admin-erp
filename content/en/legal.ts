@@ -130,7 +130,7 @@ export const PRIVACY: typeof Es.PRIVACY = {
   ],
   contacts: [
     { title: 'Data protection officer', text: 'Specific privacy inquiries.', email: CONTACT.email },
-    { title: 'Exercise your rights', text: 'Request access to, correction or deletion of your personal data.', email: 'privacidad@goadmin.io' },
+    { title: 'Exercise your rights', text: 'Request access to, correction or deletion of your personal data.', email: CONTACT.email },
   ],
 }
 
@@ -338,5 +338,5 @@ export const COOKIES: typeof Es.COOKIES = {
     'You can change your choice at any time with the “Cookie settings” button on this page or in the footer.',
     'You can also delete or block cookies in your browser settings. If you block the necessary ones, the site may not remember your country and language.',
   ],
-  contact: { title: 'Questions about cookies?', text: 'Write to us and we will get back to you.', email: 'privacidad@goadmin.io' },
+  contact: { title: 'Questions about cookies?', text: 'Write to us and we will get back to you.', email: CONTACT.email },
 }

@@ -41,7 +41,7 @@ export default async function PrivacidadPage({ params }: PageProps) {
       <LegalSection id="contacto" title={t('contactTitle')}>
         <div className="grid gap-4 sm:grid-cols-2">
           {PRIVACY.contacts.map((c) => (
-            <a key={c.email} href={`mailto:${c.email}`} className="rounded-2xl border border-ink-line p-5 transition-colors hover:border-go">
+            <a key={c.title} href={`mailto:${c.email}`} className="rounded-2xl border border-ink-line p-5 transition-colors hover:border-go">
               <p className="font-semibold text-ink">{c.title}</p>
               <p className="mt-1 text-sm">{c.text}</p>
               <p className="mt-3 text-sm font-semibold text-go-deep">{c.email}</p>
