@@ -191,6 +191,9 @@
 }
 
 .go-cloud {
+  /* Posición inicial = el punto del recorrido donde arranca la animación. Así, desde el primer
+     cuadro (antes de que corra la animación, o si está desactivada) cada nube ya está en su lugar. */
+  transform: translate3d(var(--x, 0), 0, 0);
   animation: go-cloud-drift var(--dur, 36s) linear infinite both;
   animation-delay: var(--delay, 0s);
   will-change: transform;
@@ -255,9 +258,5 @@
   .go-marquee-right,
   .go-caret {
     animation: none !important;
-  }
-  /* Sin animación, cada nube queda quieta en su lugar del recorrido (no amontonada en el borde). */
-  .go-cloud {
-    transform: translate3d(var(--x, 0), 0, 0);
   }
 }
