@@ -61,11 +61,6 @@ function ChatCard() {
 
   useEffect(() => {
     if (!inView) return
-    if (reduce) {
-      setTyped(QUESTION.length)
-      setAnswered(true)
-      return
-    }
     let i = 0
     const t = setInterval(() => {
       i += 1
@@ -76,7 +71,7 @@ function ChatCard() {
       }
     }, 28)
     return () => clearInterval(t)
-  }, [inView, reduce, QUESTION.length])
+  }, [inView, QUESTION.length])
 
   const done = typed >= QUESTION.length
 

@@ -6,13 +6,13 @@ const EASE = [0.2, 0.8, 0.2, 1] as const
 
 /**
  * Entrada al hacer scroll (Figma › Movimiento): fade + 16 px, 320 ms, ease-out.
- * Con prefers-reduced-motion se muestra sin desplazamiento.
+ * Con prefers-reduced-motion solo aparece (fade), sin desplazamiento.
  */
 export function Reveal({ delay = 0, y = 16, children, ...props }: HTMLMotionProps<'div'> & { delay?: number; y?: number }) {
   const reduce = useReducedMotion()
   return (
     <motion.div
-      initial={reduce ? { opacity: 1 } : { opacity: 0, y }}
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}
       transition={{ duration: 0.32, ease: EASE, delay }}
@@ -43,7 +43,7 @@ export function RevealItem({ children, ...props }: HTMLMotionProps<'div'>) {
   return (
     <motion.div
       variants={{
-        hidden: reduce ? { opacity: 1 } : { opacity: 0, y: 16 },
+        hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 16 },
         show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: EASE } },
       }}
       {...props}

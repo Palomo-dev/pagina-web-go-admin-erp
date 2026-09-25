@@ -83,12 +83,10 @@ function DomainTicker() {
   const tr = useT('channels')
   const DOMAINS = ['cafearoma.goadmin.io', sampleDomain(useLocale())]
   const [i, setI] = useState(0)
-  const reduce = useReducedMotion()
   useEffect(() => {
-    if (reduce) return
     const t = setInterval(() => setI((v) => (v + 1) % DOMAINS.length), 2600)
     return () => clearInterval(t)
-  }, [reduce, DOMAINS.length])
+  }, [DOMAINS.length])
   return (
     <div className="flex w-fit items-center gap-3 rounded-2xl border border-ink-line bg-white px-4 py-3">
       <Globe className="h-5 w-5 text-go" strokeWidth={1.5} aria-hidden />
