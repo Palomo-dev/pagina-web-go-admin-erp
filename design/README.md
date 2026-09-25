@@ -11,7 +11,7 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | --- | --- |
 | `01 Sistema` | Portada, color (variables), tipografía (estilos de texto), retícula y espaciado, radios y elevación, marca y favicon, recursos gráficos, ilustración, movimiento, arquitectura de información y voz |
 | `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer). Sección **Secciones web**: PainPoint, DayMoment, CardLink, ChannelTabs (Página web / Tienda en línea / Motor de reservas), DomainPill y LegalTOC; **MarketSwitcher** (Tono Cielo/Claro/Noche) y su diálogo de país e idioma |
-| `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla), 404, Producto · Facturación electrónica (plantilla de `/producto/[slug]`), Solución · Restaurantes, bares y cafés (plantilla de `/soluciones/[slug]`, con la sección «Para quién es») y Canales digitales |
+| `03 Pantallas` | 23 pantallas, una por página del sitio: Inicio (escritorio y móvil), Producto (índice), Producto · Inventario, Producto · Facturación electrónica y su variante México (cómo cambia por país), Soluciones (índice), Solución · Restaurantes, bares y cafés, Canales digitales, Precios, Integraciones, Seguridad, Soporte, Capacitaciones, Contacto, Blog, Blog · Artículo, Carreras, Acerca de, API, Privacidad, Eliminación de datos y 404 |
 
 ## Equivalencias Figma ↔ código
 
@@ -68,4 +68,3 @@ python3 design/illustrations-src/to_tsx.py   # componentes React en components/i
 - La política de privacidad conserva el texto legal anterior, que menciona certificaciones (SOC 2, ISO 27001)
   y cifrado de extremo a extremo: validar con el área legal antes de publicar.
 - Las páginas API, novedades y centro de ayuda heredadas conservan su contenido; revisar sus cifras contra fuentes verificables.
-- El componente Footer de Figma aún muestra las columnas anteriores; el código ya usa `FOOTER_COLUMNS`.
