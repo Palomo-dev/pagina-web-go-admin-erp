@@ -142,7 +142,18 @@ export function MarketDialog() {
                         const markets = MARKET_IDS.filter((id) => MARKETS[id].country === code)
                         const active = current.country === code
                         return (
-                          <li key={code} className={cn('rounded-2xl border p-4', active ? 'border-go bg-go-wash' : 'border-ink-line')}>
+                          <li
+                            key={code}
+                            // Toda la tarjeta lleva al país: un clic fuera de los botones de idioma sigue el primero.
+                            onClick={(e) => {
+                              if ((e.target as HTMLElement).closest('a')) return
+                              e.currentTarget.querySelector<HTMLAnchorElement>('a[hreflang]')?.click()
+                            }}
+                            className={cn(
+                              'cursor-pointer rounded-2xl border p-4 transition-colors',
+                              active ? 'border-go bg-go-wash' : 'border-ink-line hover:border-go hover:bg-go-wash',
+                            )}
+                          >
                             <p className="flex items-center justify-between text-sm font-semibold text-ink">
                               <span>
                                 {country.name[lang]} <span className="font-normal text-ink-muted">· {country.iso2}</span>

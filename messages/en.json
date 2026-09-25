@@ -18,7 +18,9 @@
     "home": "Home",
     "breadcrumb": "Breadcrumb",
     "included": "Included",
-    "seePlans": "See plans"
+    "seePlans": "See plans",
+    "previous": "Previous",
+    "next": "Next"
   },
   "home": {
     "hero": {
@@ -385,7 +387,7 @@
       "ultimate": {
         "forWho": "For multi-location operations",
         "features": [
-          "18 modules (all)",
+          "{modules} modules (all)",
           "15 branches · 60 users",
           "{status, select, integrated {Unlimited e-invoices} other {Unlimited invoices}}",
           "10,000 AI credits per month",

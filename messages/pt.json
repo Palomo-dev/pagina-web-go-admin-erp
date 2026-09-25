@@ -18,7 +18,9 @@
     "home": "Início",
     "breadcrumb": "Trilha de navegação",
     "included": "Incluído",
-    "seePlans": "Ver planos"
+    "seePlans": "Ver planos",
+    "previous": "Anterior",
+    "next": "Próximo"
   },
   "home": {
     "hero": {
@@ -385,7 +387,7 @@
       "ultimate": {
         "forWho": "Para operações com várias filiais",
         "features": [
-          "18 módulos (todos)",
+          "{modules} módulos (todos)",
           "15 filiais · 60 usuários",
           "{status, select, integrated {Notas fiscais eletrônicas ilimitadas} other {Notas ilimitadas}}",
           "10.000 créditos de IA por mês",

@@ -18,7 +18,9 @@
     "home": "Accueil",
     "breadcrumb": "Fil d’Ariane",
     "included": "Inclus",
-    "seePlans": "Voir les forfaits"
+    "seePlans": "Voir les forfaits",
+    "previous": "Précédent",
+    "next": "Suivant"
   },
   "home": {
     "hero": {
@@ -385,7 +387,7 @@
       "ultimate": {
         "forWho": "Pour les activités sur plusieurs sites",
         "features": [
-          "18 modules (tous)",
+          "{modules} modules (tous)",
           "15 succursales · 60 utilisateurs",
           "{status, select, integrated {Factures électroniques illimitées} other {Factures illimitées}}",
           "10 000 crédits d’IA par mois",
