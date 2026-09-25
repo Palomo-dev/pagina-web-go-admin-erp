@@ -9,12 +9,16 @@ import { SIGNUP_URL } from '@/lib/site'
 export function NightCta({
   title,
   text,
+  eyebrow,
   primary,
+  primaryHref = SIGNUP_URL,
   secondary,
 }: {
   title?: string
   text?: string
+  eyebrow?: string
   primary?: string
+  primaryHref?: string
   secondary?: { label: string; href: string } | null
 }) {
   const t = useT('nightCta')
@@ -28,13 +32,13 @@ export function NightCta({
       <Sky mode="night" />
       <div className="container relative grid items-center gap-10 py-24 sm:py-32 lg:grid-cols-[minmax(0,1fr)_420px]">
         <Reveal className="flex max-w-2xl flex-col items-start gap-6">
-          <Eyebrow tone="blue">{t('eyebrow')}</Eyebrow>
+          <Eyebrow tone="blue">{eyebrow ?? t('eyebrow')}</Eyebrow>
           <h2 id="cierre-title" className="text-balance text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-display-l">
             {title}
           </h2>
           <p className="text-pretty text-base text-go-200 sm:text-lead">{text}</p>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <CtaLink href={SIGNUP_URL} kind="light" size="lg">
+            <CtaLink href={primaryHref} kind="light" size="lg">
               {primary}
             </CtaLink>
             {secondary ? (

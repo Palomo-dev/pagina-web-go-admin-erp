@@ -116,3 +116,51 @@ export const POSTS: Es.Post[] = [
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// Novidades do produto (mesma forma e ordem que lib/content/company.ts)
+// ---------------------------------------------------------------------------
+export const CHANGELOG: typeof Es.CHANGELOG = [
+  {
+    month: '2026-09',
+    items: [
+      { title: 'GO Assistant', text: 'Um assistente dentro do GO Admin que responde perguntas sobre o seu negócio e leva você à tela de que precisa.', area: 'IA', icon: 'bot' },
+      { title: 'Tela para o cliente no PDV', text: 'Seu cliente vê em uma segunda tela o que você está cobrando, o total e o troco.', area: 'Vendas e PDV', icon: 'cart' },
+      { title: 'PDV de desktop sem conexão', text: 'O aplicativo de desktop continua vendendo se a internet cair e sincroniza quando a conexão volta.', area: 'Vendas e PDV', icon: 'zap' },
+      { title: 'Números de série e fechamento de caixa cego', text: 'Controle produtos por número de série. No fechamento, o operador de caixa conta o dinheiro sem ver o valor esperado.', area: 'Estoque', icon: 'boxes' },
+      { title: 'Painéis por função', text: 'Cada pessoa entra em um início com os indicadores do seu trabalho: caixa, vendas, estoque ou administração.', area: 'Relatórios', icon: 'chart' },
+      { title: 'Chamadas pelo GO Admin', text: 'Faça e receba chamadas pelo navegador e deixe o registro na ficha do cliente.', area: 'Clientes (CRM)', icon: 'message' },
+      { title: 'Filiais separadas em todos os módulos', text: 'Cada filial vê seu próprio estoque, vendas e caixa. A administração vê o consolidado.', area: 'Organização', icon: 'building' },
+      { title: 'Vários pontos de venda e domínio por filial', text: 'Abra mais de um ponto de venda por filial e compre um domínio próprio para o site de cada uma.', area: 'Canais digitais', icon: 'globe' },
+      { title: 'Painel em quatro idiomas', text: 'O GO Admin está disponível em espanhol, inglês, português e francês.', area: 'Plataforma', icon: 'globe' },
+    ],
+  },
+  {
+    month: '2026-08',
+    items: [
+      { title: 'Cobrança internacional', text: 'Seus clientes pagam de outros países na sua loja e no motor de reservas.', area: 'Canais digitais', icon: 'credit-card' },
+      { title: 'Catálogo para Facebook e Instagram', text: 'Publique seus produtos no catálogo da Meta com preços em várias moedas.', area: 'Canais digitais', icon: 'store' },
+      { title: 'Editor de site', text: 'Monte o site público do seu negócio com blocos e publique no seu domínio.', area: 'Canais digitais', icon: 'layout' },
+      { title: 'Notificações push', text: 'Receba avisos de vendas, pedidos e reservas no celular, mesmo sem o GO Admin aberto.', area: 'Plataforma', icon: 'bell' },
+      { title: 'Pedidos web pagos confirmados automaticamente', text: 'Quando o pagamento on-line é aprovado, o pedido passa para preparação sem que você precise confirmá-lo.', area: 'Loja on-line', icon: 'truck' },
+      { title: 'Pagamentos com Bold e QR codes', text: 'Cobre com a maquininha Bold e com QR da Bancolombia, Bre-B e Redeban pelo PDV.', area: 'Pagamentos', icon: 'qr', countries: ['COL'] },
+      { title: 'Conexão com seus bancos', text: 'Sincronize movimentações bancárias e concilie com a ajuda da IA.', area: 'Finanças', icon: 'landmark', countries: ['COL'] },
+      { title: 'App móvel com impressão Bluetooth', text: 'Venda pelo celular e imprima em impressoras térmicas por Bluetooth.', area: 'Vendas e PDV', icon: 'cart' },
+      { title: 'Consulta de dados junto a {theAuthority}', text: 'Ao criar um cliente, traz o nome e os dados tributários dele com o {taxId}.', area: '{invoicing}', icon: 'search', countries: ['COL'] },
+      { title: 'Relatórios com IA e fechamentos em PDF', text: 'Peça um relatório com suas palavras e baixe os fechamentos de caixa em PDF.', area: 'Relatórios', icon: 'sparkles' },
+      { title: 'Fólios na hotelaria e gaveta de dinheiro', text: 'Cobranças agrupadas por hóspede no hotel e abertura automática da gaveta ao cobrar.', area: 'Hotelaria', icon: 'bed' },
+    ],
+  },
+  {
+    month: '2026-07',
+    items: [
+      { title: 'Faturamento eletrônico junto a {theAuthority}', text: 'Emita notas fiscais eletrônicas validadas a partir do PDV e das vendas.', area: '{invoicing}', icon: 'receipt', countries: ['COL'] },
+      { title: 'Comandas para a cozinha', text: 'Envie os pedidos para a cozinha impressos ou na tela, com observações por produto.', area: 'Restaurantes', icon: 'utensils' },
+      { title: 'Impressão pelo desktop', text: 'Um agente de impressão detecta suas impressoras e tenta novamente em outra se uma falhar.', area: 'Vendas e PDV', icon: 'file-text' },
+      { title: 'Receitas e produção', text: 'Defina receitas, registre a produção e desconte os insumos do estoque.', area: 'Estoque', icon: 'package' },
+      { title: 'Estoque por filial e variantes', text: 'Controle o estoque por filial, também por tamanho, cor ou outra variante.', area: 'Estoque', icon: 'boxes' },
+      { title: 'Entregas e guias', text: 'Atribua entregadores, imprima guias e salve fotos como comprovante de entrega.', area: 'Transporte', icon: 'truck' },
+      { title: 'Modo claro e escuro', text: 'Todo o GO Admin se adapta ao tema do seu dispositivo e fica bem no celular.', area: 'Plataforma', icon: 'palette' },
+    ],
+  },
+]

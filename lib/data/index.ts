@@ -15,7 +15,7 @@ import { SOLUTIONS, type Solution, type SolutionText } from '@/lib/catalog/solut
 import { DEVELOPER_TOOLS, INTEGRATION_GROUPS } from '@/lib/catalog/integrations'
 import * as esCompany from '@/lib/content/company'
 import * as esLegal from '@/lib/content/legal'
-import { applyFiscal, fiscalValues, getMarket, type Language } from '@/i18n/markets'
+import { applyFiscal, fiscalValues, getMarket, type CountryCode, type Language } from '@/i18n/markets'
 import { CONTENT, type CatalogText } from '@/content'
 
 type MarketInfo = ReturnType<typeof getMarket>
@@ -110,8 +110,8 @@ export async function findSolution(locale: string, slug: string) {
 // ---------------------------------------------------------------------------
 // Integraciones (filtradas por país)
 // ---------------------------------------------------------------------------
-export async function listIntegrationGroups(locale: string) {
-  const m = getMarket(locale)
+export async function listIntegrationGroups(locale: string, country?: CountryCode) {
+  const m = { ...getMarket(locale), ...(country ? { country } : {}) }
   const tr = catalog(m.language)?.integrations
   const groups = INTEGRATION_GROUPS.map((g) => ({
     ...g,
@@ -140,6 +140,7 @@ function company(locale: string) {
       TRAINING_FORMATS: c.TRAINING_FORMATS,
       LEARNING_PATHS: c.LEARNING_PATHS,
       POSTS: c.POSTS.filter((p) => !p.countries || p.countries.includes(m.country)),
+      CHANGELOG: c.CHANGELOG.map((r) => ({ ...r, items: r.items.filter((i) => !i.countries || i.countries.includes(m.country)) })),
     },
     fiscalValues(locale),
   )
@@ -160,6 +161,11 @@ export async function listPosts(locale: string) {
 export async function findPost(locale: string, slug: string) {
   return company(locale).POSTS.find((p) => p.slug === slug) ?? null
 }
+/** Novedades del producto por mes (más reciente primero), solo las que aplican al país. */
+export async function listReleases(locale: string) {
+  return [...company(locale).CHANGELOG].sort((a, b) => b.month.localeCompare(a.month))
+}
+
 /** Todos los slugs de artículos (para generar las rutas estáticas de cualquier mercado). */
 export function allPostSlugs() {
   return esCompany.POSTS.map((p) => ({ slug: p.slug, countries: p.countries }))
@@ -172,5 +178,5 @@ export function allPostSlugs() {
 export async function getLegal(locale: string) {
   const m = getMarket(locale)
   const l = m.language === 'es' ? esLegal : CONTENT[m.language].legal
-  return { PRIVACY: l.PRIVACY, DATA_DELETION: l.DATA_DELETION, isReferenceTranslation: m.language !== 'es' }
+  return { PRIVACY: l.PRIVACY, DATA_DELETION: l.DATA_DELETION, TERMS: l.TERMS, COOKIES: l.COOKIES, isReferenceTranslation: m.language !== 'es' }
 }

@@ -287,6 +287,18 @@
       "careers": {
         "label": "Carrières",
         "description": "Bâtissez avec nous depuis Medellín."
+      },
+      "changelog": {
+        "label": "Nouveautés",
+        "description": "Les nouveautés de GO Admin, mois après mois."
+      },
+      "customers": {
+        "label": "Témoignages clients",
+        "description": "Des histoires réelles d’entreprises."
+      },
+      "partners": {
+        "label": "Programme de partenaires",
+        "description": "Recommandez GO Admin et touchez une commission."
       }
     }
   },
@@ -332,9 +344,16 @@
       "about": "À propos",
       "careers": "Carrières",
       "privacy": "Confidentialité",
-      "deletion": "Suppression des données"
+      "deletion": "Suppression des données",
+      "changelog": "Nouveautés",
+      "customers": "Témoignages clients",
+      "partners": "Programme de partenaires",
+      "countries": "Pays",
+      "terms": "Conditions d’utilisation",
+      "cookies": "Témoins"
     },
-    "legal": "© {year} {legalName} · NIT {nit} · {city}"
+    "legal": "© {year} {legalName} · NIT {nit} · {city}",
+    "cookieSettings": "Paramètres des témoins"
   },
   "contact": {
     "hours": "Lun au ven · 8 h – 18 h",
@@ -1352,6 +1371,303 @@
       "docsTitle": "Besoin de la documentation technique ?",
       "docsText": "Écrivez-nous ce que vous voulez relier et nous vous transmettrons la référence de l’API et un accès de test.",
       "docsCta": "Demander l’accès"
+    },
+    "terms": {
+      "meta": {
+        "title": "Conditions d’utilisation",
+        "description": "Les conditions d’utilisation de GO Admin : compte, forfaits, paiements, annulation, données et responsabilités."
+      },
+      "eyebrow": "Juridique",
+      "draft": "Version préliminaire en cours de révision juridique. Elle peut changer avant sa publication définitive.",
+      "contact": "Contact"
+    },
+    "cookies": {
+      "meta": {
+        "title": "Politique relative aux témoins",
+        "description": "Quels témoins goadmin.io utilise, à quoi ils servent et comment modifier votre choix."
+      },
+      "eyebrow": "Juridique",
+      "toc": {
+        "que-son": "Définition",
+        "tipos": "Types",
+        "lista": "Liste des témoins",
+        "gestionar": "Modifier votre choix",
+        "contacto": "Contact"
+      },
+      "whatTitle": "Qu’est-ce qu’un témoin ?",
+      "typesTitle": "Types de témoins que nous utilisons",
+      "always": "Toujours actifs",
+      "optional": "Avec votre permission",
+      "listTitle": "Liste des témoins",
+      "table": {
+        "name": "Nom",
+        "category": "Type",
+        "purpose": "À quoi il sert",
+        "duration": "Durée",
+        "provider": "Fournisseur"
+      },
+      "manageTitle": "Modifier votre choix",
+      "settings": "Paramètres des témoins"
+    },
+    "partners": {
+      "meta": {
+        "title": "Programme de partenaires et de revendeurs",
+        "description": "Recommandez GO Admin à d’autres entreprises et touchez une commission à chaque renouvellement tant que l’abonnement reste actif."
+      },
+      "eyebrow": "Programme de partenaires",
+      "title": "Recommandez GO Admin et gagnez à chaque renouvellement.",
+      "subtitle": "Pour les comptables, consultants, agences et distributeurs qui accompagnent d’autres entreprises. Partagez votre lien et touchez une commission chaque fois que votre référence paie son forfait.",
+      "signup": "M’inscrire comme partenaire",
+      "login": "Je suis déjà partenaire",
+      "howEyebrow": "Comment ça fonctionne",
+      "howTitle": "Quatre étapes, sans formalités.",
+      "steps": [
+        {
+          "title": "Inscrivez-vous",
+          "text": "Créez votre compte dans le portail des partenaires avec votre nom et votre courriel. Si vous utilisez déjà GO Admin, activez-le depuis votre profil."
+        },
+        {
+          "title": "Partagez votre lien",
+          "text": "Vous recevez un code et un lien personnels. Partagez-les avec les entreprises que vous conseillez."
+        },
+        {
+          "title": "Votre référence s’abonne",
+          "text": "Quand l’entreprise paie son forfait, la commission est enregistrée à votre nom."
+        },
+        {
+          "title": "Recevez votre paiement",
+          "text": "Chaque mois, à la date de clôture, nous virons les commissions approuvées dans votre compte bancaire."
+        }
+      ],
+      "termsEyebrow": "Conditions",
+      "termsTitle": "Claires dès le premier jour.",
+      "termsSubtitle": "Voici les valeurs standard du programme. Dans le portail, vous voyez les conditions exactes de votre compte.",
+      "terms": {
+        "commission": {
+          "label": "Commission",
+          "text": "Sur chaque paiement du forfait de votre référence."
+        },
+        "recurring": {
+          "label": "Récurrente",
+          "value": "À chaque renouvellement",
+          "text": "Tant que l’abonnement reste actif. Si l’entreprise annule, les commissions cessent."
+        },
+        "minimum": {
+          "label": "Paiement minimum",
+          "text": "Les commissions s’accumulent jusqu’à atteindre ce montant."
+        },
+        "cutoff": {
+          "label": "Clôture",
+          "value": "Le {day} de chaque mois",
+          "text": "Les commissions approuvées jusqu’à cette date sont réglées."
+        },
+        "processing": {
+          "label": "Traitement",
+          "value": "{days} jours ouvrables",
+          "text": "Après la clôture et la vérification par l’équipe."
+        },
+        "method": {
+          "label": "Mode de paiement",
+          "value": "Virement bancaire",
+          "text": "Vers un compte vérifié, avec vos données fiscales à jour. Paiements en dollars américains (USD)."
+        }
+      },
+      "termsNote": "La commission est enregistrée lorsque le paiement de la référence est confirmé. Les commissions sur des paiements remboursés ou annulés ne sont pas versées.",
+      "profilesEyebrow": "Pour qui",
+      "profilesTitle": "Si vous accompagnez des entreprises, c’est pour vous.",
+      "profiles": {
+        "accountants": {
+          "title": "Comptables",
+          "text": "Vos clients tiennent leurs ventes, leurs achats et leurs taxes en ordre, et vous recevez l’information prête à utiliser."
+        },
+        "consultants": {
+          "title": "Consultants",
+          "text": "Recommandez un outil qui organise les opérations et accompagnez sa mise en place."
+        },
+        "agencies": {
+          "title": "Agences",
+          "text": "Site Web, boutique en ligne et réservations reliés à l’inventaire et à la caisse de l’entreprise."
+        },
+        "resellers": {
+          "title": "Distributeurs",
+          "text": "Si vous vendez de l’équipement de point de vente, ajoutez le logiciel qui le fait travailler."
+        }
+      },
+      "tiersEyebrow": "Niveaux",
+      "tiersTitle": "Votre progression, bien visible.",
+      "tiersSubtitle": "Le portail vous montre votre niveau selon vos références actives et les ventes cumulées de vos références.",
+      "tierN": "Niveau {n}",
+      "tiers": {
+        "bronze": "Bronze",
+        "silver": "Argent",
+        "gold": "Or",
+        "platinum": "Platine"
+      },
+      "tierStart": "Votre point de départ à l’inscription.",
+      "tierGoal": "{referrals} références actives ou {sales} en ventes.",
+      "portal": {
+        "eyebrow": "Portail des partenaires",
+        "title": "Tout au même endroit.",
+        "items": [
+          {
+            "title": "Vos références",
+            "text": "Quelles entreprises se sont inscrites avec votre lien et à quel forfait elles sont abonnées."
+          },
+          {
+            "title": "Vos commissions",
+            "text": "Chaque commission avec son état : en attente, payée ou annulée."
+          },
+          {
+            "title": "Vos paiements",
+            "text": "L’historique des virements et le montant cumulé pour la prochaine clôture."
+          },
+          {
+            "title": "Votre lien et votre code",
+            "text": "Copiez-les pour les partager par WhatsApp, par courriel ou sur les réseaux sociaux."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "q": "Combien coûte le fait de devenir partenaire ?",
+          "a": "Rien. L’inscription est gratuite et votre compte est actif dès que vous la terminez."
+        },
+        {
+          "q": "Dois-je être client de GO Admin ?",
+          "a": "Non. Si vous l’êtes déjà, vous pouvez activer votre compte de partenaire depuis votre profil dans GO Admin."
+        },
+        {
+          "q": "Quand une commission est-elle générée ?",
+          "a": "Quand le paiement du forfait de votre référence est confirmé. Elle se répète à chaque renouvellement tant que l’abonnement reste actif."
+        },
+        {
+          "q": "Comment et quand suis-je payé ?",
+          "a": "Par virement bancaire, en dollars américains (USD), après la clôture mensuelle et la vérification par l’équipe, lorsque vos commissions approuvées dépassent le paiement minimum."
+        },
+        {
+          "q": "De quoi ai-je besoin pour recevoir des paiements ?",
+          "a": "Vos données fiscales et un compte bancaire vérifié dans le portail."
+        }
+      ],
+      "ctaTitle": "Commencez à recommander dès aujourd’hui.",
+      "ctaText": "Inscrivez-vous au portail des partenaires, recevez votre lien et partagez-le avec les entreprises que vous accompagnez.",
+      "ctaContact": "Parler avec l’équipe",
+      "ctaEyebrow": "Inscription gratuite"
+    },
+    "changelog": {
+      "meta": {
+        "title": "Nouveautés du produit",
+        "description": "Les nouveautés de GO Admin, mois après mois : fonctions, améliorations et modules."
+      },
+      "eyebrow": "Nouveautés",
+      "title": "Les nouveautés de GO Admin.",
+      "subtitle": "Nous améliorons GO Admin chaque semaine. Voici les changements les plus importants, mois après mois.",
+      "note": "Nous affichons les nouveautés qui s’appliquent {inCountry}. Certaines fonctions dépendent du forfait.",
+      "ctaTitle": "Essayez-le avec votre entreprise.",
+      "ctaText": "Toutes ces nouveautés sont déjà offertes dans GO Admin.",
+      "cta": "Créer un compte gratuit"
+    },
+    "customers": {
+      "meta": {
+        "title": "Témoignages clients",
+        "description": "Des histoires réelles d’entreprises qui utilisent GO Admin, racontées avec leur autorisation."
+      },
+      "eyebrow": "Témoignages clients",
+      "title": "Des histoires réelles, racontées par ceux qui les vivent.",
+      "subtitle": "Nous publions seulement les témoignages d’entreprises qui utilisent GO Admin, avec leur autorisation et avec les résultats qu’elles mesurent elles-mêmes.",
+      "emptyTitle": "Nous rassemblons les premières histoires.",
+      "emptyText": "Si vous utilisez GO Admin dans votre entreprise, racontez-nous comment ça se passe. Nous aimerions beaucoup raconter votre histoire.",
+      "share": "Raconter mon histoire",
+      "subject": "Je veux raconter mon histoire avec GO Admin",
+      "processEyebrow": "Comment nous publions un témoignage",
+      "processTitle": "Votre histoire, avec votre approbation.",
+      "steps": [
+        {
+          "title": "Vous nous écrivez",
+          "text": "Décrivez-nous en quelques lignes ce que fait votre entreprise et comment vous utilisez GO Admin."
+        },
+        {
+          "title": "Nous discutons",
+          "text": "Une courte entrevue pour comprendre vos opérations, l’avant et l’après."
+        },
+        {
+          "title": "Vous révisez",
+          "text": "Nous vous envoyons le texte. Vous corrigez ce que vous voulez et approuvez les chiffres publiés."
+        },
+        {
+          "title": "Nous publions",
+          "text": "Le témoignage paraît sur cette page avec votre nom, votre logo et le lien vers votre entreprise."
+        }
+      ],
+      "includeEyebrow": "Ce que raconte chaque témoignage",
+      "includeTitle": "Ce que les autres entreprises veulent savoir.",
+      "include": [
+        "Comment se déroulaient les opérations avant et quel problème l’entreprise voulait régler.",
+        "Quels modules elle utilise et comment elle les a configurés.",
+        "Combien de temps a pris la mise en route.",
+        "Ce qui a changé au quotidien, avec des chiffres que l’entreprise mesure et approuve."
+      ],
+      "industriesEyebrow": "Par type d’entreprise",
+      "industriesTitle": "Comment GO Admin s’utilise dans chaque secteur.",
+      "industriesSubtitle": "En attendant la publication des premiers témoignages, voyez comment GO Admin se configure pour des entreprises comme la vôtre."
+    },
+    "countries": {
+      "meta": {
+        "title": "GO Admin dans chaque pays",
+        "description": "Facturation, taxes, modes de paiement et prix de GO Admin dans les 10 pays où il est présent."
+      },
+      "eyebrow": "Pays",
+      "title": "GO Admin dans 10 pays.",
+      "subtitle": "Chaque pays a ses taxes, son autorité fiscale et ses modes de paiement. Voyez ce que GO Admin fait aujourd’hui dans le vôtre.",
+      "status": {
+        "integrated": "Facturation électronique connectée",
+        "not_integrated": "Connexion avec l’autorité en attente",
+        "not_mandatory": "Aucun système national obligatoire"
+      },
+      "plansIn": "Forfaits en {currency}",
+      "cardText": "Autorité : {authority}. Taxes : {taxes}.",
+      "see": "Voir {country}"
+    },
+    "country": {
+      "meta": {
+        "title": "GO Admin {inCountry}",
+        "description": "Facturation, taxes, modes de paiement, intégrations et prix de GO Admin {inCountry}."
+      },
+      "eyebrow": "{country}",
+      "title": "GO Admin {inCountry}.",
+      "subtitle": "{status, select, integrated {Émettez et validez vos documents électroniques auprès de {theAuthority}, avec {taxes}, depuis l’endroit même où vous vendez.} not_integrated {Facturez avec {taxes} et gérez toutes vos opérations. La connexion avec {theAuthority} est toujours en attente.} other {Facturez avec {taxes} et gérez toutes vos opérations au même endroit.}}",
+      "visit": "Voir le site en {language}",
+      "fiscalEyebrow": "Facturation et taxes",
+      "fiscalTitle": "Ce que vous devez savoir.",
+      "facts": {
+        "authority": "Autorité fiscale",
+        "system": "Document électronique",
+        "status": "Dans GO Admin",
+        "taxes": "Taxes",
+        "taxId": "Identifiant fiscal",
+        "chart": "Plan comptable",
+        "ePayroll": "Paie électronique",
+        "currency": "Monnaie locale",
+        "planCurrency": "Devise des forfaits"
+      },
+      "status": {
+        "integrated": "Émission et validation connectées",
+        "not_integrated": "Connexion en attente",
+        "not_mandatory": "Aucun système obligatoire"
+      },
+      "none": "Sans objet",
+      "yes": "Incluse",
+      "noEPayroll": "Paie selon les règles locales, sans émission auprès de l’autorité",
+      "paymentsEyebrow": "Modes de paiement",
+      "paymentsTitle": "Encaissez comme on paie {inCountry}.",
+      "integrationsEyebrow": "Intégrations",
+      "integrationsTitle": "Relié aux services du pays.",
+      "allIntegrations": "Voir toutes les intégrations",
+      "pricingEyebrow": "Tarifs",
+      "pricingTitle": "Forfaits en {planCurrency}.",
+      "pricingSubtitle": "Prix mensuel de chaque forfait. Avec le paiement annuel, vous payez moins.",
+      "perMonth": "par mois",
+      "seePricing": "Voir les tarifs et comparer les forfaits"
     }
   },
   "notFound": {
@@ -1361,5 +1677,13 @@
     "text": "La page que vous cherchez a changé de place ou n’a jamais été ici. Retournons en terrain connu.",
     "home": "Retour à l’accueil",
     "help": "Aller au centre d’aide"
+  },
+  "consent": {
+    "label": "Avis sur les témoins",
+    "title": "Nous utilisons peu de témoins",
+    "text": "Les témoins nécessaires mémorisent votre pays et votre langue. Avec votre permission, nous mesurons aussi de façon agrégée les pages visitées afin d’améliorer le site.",
+    "policy": "Politique relative aux témoins",
+    "necessary": "Nécessaires seulement",
+    "accept": "Tout accepter"
   }
 }

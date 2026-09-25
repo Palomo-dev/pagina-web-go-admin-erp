@@ -13,8 +13,9 @@ const en: LanguageContent = {
     TRAINING_FORMATS: company.TRAINING_FORMATS,
     LEARNING_PATHS: company.LEARNING_PATHS,
     POSTS: company.POSTS,
+    CHANGELOG: company.CHANGELOG,
   },
-  legal: { PRIVACY: legal.PRIVACY, DATA_DELETION: legal.DATA_DELETION },
+  legal: { PRIVACY: legal.PRIVACY, DATA_DELETION: legal.DATA_DELETION, TERMS: legal.TERMS, COOKIES: legal.COOKIES },
 }
 
 export default en

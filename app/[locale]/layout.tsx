@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { notFound } from 'next/navigation'
-import { Analytics } from '@vercel/analytics/next'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
+import { CookieConsent } from '@/components/site/cookie-consent'
 import { MARKETS, type MarketId } from '@/i18n/markets'
 import { getT } from '@/i18n/t-server'
 import { SITE_URL, alternates } from '@/lib/seo'
@@ -52,8 +52,11 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         <a href="#contenido" className="fixed left-4 top-[-80px] z-[100] rounded-lg bg-white px-4 py-3 text-sm font-semibold text-go-deep shadow-lg focus:top-4">
           {t('skipToContent')}
         </a>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <Analytics />
+        <NextIntlClientProvider>
+          {children}
+          {/* La analítica solo se carga con el consentimiento (ver /cookies) */}
+          <CookieConsent />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

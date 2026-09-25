@@ -307,7 +307,24 @@ const PAYMENT_LABELS: Record<string, Localized> = {
 /** Medios de pago del país en el idioma del mercado. */
 export function paymentLabels(id: string) {
   const m = getMarket(id)
-  return m.countryData.payments.map((p) => PAYMENT_LABELS[p]?.[m.language] ?? p)
+  return countryPaymentLabels(m.country, m.language)
+}
+
+export function countryPaymentLabels(code: CountryCode, l: Language) {
+  return COUNTRIES[code].payments.map((p) => PAYMENT_LABELS[p]?.[l] ?? p)
+}
+
+/** Orden de los países en selectores y listados. */
+export const COUNTRY_ORDER: CountryCode[] = ['COL', 'MEX', 'CHL', 'ESP', 'BRA', 'USA', 'CAN', 'GBR', 'AUS', 'JPN']
+
+/** Segmento de URL de cada país en /paises/<slug>. */
+export const COUNTRY_SLUGS: Record<CountryCode, string> = {
+  COL: 'colombia', MEX: 'mexico', CHL: 'chile', ESP: 'espana', BRA: 'brasil',
+  USA: 'estados-unidos', CAN: 'canada', GBR: 'reino-unido', AUS: 'australia', JPN: 'japon',
+}
+
+export function countryBySlug(slug: string): CountryCode | null {
+  return (Object.keys(COUNTRY_SLUGS) as CountryCode[]).find((c) => COUNTRY_SLUGS[c] === slug) ?? null
 }
 
 /** Montos de ejemplo por moneda para los mocks (ventas de una semana de un negocio pequeño). */
@@ -369,8 +386,12 @@ export function marketForCountry(iso2: string | null | undefined, preferred?: La
  */
 export function fiscalValues(id: string) {
   const m = getMarket(id)
-  const c = m.countryData
-  const l = m.language
+  return fiscalValuesFor(m.country, m.language)
+}
+
+/** Valores fiscales de cualquier país en un idioma (páginas por país). */
+export function fiscalValuesFor(code: CountryCode, l: Language) {
+  const c = COUNTRIES[code]
   return {
     /** integrated | not_integrated | not_mandatory, para {status, select, …} en los mensajes */
     status: c.fiscal.status as string,

@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { getLocale } from 'next-intl/server'
 import { Firma } from '@/components/brand/logo'
+import { CookieSettingsButton } from '@/components/site/cookie-consent'
 import { MarketSwitcher } from '@/components/site/market-switcher'
 import { Link } from '@/i18n/navigation'
 import { getT } from '@/i18n/t-server'
@@ -64,7 +65,8 @@ export async function SiteFooter() {
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-go-300 sm:flex-row sm:items-center sm:justify-between">
           <p>{t('legal', { year: new Date().getFullYear(), legalName: CONTACT.legalName, nit: CONTACT.nit, city: CONTACT.city })}</p>
-          <p className="flex gap-4">
+          <p className="flex flex-wrap gap-4">
+            <CookieSettingsButton className="hover:text-white">{t('cookieSettings')}</CookieSettingsButton>
             <a href={`mailto:${CONTACT.email}`} className="hover:text-white">
               {CONTACT.email}
             </a>

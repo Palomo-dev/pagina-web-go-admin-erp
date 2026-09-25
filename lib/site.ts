@@ -12,6 +12,10 @@ export const APP_URL = 'https://app.goadmin.io'
 export const SIGNUP_URL = `${APP_URL}/auth/signup`
 export const LOGIN_URL = `${APP_URL}/auth/login`
 
+// Portal de aliados y vendedores (repositorio go-admin-sellers)
+export const SELLERS_URL = 'https://sellers.goadmin.io'
+export const SELLERS_SIGNUP_URL = `${SELLERS_URL}/register`
+
 // Canales de contacto (tomados de /eliminacion-datos). El horario está en messages › contact.hours.
 export const CONTACT = {
   email: 'Servicio@goadmin.io',
@@ -51,6 +55,9 @@ export const RESOURCES: { key: string; href: string; icon: IconName }[] = [
   { key: 'help', href: '/soporte', icon: 'heart-handshake' },
   { key: 'training', href: '/capacitaciones', icon: 'graduation' },
   { key: 'blog', href: '/blog', icon: 'book' },
+  { key: 'changelog', href: '/novedades', icon: 'sparkles' },
+  { key: 'customers', href: '/clientes', icon: 'star' },
+  { key: 'partners', href: '/aliados', icon: 'heart-handshake' },
   { key: 'integrations', href: '/integraciones', icon: 'plug' },
   { key: 'api', href: '/api', icon: 'workflow' },
   { key: 'security', href: '/seguridad', icon: 'shield' },
@@ -153,6 +160,31 @@ export function formatNumber(value: number, locale: string) {
 }
 
 // ---------------------------------------------------------------------------
+// Programa de aliados (valores predeterminados del portal de vendedores; textos en messages › pages.partners)
+// ---------------------------------------------------------------------------
+export const PARTNER_TERMS = {
+  commissionPct: 10,
+  minPayoutUsd: 50,
+  cutoffDay: 15,
+  processingDays: '3–5',
+}
+
+/** Niveles del portal: muestran tu avance según referidos activos y ventas acumuladas (USD). */
+export const PARTNER_TIERS: { key: 'bronze' | 'silver' | 'gold' | 'platinum'; referrals: number; salesUsd: number }[] = [
+  { key: 'bronze', referrals: 0, salesUsd: 0 },
+  { key: 'silver', referrals: 5, salesUsd: 500 },
+  { key: 'gold', referrals: 15, salesUsd: 2000 },
+  { key: 'platinum', referrals: 30, salesUsd: 5000 },
+]
+
+export const PARTNER_PROFILES: { key: string; icon: IconName }[] = [
+  { key: 'accountants', icon: 'calculator' },
+  { key: 'consultants', icon: 'briefcase' },
+  { key: 'agencies', icon: 'palette' },
+  { key: 'resellers', icon: 'store' },
+]
+
+// ---------------------------------------------------------------------------
 // Soporte (textos en messages › support.channels.<key> y support.guides.<key>)
 // ---------------------------------------------------------------------------
 export const SUPPORT_CHANNELS: { key: string; icon: IconName; href: string }[] = [
@@ -207,6 +239,7 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
       { key: 'help', href: '/soporte' },
       { key: 'training', href: '/capacitaciones' },
       { key: 'blog', href: '/blog' },
+      { key: 'changelog', href: '/novedades' },
       { key: 'api', href: '/api' },
       { key: 'security', href: '/seguridad' },
       { key: 'contact', href: '/contacto' },
@@ -216,8 +249,13 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
     key: 'company',
     links: [
       { key: 'about', href: '/acerca-de' },
+      { key: 'customers', href: '/clientes' },
+      { key: 'partners', href: '/aliados' },
       { key: 'careers', href: '/carreras' },
+      { key: 'countries', href: '/paises' },
+      { key: 'terms', href: '/terminos' },
       { key: 'privacy', href: '/privacidad' },
+      { key: 'cookies', href: '/cookies' },
       { key: 'deletion', href: '/eliminacion-datos' },
     ],
   },

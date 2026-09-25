@@ -137,3 +137,55 @@ export const POSTS: Post[] = [
 export function getPost(slug: string) {
   return POSTS.find((p) => p.slug === slug)
 }
+
+// ---------------------------------------------------------------------------
+// Novedades del producto. Tomadas del historial real de cambios del ERP; se agrupan por mes.
+// `countries` limita una novedad a los países donde aplica (p. ej. pagos o {authority} de Colombia).
+// ---------------------------------------------------------------------------
+export type ReleaseItem = { title: string; text: string; area: string; icon: IconName; countries?: CountryCode[] }
+export type Release = { month: string; items: ReleaseItem[] }
+
+export const CHANGELOG: Release[] = [
+  {
+    month: '2026-09',
+    items: [
+      { title: 'GO Assistant', text: 'Un asistente dentro de GO Admin que responde preguntas sobre tu negocio y te lleva a la pantalla que necesitas.', area: 'IA', icon: 'bot' },
+      { title: 'Pantalla para el cliente en el POS', text: 'Tu cliente ve en una segunda pantalla lo que vas cobrando, el total y el cambio.', area: 'Ventas y POS', icon: 'cart' },
+      { title: 'POS de escritorio sin conexión', text: 'La aplicación de escritorio sigue vendiendo si se cae el internet y sincroniza cuando vuelve la conexión.', area: 'Ventas y POS', icon: 'zap' },
+      { title: 'Seriales y cierre de caja ciego', text: 'Controla productos por número de serie. En el cierre, el cajero cuenta el efectivo sin ver el valor esperado.', area: 'Inventario', icon: 'boxes' },
+      { title: 'Paneles por rol', text: 'Cada persona entra a un inicio con los indicadores de su trabajo: caja, ventas, inventario o administración.', area: 'Reportes', icon: 'chart' },
+      { title: 'Llamadas desde GO Admin', text: 'Llama y recibe llamadas desde el navegador y deja el registro en la ficha del cliente.', area: 'Clientes (CRM)', icon: 'message' },
+      { title: 'Sucursales separadas en todos los módulos', text: 'Cada sucursal ve su propio inventario, ventas y caja. La administración ve el consolidado.', area: 'Organización', icon: 'building' },
+      { title: 'Varios puntos de venta y dominio por sucursal', text: 'Abre más de un punto de venta por sucursal y compra un dominio propio para la página de cada una.', area: 'Canales digitales', icon: 'globe' },
+      { title: 'Panel en cuatro idiomas', text: 'GO Admin está disponible en español, inglés, portugués y francés.', area: 'Plataforma', icon: 'globe' },
+    ],
+  },
+  {
+    month: '2026-08',
+    items: [
+      { title: 'Cobro internacional', text: 'Tus clientes pagan desde otros países en tu tienda y en el motor de reservas.', area: 'Canales digitales', icon: 'credit-card' },
+      { title: 'Catálogo para Facebook e Instagram', text: 'Publica tus productos en el catálogo de Meta con precios en varias monedas.', area: 'Canales digitales', icon: 'store' },
+      { title: 'Editor de página web', text: 'Arma la página pública de tu negocio con bloques y publícala en tu dominio.', area: 'Canales digitales', icon: 'layout' },
+      { title: 'Notificaciones push', text: 'Recibe avisos de ventas, pedidos y reservas en el celular, aunque no tengas GO Admin abierto.', area: 'Plataforma', icon: 'bell' },
+      { title: 'Pedidos web pagados confirmados solos', text: 'Cuando el pago en línea se aprueba, el pedido pasa a preparación sin que tengas que confirmarlo.', area: 'Tienda en línea', icon: 'truck' },
+      { title: 'Pagos con Bold y códigos QR', text: 'Cobra con datáfono Bold y con QR de Bancolombia, Bre-B y Redeban desde el POS.', area: 'Pagos', icon: 'qr', countries: ['COL'] },
+      { title: 'Conexión con tus bancos', text: 'Sincroniza movimientos bancarios y concilia con ayuda de la IA.', area: 'Finanzas', icon: 'landmark', countries: ['COL'] },
+      { title: 'App móvil con impresión Bluetooth', text: 'Vende desde el celular e imprime en impresoras térmicas por Bluetooth.', area: 'Ventas y POS', icon: 'cart' },
+      { title: 'Consulta de datos ante {theAuthority}', text: 'Al crear un cliente, trae su nombre y datos tributarios con el {taxId}.', area: '{invoicing}', icon: 'search', countries: ['COL'] },
+      { title: 'Reportes con IA y cierres en PDF', text: 'Pide un reporte en tus palabras y descarga los cierres de caja en PDF.', area: 'Reportes', icon: 'sparkles' },
+      { title: 'Folios en hotelería y cajón monedero', text: 'Cargos agrupados por huésped en el hotel y apertura automática del cajón al cobrar.', area: 'Hotelería', icon: 'bed' },
+    ],
+  },
+  {
+    month: '2026-07',
+    items: [
+      { title: 'Facturación electrónica ante {theAuthority}', text: 'Emite facturas electrónicas validadas desde el POS y desde ventas.', area: '{invoicing}', icon: 'receipt', countries: ['COL'] },
+      { title: 'Comandas a cocina', text: 'Envía los pedidos a cocina impresos o en pantalla, con notas por producto.', area: 'Restaurantes', icon: 'utensils' },
+      { title: 'Impresión desde el escritorio', text: 'Un agente de impresión detecta tus impresoras y reintenta en otra si una falla.', area: 'Ventas y POS', icon: 'file-text' },
+      { title: 'Recetas y producción', text: 'Define recetas, registra producción y descuenta los insumos del inventario.', area: 'Inventario', icon: 'package' },
+      { title: 'Stock por sucursal y variantes', text: 'Controla existencias por sucursal, también por talla, color u otra variante.', area: 'Inventario', icon: 'boxes' },
+      { title: 'Envíos y guías', text: 'Asigna domiciliarios, imprime guías y guarda fotos como prueba de entrega.', area: 'Transporte', icon: 'truck' },
+      { title: 'Modo claro y oscuro', text: 'Todo GO Admin se adapta al tema de tu dispositivo y se ve bien en el celular.', area: 'Plataforma', icon: 'palette' },
+    ],
+  },
+]

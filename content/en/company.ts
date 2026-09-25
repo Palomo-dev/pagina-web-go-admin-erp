@@ -116,3 +116,51 @@ export const POSTS: Es.Post[] = [
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// Product updates
+// ---------------------------------------------------------------------------
+export const CHANGELOG: typeof Es.CHANGELOG = [
+  {
+    month: '2026-09',
+    items: [
+      { title: 'GO Assistant', text: 'An assistant inside GO Admin that answers questions about your business and takes you to the screen you need.', area: 'AI', icon: 'bot' },
+      { title: 'Customer-facing display at the POS', text: 'Your customer sees on a second screen what you are ringing up, the total and the change.', area: 'Sales and POS', icon: 'cart' },
+      { title: 'Offline desktop POS', text: 'The desktop app keeps selling if the internet goes down and syncs when the connection is back.', area: 'Sales and POS', icon: 'zap' },
+      { title: 'Serial numbers and blind cash closing', text: 'Track products by serial number. At closing, the cashier counts the cash without seeing the expected amount.', area: 'Inventory', icon: 'boxes' },
+      { title: 'Role-based dashboards', text: 'Each person lands on a home screen with the indicators for their job: cash register, sales, inventory or administration.', area: 'Reports', icon: 'chart' },
+      { title: 'Calls from GO Admin', text: 'Make and receive calls from the browser and keep a record on the customer profile.', area: 'Customers (CRM)', icon: 'message' },
+      { title: 'Separate branches across all modules', text: 'Each branch sees its own inventory, sales and cash register. Management sees the consolidated view.', area: 'Organization', icon: 'building' },
+      { title: 'Multiple points of sale and a domain per branch', text: 'Open more than one point of sale per branch and buy a custom domain for each branch’s website.', area: 'Digital channels', icon: 'globe' },
+      { title: 'Dashboard in four languages', text: 'GO Admin is available in Spanish, English, Portuguese and French.', area: 'Platform', icon: 'globe' },
+    ],
+  },
+  {
+    month: '2026-08',
+    items: [
+      { title: 'International payments', text: 'Your customers pay from other countries in your store and in the booking engine.', area: 'Digital channels', icon: 'credit-card' },
+      { title: 'Catalog for Facebook and Instagram', text: 'Publish your products to the Meta catalog with prices in multiple currencies.', area: 'Digital channels', icon: 'store' },
+      { title: 'Website editor', text: 'Build your business’s public website with blocks and publish it on your domain.', area: 'Digital channels', icon: 'layout' },
+      { title: 'Push notifications', text: 'Get alerts for sales, orders and bookings on your phone, even when GO Admin is not open.', area: 'Platform', icon: 'bell' },
+      { title: 'Paid web orders confirmed automatically', text: 'When the online payment is approved, the order moves to preparation without you having to confirm it.', area: 'Online store', icon: 'truck' },
+      { title: 'Payments with Bold and QR codes', text: 'Take payments with a Bold card terminal and with Bancolombia, Bre-B and Redeban QR codes from the POS.', area: 'Payments', icon: 'qr', countries: ['COL'] },
+      { title: 'Connection to your banks', text: 'Sync bank transactions and reconcile with help from AI.', area: 'Finance', icon: 'landmark', countries: ['COL'] },
+      { title: 'Mobile app with Bluetooth printing', text: 'Sell from your phone and print on thermal printers over Bluetooth.', area: 'Sales and POS', icon: 'cart' },
+      { title: 'Data lookup with {theAuthority}', text: 'When you create a customer, pull in their name and tax details with the {taxId}.', area: '{invoicing}', icon: 'search', countries: ['COL'] },
+      { title: 'AI reports and PDF closings', text: 'Ask for a report in your own words and download cash closings as PDF.', area: 'Reports', icon: 'sparkles' },
+      { title: 'Hotel folios and cash drawer', text: 'Charges grouped by guest at the hotel and automatic cash drawer opening when you take payment.', area: 'Hospitality', icon: 'bed' },
+    ],
+  },
+  {
+    month: '2026-07',
+    items: [
+      { title: 'Electronic invoicing with {theAuthority}', text: 'Issue validated electronic invoices from the POS and from sales.', area: '{invoicing}', icon: 'receipt', countries: ['COL'] },
+      { title: 'Kitchen tickets', text: 'Send orders to the kitchen printed or on screen, with notes per item.', area: 'Restaurants', icon: 'utensils' },
+      { title: 'Printing from the desktop', text: 'A print agent detects your printers and retries on another one if one fails.', area: 'Sales and POS', icon: 'file-text' },
+      { title: 'Recipes and production', text: 'Define recipes, record production and deduct the ingredients from inventory.', area: 'Inventory', icon: 'package' },
+      { title: 'Stock by branch and variants', text: 'Track stock by branch, and also by size, color or other variant.', area: 'Inventory', icon: 'boxes' },
+      { title: 'Shipments and waybills', text: 'Assign delivery drivers, print waybills and save photos as proof of delivery.', area: 'Transport', icon: 'truck' },
+      { title: 'Light and dark mode', text: 'All of GO Admin adapts to your device’s theme and looks good on your phone.', area: 'Platform', icon: 'palette' },
+    ],
+  },
+]

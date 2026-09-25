@@ -1,15 +1,16 @@
 import type { MetadataRoute } from 'next'
-import { MARKETS, MARKET_IDS } from '@/i18n/markets'
+import { COUNTRY_SLUGS, MARKETS, MARKET_IDS } from '@/i18n/markets'
 import { PRODUCTS } from '@/lib/catalog/products'
 import { SOLUTIONS } from '@/lib/catalog/solutions'
 import { allPostSlugs } from '@/lib/data'
 import { SITE_URL, marketPath } from '@/lib/seo'
 
-const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/eliminacion-datos']
+const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/eliminacion-datos', '/cookies', '/aliados', '/clientes', '/novedades', '/paises']
+// /terminos queda fuera mientras sea borrador (noindex).
 
 /** Mapa del sitio con las páginas de los 11 mercados y sus versiones alternas (hreflang). */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [...STATIC, ...PRODUCTS.map((p) => `/producto/${p.slug}`), ...SOLUTIONS.map((s) => `/soluciones/${s.slug}`)]
+  const paths = [...STATIC, ...PRODUCTS.map((p) => `/producto/${p.slug}`), ...SOLUTIONS.map((s) => `/soluciones/${s.slug}`), ...Object.values(COUNTRY_SLUGS).map((c) => `/paises/${c}`)]
   const entries: MetadataRoute.Sitemap = []
   for (const path of paths) {
     const languages = Object.fromEntries(MARKET_IDS.map((id) => [id, `${SITE_URL}${marketPath(path, id)}`]))

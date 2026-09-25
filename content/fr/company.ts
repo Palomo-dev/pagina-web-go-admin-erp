@@ -102,3 +102,48 @@ export const POSTS: Es.Post[] = [
     ],
   },
 ]
+
+export const CHANGELOG: typeof Es.CHANGELOG = [
+  {
+    month: '2026-09',
+    items: [
+      { title: 'GO Assistant', text: 'Un assistant intégré à GO Admin qui répond à vos questions sur votre entreprise et vous amène à l’écran dont vous avez besoin.', area: 'IA', icon: 'bot' },
+      { title: 'Écran client au PDV', text: 'Votre client voit sur un deuxième écran ce que vous encaissez, le total et la monnaie à rendre.', area: 'Ventes et PDV', icon: 'cart' },
+      { title: 'PDV de bureau hors ligne', text: 'L’application de bureau continue de vendre si Internet tombe et se synchronise au retour de la connexion.', area: 'Ventes et PDV', icon: 'zap' },
+      { title: 'Numéros de série et fermeture de caisse à l’aveugle', text: 'Suivez vos produits par numéro de série. À la fermeture, le caissier compte l’argent comptant sans voir le montant attendu.', area: 'Inventaire', icon: 'boxes' },
+      { title: 'Tableaux de bord par rôle', text: 'Chaque personne arrive sur un accueil avec les indicateurs de son travail : caisse, ventes, inventaire ou administration.', area: 'Rapports', icon: 'chart' },
+      { title: 'Appels depuis GO Admin', text: 'Faites et recevez des appels depuis le navigateur et gardez-en la trace dans la fiche du client.', area: 'Clients (CRM)', icon: 'message' },
+      { title: 'Succursales séparées dans tous les modules', text: 'Chaque succursale voit son propre inventaire, ses ventes et sa caisse. L’administration voit le consolidé.', area: 'Organisation', icon: 'building' },
+      { title: 'Plusieurs points de vente et un domaine par succursale', text: 'Ouvrez plus d’un point de vente par succursale et achetez un nom de domaine propre pour la page de chacune.', area: 'Canaux numériques', icon: 'globe' },
+      { title: 'Tableau de bord en quatre langues', text: 'GO Admin est offert en espagnol, en anglais, en portugais et en français.', area: 'Plateforme', icon: 'globe' },
+    ],
+  },
+  {
+    month: '2026-08',
+    items: [
+      { title: 'Paiements internationaux', text: 'Vos clients paient depuis d’autres pays dans votre boutique et dans le moteur de réservation.', area: 'Canaux numériques', icon: 'credit-card' },
+      { title: 'Catalogue pour Facebook et Instagram', text: 'Publiez vos produits dans le catalogue de Meta avec des prix en plusieurs devises.', area: 'Canaux numériques', icon: 'store' },
+      { title: 'Éditeur de site Web', text: 'Montez la page publique de votre entreprise avec des blocs et publiez-la sur votre domaine.', area: 'Canaux numériques', icon: 'layout' },
+      { title: 'Notifications poussées', text: 'Recevez des avis de ventes, de commandes et de réservations sur votre cellulaire, même si GO Admin n’est pas ouvert.', area: 'Plateforme', icon: 'bell' },
+      { title: 'Commandes Web payées confirmées automatiquement', text: 'Quand le paiement en ligne est approuvé, la commande passe en préparation sans que vous ayez à la confirmer.', area: 'Boutique en ligne', icon: 'truck' },
+      { title: 'Paiements avec Bold et codes QR', text: 'Encaissez avec le terminal Bold et avec les codes QR de Bancolombia, Bre-B et Redeban depuis le PDV.', area: 'Paiements', icon: 'qr', countries: ['COL'] },
+      { title: 'Connexion avec vos banques', text: 'Synchronisez vos mouvements bancaires et faites vos rapprochements avec l’aide de l’IA.', area: 'Finances', icon: 'landmark', countries: ['COL'] },
+      { title: 'Application mobile avec impression Bluetooth', text: 'Vendez depuis votre cellulaire et imprimez sur des imprimantes thermiques par Bluetooth.', area: 'Ventes et PDV', icon: 'cart' },
+      { title: 'Consultation des données auprès de {theAuthority}', text: 'En créant un client, récupérez son nom et ses données fiscales à partir du {taxId}.', area: '{invoicing}', icon: 'search', countries: ['COL'] },
+      { title: 'Rapports avec IA et fermetures en PDF', text: 'Demandez un rapport dans vos mots et téléchargez les fermetures de caisse en PDF.', area: 'Rapports', icon: 'sparkles' },
+      { title: 'Folios en hôtellerie et tiroir-caisse', text: 'Frais regroupés par client à l’hôtel et ouverture automatique du tiroir à l’encaissement.', area: 'Hôtellerie', icon: 'bed' },
+    ],
+  },
+  {
+    month: '2026-07',
+    items: [
+      { title: 'Facturation électronique auprès de {theAuthority}', text: 'Émettez des factures électroniques validées depuis le PDV et depuis les ventes.', area: '{invoicing}', icon: 'receipt', countries: ['COL'] },
+      { title: 'Bons de commande en cuisine', text: 'Envoyez les commandes en cuisine, imprimées ou à l’écran, avec des notes par produit.', area: 'Restaurants', icon: 'utensils' },
+      { title: 'Impression depuis le bureau', text: 'Un agent d’impression détecte vos imprimantes et réessaie sur une autre si l’une d’elles échoue.', area: 'Ventes et PDV', icon: 'file-text' },
+      { title: 'Recettes et production', text: 'Définissez des recettes, enregistrez la production et déduisez les intrants de l’inventaire.', area: 'Inventaire', icon: 'package' },
+      { title: 'Stock par succursale et variantes', text: 'Suivez les stocks par succursale, et aussi par taille, couleur ou autre variante.', area: 'Inventaire', icon: 'boxes' },
+      { title: 'Livraisons et bordereaux', text: 'Assignez des livreurs, imprimez des bordereaux et conservez des photos comme preuve de livraison.', area: 'Transport', icon: 'truck' },
+      { title: 'Mode clair et sombre', text: 'Tout GO Admin s’adapte au thème de votre appareil et s’affiche bien sur le cellulaire.', area: 'Plateforme', icon: 'palette' },
+    ],
+  },
+]

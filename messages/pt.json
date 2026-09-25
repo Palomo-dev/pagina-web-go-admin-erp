@@ -287,6 +287,18 @@
       "careers": {
         "label": "Carreiras",
         "description": "Construa com a gente a partir de Medellín."
+      },
+      "changelog": {
+        "label": "Novidades",
+        "description": "O que há de novo no GO Admin, mês a mês."
+      },
+      "customers": {
+        "label": "Casos de clientes",
+        "description": "Histórias reais de negócios."
+      },
+      "partners": {
+        "label": "Programa de parceiros",
+        "description": "Recomende o GO Admin e ganhe comissão."
       }
     }
   },
@@ -332,9 +344,16 @@
       "about": "Sobre",
       "careers": "Carreiras",
       "privacy": "Privacidade",
-      "deletion": "Exclusão de dados"
+      "deletion": "Exclusão de dados",
+      "changelog": "Novidades",
+      "customers": "Casos de clientes",
+      "partners": "Programa de parceiros",
+      "countries": "Países",
+      "terms": "Termos e condições",
+      "cookies": "Cookies"
     },
-    "legal": "© {year} {legalName} · NIT {nit} · {city}"
+    "legal": "© {year} {legalName} · NIT {nit} · {city}",
+    "cookieSettings": "Configurar cookies"
   },
   "contact": {
     "hours": "Seg a sex · 8h – 18h",
@@ -1352,6 +1371,303 @@
       "docsTitle": "Precisa da documentação técnica?",
       "docsText": "Escreva para nós com o que você quer conectar e compartilhamos a referência da API e o acesso de teste.",
       "docsCta": "Pedir acesso"
+    },
+    "terms": {
+      "meta": {
+        "title": "Termos e condições",
+        "description": "As condições para usar o GO Admin: conta, planos, pagamentos, cancelamento, dados e responsabilidades."
+      },
+      "eyebrow": "Legal",
+      "draft": "Versão preliminar em revisão jurídica. Pode mudar antes da publicação definitiva.",
+      "contact": "Contato"
+    },
+    "cookies": {
+      "meta": {
+        "title": "Política de cookies",
+        "description": "Quais cookies o goadmin.io usa, para que servem e como alterar sua escolha."
+      },
+      "eyebrow": "Legal",
+      "toc": {
+        "que-son": "O que são",
+        "tipos": "Tipos",
+        "lista": "Lista de cookies",
+        "gestionar": "Alterar sua escolha",
+        "contacto": "Contato"
+      },
+      "whatTitle": "O que são cookies?",
+      "typesTitle": "Tipos de cookies que usamos",
+      "always": "Sempre ativos",
+      "optional": "Com sua permissão",
+      "listTitle": "Lista de cookies",
+      "table": {
+        "name": "Nome",
+        "category": "Tipo",
+        "purpose": "Para que serve",
+        "duration": "Duração",
+        "provider": "Fornecedor"
+      },
+      "manageTitle": "Alterar sua escolha",
+      "settings": "Configurar cookies"
+    },
+    "partners": {
+      "meta": {
+        "title": "Programa de parceiros e revendedores",
+        "description": "Recomende o GO Admin a outros negócios e ganhe uma comissão a cada renovação enquanto a assinatura estiver ativa."
+      },
+      "eyebrow": "Programa de parceiros",
+      "title": "Recomende o GO Admin e ganhe a cada renovação.",
+      "subtitle": "Para contadores, consultores, agências e distribuidores que acompanham outros negócios. Compartilhe seu link e receba uma comissão sempre que seu indicado pagar o plano.",
+      "signup": "Quero ser parceiro",
+      "login": "Já sou parceiro",
+      "howEyebrow": "Como funciona",
+      "howTitle": "Quatro passos, sem burocracia.",
+      "steps": [
+        {
+          "title": "Cadastre-se",
+          "text": "Crie sua conta no portal de parceiros com seu nome e e-mail. Se você já usa o GO Admin, ative pelo seu perfil."
+        },
+        {
+          "title": "Compartilhe seu link",
+          "text": "Você recebe um código e um link próprios. Compartilhe com os negócios que você assessora."
+        },
+        {
+          "title": "Seu indicado assina",
+          "text": "Quando o negócio paga o plano, a comissão fica registrada em seu nome."
+        },
+        {
+          "title": "Receba seu pagamento",
+          "text": "Todo mês, no fechamento, transferimos as comissões aprovadas para sua conta bancária."
+        }
+      ],
+      "termsEyebrow": "Condições",
+      "termsTitle": "Claras desde o primeiro dia.",
+      "termsSubtitle": "Estes são os valores padrão do programa. No portal você vê as condições exatas da sua conta.",
+      "terms": {
+        "commission": {
+          "label": "Comissão",
+          "text": "Sobre cada pagamento do plano do seu indicado."
+        },
+        "recurring": {
+          "label": "Recorrente",
+          "value": "A cada renovação",
+          "text": "Enquanto a assinatura estiver ativa. Se o negócio cancelar, as comissões deixam de ser geradas."
+        },
+        "minimum": {
+          "label": "Pagamento mínimo",
+          "text": "As comissões se acumulam até chegar a este valor."
+        },
+        "cutoff": {
+          "label": "Fechamento",
+          "value": "Dia {day} de cada mês",
+          "text": "São liquidadas as comissões aprovadas até essa data."
+        },
+        "processing": {
+          "label": "Processamento",
+          "value": "{days} dias úteis",
+          "text": "Após o fechamento e a revisão da equipe."
+        },
+        "method": {
+          "label": "Forma de pagamento",
+          "value": "Transferência bancária",
+          "text": "Para uma conta verificada, com seus dados tributários em dia. Pagamentos em dólares (USD)."
+        }
+      },
+      "termsNote": "A comissão é registrada quando o pagamento do indicado é confirmado. Comissões de pagamentos reembolsados ou anulados não são pagas.",
+      "profilesEyebrow": "Para quem é",
+      "profilesTitle": "Se você acompanha negócios, isto é para você.",
+      "profiles": {
+        "accountants": {
+          "title": "Contadores",
+          "text": "Seus clientes mantêm vendas, compras e impostos em ordem, e você recebe as informações prontas."
+        },
+        "consultants": {
+          "title": "Consultores",
+          "text": "Recomende uma ferramenta que organiza a operação e acompanhe sua implementação."
+        },
+        "agencies": {
+          "title": "Agências",
+          "text": "Site, loja on-line e reservas conectados ao estoque e ao caixa do negócio."
+        },
+        "resellers": {
+          "title": "Distribuidores",
+          "text": "Se você vende equipamentos de ponto de venda, some o software que os coloca para trabalhar."
+        }
+      },
+      "tiersEyebrow": "Níveis",
+      "tiersTitle": "Seu progresso, à vista.",
+      "tiersSubtitle": "O portal mostra seu nível de acordo com seus indicados ativos e as vendas acumuladas dos seus indicados.",
+      "tierN": "Nível {n}",
+      "tiers": {
+        "bronze": "Bronze",
+        "silver": "Prata",
+        "gold": "Ouro",
+        "platinum": "Platina"
+      },
+      "tierStart": "Seu ponto de partida ao se cadastrar.",
+      "tierGoal": "{referrals} indicados ativos ou {sales} em vendas.",
+      "portal": {
+        "eyebrow": "Portal de parceiros",
+        "title": "Tudo em um só lugar.",
+        "items": [
+          {
+            "title": "Seus indicados",
+            "text": "Quais negócios se cadastraram com seu link e em qual plano estão."
+          },
+          {
+            "title": "Suas comissões",
+            "text": "Cada comissão com seu status: pendente, paga ou anulada."
+          },
+          {
+            "title": "Seus pagamentos",
+            "text": "Histórico de transferências e o valor acumulado para o próximo fechamento."
+          },
+          {
+            "title": "Seu link e seu código",
+            "text": "Copie para compartilhar por WhatsApp, e-mail ou redes sociais."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "q": "Quanto custa ser parceiro?",
+          "a": "Nada. O cadastro é gratuito e sua conta fica ativa assim que você o conclui."
+        },
+        {
+          "q": "Preciso ser cliente do GO Admin?",
+          "a": "Não. Se você já é cliente, pode ativar sua conta de parceiro pelo seu perfil no GO Admin."
+        },
+        {
+          "q": "Quando uma comissão é gerada?",
+          "a": "Quando o pagamento do plano do seu indicado é confirmado. Ela se repete a cada renovação enquanto a assinatura estiver ativa."
+        },
+        {
+          "q": "Como e quando sou pago?",
+          "a": "Por transferência bancária, em dólares (USD), após o fechamento mensal e a revisão da equipe, quando suas comissões aprovadas superam o pagamento mínimo."
+        },
+        {
+          "q": "O que preciso para receber pagamentos?",
+          "a": "Seus dados tributários e uma conta bancária verificada no portal."
+        }
+      ],
+      "ctaTitle": "Comece a recomendar hoje.",
+      "ctaText": "Cadastre-se no portal de parceiros, receba seu link e compartilhe com os negócios que você acompanha.",
+      "ctaContact": "Falar com a equipe",
+      "ctaEyebrow": "Cadastro gratuito"
+    },
+    "changelog": {
+      "meta": {
+        "title": "Novidades do produto",
+        "description": "O que há de novo no GO Admin, mês a mês: funções, melhorias e módulos."
+      },
+      "eyebrow": "Novidades",
+      "title": "O que há de novo no GO Admin.",
+      "subtitle": "Melhoramos o GO Admin toda semana. Aqui estão as mudanças mais importantes, mês a mês.",
+      "note": "Mostramos as novidades que se aplicam {inCountry}. Algumas funções dependem do plano.",
+      "ctaTitle": "Experimente com o seu negócio.",
+      "ctaText": "Todas estas novidades já estão disponíveis no GO Admin.",
+      "cta": "Criar conta grátis"
+    },
+    "customers": {
+      "meta": {
+        "title": "Casos de clientes",
+        "description": "Histórias reais de negócios que usam o GO Admin, contadas com a autorização deles."
+      },
+      "eyebrow": "Casos de clientes",
+      "title": "Histórias reais, contadas por quem as viveu.",
+      "subtitle": "Só publicamos casos de negócios que usam o GO Admin, com a autorização deles e com os resultados que eles mesmos medem.",
+      "emptyTitle": "Estamos reunindo as primeiras histórias.",
+      "emptyText": "Se você usa o GO Admin no seu negócio, conte como tem sido. Adoraríamos contar a sua história.",
+      "share": "Contar minha história",
+      "subject": "Quero contar minha história com o GO Admin",
+      "processEyebrow": "Como publicamos um caso",
+      "processTitle": "Sua história, com a sua aprovação.",
+      "steps": [
+        {
+          "title": "Você nos escreve",
+          "text": "Conte em poucas linhas o que seu negócio faz e como você usa o GO Admin."
+        },
+        {
+          "title": "Conversamos",
+          "text": "Uma entrevista curta para entender sua operação, o antes e o depois."
+        },
+        {
+          "title": "Você revisa",
+          "text": "Enviamos o texto. Você corrige o que quiser e aprova quais números são publicados."
+        },
+        {
+          "title": "Publicamos",
+          "text": "O caso sai nesta página com seu nome, seu logo e o link para o seu negócio."
+        }
+      ],
+      "includeEyebrow": "O que cada caso conta",
+      "includeTitle": "O que outros negócios querem saber.",
+      "include": [
+        "Como era a operação antes e qual problema queriam resolver.",
+        "Quais módulos usam e como os configuraram.",
+        "Quanto tempo levou a implantação.",
+        "O que mudou no dia a dia, com números que o negócio mede e aprova."
+      ],
+      "industriesEyebrow": "Por tipo de negócio",
+      "industriesTitle": "Assim se usa o GO Admin em cada setor.",
+      "industriesSubtitle": "Enquanto publicamos os primeiros casos, veja como o GO Admin se monta para negócios como o seu."
+    },
+    "countries": {
+      "meta": {
+        "title": "GO Admin em cada país",
+        "description": "Faturamento, impostos, meios de pagamento e preços do GO Admin nos 10 países onde ele funciona."
+      },
+      "eyebrow": "Países",
+      "title": "GO Admin em 10 países.",
+      "subtitle": "Cada país tem seus impostos, sua autoridade tributária e seus meios de pagamento. Veja o que o GO Admin faz hoje no seu.",
+      "status": {
+        "integrated": "Faturamento eletrônico conectado",
+        "not_integrated": "Conexão com a autoridade pendente",
+        "not_mandatory": "Sem sistema nacional obrigatório"
+      },
+      "plansIn": "Planos em {currency}",
+      "cardText": "Autoridade: {authority}. Impostos: {taxes}.",
+      "see": "Ver {country}"
+    },
+    "country": {
+      "meta": {
+        "title": "GO Admin {inCountry}",
+        "description": "Faturamento, impostos, meios de pagamento, integrações e preços do GO Admin {inCountry}."
+      },
+      "eyebrow": "{country}",
+      "title": "GO Admin {inCountry}.",
+      "subtitle": "{status, select, integrated {Emita e valide seus documentos eletrônicos junto a {theAuthority}, com {taxes}, no mesmo lugar onde você vende.} not_integrated {Fature com {taxes} e gerencie toda a sua operação. A conexão com {theAuthority} ainda está pendente.} other {Fature com {taxes} e gerencie toda a sua operação em um só lugar.}}",
+      "visit": "Ver o site em {language}",
+      "fiscalEyebrow": "Faturamento e impostos",
+      "fiscalTitle": "O que você precisa saber.",
+      "facts": {
+        "authority": "Autoridade tributária",
+        "system": "Documento eletrônico",
+        "status": "No GO Admin",
+        "taxes": "Impostos",
+        "taxId": "Identificação tributária",
+        "chart": "Plano de contas",
+        "ePayroll": "Folha de pagamento eletrônica",
+        "currency": "Moeda local",
+        "planCurrency": "Moeda dos planos"
+      },
+      "status": {
+        "integrated": "Emissão e validação conectadas",
+        "not_integrated": "Conexão pendente",
+        "not_mandatory": "Sem sistema obrigatório"
+      },
+      "none": "Não se aplica",
+      "yes": "Incluída",
+      "noEPayroll": "Folha de pagamento com regras locais, sem emissão junto à autoridade",
+      "paymentsEyebrow": "Meios de pagamento",
+      "paymentsTitle": "Cobre como se paga {inCountry}.",
+      "integrationsEyebrow": "Integrações",
+      "integrationsTitle": "Conectado aos serviços do país.",
+      "allIntegrations": "Ver todas as integrações",
+      "pricingEyebrow": "Preços",
+      "pricingTitle": "Planos em {planCurrency}.",
+      "pricingSubtitle": "Preço mensal de cada plano. Com pagamento anual, você paga menos.",
+      "perMonth": "por mês",
+      "seePricing": "Ver preços e comparar planos"
     }
   },
   "notFound": {
@@ -1361,5 +1677,13 @@
     "text": "A página que você procura mudou de lugar ou nunca esteve aqui. Vamos voltar a um lugar conhecido.",
     "home": "Voltar ao início",
     "help": "Ir para a central de ajuda"
+  },
+  "consent": {
+    "label": "Aviso de cookies",
+    "title": "Usamos poucos cookies",
+    "text": "Os necessários lembram seu país e idioma. Com sua permissão, também medimos de forma agregada quais páginas são visitadas para melhorar o site.",
+    "policy": "Política de cookies",
+    "necessary": "Somente necessários",
+    "accept": "Aceitar todos"
   }
 }

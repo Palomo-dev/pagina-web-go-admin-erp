@@ -168,3 +168,185 @@ export const DATA_DELETION = {
     { q: '¿Cuánto tiempo tarda la eliminación?', a: 'En Colombia: 10 días hábiles. En EU/US (GDPR/CCPA): 45 días. Recibirás confirmación cuando se complete.' },
   ],
 }
+
+/**
+ * Términos y condiciones. BORRADOR redactado a partir del funcionamiento real del servicio
+ * (planes, pruebas, pagos, facturación, canales digitales, IA). Debe pasar por revisión legal
+ * antes de retirar `draft` (mientras sea borrador la página no se indexa).
+ */
+export const TERMS = {
+  title: 'Términos y condiciones',
+  updated: '25 de septiembre de 2026',
+  draft: true,
+  intro:
+    'Estas condiciones regulan el uso de GO Admin, el software de gestión para negocios de GO Admin S.A.S. Léelas con calma: al crear una cuenta o usar el servicio las aceptas.',
+  sections: [
+    {
+      title: '1. Quiénes somos y aceptación',
+      items: [
+        `GO Admin es un servicio de ${CONTACT.legalName}, identificada con NIT ${CONTACT.nit}, con domicilio en ${CONTACT.city}.`,
+        'Al registrarte, iniciar una prueba o usar cualquier módulo aceptas estos términos, la Política de privacidad y la Política de cookies.',
+        'Si usas GO Admin en nombre de una empresa, declaras que tienes autorización para aceptar estos términos en su nombre.',
+      ],
+    },
+    {
+      title: '2. El servicio',
+      items: [
+        'GO Admin es un software en la nube (SaaS) con módulos de ventas y POS, inventario, facturación, contabilidad, clientes, nómina, reportes, canales digitales e inteligencia artificial, entre otros.',
+        'Los módulos disponibles dependen del plan contratado y del país. La información de cada plan está en la página de precios.',
+        'Podemos mejorar, cambiar o retirar funciones. Si un cambio reduce de forma importante lo que contrataste, te avisaremos con anticipación.',
+      ],
+    },
+    {
+      title: '3. Tu cuenta',
+      items: [
+        'Debes entregar información veraz y mantenerla actualizada.',
+        'Eres responsable de las credenciales de tu cuenta y de los usuarios que invites. Asigna a cada persona el rol y los permisos que necesita.',
+        'Avísanos de inmediato si sospechas un acceso no autorizado.',
+      ],
+    },
+    {
+      title: '4. Planes, pruebas y pagos',
+      items: [
+        'Los planes se cobran por mes o por año, por adelantado. En Colombia el precio se expresa en pesos colombianos (COP); en los demás países, en dólares estadounidenses (USD).',
+        'Algunos planes incluyen un periodo de prueba gratuito. Al terminar la prueba, el plan se cobra solo si decides continuar.',
+        'La suscripción se renueva automáticamente al final de cada periodo hasta que la canceles.',
+        'Los usuarios, sucursales, créditos de IA y documentos adicionales se cobran según las tarifas vigentes.',
+        'Podemos cambiar los precios. Los cambios se aplican desde el siguiente periodo y te avisaremos antes.',
+      ],
+    },
+    {
+      title: '5. Cancelación',
+      items: [
+        'Puedes cancelar tu suscripción cuando quieras desde tu cuenta. El servicio sigue activo hasta el final del periodo pagado.',
+        'Los pagos de periodos ya iniciados no se reembolsan, salvo que la ley aplicable disponga otra cosa.',
+        'Antes de cancelar puedes exportar tu información. Después del cierre conservamos los datos según la Política de privacidad y las obligaciones legales.',
+        'Podemos suspender o cerrar una cuenta que incumpla estos términos o tenga pagos vencidos, avisando antes cuando sea posible.',
+      ],
+    },
+    {
+      title: '6. Tus datos',
+      items: [
+        'La información que registras en GO Admin es tuya. La tratamos para prestarte el servicio, según la Política de privacidad.',
+        'Tú decides qué datos de tus clientes, empleados y proveedores registras, y respondes por tener la autorización para tratarlos.',
+        'Aplicamos medidas de seguridad como cifrado, copias de respaldo y control de acceso por roles.',
+      ],
+    },
+    {
+      title: '7. Uso aceptable',
+      items: [
+        'No uses GO Admin para actividades ilegales, fraude, envío de mensajes no solicitados ni para vulnerar derechos de terceros.',
+        'No intentes acceder a cuentas ajenas, interrumpir el servicio ni extraer información de forma automatizada sin autorización.',
+        'Los límites de cada plan (usuarios, sucursales, documentos, créditos de IA) aplican a cada cuenta.',
+      ],
+    },
+    {
+      title: '8. Facturación electrónica y obligaciones tributarias',
+      items: [
+        'En Colombia, GO Admin emite y valida documentos electrónicos ante la DIAN a través de un proveedor tecnológico. En otros países la emisión electrónica ante la autoridad puede no estar disponible; la página de cada país indica el estado.',
+        'Tú eres responsable de la información tributaria que registras (resoluciones, impuestos, datos de clientes) y del cumplimiento de tus obligaciones fiscales.',
+        'GO Admin es una herramienta: no reemplaza la asesoría de tu contador.',
+      ],
+    },
+    {
+      title: '9. Canales digitales y contenido',
+      items: [
+        'Si usas la página web, la tienda en línea, el motor de reservas o el chat, eres responsable del contenido, precios, productos y condiciones que publicas.',
+        'Nos das permiso para alojar y mostrar ese contenido con el único fin de prestarte el servicio.',
+        'Los dominios que compres por medio de GO Admin quedan sujetos también a las reglas del registrador.',
+      ],
+    },
+    {
+      title: '10. Inteligencia artificial',
+      items: [
+        'Las funciones de IA generan sugerencias, textos y análisis a partir de tu información. Revísalos antes de usarlos: pueden contener errores.',
+        'El uso de IA consume créditos según tu plan.',
+        'La información que usan las funciones de IA se trata según la Política de privacidad.',
+      ],
+    },
+    {
+      title: '11. Servicios de terceros',
+      items: [
+        'GO Admin se integra con servicios de terceros (pasarelas de pago, mensajería, canales de venta, proveedores tecnológicos).',
+        'El uso de esos servicios se rige además por sus propios términos. No respondemos por fallas o cambios de esos servicios.',
+      ],
+    },
+    {
+      title: '12. Disponibilidad y soporte',
+      items: [
+        'Trabajamos para que GO Admin esté disponible de forma continua, pero puede haber interrupciones por mantenimiento o causas ajenas a nosotros.',
+        'Avisaremos con anticipación los mantenimientos programados cuando sea posible.',
+        'El soporte se presta por los canales publicados en la página de soporte, en los horarios indicados.',
+      ],
+    },
+    {
+      title: '13. Propiedad intelectual',
+      items: [
+        'El software, la marca GO Admin, los diseños y la documentación son de GO Admin S.A.S.',
+        'Te damos una licencia de uso no exclusiva e intransferible mientras tu suscripción esté activa.',
+        'No puedes copiar, modificar, revender ni hacer ingeniería inversa del software.',
+      ],
+    },
+    {
+      title: '14. Responsabilidad',
+      items: [
+        'Prestamos el servicio con diligencia profesional. En la medida en que la ley lo permita, no respondemos por daños indirectos, lucro cesante ni pérdida de oportunidades.',
+        'Nuestra responsabilidad total frente a ti se limita al valor que pagaste por el servicio en los doce meses anteriores al hecho que la origina.',
+        'Nada en estos términos limita los derechos que la ley de protección al consumidor te reconozca.',
+      ],
+    },
+    {
+      title: '15. Cambios a estos términos',
+      items: [
+        'Podemos actualizar estos términos. Publicaremos la nueva versión con su fecha y te avisaremos por correo si el cambio es importante.',
+        'Si no estás de acuerdo con un cambio, puedes cancelar antes de que entre en vigor.',
+      ],
+    },
+    {
+      title: '16. Ley aplicable',
+      items: [
+        'Estos términos se rigen por las leyes de la República de Colombia.',
+        'Buscaremos resolver cualquier diferencia de forma directa. Si no es posible, la resolverán los jueces de Medellín, Colombia, salvo que la ley aplicable disponga otra cosa.',
+      ],
+    },
+  ] as LegalSection[],
+  contact: { title: '¿Tienes preguntas sobre estos términos?', text: 'Escríbenos y te respondemos.', email: CONTACT.email },
+}
+
+/**
+ * Política de cookies. Refleja lo que el sitio usa de verdad: una cookie de preferencia de país e
+ * idioma, el registro del consentimiento y la analítica de Vercel (solo si la aceptas).
+ */
+export const COOKIES = {
+  title: 'Política de cookies',
+  updated: '25 de septiembre de 2026',
+  intro:
+    'Usamos muy pocas cookies en goadmin.io. Aquí te contamos cuáles, para qué sirven y cómo cambiar tu elección.',
+  what: 'Una cookie es un archivo pequeño que el sitio guarda en tu navegador para recordar algo, como tu país o idioma. Tecnologías parecidas, como el almacenamiento local del navegador, se tratan igual en esta política.',
+  categories: [
+    {
+      id: 'necessary',
+      title: 'Necesarias',
+      text: 'Hacen que el sitio funcione y recuerdan tus elecciones. No se pueden desactivar.',
+      always: true,
+    },
+    {
+      id: 'analytics',
+      title: 'Analítica',
+      text: 'Nos ayudan a saber qué páginas se visitan para mejorar el sitio. Los datos son agregados y no te identifican. Solo se activan si las aceptas.',
+      always: false,
+    },
+  ],
+  table: [
+    { name: 'GOADMIN_MARKET', category: 'Necesarias', purpose: 'Recuerda el país e idioma que elegiste.', duration: '1 año', provider: 'GO Admin' },
+    { name: 'goadmin_consent', category: 'Necesarias', purpose: 'Guarda tu elección sobre cookies para no volver a preguntarte.', duration: '1 año', provider: 'GO Admin' },
+    { name: 'Vercel Web Analytics', category: 'Analítica', purpose: 'Mide visitas a páginas de forma agregada, sin cookies de seguimiento ni identificadores personales.', duration: 'No guarda cookies', provider: 'Vercel Inc.' },
+  ],
+  notUsed: 'No usamos cookies de publicidad ni compartimos datos de navegación con redes publicitarias.',
+  app: 'La aplicación GO Admin (app.goadmin.io) usa sus propias cookies de sesión, necesarias para mantenerte conectado y proteger tu cuenta.',
+  manage: [
+    'Puedes cambiar tu elección en cualquier momento con el botón «Configurar cookies» de esta página o del pie de página.',
+    'También puedes borrar o bloquear cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país e idioma.',
+  ],
+  contact: { title: '¿Tienes preguntas sobre cookies?', text: 'Escríbenos y te respondemos.', email: 'privacidad@goadmin.io' },
+}

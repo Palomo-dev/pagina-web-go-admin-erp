@@ -28,11 +28,15 @@ export type CompanyContent = {
   TRAINING_FORMATS: typeof Company.TRAINING_FORMATS
   LEARNING_PATHS: typeof Company.LEARNING_PATHS
   POSTS: Company.Post[]
+  /** Mismo orden de meses y novedades que el español */
+  CHANGELOG: Company.Release[]
 }
 
 export type LegalContent = {
   PRIVACY: typeof Legal.PRIVACY
   DATA_DELETION: typeof Legal.DATA_DELETION
+  TERMS: typeof Legal.TERMS
+  COOKIES: typeof Legal.COOKIES
 }
 
 export type LanguageContent = { catalog: CatalogText; company: CompanyContent; legal: LegalContent }
