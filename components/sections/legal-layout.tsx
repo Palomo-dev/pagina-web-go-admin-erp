@@ -1,5 +1,7 @@
 import { SiteFooter } from '@/components/site/footer'
 import { SiteNavbar } from '@/components/site/navbar'
+import { Link } from '@/i18n/navigation'
+import { useT } from '@/i18n/t'
 
 /**
  * Plantilla de documentos legales: índice fijo a la izquierda y texto con ancho de lectura cómodo.
@@ -12,6 +14,7 @@ export function LegalLayout({
   updated,
   toc,
   currentPage,
+  reference,
   children,
 }: {
   eyebrow: string
@@ -20,8 +23,11 @@ export function LegalLayout({
   updated?: string
   toc: { id: string; label: string }[]
   currentPage: string
+  /** true en idiomas distintos del español: muestra el aviso de traducción de referencia */
+  reference?: boolean
   children: React.ReactNode
 }) {
+  const t = useT('legal')
   return (
     <>
       <SiteNavbar tone="light" currentPage={currentPage} />
@@ -30,10 +36,18 @@ export function LegalLayout({
           <p className="text-eyebrow uppercase text-go-deep">{eyebrow}</p>
           <h1 className="mt-3 text-[2.5rem] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:text-display-l">{title}</h1>
           <p className="mt-4 max-w-3xl text-lead text-ink-body">{intro}</p>
-          {updated ? <p className="mt-4 text-sm text-ink-muted">Última actualización: {updated}</p> : null}
+          {updated ? <p className="mt-4 text-sm text-ink-muted">{t('updated', { date: updated })}</p> : null}
+          {reference ? (
+            <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">
+              {t('reference')}{' '}
+              <Link href={currentPage} locale="es-CO" className="font-semibold underline">
+                {t('seeSpanish')}
+              </Link>
+            </p>
+          ) : null}
         </header>
         <div className="container grid max-w-5xl gap-12 py-12 lg:grid-cols-[220px_1fr] lg:py-16">
-          <nav aria-label="Contenido del documento" className="hidden lg:block">
+          <nav aria-label={t('toc')} className="hidden lg:block">
             <ol className="sticky top-28 grid gap-1 text-sm">
               {toc.map((t) => (
                 <li key={t.id}>

@@ -1,4 +1,8 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+
+/** Enlaces que no pasan por el enrutador de mercados: externos, anclas, correo, teléfono. */
+const isRaw = (href: string) => /^(https?:|mailto:|tel:|#)/.test(href)
+const isExternal = (href: string) => href.startsWith('http')
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -46,9 +50,9 @@ export function CtaLink({
       {arrow ? <ArrowRight className="h-[18px] w-[18px] transition-transform duration-fast ease-out group-hover:translate-x-1" strokeWidth={1.75} aria-hidden /> : null}
     </>
   )
-  if (external || href.startsWith('http')) {
+  if (external || isRaw(href)) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cls} {...(external || isExternal(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
         {content}
       </a>
     )
@@ -61,7 +65,7 @@ export function CtaLink({
 }
 
 export function LinkArrow({ href, children, className, tone = 'brand' }: { href: string; children: React.ReactNode; className?: string; tone?: 'brand' | 'light' }) {
-  const external = href.startsWith('http')
+  const external = isExternal(href)
   const cls = cn(
     'group inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-fast',
     tone === 'brand' ? 'text-go-deep hover:text-go-action' : 'text-white hover:text-go-100',
@@ -73,8 +77,8 @@ export function LinkArrow({ href, children, className, tone = 'brand' }: { href:
       <ArrowRight className="h-4 w-4 transition-transform duration-fast ease-out group-hover:translate-x-1" strokeWidth={1.75} aria-hidden />
     </>
   )
-  return external ? (
-    <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+  return isRaw(href) ? (
+    <a href={href} className={cls} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
       {inner}
     </a>
   ) : (

@@ -1,6 +1,10 @@
-import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { getLocale } from 'next-intl/server'
 import { Firma } from '@/components/brand/logo'
+import { MarketSwitcher } from '@/components/site/market-switcher'
+import { Link } from '@/i18n/navigation'
+import { getT } from '@/i18n/t-server'
+import { listSolutions } from '@/lib/data'
 import { CONTACT, FOOTER_COLUMNS } from '@/lib/site'
 
 // Redes: reemplazar "#" por los perfiles oficiales cuando estén confirmados.
@@ -12,16 +16,24 @@ const SOCIAL = [
 ]
 
 /** Pie de página sobre cielo nocturno (Figma › Footer). */
-export function SiteFooter() {
+export async function SiteFooter() {
+  const locale = await getLocale()
+  const t = await getT('footer')
+  const solutions = await listSolutions(locale)
+  const columns = FOOTER_COLUMNS.map((col) => ({
+    title: t(`columns.${col.key}`),
+    links:
+      col.key === 'solutions'
+        ? solutions.map((s) => ({ label: s.name, href: `/soluciones/${s.slug}` }))
+        : col.links.map((l) => ({ label: t(`links.${l.key}`), href: l.href })),
+  }))
   return (
     <footer className="bg-night-900 text-night-line">
       <div className="container py-16 sm:py-20">
         <div className="grid gap-12 xl:grid-cols-[280px_1fr]">
           <div className="flex flex-col gap-5">
             <Firma size={30} variant="on-ink" />
-            <p className="max-w-xs text-sm leading-relaxed text-go-200">
-              Tu negocio, en un solo lugar. Inventario, ventas, facturación y equipo conectados para que puedas decidir con calma.
-            </p>
+            <p className="max-w-xs text-sm leading-relaxed text-go-200">{t('tagline')}</p>
             <ul className="flex gap-2.5">
               {SOCIAL.map(({ label, href, Icon }) => (
                 <li key={label}>
@@ -31,23 +43,18 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
+            <MarketSwitcher tone="night" className="self-start" />
           </div>
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
-            {FOOTER_COLUMNS.map((col) => (
+            {columns.map((col) => (
               <div key={col.title}>
                 <p className="text-eyebrow uppercase text-go-300">{col.title}</p>
                 <ul className="mt-4 grid gap-3">
                   {col.links.map((l) => (
-                    <li key={l.label}>
-                      {l.href.startsWith('http') ? (
-                        <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-sm transition-colors hover:text-white">
-                          {l.label}
-                        </a>
-                      ) : (
-                        <Link href={l.href} className="text-sm transition-colors hover:text-white">
-                          {l.label}
-                        </Link>
-                      )}
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-sm transition-colors hover:text-white">
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -56,9 +63,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-go-300 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {CONTACT.legalName} · NIT {CONTACT.nit} · {CONTACT.city}
-          </p>
+          <p>{t('legal', { year: new Date().getFullYear(), legalName: CONTACT.legalName, nit: CONTACT.nit, city: CONTACT.city })}</p>
           <p className="flex gap-4">
             <a href={`mailto:${CONTACT.email}`} className="hover:text-white">
               {CONTACT.email}

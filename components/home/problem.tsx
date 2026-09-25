@@ -5,26 +5,23 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
 import { Check } from 'lucide-react'
 import { SectionHeader } from '@/components/site/primitives'
 import { useMediaQuery } from '@/hooks/use-media-query'
+import { useT } from '@/i18n/t'
 
 type ChipSpec = { messy: string; tidy: string; from: [number, number, number]; to: [number, number] }
 
-// Posiciones en % del lienzo: del desorden (from) al orden (to)
-const CHIPS: ChipSpec[] = [
-  { messy: 'Cuaderno de pedidos', tidy: 'Pedidos', from: [2, 6, -8], to: [55, 8] },
-  { messy: 'WhatsApp de proveedores', tidy: 'Proveedores', from: [44, 16, 7], to: [55, 24] },
-  { messy: 'Hoja de inventario', tidy: 'Inventario', from: [6, 74, -5], to: [55, 40] },
-  { messy: 'Facturas en papel', tidy: 'Facturación DIAN', from: [46, 84, 9], to: [55, 56] },
-  { messy: 'Caja registradora', tidy: 'Caja', from: [20, 44, 4], to: [55, 72] },
-]
-
-const BULLETS = [
-  { title: 'Deja de digitar dos veces', text: 'Lo que vendes en caja llega solo a inventario y contabilidad.' },
-  { title: 'Sabe qué tienes y dónde', text: 'Existencias por bodega y sucursal, con alertas de stock bajo.' },
-  { title: 'Cierra caja sin sorpresas', text: 'Arqueo, medios de pago y diferencias en un solo reporte.' },
+// Posiciones en % del lienzo: del desorden (from) al orden (to). Textos en messages › home.problem.chips
+const POSITIONS: Pick<ChipSpec, 'from' | 'to'>[] = [
+  { from: [2, 6, -8], to: [55, 8] },
+  { from: [44, 16, 7], to: [55, 24] },
+  { from: [6, 74, -5], to: [55, 40] },
+  { from: [46, 84, 9], to: [55, 56] },
+  { from: [20, 44, 4], to: [55, 72] },
 ]
 
 /** 02 · ¿Todo pasa por ti? — el nudo de tareas se desata y se vuelve piezas que encajan. */
 export function Problem() {
+  const t = useT('home.problem')
+  const bullets = [0, 1, 2].map((i) => ({ title: t(`bullets.${i}.title`), text: t(`bullets.${i}.text`) }))
   const ref = useRef<HTMLElement>(null)
   const desktop = useMediaQuery('(min-width: 1024px)')
   const reduce = useReducedMotion()
@@ -41,12 +38,12 @@ export function Problem() {
           <div className="flex flex-col gap-10">
             <SectionHeader
               align="left"
-              eyebrow="El día a día"
-              title={<span id="problema-title">¿Todo pasa por ti?</span>}
-              subtitle="Compras, pagos, pedidos y pendientes. Cuando todo depende de una persona, hasta una tarea pequeña se vuelve un cuello de botella."
+              eyebrow={t('eyebrow')}
+              title={<span id="problema-title">{t('title')}</span>}
+              subtitle={t('subtitle')}
             />
             <ul className="grid gap-5">
-              {BULLETS.map((b, i) => (
+              {bullets.map((b, i) => (
                 <Bullet key={b.title} {...b} p={p} at={0.3 + i * 0.18} />
               ))}
             </ul>
@@ -75,6 +72,8 @@ function Bullet({ title, text, p, at }: { title: string; text: string; p: Motion
 }
 
 function Composition({ p }: { p: MotionValue<number> }) {
+  const t = useT('home.problem')
+  const chips: ChipSpec[] = POSITIONS.map((pos, i) => ({ ...pos, messy: t(`chips.${i}.messy`), tidy: t(`chips.${i}.tidy`) }))
   const knotLen = useTransform(p, [0.05, 0.5], [1, 0])
   const knotOp = useTransform(p, [0.4, 0.55], [1, 0])
   const ribbon = useTransform(p, [0.3, 0.75], [0, 1])
@@ -85,7 +84,7 @@ function Composition({ p }: { p: MotionValue<number> }) {
   const labelOp = useTransform(p, [0.8, 0.95], [0, 1])
 
   return (
-    <div className="relative aspect-[7/6] w-full overflow-hidden rounded-[32px] border border-ink-line bg-white shadow-md" role="img" aria-label="Tareas sueltas —cuaderno, WhatsApp, hojas de cálculo, facturas y caja— se ordenan como piezas conectadas en GO Admin">
+    <div className="relative aspect-[7/6] w-full overflow-hidden rounded-[32px] border border-ink-line bg-white shadow-md" role="img" aria-label={t('aria')}>
       {/* Nudo que se desata */}
       <motion.svg viewBox="0 0 260 220" className="absolute left-[4%] top-[18%] w-[56%]" fill="none" style={{ opacity: knotOp }} aria-hidden>
         <motion.path
@@ -108,10 +107,10 @@ function Composition({ p }: { p: MotionValue<number> }) {
           <motion.rect x="85" y="106" width="92" height="55" rx="20" fill="#fff" stroke="#4361EE" strokeWidth="3" style={{ y: whiteY }} />
         </svg>
         <motion.p className="mt-2 text-center text-sm font-semibold text-ink" style={{ opacity: labelOp }}>
-          Todo conectado en GO Admin
+          {t('connected')}
         </motion.p>
       </motion.div>
-      {CHIPS.map((c) => (
+      {chips.map((c) => (
         <Chip key={c.messy} spec={c} p={p} />
       ))}
     </div>

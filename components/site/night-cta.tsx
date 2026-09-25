@@ -2,26 +2,33 @@ import { TravelerSitting } from '@/components/illustrations/art'
 import { CtaLink, Eyebrow } from '@/components/site/primitives'
 import { Reveal } from '@/components/site/reveal'
 import { Sky } from '@/components/site/sky'
+import { useT } from '@/i18n/t'
 import { SIGNUP_URL } from '@/lib/site'
 
 /** Cierre nocturno (Figma › 10 Cierre nocturno): el viajero se sienta a mirar las estrellas. */
 export function NightCta({
-  title = 'Dale orden a lo que viene.',
-  text = 'Crea tu cuenta en minutos. Mañana, cuando abras el negocio, ya sabrás qué tienes, qué vendiste y qué te deben.',
-  primary = 'Crear mi cuenta gratis',
-  secondary = { label: 'Hablar con ventas', href: '/contacto' },
+  title,
+  text,
+  primary,
+  secondary,
 }: {
   title?: string
   text?: string
   primary?: string
   secondary?: { label: string; href: string } | null
 }) {
+  const t = useT('nightCta')
+  const c = useT('common')
+  title ??= t('title')
+  text ??= t('text')
+  primary ??= c('signupLong')
+  if (secondary === undefined) secondary = { label: c('talkToSales'), href: '/contacto' }
   return (
     <section className="relative isolate overflow-hidden" aria-labelledby="cierre-title">
       <Sky mode="night" />
       <div className="container relative grid items-center gap-10 py-24 sm:py-32 lg:grid-cols-[minmax(0,1fr)_420px]">
         <Reveal className="flex max-w-2xl flex-col items-start gap-6">
-          <Eyebrow tone="blue">Desde 15 días gratis · Sin tarjeta de crédito</Eyebrow>
+          <Eyebrow tone="blue">{t('eyebrow')}</Eyebrow>
           <h2 id="cierre-title" className="text-balance text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-display-l">
             {title}
           </h2>
@@ -38,7 +45,7 @@ export function NightCta({
           </div>
         </Reveal>
         <Reveal delay={0.16} className="mx-auto w-64 sm:w-80 lg:w-full">
-          <TravelerSitting tone="ink" title="El viajero, sentado en su planeta, mira las estrellas" className="w-full" />
+          <TravelerSitting tone="ink" title={t('travelerTitle')} className="w-full" />
         </Reveal>
       </div>
     </section>

@@ -5,31 +5,33 @@ import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { Bot, Send, Sparkles } from 'lucide-react'
 import { SectionHeader } from '@/components/site/primitives'
 import { Reveal } from '@/components/site/reveal'
+import { useLocale } from 'next-intl'
+import { sampleAmount } from '@/i18n/markets'
+import { useT } from '@/i18n/t'
 
-const QUESTION = '¿Cuánto vendí esta semana frente a la anterior?'
-const ANSWER = 'Esta semana vendiste $ 18.450.000, un 6 % más que la anterior. El jueves fue tu mejor día. Esto es lo que más salió:'
 const TOP = [
-  { name: 'Café de origen 500 g', v: 100 },
-  { name: 'Pan de bono x 6', v: 78 },
-  { name: 'Jugo natural 350 ml', v: 61 },
-  { name: 'Almojábana', v: 44 },
+  { v: 100 },
+  { v: 78 },
+  { v: 61 },
+  { v: 44 },
 ]
-const PROMPTS = ['¿Qué productos se están quedando sin stock?', '¿Quién me debe más de 30 días?', 'Hazme el reporte de ventas de septiembre por sede']
 
 /** 04 · GO Admin IA — la pregunta se escribe sola y aparece la respuesta con un mini gráfico. */
 export function AiDemo() {
+  const t = useT('home.ai')
+  const prompts = [0, 1, 2].map((i) => t(`prompts.${i}`))
   return (
     <section id="ia" className="bg-go-wash py-20 sm:py-32" aria-labelledby="ia-title">
       <div className="container grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-20">
         <div className="flex flex-col gap-8">
           <SectionHeader
             align="left"
-            eyebrow="GO Admin IA"
-            title={<span id="ia-title">Pregúntale a tu negocio.</span>}
-            subtitle="Escribe como le hablarías a tu contador. La IA consulta tus ventas, inventario y cartera y te responde con cifras y gráficos."
+            eyebrow={t('eyebrow')}
+            title={<span id="ia-title">{t('title')}</span>}
+            subtitle={t('subtitle')}
           />
           <div className="flex flex-col items-start gap-2.5">
-            {PROMPTS.map((q, i) => (
+            {prompts.map((q, i) => (
               <Reveal key={q} delay={i * 0.08}>
                 <p className="inline-flex items-center gap-2.5 rounded-full border border-ink-line bg-white py-2.5 pl-3 pr-4 text-sm text-ink shadow-sm">
                   <Sparkles className="h-4 w-4 shrink-0 text-go" strokeWidth={1.5} aria-hidden />
@@ -46,6 +48,11 @@ export function AiDemo() {
 }
 
 function ChatCard() {
+  const tr = useT('home.ai')
+  const c = useT('common')
+  const locale = useLocale()
+  const QUESTION = tr('question')
+  const ANSWER = tr('answer', { amount: sampleAmount(locale, 18450000) })
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.5 })
   const reduce = useReducedMotion()
@@ -69,7 +76,7 @@ function ChatCard() {
       }
     }, 28)
     return () => clearInterval(t)
-  }, [inView, reduce])
+  }, [inView, reduce, QUESTION.length])
 
   const done = typed >= QUESTION.length
 
@@ -80,7 +87,7 @@ function ChatCard() {
           <Bot className="h-[18px] w-[18px]" strokeWidth={1.5} aria-hidden />
         </span>
         <span className="text-sm font-semibold text-ink">GO Admin IA</span>
-        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-ink-body">Ejemplo</span>
+        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-ink-body">{c('example')}</span>
       </div>
 
       <div className="mt-5 flex min-h-[340px] flex-col gap-4" aria-live="polite">
@@ -99,8 +106,8 @@ function ChatCard() {
               <p>{ANSWER}</p>
               <div className="mt-3 grid gap-2.5 rounded-2xl bg-go-wash p-3.5">
                 {TOP.map((t, i) => (
-                  <div key={t.name} className="flex items-center gap-3">
-                    <span className="w-36 shrink-0 truncate text-xs text-ink-body">{t.name}</span>
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="w-36 shrink-0 truncate text-xs text-ink-body">{tr(`top.${i}`)}</span>
                     <span className="h-2.5 flex-1 overflow-hidden rounded-full bg-white">
                       <motion.span
                         className={i === 0 ? 'block h-full rounded-full bg-go' : 'block h-full rounded-full bg-go-200'}
@@ -118,7 +125,7 @@ function ChatCard() {
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-slate-300 py-2 pl-4 pr-2">
-        <span className="text-sm text-ink-muted">Pregunta lo que quieras de tu negocio…</span>
+        <span className="text-sm text-ink-muted">{tr('placeholder')}</span>
         <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-go-action text-white" aria-hidden>
           <Send className="h-4 w-4" strokeWidth={1.5} />
         </span>

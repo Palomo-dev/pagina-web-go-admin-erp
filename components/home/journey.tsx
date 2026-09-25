@@ -7,6 +7,7 @@ import { Traveler } from '@/components/illustrations/art'
 import { Icon } from '@/components/site/icon'
 import { LinkArrow, SectionHeader } from '@/components/site/primitives'
 import { useMediaQuery } from '@/hooks/use-media-query'
+import { useT } from '@/i18n/t'
 import { JOURNEY, type Module } from '@/lib/site'
 
 const STOP_W = 400
@@ -28,13 +29,14 @@ export function Journey() {
 }
 
 function Intro({ className }: { className?: string }) {
+  const t = useT('home.journey')
   return (
     <SectionHeader
       className={className}
       align="left"
-      eyebrow="Módulos conectados"
-      title={<span id="recorrido-title">Cada parte cuenta. Conéctalas.</span>}
-      subtitle="Recorre tu negocio como un pequeño sistema de planetas. Cada módulo tiene su lugar y todos comparten la misma información."
+      eyebrow={t('eyebrow')}
+      title={<span id="recorrido-title">{t('title')}</span>}
+      subtitle={t('subtitle')}
     />
   )
 }
@@ -105,6 +107,7 @@ function wave(w: number) {
 }
 
 function SwipeTrack() {
+  const t = useT('home.journey')
   return (
     <div className="py-20 sm:py-28">
       <div className="container">
@@ -117,13 +120,16 @@ function SwipeTrack() {
           </li>
         ))}
       </ol>
-      <p className="mt-2 text-center text-xs text-ink-muted">Desliza para recorrer los planetas</p>
+      <p className="mt-2 text-center text-xs text-ink-muted">{t('swipe')}</p>
     </div>
   )
 }
 
 function Stop({ m, i }: { m: Module; i: number }) {
   const reduce = useReducedMotion()
+  const t = useT('home.journey')
+  const k = `modules.${m.slug}`
+  const name = t(`${k}.name`)
   return (
     <article className="flex w-full shrink-0 flex-col gap-4 lg:w-[400px]">
       <motion.div
@@ -136,12 +142,12 @@ function Stop({ m, i }: { m: Module; i: number }) {
         <PlanetStop icon={m.icon} />
       </motion.div>
       <p className="text-eyebrow uppercase text-go-deep">
-        Planeta {String(i + 1).padStart(2, '0')} · {m.planet}
+        {t('planet', { n: String(i + 1).padStart(2, '0'), name: t(`${k}.planet`) })}
       </p>
-      <h3 className="text-h3 text-ink">{m.name}</h3>
-      <p className="text-ink-body">{m.description}</p>
+      <h3 className="text-h3 text-ink">{name}</h3>
+      <p className="text-ink-body">{t(`${k}.description`)}</p>
       <ul className="grid gap-2.5">
-        {m.points.map((pt) => (
+        {[0, 1, 2].map((n) => t(`${k}.points.${n}`)).map((pt) => (
           <li key={pt} className="flex items-center gap-2.5 text-sm text-ink">
             <span className="grid h-[22px] w-[22px] place-items-center rounded-full bg-go-tint text-go-deep">
               <Check className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
@@ -151,7 +157,7 @@ function Stop({ m, i }: { m: Module; i: number }) {
         ))}
       </ul>
       <LinkArrow href={m.href} className="mt-1">
-        Conocer {m.name}
+        {t('cta', { name })}
       </LinkArrow>
     </article>
   )

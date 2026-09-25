@@ -2,7 +2,8 @@
  * Bloques de sección reutilizables (Figma › 02 Componentes › Secciones).
  * Cada página de producto, solución y empresa se arma solo con estos bloques.
  */
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useT } from '@/i18n/t'
 import { ArrowRight, Check, X } from 'lucide-react'
 import { Faq } from '@/components/site/faq'
 import { Icon } from '@/components/site/icon'
@@ -136,7 +137,7 @@ export function CardLinkGrid({
               </span>
             ) : null}
             <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-go-deep">
-              Conocer más
+              <LearnMore />
               <ArrowRight className="h-4 w-4 transition-transform duration-fast group-hover:translate-x-1" strokeWidth={1.75} aria-hidden />
             </span>
           </Link>
@@ -144,6 +145,10 @@ export function CardLinkGrid({
       ))}
     </RevealGroup>
   )
+}
+
+function LearnMore() {
+  return <>{useT('common')('learnMore')}</>
 }
 
 /** TypeChips: ejemplos de negocios a los que aplica una solución (sin enlace). */
@@ -238,10 +243,11 @@ export function CtaBand({ title, text, cta, href }: { title: string; text: strin
   )
 }
 
-export function FaqSection({ items, tone = 'white', title = 'Lo que suelen preguntarnos.' }: { items: { q: string; a: string }[]; tone?: Tone; title?: string }) {
+export function FaqSection({ items, tone = 'white', title }: { items: { q: string; a: string }[]; tone?: Tone; title?: string }) {
+  const t = useT('common')
   if (!items.length) return null
   return (
-    <Section tone={tone} eyebrow="Preguntas frecuentes" title={title}>
+    <Section tone={tone} eyebrow={t('faqEyebrow')} title={title ?? t('faqTitle')}>
       <Faq items={items} />
     </Section>
   )

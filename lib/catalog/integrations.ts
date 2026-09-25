@@ -1,10 +1,16 @@
 /**
- * Integraciones disponibles (tabla `integration_providers` del ERP).
+ * Integraciones disponibles (tablas `integration_providers` y `country_payment_methods` del ERP).
+ * `countries` limita un proveedor a los países donde opera; sin `countries` se muestra en todos.
  * Reemplazar las iniciales por logos oficiales cuando exista autorización de uso de marca.
+ * Texto base en español; traducciones en content/{en,pt,fr}/integrations.ts (por id de grupo y nombre).
  */
+import type { CountryCode } from '@/i18n/markets'
 import type { IconName } from '@/lib/site'
 
-export type IntegrationGroup = { id: string; name: string; text: string; icon: IconName; items: { name: string; text: string }[] }
+export type IntegrationItem = { name: string; text: string; countries?: CountryCode[] }
+export type IntegrationGroup = { id: string; name: string; text: string; icon: IconName; items: IntegrationItem[] }
+
+const LATAM: CountryCode[] = ['COL', 'MEX', 'CHL', 'BRA']
 
 export const INTEGRATION_GROUPS: IntegrationGroup[] = [
   {
@@ -13,15 +19,24 @@ export const INTEGRATION_GROUPS: IntegrationGroup[] = [
     text: 'Cobra en línea, por QR o con datáfono y concilia tus cuentas.',
     icon: 'credit-card',
     items: [
-      { name: 'Wompi', text: 'Pagos en línea en Colombia.' },
-      { name: 'PayU', text: 'Tarjetas, PSE y efectivo.' },
-      { name: 'Mercado Pago', text: 'Pagos en línea y QR.' },
-      { name: 'Bold', text: 'Datáfonos y links de pago.' },
-      { name: 'Bre-B', text: 'Pagos inmediatos del Banco de la República.' },
-      { name: 'Bancolombia', text: 'Cuentas y movimientos.' },
-      { name: 'Redeban', text: 'Datáfonos y adquirencia.' },
+      { name: 'Wompi', text: 'Pagos en línea.', countries: ['COL'] },
+      { name: 'PSE', text: 'Débito desde cuentas bancarias.', countries: ['COL'] },
+      { name: 'Nequi', text: 'Pagos desde la billetera.', countries: ['COL'] },
+      { name: 'DaviPlata', text: 'Pagos desde la billetera.', countries: ['COL'] },
+      { name: 'SPEI', text: 'Transferencias inmediatas.', countries: ['MEX'] },
+      { name: 'OXXO Pay', text: 'Pagos en efectivo en tienda.', countries: ['MEX'] },
+      { name: 'Conekta', text: 'Tarjetas y pagos en línea.', countries: ['MEX'] },
+      { name: 'PayU', text: 'Tarjetas y medios locales.', countries: LATAM },
+      { name: 'Mercado Pago', text: 'Pagos en línea y QR.', countries: LATAM },
+      { name: 'Bold', text: 'Datáfonos y links de pago.', countries: ['COL'] },
+      { name: 'Bre-B', text: 'Pagos inmediatos del Banco de la República.', countries: ['COL'] },
+      { name: 'Bancolombia', text: 'Cuentas y movimientos.', countries: ['COL'] },
+      { name: 'Redeban', text: 'Datáfonos y adquirencia.', countries: ['COL'] },
       { name: 'Stripe', text: 'Pagos internacionales.' },
       { name: 'PayPal', text: 'Pagos internacionales.' },
+      { name: 'Venmo', text: 'Pagos entre personas.', countries: ['USA'] },
+      { name: 'Cash App', text: 'Pagos entre personas.', countries: ['USA'] },
+      { name: 'Zelle', text: 'Transferencias bancarias.', countries: ['USA'] },
     ],
   },
   {
@@ -43,13 +58,13 @@ export const INTEGRATION_GROUPS: IntegrationGroup[] = [
     text: 'Pedidos de apps y guías de transportadoras.',
     icon: 'truck',
     items: [
-      { name: 'Rappi', text: 'Pedidos de domicilio.' },
+      { name: 'Rappi', text: 'Pedidos de domicilio.', countries: LATAM },
       { name: 'Uber Eats', text: 'Pedidos de domicilio.' },
-      { name: 'iFood', text: 'Pedidos de domicilio.' },
-      { name: 'Coordinadora', text: 'Guías y seguimiento.' },
-      { name: 'Servientrega', text: 'Guías y seguimiento.' },
-      { name: 'Interrapidísimo', text: 'Guías y seguimiento.' },
-      { name: 'Envía', text: 'Cotización y guías.' },
+      { name: 'iFood', text: 'Pedidos de domicilio.', countries: ['BRA'] },
+      { name: 'Coordinadora', text: 'Guías y seguimiento.', countries: ['COL'] },
+      { name: 'Servientrega', text: 'Guías y seguimiento.', countries: ['COL'] },
+      { name: 'Interrapidísimo', text: 'Guías y seguimiento.', countries: ['COL'] },
+      { name: 'Envía', text: 'Cotización y guías.', countries: ['COL', 'MEX'] },
     ],
   },
   {

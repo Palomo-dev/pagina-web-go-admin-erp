@@ -4,6 +4,11 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Planet } from '@/components/illustrations/art'
 import { CtaLink } from '@/components/site/primitives'
 import { Sky } from '@/components/site/sky'
+import { useT } from '@/i18n/t'
+
+function SeePlans() {
+  return <>{useT('common')('seePlans')}</>
+}
 
 const EASE = [0.2, 0.8, 0.2, 1] as const
 
@@ -41,7 +46,7 @@ export function PageHeroSplit({
               {primary.label}
             </CtaLink>
             <CtaLink href="/precios" kind="outline-light" size="lg" arrow={false}>
-              Ver planes
+              <SeePlans />
             </CtaLink>
           </motion.div>
         </div>

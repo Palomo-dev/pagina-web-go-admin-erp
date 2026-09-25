@@ -4,18 +4,28 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { CtaLink, Tag } from '@/components/site/primitives'
-import { PLANS, SIGNUP_URL, formatCOP } from '@/lib/site'
+import { useLocale } from 'next-intl'
+import { getMarket } from '@/i18n/markets'
+import { useT } from '@/i18n/t'
+import { PLANS, SIGNUP_URL, formatPrice } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
-/** BillingToggle + PricingCard × 3 (Figma › PricingCard · Plan). */
+/**
+ * BillingToggle + PricingCard × 3 (Figma › PricingCard · Plan).
+ * Moneda según el país del mercado: COP en Colombia, USD en los demás (tabla `plans` del ERP).
+ */
 export function PricingCards({ className }: { className?: string }) {
+  const t = useT('pricing')
+  const locale = useLocale()
+  const currency = getMarket(locale).countryData.planCurrency
+  const fmt = (v: number) => formatPrice(v, currency, locale)
   const [annual, setAnnual] = useState(false)
   return (
     <div className={cn('flex flex-col items-center gap-10', className)}>
-      <div role="radiogroup" aria-label="Periodo de facturación" className="inline-flex gap-1 rounded-full border border-ink-line bg-white p-1 shadow-sm">
+      <div role="radiogroup" aria-label={t('toggle.label')} className="inline-flex gap-1 rounded-full border border-ink-line bg-white p-1 shadow-sm">
         {[
-          { v: false, label: 'Mensual' },
-          { v: true, label: 'Anual' },
+          { v: false, label: t('toggle.monthly') },
+          { v: true, label: t('toggle.annual') },
         ].map((o) => (
           <button
             key={o.label}
@@ -27,14 +37,15 @@ export function PricingCards({ className }: { className?: string }) {
           >
             {annual === o.v ? <motion.span layoutId="billing-pill" className="absolute inset-0 rounded-full bg-go-action" transition={{ duration: 0.24, ease: [0.2, 0.8, 0.2, 1] }} /> : null}
             <span className="relative">{o.label}</span>
-            {o.v ? <Tag kind="success" className="relative">2 meses gratis</Tag> : null}
+            {o.v ? <Tag kind="success" className="relative">{t('toggle.save')}</Tag> : null}
           </button>
         ))}
       </div>
 
       <div className="grid w-full items-center gap-6 lg:grid-cols-3">
         {PLANS.map((p) => {
-          const price = annual ? p.annual : p.monthly
+          const price = annual ? p.prices[currency].annual : p.prices[currency].monthly
+          const features = Array.from({ length: p.featureCount }, (_, i) => t(`plans.${p.id}.features.${i}`))
           return (
             <article
               key={p.id}
@@ -45,9 +56,9 @@ export function PricingCards({ className }: { className?: string }) {
             >
               <header className="flex items-center justify-between">
                 <h3 className="text-h3 text-ink">{p.name}</h3>
-                {p.recommended ? <Tag kind="recommended">Más elegido</Tag> : null}
+                {p.recommended ? <Tag kind="recommended">{t('mostChosen')}</Tag> : null}
               </header>
-              <p className="-mt-3 text-sm text-ink-body">{p.forWho}</p>
+              <p className="-mt-3 text-sm text-ink-body">{t(`plans.${p.id}.forWho`)}</p>
               <div>
                 <p className="flex items-baseline gap-1.5">
                   <AnimatePresence mode="wait" initial={false}>
@@ -59,21 +70,21 @@ export function PricingCards({ className }: { className?: string }) {
                       transition={{ duration: 0.2 }}
                       className="tabular text-[2.5rem] font-semibold leading-none tracking-[-0.03em] text-ink"
                     >
-                      {formatCOP(price)}
+                      {fmt(price)}
                     </motion.span>
                   </AnimatePresence>
-                  <span className="text-sm text-ink-muted">/ {annual ? 'año' : 'mes'}</span>
+                  <span className="text-sm text-ink-muted">{annual ? t('perYear') : t('perMonth')}</span>
                 </p>
                 <p className="mt-2 text-xs text-ink-muted">
-                  {annual ? `Equivale a ${formatCOP(Math.round(p.annual / 12))} al mes` : `${formatCOP(p.annual)} al año · 2 meses gratis`} · {p.trialDays} días de prueba
+                  {annual ? t('equivalent', { price: fmt(Math.round(p.prices[currency].annual / 12)) }) : t('annualNote', { price: fmt(p.prices[currency].annual) })} · {t('trialNote', { days: p.trialDays })}
                 </p>
               </div>
               <CtaLink href={SIGNUP_URL} kind={p.recommended ? 'primary' : 'secondary'} className="w-full">
-                {`Probar ${p.name} gratis`}
+                {t('tryPlan', { name: p.name })}
               </CtaLink>
               <hr className="border-ink-line" />
               <ul className="grid gap-3">
-                {p.features.map((f) => (
+                {features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-ink">
                     <Check className="mt-0.5 h-[18px] w-[18px] shrink-0 text-go" strokeWidth={2} aria-hidden />
                     {f}
@@ -84,7 +95,7 @@ export function PricingCards({ className }: { className?: string }) {
           )
         })}
       </div>
-      <p className="text-center text-xs text-ink-muted">Precios en pesos colombianos. Cancela cuando quieras.</p>
+      <p className="text-center text-xs text-ink-muted">{t('note')}</p>
     </div>
   )
 }

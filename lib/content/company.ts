@@ -1,16 +1,18 @@
 /**
- * Contenido de empresa: acerca de, carreras, capacitaciones y blog.
+ * Contenido de empresa: acerca de, carreras, capacitaciones y blog (texto base en español).
  *
  * Contenido estático del repositorio; el sitio no se conecta a la base de datos del ERP.
+ * Traducciones con la misma forma en content/{en,pt,fr}/company.ts.
  * Las funciones de lib/data/* son la única puerta de entrada.
  */
+import type { CountryCode } from '@/i18n/markets'
 import type { IconName } from '@/lib/site'
 
 // ---------------------------------------------------------------------------
 // Acerca de (Manual v2.0 › 01 Esencia)
 // ---------------------------------------------------------------------------
 export const ABOUT = {
-  mission: 'Reunir las herramientas para organizar la operación de las pequeñas y medianas empresas colombianas, para que entender qué pasa en el negocio y poder actuar sea parte del día a día.',
+  mission: 'Reunir las herramientas para organizar la operación de las pequeñas y medianas empresas, para que entender qué pasa en el negocio y poder actuar sea parte del día a día.',
   audience: 'Le hablamos al dueño o administrador que combina atención a clientes, decisiones y tareas operativas. Necesita claridad, información útil y herramientas que acompañen su trabajo.',
   values: [
     { title: 'Directos', text: 'Nombramos el problema y decimos qué puede hacerse.', icon: 'zap' as IconName },
@@ -66,10 +68,12 @@ export type Post = {
   slug: string
   title: string
   excerpt: string
-  category: 'Operación' | 'Finanzas' | 'Canales digitales' | 'Guías'
+  category: string
   date: string
   readingMinutes: number
   body: { heading?: string; paragraphs: string[]; list?: string[] }[]
+  /** Solo se publica en estos países (p. ej. una guía de un trámite local). Sin valor: todos. */
+  countries?: CountryCode[]
 }
 
 export const POSTS: Post[] = [
@@ -121,6 +125,7 @@ export const POSTS: Post[] = [
     category: 'Guías',
     date: '2026-08-25',
     readingMinutes: 4,
+    countries: ['COL'],
     body: [
       { paragraphs: ['Emitir factura electrónica requiere algunos pasos previos ante la DIAN y un sistema que genere y envíe los documentos. Esta es una lista orientativa; valida los requisitos vigentes con tu contador.'] },
       { heading: 'Lo básico', paragraphs: [], list: ['RUT actualizado con la responsabilidad correspondiente.', 'Habilitación como facturador electrónico.', 'Resolución de numeración.', 'Certificado de firma digital.'] },

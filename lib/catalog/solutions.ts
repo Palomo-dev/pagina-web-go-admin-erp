@@ -5,8 +5,24 @@
  * comida y bebida, o todo lo que se reserva por noche), para que nadie sienta que su negocio
  * quedó por fuera. `types` lista ejemplos, no un límite.
  * Los módulos de cada solución apuntan a slugs de lib/catalog/products.ts.
+ * Texto base en español; traducciones en content/{en,pt,fr}/solutions.ts. Los textos evitan
+ * nombrar autoridades fiscales para que sirvan en los 10 países.
  */
 import type { IconName } from '@/lib/site'
+
+/** Partes traducibles de una solución. */
+export type SolutionText = {
+  name: string
+  short: string
+  types: string[]
+  headline: string
+  lead: string
+  pains: { pain: string; answer: string }[]
+  day: { moment: string; title: string; text: string }[]
+  channel: { title: string; text: string }
+  features: { title: string; text: string }[]
+  faq: { q: string; a: string }[]
+}
 
 export type Solution = {
   slug: string
@@ -58,7 +74,7 @@ export const SOLUTIONS: Solution[] = [
       { moment: 'Antes de abrir', title: 'Revisas insumos y producción', text: 'Alertas de lo que se está acabando y órdenes de producción para cocina u horno.' },
       { moment: 'Hora pico', title: 'Mesas, barra y mostrador', text: 'Cobros rápidos, cuentas divididas, propinas y comandas a cada estación.' },
       { moment: 'Toda la jornada', title: 'Pedidos en línea', text: 'Domicilios y pedidos para recoger desde tu tienda, con estado y responsable.' },
-      { moment: 'Al cerrar', title: 'Cierras el día', text: 'Arqueo, ventas por mesero o cajero, mermas y facturas enviadas a la DIAN.' },
+      { moment: 'Al cerrar', title: 'Cierras el día', text: 'Arqueo, ventas por mesero o cajero, mermas y facturas emitidas.' },
     ],
     modules: ['ventas-pos', 'inventario', 'facturacion-electronica', 'tienda-en-linea', 'motor-de-reservas', 'nomina', 'reportes'],
     channel: { product: 'tienda-en-linea', title: 'Tu carta en línea, con pedidos y reservas', text: 'Publica tu menú con fotos, recibe pedidos a domicilio o para recoger y reservas de mesa desde tu página.' },
@@ -106,7 +122,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     day: [
       { moment: 'En la mañana', title: 'Revisas llegadas y salidas', text: 'El equipo de aseo sabe qué habitación, cabaña o espacio preparar.' },
-      { moment: 'Mediodía', title: 'Check-out', text: 'Folio cerrado y factura electrónica enviada.' },
+      { moment: 'Mediodía', title: 'Check-out', text: 'Folio cerrado y factura enviada al huésped.' },
       { moment: 'En la tarde', title: 'Check-in', text: 'Registro de huéspedes y asignación del espacio.' },
       { moment: 'En la noche', title: 'Reservas nuevas', text: 'Llegan de los portales y de tu página al mismo calendario.' },
     ],
@@ -155,7 +171,7 @@ export const SOLUTIONS: Solution[] = [
       { moment: 'En la mañana', title: 'Revisas la agenda', text: 'Espacios reservados, anticipos recibidos y lo que falta por cobrar.' },
       { moment: 'Toda la jornada', title: 'Reservas desde tu página', text: 'Tus clientes eligen espacio, fecha y hora, y pagan el anticipo.' },
       { moment: 'Durante el uso', title: 'Consumos y entradas', text: 'Bebidas, alquiler de implementos y entradas en el punto de venta.' },
-      { moment: 'Al cerrar', title: 'Cierre', text: 'Ocupación por espacio, ventas y factura electrónica.' },
+      { moment: 'Al cerrar', title: 'Cierre', text: 'Ocupación por espacio, ventas y facturas.' },
     ],
     modules: ['motor-de-reservas', 'ventas-pos', 'clientes-crm', 'facturacion-electronica', 'inventario', 'reportes'],
     channel: { product: 'motor-de-reservas', title: 'Reserva de espacios en línea', text: 'Tus clientes reservan cancha, salón o actividad por horas desde tu página y pagan el anticipo.' },
@@ -189,7 +205,7 @@ export const SOLUTIONS: Solution[] = [
       'Tiendas solo en línea',
     ],
     headline: 'Vende en tu local y en línea con un solo inventario.',
-    lead: 'Punto de venta con código de barras, variantes, precios por lista, inventario por sede, tienda en línea conectada y facturación electrónica desde la misma venta.',
+    lead: 'Punto de venta con código de barras, variantes, precios por lista, inventario por sede, tienda en línea conectada y facturación desde la misma venta.',
     pains: [
       { pain: 'Vendes en línea algo que ya no está en la tienda.', answer: 'Un solo inventario para la tienda física y la en línea.' },
       { pain: 'Manejar tallas, colores o presentaciones es un caos.', answer: 'Variantes con su propio stock y código de barras.' },
@@ -198,7 +214,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     day: [
       { moment: 'Al abrir', title: 'Revisas existencias', text: 'Stock por sede y alertas de reposición.' },
-      { moment: 'En el día', title: 'Vendes en mostrador', text: 'Código de barras, pagos mixtos y factura electrónica.' },
+      { moment: 'En el día', title: 'Vendes en mostrador', text: 'Código de barras, pagos mixtos y factura.' },
       { moment: 'En la tarde', title: 'Llegan pedidos en línea', text: 'Separas, despachas y facturas.' },
       { moment: 'Al cerrar', title: 'Cierre y compras', text: 'Ventas por vendedor y canal, y pedidos a proveedores.' },
     ],
@@ -366,7 +382,7 @@ export const SOLUTIONS: Solution[] = [
       'Fundaciones y ONG',
     ],
     headline: 'Del primer contacto al último cobro.',
-    lead: 'Oportunidades, cotizaciones, agenda, proyectos con tareas y horas, facturación electrónica, contabilidad y cartera, en el mismo lugar.',
+    lead: 'Oportunidades, cotizaciones, agenda, proyectos con tareas y horas, facturación, contabilidad y cartera, en el mismo lugar.',
     pains: [
       { pain: 'Cotizas en Word y pierdes el seguimiento.', answer: 'Cotizaciones ligadas al embudo de ventas.' },
       { pain: 'No sabes si un proyecto deja ganancia.', answer: 'Horas y costos por proyecto.' },
