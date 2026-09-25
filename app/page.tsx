@@ -1,4 +1,5 @@
 import { AiDemo } from '@/components/home/ai-demo'
+import { Channels } from '@/components/home/channels'
 import { Hero } from '@/components/home/hero'
 import { Industries } from '@/components/home/industries'
 import { Integrations } from '@/components/home/integrations'
@@ -15,7 +16,7 @@ import { FAQ_HOME } from '@/lib/site'
 
 /**
  * Inicio — la historia en siete actos (Figma › 03 Pantallas › Inicio · Escritorio / Móvil):
- * 1 Hero · 2 ¿Todo pasa por ti? · 3 Recorrido por los planetas · 4 IA · 5 Industrias ·
+ * 1 Hero · 2 ¿Todo pasa por ti? · 3 Recorrido por los planetas · 3½ Canales digitales · 4 IA · 5 Industrias ·
  * 6 Integraciones y confianza · 7 Planes, soporte, preguntas y cierre nocturno.
  */
 export default function HomePage() {
@@ -26,6 +27,7 @@ export default function HomePage() {
         <Hero />
         <Problem />
         <Journey />
+        <Channels />
         <AiDemo />
         <Industries />
         <Integrations />

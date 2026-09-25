@@ -151,7 +151,7 @@ function Stop({ m, i }: { m: Module; i: number }) {
         ))}
       </ul>
       <LinkArrow href={m.href} className="mt-1">
-        {m.slug === 'ia' ? 'Conocer GO Admin IA' : `Conocer ${m.name}`}
+        Conocer {m.name}
       </LinkArrow>
     </article>
   )

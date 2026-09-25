@@ -9,16 +9,19 @@
  * el equipo: el manual define cómo comunicar, no reemplaza el catálogo vigente.
  */
 
+import { PRODUCTS } from '@/lib/catalog/products'
+import { SOLUTIONS } from '@/lib/catalog/solutions'
+
 export const APP_URL = 'https://app.goadmin.io'
 export const SIGNUP_URL = `${APP_URL}/auth/signup`
 export const LOGIN_URL = `${APP_URL}/auth/login`
 
-// Canales de contacto (tomados de /eliminacion-datos). Confirmar horario con operación.
+// Canales de contacto y horario (tomados de /eliminacion-datos).
 export const CONTACT = {
   email: 'Servicio@goadmin.io',
   phoneDisplay: '+57 311 319 5711',
   whatsappUrl: 'https://wa.me/573113195711',
-  supportHours: 'Lun a sáb · 7:00 a. m. – 8:00 p. m.',
+  supportHours: 'Lun a vie · 8:00 a. m. – 6:00 p. m.',
   legalName: 'GO Admin S.A.S.',
   nit: '901.479.683-5',
   city: 'Medellín, Colombia',
@@ -31,6 +34,7 @@ export type IconName =
   | 'calendar' | 'plug' | 'shield' | 'lock' | 'building' | 'layout' | 'message' | 'book'
   | 'heart-handshake' | 'graduation' | 'mail' | 'database' | 'map-pin' | 'trending' | 'sparkles'
   | 'rocket' | 'key' | 'workflow' | 'file-check' | 'qr' | 'wallet' | 'history'
+  | 'boxes' | 'truck' | 'file-text' | 'landmark' | 'zap' | 'globe' | 'search' | 'credit-card' | 'star' | 'wine' | 'palette' | 'link'
 
 // ---------------------------------------------------------------------------
 // Navegación
@@ -38,18 +42,22 @@ export type IconName =
 export type NavItem = { label: string; href: string; menu?: 'producto' | 'soluciones' | 'recursos' }
 
 export const NAV: NavItem[] = [
-  { label: 'Producto', href: '/modulos', menu: 'producto' },
-  { label: 'Soluciones', href: '/industrias', menu: 'soluciones' },
+  { label: 'Producto', href: '/producto', menu: 'producto' },
+  { label: 'Soluciones', href: '/soluciones', menu: 'soluciones' },
   { label: 'Precios', href: '/precios' },
   { label: 'Soporte', href: '/soporte' },
   { label: 'Recursos', href: '/blog', menu: 'recursos' },
 ]
 
-export const RESOURCES = [
-  { label: 'Blog', description: 'Ideas para ordenar tu negocio.', href: '/blog', icon: 'book' as IconName },
-  { label: 'Centro de ayuda', description: 'Guías paso a paso y videos cortos.', href: '/soporte', icon: 'heart-handshake' as IconName },
-  { label: 'API para desarrolladores', description: 'Conecta tus sistemas con GO Admin.', href: '/api', icon: 'plug' as IconName },
-  { label: 'Acerca de GO Admin', description: 'Quiénes somos y cómo trabajamos.', href: '/acerca-de', icon: 'building' as IconName },
+export const RESOURCES: { label: string; description: string; href: string; icon: IconName }[] = [
+  { label: 'Centro de ayuda', description: 'Guías, canales y horarios de soporte.', href: '/soporte', icon: 'heart-handshake' },
+  { label: 'Capacitaciones', description: 'Sesiones en vivo y rutas por rol.', href: '/capacitaciones', icon: 'graduation' },
+  { label: 'Blog', description: 'Ideas para ordenar tu negocio.', href: '/blog', icon: 'book' },
+  { label: 'Integraciones', description: 'Pagos, reservas, domicilios y mensajería.', href: '/integraciones', icon: 'plug' },
+  { label: 'API para desarrolladores', description: 'Conecta tus sistemas con GO Admin.', href: '/api', icon: 'workflow' },
+  { label: 'Seguridad', description: 'Cómo protegemos tu información.', href: '/seguridad', icon: 'shield' },
+  { label: 'Acerca de GO Admin', description: 'Quiénes somos y cómo trabajamos.', href: '/acerca-de', icon: 'building' },
+  { label: 'Carreras', description: 'Construye con nosotros desde Medellín.', href: '/carreras', icon: 'rocket' },
 ]
 
 // ---------------------------------------------------------------------------
@@ -69,79 +77,72 @@ export type Module = {
 
 export const JOURNEY: Module[] = [
   {
-    slug: 'pos', href: '/modulos/pos', name: 'Ventas y punto de venta', short: 'Vende en tienda, mesa o en línea.',
+    slug: 'pos', href: '/producto/ventas-pos', name: 'Ventas y punto de venta', short: 'Vende en tienda, mesa o en línea.',
     planet: 'Vender', headline: 'Cobra sin filas y sin cuadernos.',
     description: 'Cobra en mostrador, mesa o en línea. Cada venta descuenta inventario y queda lista para facturar.',
     points: ['Caja con arqueo y cierre diario', 'Pagos en efectivo, tarjeta y QR', 'Venta por mesas y comandas'], icon: 'cart',
   },
   {
-    slug: 'inventario', href: '/modulos/inventario', name: 'Inventario', short: 'Stock por bodega y sucursal.',
+    slug: 'inventario', href: '/producto/inventario', name: 'Inventario', short: 'Stock por bodega y sucursal.',
     planet: 'Guardar', headline: 'Sabe qué tienes y dónde.',
     description: 'Existencias por bodega y sucursal, lotes, costos y traslados sin hojas de cálculo.',
     points: ['Alertas de stock bajo', 'Kardex y costo promedio', 'Traslados entre sedes'], icon: 'package',
   },
   {
-    slug: 'finanzas', href: '/modulos/finanzas', name: 'Facturación y finanzas', short: 'Facturas DIAN, cartera y bancos.',
+    slug: 'finanzas', href: '/producto/facturacion-electronica', name: 'Facturación y finanzas', short: 'Facturas DIAN, cartera y bancos.',
     planet: 'Facturar', headline: 'Factura y cuadra cuentas en el mismo lugar.',
     description: 'Facturas electrónicas validadas por la DIAN, cartera, bancos y contabilidad al día.',
     points: ['Factura y nota crédito DIAN', 'Cuentas por cobrar y pagar', 'Asientos automáticos'], icon: 'receipt',
   },
   {
-    slug: 'crm', href: '/modulos/crm', name: 'Clientes (CRM)', short: 'Historial, seguimientos y campañas.',
+    slug: 'crm', href: '/producto/clientes-crm', name: 'Clientes (CRM)', short: 'Historial, seguimientos y campañas.',
     planet: 'Cuidar', headline: 'Recuerda a cada cliente.',
     description: 'Historial de compras, seguimientos, oportunidades y campañas por WhatsApp o correo.',
     points: ['Ficha 360° del cliente', 'Seguimientos con recordatorio', 'Campañas segmentadas'], icon: 'users',
   },
   {
-    slug: 'hrm', href: '/modulos/hrm', name: 'Nómina y equipo', short: 'Empleados, turnos y nómina.',
+    slug: 'hrm', href: '/producto/nomina', name: 'Nómina y equipo', short: 'Empleados, turnos y nómina.',
     planet: 'Acompañar', headline: 'Tu equipo, en orden.',
     description: 'Contratos, turnos, asistencia, vacaciones y nómina electrónica sin volver a digitar.',
     points: ['Nómina electrónica', 'Turnos y asistencia', 'Vacaciones y novedades'], icon: 'user-check',
   },
   {
-    slug: 'pms', href: '/modulos/pms', name: 'Hotelería (PMS)', short: 'Reservas, check-in y folios.',
+    slug: 'pms', href: '/producto/hoteleria', name: 'Hotelería (PMS)', short: 'Reservas, check-in y folios.',
     planet: 'Hospedar', headline: 'Reservas y habitaciones sin cruces.',
     description: 'Calendario de reservas, check-in y check-out, folios y conexión con canales como Booking.',
     points: ['Calendario de ocupación', 'Folios por huésped', 'Canales de reserva'], icon: 'bed',
   },
   {
-    slug: 'reportes', href: '/modulos/reportes', name: 'Reportes', short: 'Tableros listos para decidir.',
+    slug: 'reportes', href: '/producto/reportes', name: 'Reportes', short: 'Tableros listos para decidir.',
     planet: 'Entender', headline: '¿Vendiste más o ganaste más?',
     description: 'Tableros de ventas, márgenes, cartera e inventario listos desde el primer día.',
     points: ['Tableros por sede', 'Comparativos por periodo', 'Exporta a Excel y PDF'], icon: 'chart',
   },
   {
-    slug: 'ia', href: '/#ia', name: 'GO Admin IA', short: 'Pregúntale a tu negocio.',
+    slug: 'ia', href: '/producto/inteligencia-artificial', name: 'GO Admin IA', short: 'Pregúntale a tu negocio.',
     planet: 'Preguntar', headline: 'Pregúntale a tu negocio.',
     description: 'Escribe como le hablarías a tu contador y recibe cifras, gráficos y reportes al instante.',
     points: ['Asistente contable', 'Reportes a partir de una pregunta', 'Imágenes para tus productos'], icon: 'bot',
   },
 ]
 
-// Todos los módulos con página (/modulos/[slug]) para menús y enlaces
-export const MODULES_MENU: { name: string; description: string; href: string; icon: IconName }[] = [
-  { name: 'Ventas y POS', description: 'Vende en tienda, mesa o en línea.', href: '/modulos/pos', icon: 'cart' },
-  { name: 'Inventario', description: 'Stock por bodega y sucursal.', href: '/modulos/inventario', icon: 'package' },
-  { name: 'Facturación y finanzas', description: 'Facturas DIAN, cartera y bancos.', href: '/modulos/finanzas', icon: 'receipt' },
-  { name: 'Clientes (CRM)', description: 'Historial, seguimientos y campañas.', href: '/modulos/crm', icon: 'users' },
-  { name: 'Nómina y equipo', description: 'Empleados, turnos y nómina.', href: '/modulos/hrm', icon: 'user-check' },
-  { name: 'Hotelería (PMS)', description: 'Reservas, check-in y folios.', href: '/modulos/pms', icon: 'bed' },
-  { name: 'Reportes', description: 'Tableros listos para decidir.', href: '/modulos/reportes', icon: 'chart' },
-  { name: 'Integraciones', description: 'Pagos, canales y mensajería.', href: '/integraciones', icon: 'plug' },
-]
+// Productos para menús (derivado del catálogo)
+export const MODULES_MENU: { name: string; description: string; href: string; icon: IconName }[] = PRODUCTS.map((p) => ({
+  name: p.name,
+  description: p.short,
+  href: `/producto/${p.slug}`,
+  icon: p.icon,
+}))
 
 // ---------------------------------------------------------------------------
 // Industrias
 // ---------------------------------------------------------------------------
-export const INDUSTRIES: { name: string; description: string; href: string; icon: IconName }[] = [
-  { name: 'Restaurantes', description: 'Mesas, comandas, cocina y caja en sintonía.', href: '/industrias/restaurante', icon: 'utensils' },
-  { name: 'Hoteles', description: 'Reservas, check-in, folios y canales como Booking.', href: '/industrias/hotel', icon: 'bed' },
-  { name: 'Tiendas', description: 'Punto de venta, inventario multisede y e-commerce.', href: '/industrias/tienda', icon: 'store' },
-  { name: 'Gimnasios', description: 'Membresías, accesos, clases y cobros recurrentes.', href: '/industrias/gimnasio', icon: 'dumbbell' },
-  { name: 'Parqueaderos', description: 'Entradas, tarifas por tiempo y cierre por turno.', href: '/industrias/parqueadero', icon: 'parking' },
-  { name: 'Transporte', description: 'Rutas, tiquetes, flota y mantenimiento.', href: '/industrias/transporte', icon: 'bus' },
-  { name: 'Servicios y SaaS', description: 'Agenda, órdenes de servicio y cobros recurrentes.', href: '/industrias/saas', icon: 'briefcase' },
-]
+export const INDUSTRIES: { name: string; description: string; href: string; icon: IconName }[] = SOLUTIONS.map((s) => ({
+  name: s.name,
+  description: s.short,
+  href: `/soluciones/${s.slug}`,
+  icon: s.icon,
+}))
 
 // ---------------------------------------------------------------------------
 // Integraciones (nombres; reemplazar por logos oficiales cuando haya autorización)
@@ -221,7 +222,7 @@ export const SUPPORT_CHANNELS: { title: string; text: string; meta: string; icon
   { title: 'WhatsApp de soporte', text: 'Escríbenos y una persona del equipo te responde con tu caso a la mano.', meta: CONTACT.supportHours, icon: 'message', cta: 'Abrir WhatsApp', href: CONTACT.whatsappUrl },
   { title: 'Centro de ayuda', text: 'Guías paso a paso, videos cortos y respuestas a las dudas más comunes.', meta: 'Disponible siempre', icon: 'book', cta: 'Ir al centro de ayuda', href: '/soporte#guias' },
   { title: 'Implementación acompañada', text: 'Configuramos contigo empresa, sedes, productos y facturación electrónica.', meta: 'Incluida en todos los planes', icon: 'heart-handshake', cta: 'Agendar implementación', href: '/contacto' },
-  { title: 'Capacitaciones en vivo', text: 'Sesiones para tu equipo de caja, bodega y contabilidad.', meta: 'Cada semana', icon: 'graduation', cta: 'Ver calendario', href: '/soporte#capacitaciones' },
+  { title: 'Capacitaciones en vivo', text: 'Sesiones para tu equipo de caja, bodega y contabilidad.', meta: 'Cada semana', icon: 'graduation', cta: 'Ver capacitaciones', href: '/capacitaciones' },
 ]
 
 export const GUIDES: { title: string; icon: IconName; articles: string[] }[] = [
@@ -259,23 +260,40 @@ export const FOOTER_COLUMNS: { title: string; links: { label: string; href: stri
   {
     title: 'Producto',
     links: [
-      { label: 'Módulos', href: '/modulos' },
-      { label: 'GO Admin IA', href: '/#ia' },
-      { label: 'Integraciones', href: '/integraciones' },
+      { label: 'Todos los módulos', href: '/producto' },
+      { label: 'Ventas y POS', href: '/producto/ventas-pos' },
+      { label: 'Facturación electrónica', href: '/producto/facturacion-electronica' },
+      { label: 'Contabilidad', href: '/producto/contabilidad' },
+      { label: 'Inventario', href: '/producto/inventario' },
+      { label: 'Nómina y equipo', href: '/producto/nomina' },
+      { label: 'Clientes (CRM)', href: '/producto/clientes-crm' },
+      { label: 'Reportes', href: '/producto/reportes' },
+      { label: 'GO Admin IA', href: '/producto/inteligencia-artificial' },
       { label: 'Precios', href: '/precios' },
-      { label: 'API', href: '/api' },
+    ],
+  },
+  {
+    title: 'Canales digitales',
+    links: [
+      { label: 'Página web', href: '/producto/sitio-web' },
+      { label: 'Tienda en línea', href: '/producto/tienda-en-linea' },
+      { label: 'Motor de reservas', href: '/producto/motor-de-reservas' },
+      { label: 'Chat omnicanal', href: '/producto/chat-omnicanal' },
+      { label: 'Integraciones', href: '/integraciones' },
     ],
   },
   {
     title: 'Soluciones',
-    links: INDUSTRIES.slice(0, 6).map((i) => ({ label: i.name, href: i.href })),
+    links: SOLUTIONS.map((s) => ({ label: s.name, href: `/soluciones/${s.slug}` })),
   },
   {
-    title: 'Soporte',
+    title: 'Recursos',
     links: [
       { label: 'Centro de ayuda', href: '/soporte' },
-      { label: 'WhatsApp', href: CONTACT.whatsappUrl },
-      { label: 'Capacitaciones', href: '/soporte#capacitaciones' },
+      { label: 'Capacitaciones', href: '/capacitaciones' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'API para desarrolladores', href: '/api' },
+      { label: 'Seguridad', href: '/seguridad' },
       { label: 'Contacto', href: '/contacto' },
     ],
   },
@@ -283,7 +301,6 @@ export const FOOTER_COLUMNS: { title: string; links: { label: string; href: stri
     title: 'Empresa',
     links: [
       { label: 'Acerca de', href: '/acerca-de' },
-      { label: 'Blog', href: '/blog' },
       { label: 'Carreras', href: '/carreras' },
       { label: 'Privacidad', href: '/privacidad' },
       { label: 'Eliminación de datos', href: '/eliminacion-datos' },

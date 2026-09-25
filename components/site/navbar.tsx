@@ -8,6 +8,7 @@ import { Firma, Isotipo } from '@/components/brand/logo'
 import { Traveler } from '@/components/illustrations/art'
 import { Icon } from '@/components/site/icon'
 import { CtaLink, LinkArrow } from '@/components/site/primitives'
+import { CHANNELS, productsByCategory } from '@/lib/catalog/products'
 import { INDUSTRIES, LOGIN_URL, MODULES_MENU, NAV, RESOURCES, SIGNUP_URL, type NavItem } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -168,18 +169,33 @@ function MenuItem({ href, icon, title, text, onPick }: { href: string; icon: Par
 }
 
 function ProductMenu({ onPick }: { onPick: () => void }) {
+  const groups = productsByCategory().filter((g) => g.id !== 'canales')
   return (
     <>
-      <div className="grid flex-1 grid-cols-2 gap-1">
-        {MODULES_MENU.map((m) => (
-          <MenuItem key={m.href} href={m.href} icon={m.icon} title={m.name} text={m.description} onPick={onPick} />
+      <div className="grid flex-1 grid-cols-2 gap-x-2 gap-y-1">
+        {groups.map((g) => (
+          <div key={g.id} className="flex flex-col">
+            <p className="px-3 pb-1 pt-2 text-eyebrow uppercase text-ink-muted">{g.name}</p>
+            {g.items.map((m) => (
+              <MenuItem key={m.slug} href={`/producto/${m.slug}`} icon={m.icon} title={m.name} text={m.short} onPick={onPick} />
+            ))}
+          </div>
         ))}
       </div>
-      <div className="flex w-64 flex-col justify-end gap-3 overflow-hidden rounded-2xl bg-go p-5 text-white">
-        <Traveler tone="blue" className="-mt-2 w-28 self-end" />
-        <p className="text-h4 font-semibold">Mira GO Admin por dentro</p>
-        <LinkArrow href="/modulos" tone="light">
-          Ver todos los módulos
+      <div className="flex w-72 flex-col gap-2 rounded-2xl bg-go p-5 text-white">
+        <p className="text-eyebrow uppercase text-go-100">Canales digitales</p>
+        <p className="text-h4 font-semibold">Tu negocio en internet desde el primer día</p>
+        <div className="mt-1 grid gap-1">
+          {CHANNELS.map((c) => (
+            <Link key={c.slug} href={`/producto/${c.slug}`} onClick={onPick} className="flex items-center gap-2.5 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-medium transition-colors hover:bg-white/20">
+              <Icon name={c.icon} className="h-4 w-4" />
+              {c.name}
+            </Link>
+          ))}
+        </div>
+        <Traveler tone="blue" className="-mb-2 mt-auto w-24 self-end" />
+        <LinkArrow href="/canales-digitales" tone="light">
+          Conocer los canales digitales
         </LinkArrow>
       </div>
     </>
@@ -192,9 +208,6 @@ function SolutionsMenu({ onPick }: { onPick: () => void }) {
       {INDUSTRIES.map((i) => (
         <MenuItem key={i.href} href={i.href} icon={i.icon} title={i.name} text={i.description} onPick={onPick} />
       ))}
-      <Link href="/industrias" onClick={onPick} className="flex items-center justify-center rounded-xl border border-dashed border-go-200 p-3 text-sm font-semibold text-go-deep hover:bg-go-wash">
-        Ver todas las industrias
-      </Link>
     </div>
   )
 }
@@ -258,6 +271,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             {[
               { label: 'Precios', href: '/precios' },
               { label: 'Soporte', href: '/soporte' },
+              { label: 'Contacto', href: '/contacto' },
             ].map((l) => (
               <Link key={l.href} href={l.href} onClick={onClose} className="block border-b border-ink-line py-4 text-lg font-semibold">
                 {l.label}

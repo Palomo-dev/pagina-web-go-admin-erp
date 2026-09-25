@@ -16,7 +16,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-night-900 text-night-line">
       <div className="container py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[300px_1fr]">
+        <div className="grid gap-12 xl:grid-cols-[280px_1fr]">
           <div className="flex flex-col gap-5">
             <Firma size={30} variant="on-ink" />
             <p className="max-w-xs text-sm leading-relaxed text-go-200">
@@ -32,7 +32,7 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
             {FOOTER_COLUMNS.map((col) => (
               <div key={col.title}>
                 <p className="text-eyebrow uppercase text-go-300">{col.title}</p>
