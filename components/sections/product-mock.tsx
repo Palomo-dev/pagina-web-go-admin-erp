@@ -6,10 +6,21 @@ import { formatLocal, getMarket, sampleAmount, sampleDomain, sampleValue } from 
 import { useT } from '@/i18n/t'
 import { cn } from '@/lib/utils'
 
-/** Hora local del mercado (7:00 p. m. / 7:00 PM / 19:00). */
+/**
+ * Hora local del mercado (7:00 p. m. / 7:00 PM / 19:00 / 19 h 00).
+ * Sin Intl: el servidor (Node) y cada navegador formatean la hora con espacios distintos y eso
+ * rompe la hidratación de React (el documento se vuelve a pintar en el cliente).
+ */
 function useTime() {
-  const locale = useLocale()
-  return (h: number, m = 0) => new Date(2000, 0, 1, h, m).toLocaleTimeString(locale, { hour: 'numeric', minute: '2-digit' })
+  const lang = getMarket(useLocale()).language
+  return (h: number, m = 0) => {
+    const mm = String(m).padStart(2, '0')
+    const h12 = h % 12 || 12
+    if (lang === 'es') return `${h12}:${mm} ${h < 12 ? 'a. m.' : 'p. m.'}`
+    if (lang === 'en') return `${h12}:${mm} ${h < 12 ? 'AM' : 'PM'}`
+    if (lang === 'fr') return `${h} h ${mm}`
+    return `${String(h).padStart(2, '0')}:${mm}`
+  }
 }
 /** Monto de ejemplo en la moneda del país (el valor base está pensado en pesos colombianos). */
 function useMoney() {

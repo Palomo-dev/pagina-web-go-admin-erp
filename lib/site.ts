@@ -154,7 +154,7 @@ export function formatPrice(value: number, currency: 'COP' | 'USD', locale: stri
     maximumFractionDigits: 0,
   })
     .format(value)
-    .replace(/ /g, ' ')
+    .replace(/[\u00a0\u202f]/g, ' ')
 }
 
 /** Números con el separador de miles del mercado (1.000 / 1,000). */

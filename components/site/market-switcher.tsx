@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Globe, X } from 'lucide-react'
 import { useLocale } from 'next-intl'
-import { Link, usePathname } from '@/i18n/navigation'
+import { getPathname, usePathname } from '@/i18n/navigation'
 import { COUNTRIES, LANGUAGE_NAMES, MARKETS, MARKET_IDS, getMarket, type CountryCode, type MarketId } from '@/i18n/markets'
 import { useT } from '@/i18n/t'
 import { cn } from '@/lib/utils'
@@ -38,6 +38,21 @@ export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' |
   }, [open])
 
   const label = `${current.countryData.iso2} · ${lang.toUpperCase()}`
+
+  /**
+   * Guarda la elección en la cookie GOADMIN_MARKET y recarga la página en el mercado elegido.
+   * Carga completa (no navegación del cliente): cambian idioma, moneda y textos fiscales, y así
+   * funciona igual en Safari de iPhone. La cookie evita que el middleware devuelva a la persona
+   * al mercado anterior o al de su país (p. ej. al volver a Colombia, que no lleva prefijo).
+   */
+  const choose = (e: React.MouseEvent<HTMLAnchorElement>, id: MarketId) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+    e.preventDefault()
+    document.cookie = `GOADMIN_MARKET=${id}; path=/; max-age=31536000; SameSite=Lax`
+    setOpen(false)
+    if (id === locale) return
+    window.location.assign(e.currentTarget.href)
+  }
 
   return (
     <>
@@ -120,21 +135,20 @@ export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' |
                               {markets.map((id) => {
                                 const selected = id === locale
                                 return (
-                                  <Link
+                                  <a
                                     key={id}
-                                    href={pathname}
-                                    locale={id}
+                                    href={getPathname({ href: pathname, locale: id })}
                                     hrefLang={id}
-                                    onClick={() => setOpen(false)}
+                                    onClick={(e) => choose(e, id)}
                                     aria-current={selected ? 'true' : undefined}
                                     className={cn(
-                                      'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors',
+                                      'inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors',
                                       selected ? 'bg-go text-white' : 'bg-slate-100 text-ink hover:bg-go-tint',
                                     )}
                                   >
                                     {selected ? <Check className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> : null}
                                     <span lang={MARKETS[id].language}>{LANGUAGE_NAMES[MARKETS[id].language]}</span>
-                                  </Link>
+                                  </a>
                                 )
                               })}
                             </div>
