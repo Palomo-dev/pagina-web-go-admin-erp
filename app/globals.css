@@ -256,4 +256,8 @@
   .go-caret {
     animation: none !important;
   }
+  /* Sin animación, cada nube queda quieta en su lugar del recorrido (no amontonada en el borde). */
+  .go-cloud {
+    transform: translate3d(var(--x, 0), 0, 0);
+  }
 }

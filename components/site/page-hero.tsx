@@ -9,7 +9,12 @@ const EASE = [0.2, 0.8, 0.2, 1] as const
 /** Hero interno sobre el cielo GO (Figma › Hero interno). */
 export function PageHero({ eyebrow, title, subtitle, children }: { eyebrow: string; title: string; subtitle: string; children?: React.ReactNode }) {
   const reduce = useReducedMotion()
-  const enter = (d: number) => (reduce ? {} : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.44, ease: EASE, delay: d } })
+  // Siempre con animate: el servidor pinta opacity 0 y, sin animate, el texto quedaría oculto con movimiento reducido.
+  const enter = (d: number) => ({
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: reduce ? { duration: 0 } : { duration: 0.44, ease: EASE, delay: d },
+  })
   return (
     <section className="relative isolate overflow-hidden bg-go-wash pb-44" aria-labelledby="page-title">
       <Sky className="bottom-[40px]" rocket={false} />

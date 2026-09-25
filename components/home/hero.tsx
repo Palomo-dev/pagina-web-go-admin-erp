@@ -22,8 +22,12 @@ export function Hero() {
   const scale = useTransform(scrollY, [0, 520], [reduce ? 1 : 0.95, 1])
   const travelerY = useTransform(scrollY, [0, 600], [0, reduce ? 0 : -60])
 
-  const enter = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.48, ease: EASE, delay } }
+  // Siempre con animate: el servidor pinta opacity 0 y, sin animate, el texto quedaría oculto con movimiento reducido.
+  const enter = (delay: number) => ({
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: reduce ? { duration: 0 } : { duration: 0.48, ease: EASE, delay },
+  })
 
   return (
     <section className="relative isolate overflow-hidden bg-go-wash pb-16 sm:pb-24" aria-labelledby="hero-title">

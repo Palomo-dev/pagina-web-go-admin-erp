@@ -27,7 +27,12 @@ export function PageHeroSplit({
   primary: { label: string; href: string }
 }) {
   const reduce = useReducedMotion()
-  const enter = (d: number) => (reduce ? {} : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.44, ease: EASE, delay: d } })
+  // Siempre con animate: el servidor pinta opacity 0 y, sin animate, el texto quedaría oculto con movimiento reducido.
+  const enter = (d: number) => ({
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: reduce ? { duration: 0 } : { duration: 0.44, ease: EASE, delay: d },
+  })
   return (
     <section className="relative isolate overflow-hidden bg-go-wash pb-36" aria-labelledby="detail-title">
       <Sky className="bottom-[40px]" rocket={false} planet={false} />

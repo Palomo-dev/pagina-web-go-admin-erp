@@ -14,7 +14,7 @@ function seeded(seed: number) {
   }
 }
 
-type CloudSpec = { top: number; size: number; dur: number; delay: number; opacity: number }
+type CloudSpec = { top: number; size: number; dur: number; delay: number; opacity: number; x: number }
 
 function makeClouds(n: number, seed: number, layer: 0 | 1 | 2): CloudSpec[] {
   const r = seeded(seed)
@@ -23,14 +23,20 @@ function makeClouds(n: number, seed: number, layer: 0 | 1 | 2): CloudSpec[] {
     { size: [90, 130], dur: [38, 50], op: [0.22, 0.3] }, // medio
     { size: [130, 180], dur: [28, 36], op: [0.28, 0.36] }, // cerca
   ][layer]
-  return Array.from({ length: n }, () => {
+  // Repartidas a lo ancho (cada nube en su franja) y a lo alto (alternando arriba y abajo),
+  // para que nunca se amontonen en un borde.
+  return Array.from({ length: n }, (_, i) => {
     const dur = base.dur[0] + r() * (base.dur[1] - base.dur[0])
+    const progress = (i + 0.2 + r() * 0.6) / n
+    const band = i % 2 ? [42, 76] : [6, 38]
     return {
-      top: 4 + r() * 78,
+      top: band[0] + r() * (band[1] - band[0]),
       size: base.size[0] + r() * (base.size[1] - base.size[0]),
       dur,
-      delay: -r() * dur,
+      delay: -progress * dur,
       opacity: base.op[0] + r() * (base.op[1] - base.op[0]),
+      // Posición equivalente del recorrido (−20vw → 120vw) para cuando no hay animación
+      x: -20 + progress * 140,
     }
   })
 }
@@ -103,7 +109,7 @@ export function Sky({
         ? LAYERS.map((layer, li) => (
             <motion.div key={li} className="absolute inset-0" style={{ y: layerY[li] }}>
               {layer.map((c, i) => (
-                <div key={i} className="go-cloud absolute left-0 text-white" style={{ top: `${c.top}%`, opacity: c.opacity, ['--dur' as string]: `${c.dur}s`, ['--delay' as string]: `${c.delay}s` }}>
+                <div key={i} className="go-cloud absolute left-0 text-white" style={{ top: `${c.top}%`, opacity: c.opacity, ['--dur' as string]: `${c.dur}s`, ['--delay' as string]: `${c.delay}s`, ['--x' as string]: `${c.x}vw` }}>
                   <Cloud style={{ width: c.size }} />
                 </div>
               ))}
