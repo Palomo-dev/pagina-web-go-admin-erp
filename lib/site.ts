@@ -98,7 +98,8 @@ export const TRUST: { key: string; icon: IconName }[] = [
 ]
 
 // ---------------------------------------------------------------------------
-// Planes (tabla `plans` del ERP: price_cop_* para Colombia, price_usd_* para los demás países)
+// Planes (price_cop_* de la tabla `plans` del ERP para Colombia; USD definidos por GO Admin para los demás países,
+// anual = 10 meses, «2 meses gratis». La tabla `plans` aún tiene USD 20/49/199: actualizarla desde admin.goadmin.io)
 // Textos en messages › pricing.plans.<id>. Confirmar con comercial si los precios incluyen impuestos.
 // ---------------------------------------------------------------------------
 export type Plan = {
@@ -112,9 +113,9 @@ export type Plan = {
 }
 
 export const PLANS: Plan[] = [
-  { id: 'pro', name: 'Pro', prices: { COP: { monthly: 99000, annual: 990000 }, USD: { monthly: 20, annual: 199 } }, trialDays: 15, featureCount: 5 },
-  { id: 'business', name: 'Business', prices: { COP: { monthly: 189000, annual: 1890000 }, USD: { monthly: 49, annual: 490 } }, trialDays: 30, recommended: true, featureCount: 5 },
-  { id: 'ultimate', name: 'Ultimate', prices: { COP: { monthly: 990000, annual: 9990000 }, USD: { monthly: 199, annual: 1990 } }, trialDays: 30, featureCount: 6 },
+  { id: 'pro', name: 'Pro', prices: { COP: { monthly: 99000, annual: 990000 }, USD: { monthly: 30, annual: 300 } }, trialDays: 15, featureCount: 5 },
+  { id: 'business', name: 'Business', prices: { COP: { monthly: 189000, annual: 1890000 }, USD: { monthly: 60, annual: 600 } }, trialDays: 30, recommended: true, featureCount: 5 },
+  { id: 'ultimate', name: 'Ultimate', prices: { COP: { monthly: 990000, annual: 9990000 }, USD: { monthly: 300, annual: 3000 } }, trialDays: 30, featureCount: 6 },
 ]
 
 /** Filas de la tabla comparativa (messages › pricing.compare.rows.<key>) y valores por plan. */
@@ -144,7 +145,7 @@ export const ADDONS: { key: string; icon: IconName }[] = [
 
 /**
  * Precio con el formato del mercado. Colombia sigue el manual ($ 1.250.000);
- * USD usa el formato del idioma del visitante (US$ 20, 20 US$…).
+ * USD usa el formato del idioma del visitante (US$ 30, 30 US$…).
  */
 export function formatPrice(value: number, currency: 'COP' | 'USD', locale: string) {
   return new Intl.NumberFormat(currency === 'COP' ? 'es-CO' : locale, {
