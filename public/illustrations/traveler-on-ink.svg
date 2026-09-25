@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Asteroide -->
+  <g id="asteroid">
+    <path d="M40 300 C40 250 95 226 160 226 C225 226 280 250 280 300 C280 338 230 356 160 356 C90 356 40 338 40 300 Z" fill="#1B2540" stroke="#E3E8FF" stroke-width="2.5"/>
+    <path d="M78 268 q10 -6 22 -2" stroke="#E3E8FF" stroke-width="2"/>
+    <ellipse cx="212" cy="300" rx="14" ry="6" stroke="#E3E8FF" stroke-width="2"/>
+    <ellipse cx="112" cy="322" rx="9" ry="4" stroke="#E3E8FF" stroke-width="2"/>
+    <path d="M244 266 q8 3 12 10" stroke="#E3E8FF" stroke-width="2"/>
+    <circle cx="176" cy="336" r="2.5" fill="#E3E8FF"/>
+  </g>
+  <!-- Brote -->
+  <g id="sprout">
+    <path d="M232 238 C232 226 233 216 236 206" stroke="#E3E8FF" stroke-width="2.5"/>
+    <path d="M235 214 C226 206 214 206 208 212 C216 220 228 220 235 214 Z" fill="#2A3EA8" stroke="#E3E8FF" stroke-width="2"/>
+    <path d="M236 206 C242 196 254 194 262 198 C256 208 244 210 236 206 Z" fill="#4361EE" stroke="#E3E8FF" stroke-width="2"/>
+  </g>
+  <!-- Viajero -->
+  <g id="traveler">
+    <!-- piernas -->
+    <path d="M146 196 L143 229" stroke="#E3E8FF" stroke-width="2.5"/>
+    <path d="M168 196 L171 229" stroke="#E3E8FF" stroke-width="2.5"/>
+    <path d="M132 232 C132 226 138 226 145 228 L147 233 L133 234 Z" fill="#E3E8FF" stroke="#E3E8FF" stroke-width="2"/>
+    <path d="M169 228 C176 226 183 226 183 232 L181 234 L168 233 Z" fill="#E3E8FF" stroke="#E3E8FF" stroke-width="2"/>
+    <!-- abrigo -->
+    <path d="M140 134 C132 150 128 178 124 202 C142 208 172 208 190 202 C186 178 182 150 174 134 C164 130 150 130 140 134 Z" fill="#1B2540" stroke="#E3E8FF" stroke-width="2.5"/>
+    <path d="M157 138 L157 204" stroke="#E3E8FF" stroke-width="1.8"/>
+    <circle cx="151" cy="156" r="1.8" fill="#E3E8FF"/>
+    <circle cx="151" cy="172" r="1.8" fill="#E3E8FF"/>
+    <path d="M130 186 q27 6 54 0" stroke="#E3E8FF" stroke-width="1.8"/>
+    <!-- brazo izquierdo relajado -->
+    <path d="M140 140 C132 156 128 170 130 182" stroke="#E3E8FF" stroke-width="2.5"/>
+    <circle cx="130" cy="185" r="4" fill="#1B2540" stroke="#E3E8FF" stroke-width="2"/>
+    <!-- brazo derecho sosteniendo la pieza -->
+    <path d="M174 140 C186 150 194 160 198 166" stroke="#E3E8FF" stroke-width="2.5"/>
+    <g id="piece">
+      <rect x="192" y="146" width="30" height="30" rx="9" fill="#4361EE" stroke="#E3E8FF" stroke-width="2.2" transform="rotate(-8 207 161)"/>
+      <path d="M200 142 l-3 -6 M209 139 l0 -7 M218 142 l3 -6" stroke="#4361EE" stroke-width="2"/>
+    </g>
+    <circle cx="198" cy="168" r="4" fill="#1B2540" stroke="#E3E8FF" stroke-width="2"/>
+    <!-- cabeza -->
+    <path d="M136 104 C136 88 146 78 158 78 C171 78 180 88 180 103 C180 119 171 130 158 130 C145 130 136 120 136 104 Z" fill="#1B2540" stroke="#E3E8FF" stroke-width="2.5"/>
+    <!-- cabello en rizos -->
+    <path d="M136 98 C132 90 136 82 142 82 C140 74 148 68 155 72 C158 64 170 64 172 72 C180 70 186 78 182 86 C188 90 186 98 180 100 C176 92 170 88 164 90 C160 84 152 84 148 90 C144 88 138 92 136 98 Z" fill="#1B2540" stroke="#E3E8FF" stroke-width="2.2"/>
+    <path d="M150 78 q4 -2 7 1 M163 76 q4 -1 6 3" stroke="#E3E8FF" stroke-width="1.6"/>
+    <path d="M184 84 q8 -2 13 -8 M186 92 q7 1 12 -3" stroke="#E3E8FF" stroke-width="2"/>
+    <!-- rostro -->
+    <ellipse cx="151" cy="106" rx="2" ry="3" fill="#E3E8FF"/>
+    <ellipse cx="167" cy="106" rx="2" ry="3" fill="#E3E8FF"/>
+    <path d="M155 118 q4 3 8 0" stroke="#E3E8FF" stroke-width="1.8"/>
+    <path d="M143 114 q3 1 5 0 M170 114 q3 1 5 0" stroke="#6A82F1" stroke-width="2"/>
+  </g>
+  <!-- Bufanda -->
+  <g id="scarf">
+    <path d="M140 128 C150 136 166 136 176 128 L178 136 C168 144 148 144 138 136 Z" fill="#4361EE" stroke="#E3E8FF" stroke-width="2.2"/>
+    <path id="scarf-tail" d="M172 134 C196 128 214 112 236 116 C256 120 268 108 284 98 C282 112 270 128 252 132 C232 136 216 132 200 144 C192 150 180 146 172 140 Z" fill="#4361EE" stroke="#E3E8FF" stroke-width="2.2"/>
+    <path d="M284 98 l6 -4 M282 106 l7 -1" stroke="#E3E8FF" stroke-width="1.8"/>
+  </g>
+</svg>

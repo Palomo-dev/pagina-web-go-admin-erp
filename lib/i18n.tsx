@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, type ReactNode } from "react"
 
 export type Language = "es" | "en"
 
@@ -698,31 +698,12 @@ const translations: Record<Language, Record<string, string>> = {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  // El sitio nuevo está en español (Manual › 01: "Desde Colombia") y no tiene selector de idioma.
+  // Las páginas heredadas se fijan en español para no mezclar idiomas con la navegación nueva.
   const [lang, setLangState] = useState<Language>("es")
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    
-    // Check localStorage first (misma clave que usa setLang)
-    const savedLang = localStorage.getItem("go-admin-lang") as Language | null
-    if (savedLang && (savedLang === "es" || savedLang === "en")) {
-      setLangState(savedLang)
-      return
-    }
-
-    // Detect browser language
-    const browserLang = navigator.language.toLowerCase()
-    const detectedLang: Language = browserLang.startsWith("es") ? "es" : "en"
-    setLangState(detectedLang)
-    localStorage.setItem("go-admin-lang", detectedLang)
-  }, [])
 
   const setLang = (newLang: Language) => {
     setLangState(newLang)
-    if (typeof window !== "undefined") {
-      localStorage.setItem("go-admin-lang", newLang)
-    }
   }
 
   const t = (key: string): string => {
