@@ -10,8 +10,8 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | Página | Contenido |
 | --- | --- |
 | `01 Sistema` | Portada, color (variables), tipografía (estilos de texto), retícula y espaciado, radios y elevación, marca y favicon, recursos gráficos, ilustración, movimiento, arquitectura de información y voz |
-| `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer) |
-| `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla) y 404 |
+| `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer). Sección **Secciones web**: PainPoint, DayMoment, CardLink, ChannelTabs (Página web / Tienda en línea / Motor de reservas), DomainPill y LegalTOC |
+| `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla), 404, Producto · Facturación electrónica (plantilla de `/producto/[slug]`), Solución · Restaurantes (plantilla de `/soluciones/[slug]`) y Canales digitales |
 
 ## Equivalencias Figma ↔ código
 
@@ -31,6 +31,10 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | ModuleStop | `components/home/journey.tsx` |
 | DashboardMock | `components/site/dashboard-mock.tsx` |
 | Footer | `components/site/footer.tsx` |
+| PainPoint, DayMoment, CardLink, StepItem | `components/sections/blocks.tsx` (`PainPoints`, `DayTimeline`, `CardLinkGrid`, `StepList`) |
+| ChannelTabs, DomainPill | `components/sections/channels-showcase.tsx` |
+| Mock de producto (tabla, factura, POS…) | `components/sections/product-mock.tsx` |
+| LegalTOC | `components/sections/legal-layout.tsx` |
 
 ## Ilustraciones
 
@@ -59,5 +63,7 @@ python3 design/illustrations-src/to_tsx.py   # componentes React en components/i
 - Confirmar si los precios incluyen IVA.
 - Reemplazar las iniciales de integraciones por logos oficiales con autorización.
 - Enlaces de redes sociales en `components/site/footer.tsx`.
-- Las páginas heredadas (blog, acerca de, carreras, API, integraciones, privacidad) conservan su contenido
-  con la navegación y los colores nuevos; revisar sus cifras (p. ej. “500+ empresas”, “99,9 %”) contra fuentes verificables.
+- La política de privacidad conserva el texto legal anterior, que menciona certificaciones (SOC 2, ISO 27001)
+  y cifrado de extremo a extremo: validar con el área legal antes de publicar.
+- Las páginas API, novedades y centro de ayuda heredadas conservan su contenido; revisar sus cifras contra fuentes verificables.
+- El componente Footer de Figma aún muestra las columnas anteriores; el código ya usa `FOOTER_COLUMNS`.
