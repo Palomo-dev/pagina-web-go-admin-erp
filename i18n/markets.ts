@@ -335,7 +335,8 @@ export function formatLocal(id: string, value: number) {
   const m = getMarket(id)
   return new Intl.NumberFormat(m.id, { style: 'currency', currency: m.countryData.currency, currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0 })
     .format(value)
-    .replace(/\u00a0/g, ' ')
+    // Espacios normales: Node y los navegadores usan espacios especiales distintos (hidratación).
+    .replace(/[\u00a0\u202f]/g, ' ')
 }
 
 /**
