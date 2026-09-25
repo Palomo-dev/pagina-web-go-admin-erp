@@ -295,7 +295,7 @@ function MobileMenu({ data, open, onClose }: { data: NavData; open: boolean; onC
             ))}
           </div>
           <div className="grid gap-3 border-t border-ink-line p-5">
-            <MarketSwitcher tone="light" className="justify-center" />
+            <MarketSwitcher tone="light" className="justify-center" onOpen={onClose} />
             <CtaLink href={SIGNUP_URL} size="lg">
               {c('signupLong')}
             </CtaLink>
