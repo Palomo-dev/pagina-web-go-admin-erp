@@ -242,21 +242,14 @@
   animation: go-caret 1s steps(1) infinite;
 }
 
+/*
+ * Movimiento reducido (Windows › Efectos de animación desactivados, macOS › Reducir movimiento):
+ * se conservan los movimientos lentos y decorativos (nubes, estrellas, cinta de integraciones,
+ * bufanda…) y se apagan los grandes: parallax al hacer scroll, recorrido horizontal fijado y
+ * desplazamientos de entrada (ver useReducedMotion en los componentes).
+ */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .go-cloud,
-  .go-float,
-  .go-bob,
-  .go-scarf,
-  .go-scarf-left,
-  .go-sprout,
-  .go-twinkle,
-  .go-flame,
-  .go-marquee-left,
-  .go-marquee-right,
-  .go-caret {
-    animation: none !important;
   }
 }
