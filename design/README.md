@@ -10,7 +10,7 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | Página | Contenido |
 | --- | --- |
 | `01 Sistema` | Portada, color (variables), tipografía (estilos de texto), retícula y espaciado, radios y elevación, marca y favicon, recursos gráficos, ilustración, movimiento, arquitectura de información y voz |
-| `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer). Sección **Secciones web**: PainPoint, DayMoment, CardLink, ChannelTabs (Página web / Tienda en línea / Motor de reservas), DomainPill y LegalTOC |
+| `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer). Sección **Secciones web**: PainPoint, DayMoment, CardLink, ChannelTabs (Página web / Tienda en línea / Motor de reservas), DomainPill y LegalTOC; **MarketSwitcher** (Tono Cielo/Claro/Noche) y su diálogo de país e idioma |
 | `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla), 404, Producto · Facturación electrónica (plantilla de `/producto/[slug]`), Solución · Restaurantes, bares y cafés (plantilla de `/soluciones/[slug]`, con la sección «Para quién es») y Canales digitales |
 
 ## Equivalencias Figma ↔ código
@@ -35,6 +35,8 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | ChannelTabs, DomainPill | `components/sections/channels-showcase.tsx` |
 | Mock de producto (tabla, factura, POS…) | `components/sections/product-mock.tsx` |
 | LegalTOC | `components/sections/legal-layout.tsx` |
+| MarketSwitcher | `components/site/market-switcher.tsx` (países e idiomas en `i18n/markets.ts`) |
+| Tabla de facturación por país | `components/sections/fiscal-countries.tsx` |
 
 ## Ilustraciones
 

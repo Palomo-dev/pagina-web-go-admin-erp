@@ -84,7 +84,7 @@ export const INTEGRATION_GROUPS: IntegrationGroup[] = [
     text: 'Catálogo, mensajes y campañas.',
     icon: 'sparkles',
     items: [
-      { name: 'Meta (Facebook e Instagram)', text: 'Mensajes y catálogo.' },
+      { name: 'Meta (Facebook, Instagram)', text: 'Mensajes y catálogo.' },
       { name: 'TikTok Business', text: 'Catálogo y campañas.' },
       { name: 'Google Ads', text: 'Conversiones y campañas.' },
     ],

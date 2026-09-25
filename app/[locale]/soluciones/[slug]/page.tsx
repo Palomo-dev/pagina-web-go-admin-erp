@@ -20,6 +20,9 @@ import { SIGNUP_URL } from '@/lib/site'
 
 type Props = PageProps<{ slug: string }>
 
+// Solo las rutas generadas: cualquier otra es 404.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }))
 }

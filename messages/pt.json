@@ -1,1005 +1,1005 @@
 {
   "meta": {
-    "title": "GO Admin · Tu negocio, en un solo lugar",
-    "description": "Inventario, ventas, facturación, nómina y clientes conectados en un solo lugar. Software para restaurantes, hospedajes, tiendas, gimnasios, parqueaderos y empresas de servicios {inCountry}."
+    "title": "GO Admin · Seu negócio, em um só lugar",
+    "description": "Estoque, vendas, faturamento, folha de pagamento e clientes conectados em um só lugar. Software para restaurantes, hospedagens, lojas, academias, estacionamentos e empresas de serviços {inCountry}."
   },
   "common": {
-    "skipToContent": "Ir al contenido",
-    "learnMore": "Conocer más",
-    "faqEyebrow": "Preguntas frecuentes",
-    "faqTitle": "Lo que suelen preguntarnos.",
-    "signup": "Prueba gratis",
-    "signupLong": "Crear mi cuenta gratis",
-    "login": "Iniciar sesión",
-    "talkToSales": "Hablar con ventas",
-    "contact": "Contactar",
-    "example": "Ejemplo",
-    "sampleData": "Datos de ejemplo",
-    "home": "Inicio",
-    "breadcrumb": "Migas de pan",
-    "included": "Incluido",
-    "seePlans": "Ver planes"
+    "skipToContent": "Ir para o conteúdo",
+    "learnMore": "Saiba mais",
+    "faqEyebrow": "Perguntas frequentes",
+    "faqTitle": "O que costumam nos perguntar.",
+    "signup": "Teste grátis",
+    "signupLong": "Criar minha conta grátis",
+    "login": "Entrar",
+    "talkToSales": "Falar com vendas",
+    "contact": "Fale conosco",
+    "example": "Exemplo",
+    "sampleData": "Dados de exemplo",
+    "home": "Início",
+    "breadcrumb": "Trilha de navegação",
+    "included": "Incluído",
+    "seePlans": "Ver planos"
   },
   "home": {
     "hero": {
-      "badgeShort": "{status, select, integrated {Facturación {authority} incluida} other {GO Admin {inCountry}}}",
-      "badge": "{status, select, integrated {Facturación electrónica {authority} incluida en todos los planes} other {Inventario, ventas y facturación {inCountry}}}",
-      "title1": "Tu negocio,",
-      "title2": "en un solo lugar.",
-      "subtitle": "Inventario, ventas, facturación, nómina y clientes conectados. Para que tu negocio no dependa de tu memoria.",
-      "ctaSecondary": "Ver GO Admin por dentro",
-      "fine": "Desde 15 días gratis · Sin tarjeta de crédito · Soporte en español",
-      "travelerTitle": "El viajero de GO Admin sostiene una pieza azul sobre su pequeño planeta"
+      "badgeShort": "{status, select, integrated {Faturamento {authority} incluído} other {GO Admin {inCountry}}}",
+      "badge": "{status, select, integrated {Nota fiscal eletrônica {authority} incluída em todos os planos} other {Estoque, vendas e faturamento {inCountry}}}",
+      "title1": "Seu negócio,",
+      "title2": "em um só lugar.",
+      "subtitle": "Estoque, vendas, faturamento, folha de pagamento e clientes conectados. Para que seu negócio não dependa da sua memória.",
+      "ctaSecondary": "Ver o GO Admin por dentro",
+      "fine": "A partir de 15 dias grátis · Sem cartão de crédito · Suporte por WhatsApp e e-mail",
+      "travelerTitle": "O viajante do GO Admin segura uma peça azul sobre seu pequeno planeta"
     },
     "problem": {
-      "eyebrow": "El día a día",
-      "title": "¿Todo pasa por ti?",
-      "subtitle": "Compras, pagos, pedidos y pendientes. Cuando todo depende de una persona, hasta una tarea pequeña se vuelve un cuello de botella.",
+      "eyebrow": "O dia a dia",
+      "title": "Tudo passa por você?",
+      "subtitle": "Compras, pagamentos, pedidos e pendências. Quando tudo depende de uma pessoa, até uma tarefa pequena vira um gargalo.",
       "chips": [
         {
-          "messy": "Cuaderno de pedidos",
+          "messy": "Caderno de pedidos",
           "tidy": "Pedidos"
         },
         {
-          "messy": "WhatsApp de proveedores",
-          "tidy": "Proveedores"
+          "messy": "WhatsApp de fornecedores",
+          "tidy": "Fornecedores"
         },
         {
-          "messy": "Hoja de inventario",
-          "tidy": "Inventario"
+          "messy": "Planilha de estoque",
+          "tidy": "Estoque"
         },
         {
-          "messy": "Facturas en papel",
-          "tidy": "{status, select, integrated {Facturación {authority}} other {Facturación}}"
+          "messy": "Notas em papel",
+          "tidy": "{status, select, integrated {Faturamento {authority}} other {Faturamento}}"
         },
         {
-          "messy": "Caja registradora",
-          "tidy": "Caja"
+          "messy": "Caixa registradora",
+          "tidy": "Caixa"
         }
       ],
       "bullets": [
         {
-          "title": "Deja de digitar dos veces",
-          "text": "Lo que vendes en caja llega solo a inventario y contabilidad."
+          "title": "Pare de digitar duas vezes",
+          "text": "O que você vende no caixa vai direto para o estoque e a contabilidade."
         },
         {
-          "title": "Sabe qué tienes y dónde",
-          "text": "Existencias por bodega y sucursal, con alertas de stock bajo."
+          "title": "Saiba o que você tem e onde",
+          "text": "Saldos por depósito e filial, com alertas de estoque baixo."
         },
         {
-          "title": "Cierra caja sin sorpresas",
-          "text": "Arqueo, medios de pago y diferencias en un solo reporte."
+          "title": "Feche o caixa sem surpresas",
+          "text": "Conferência, formas de pagamento e diferenças em um só relatório."
         }
       ],
-      "connected": "Todo conectado en GO Admin",
-      "aria": "Tareas sueltas —cuaderno, WhatsApp, hojas de cálculo, facturas y caja— se ordenan como piezas conectadas en GO Admin"
+      "connected": "Tudo conectado no GO Admin",
+      "aria": "Tarefas soltas —caderno, WhatsApp, planilhas, notas e caixa— se organizam como peças conectadas no GO Admin"
     },
     "journey": {
       "eyebrow": "Módulos conectados",
-      "title": "Cada parte cuenta. Conéctalas.",
-      "subtitle": "Recorre tu negocio como un pequeño sistema de planetas. Cada módulo tiene su lugar y todos comparten la misma información.",
-      "swipe": "Desliza para recorrer los planetas",
+      "title": "Cada parte conta. Conecte todas.",
+      "subtitle": "Percorra seu negócio como um pequeno sistema de planetas. Cada módulo tem seu lugar e todos compartilham a mesma informação.",
+      "swipe": "Deslize para percorrer os planetas",
       "planet": "Planeta {n} · {name}",
-      "cta": "Conocer {name}",
+      "cta": "Conhecer {name}",
       "modules": {
         "pos": {
-          "name": "Ventas y punto de venta",
+          "name": "Vendas e PDV",
           "planet": "Vender",
-          "description": "Cobra en mostrador, mesa o en línea. Cada venta descuenta inventario y queda lista para facturar.",
+          "description": "Receba no balcão, na mesa ou on-line. Cada venda baixa o estoque e fica pronta para faturar.",
           "points": [
-            "Caja con arqueo y cierre diario",
-            "Pagos en efectivo, tarjeta y QR",
-            "Venta por mesas y comandas"
+            "Caixa com conferência e fechamento diário",
+            "Pagamentos em dinheiro, cartão e QR",
+            "Venda por mesas e comandas"
           ]
         },
         "inventario": {
-          "name": "Inventario",
+          "name": "Estoque",
           "planet": "Guardar",
-          "description": "Existencias por bodega y sucursal, lotes, costos y traslados sin hojas de cálculo.",
+          "description": "Saldos por depósito e filial, lotes, custos e transferências sem planilhas.",
           "points": [
-            "Alertas de stock bajo",
-            "Kardex y costo promedio",
-            "Traslados entre sedes"
+            "Alertas de estoque baixo",
+            "Kardex e custo médio",
+            "Transferências entre filiais"
           ]
         },
         "finanzas": {
-          "name": "Facturación y finanzas",
-          "planet": "Facturar",
-          "description": "{status, select, integrated {Facturas electrónicas validadas por {theAuthority}, cartera, bancos y contabilidad al día.} other {Facturas con {taxes}, cartera, bancos y contabilidad al día.}}",
+          "name": "Faturamento e finanças",
+          "planet": "Faturar",
+          "description": "{status, select, integrated {Notas fiscais eletrônicas validadas por {theAuthority}, contas a receber, bancos e contabilidade em dia.} other {Notas com {taxes}, contas a receber, bancos e contabilidade em dia.}}",
           "points": [
-            "{status, select, integrated {Factura y nota crédito ante {theAuthority}} other {Facturas y notas crédito}}",
-            "Cuentas por cobrar y pagar",
-            "Asientos automáticos"
+            "{status, select, integrated {Nota e nota de crédito junto a {theAuthority}} other {Notas e notas de crédito}}",
+            "Contas a receber e a pagar",
+            "Lançamentos automáticos"
           ]
         },
         "crm": {
           "name": "Clientes (CRM)",
           "planet": "Cuidar",
-          "description": "Historial de compras, seguimientos, oportunidades y campañas por WhatsApp o correo.",
+          "description": "Histórico de compras, acompanhamentos, oportunidades e campanhas por WhatsApp ou e-mail.",
           "points": [
-            "Ficha 360° del cliente",
-            "Seguimientos con recordatorio",
-            "Campañas segmentadas"
+            "Ficha 360° do cliente",
+            "Acompanhamentos com lembrete",
+            "Campanhas segmentadas"
           ]
         },
         "hrm": {
-          "name": "Nómina y equipo",
-          "planet": "Acompañar",
-          "description": "{ePayroll, select, yes {Contratos, turnos, asistencia, vacaciones y nómina electrónica sin volver a digitar.} other {Contratos, turnos, asistencia, vacaciones y nómina con las reglas de tu país.}}",
+          "name": "Folha de pagamento e equipe",
+          "planet": "Acompanhar",
+          "description": "{ePayroll, select, yes {Contratos, turnos, ponto, férias e folha de pagamento eletrônica sem digitar de novo.} other {Contratos, turnos, ponto, férias e folha de pagamento com as regras do seu país.}}",
           "points": [
-            "{ePayroll, select, yes {Nómina electrónica} other {Liquidación de nómina}}",
-            "Turnos y asistencia",
-            "Vacaciones y novedades"
+            "{ePayroll, select, yes {Folha de pagamento eletrônica} other {Cálculo da folha de pagamento}}",
+            "Turnos e ponto",
+            "Férias e ocorrências"
           ]
         },
         "pms": {
-          "name": "Hotelería (PMS)",
+          "name": "Hotelaria (PMS)",
           "planet": "Hospedar",
-          "description": "Calendario de reservas, check-in y check-out, folios y conexión con canales como Booking.com.",
+          "description": "Calendário de reservas, check-in e check-out, fólios e conexão com canais como Booking.com.",
           "points": [
-            "Calendario de ocupación",
-            "Folios por huésped",
-            "Canales de reserva"
+            "Calendário de ocupação",
+            "Fólios por hóspede",
+            "Canais de reserva"
           ]
         },
         "reportes": {
-          "name": "Reportes",
+          "name": "Relatórios",
           "planet": "Entender",
-          "description": "Tableros de ventas, márgenes, cartera e inventario listos desde el primer día.",
+          "description": "Painéis de vendas, margens, contas a receber e estoque prontos desde o primeiro dia.",
           "points": [
-            "Tableros por sede",
-            "Comparativos por periodo",
-            "Exporta a Excel y PDF"
+            "Painéis por filial",
+            "Comparativos por período",
+            "Exporte para Excel e PDF"
           ]
         },
         "ia": {
           "name": "GO Admin IA",
-          "planet": "Preguntar",
-          "description": "Escribe como le hablarías a tu contador y recibe cifras, gráficos y reportes al instante.",
+          "planet": "Perguntar",
+          "description": "Escreva como falaria com seu contador e receba números, gráficos e relatórios na hora.",
           "points": [
-            "Asistente contable",
-            "Reportes a partir de una pregunta",
-            "Imágenes para tus productos"
+            "Assistente contábil",
+            "Relatórios a partir de uma pergunta",
+            "Imagens para seus produtos"
           ]
         }
       }
     },
     "channels": {
-      "eyebrow": "Canales digitales incluidos",
-      "title": "Tu negocio también vende en internet.",
-      "subtitle": "Cada organización que se registra recibe su página web, su tienda en línea y su motor de reservas, con dirección propia y conectados al mismo inventario y calendario.",
-      "cta": "Todo sobre los canales digitales"
+      "eyebrow": "Canais digitais incluídos",
+      "title": "Seu negócio também vende na internet.",
+      "subtitle": "Cada organização que se cadastra recebe seu site, sua loja on-line e seu motor de reservas, com endereço próprio e conectados ao mesmo estoque e calendário.",
+      "cta": "Tudo sobre os canais digitais"
     },
     "industries": {
-      "eyebrow": "Soluciones",
-      "title": "Hecho para cómo trabaja tu negocio.",
-      "subtitle": "Restaurantes, hospedajes, tiendas, consultorios, canchas o empresas de servicios: elige lo que más se parece a tu negocio y GO Admin llega con los módulos, reportes y flujos que usas todos los días.",
-      "andMore": "{list} y más",
-      "cta": "Ver solución",
-      "otherTitle": "¿Tu negocio no aparece?",
-      "otherText": "GO Admin se arma por módulos: activas lo que usas y lo configuras a tu medida. Cuéntanos cómo trabajas y te mostramos cómo se vería."
+      "eyebrow": "Soluções",
+      "title": "Feito para o jeito que seu negócio trabalha.",
+      "subtitle": "Restaurantes, hospedagens, lojas, consultórios, quadras ou empresas de serviços: escolha o que mais se parece com seu negócio e o GO Admin chega com os módulos, relatórios e fluxos que você usa todos os dias.",
+      "andMore": "{list} e mais",
+      "cta": "Ver solução",
+      "otherTitle": "Seu negócio não aparece?",
+      "otherText": "O GO Admin é montado por módulos: você ativa o que usa e configura do seu jeito. Conte como você trabalha e mostramos como ficaria."
     },
     "integrations": {
-      "eyebrow": "Integraciones",
-      "title": "Conecta lo que ya usas.",
-      "subtitle": "Pasarelas de pago, bancos, canales de reserva, domicilios y mensajería hablan con GO Admin.",
-      "aria": "Integraciones disponibles",
-      "cta": "Ver todas las integraciones",
+      "eyebrow": "Integrações",
+      "title": "Conecte o que você já usa.",
+      "subtitle": "Gateways de pagamento, bancos, canais de reserva, delivery e mensagens conversam com o GO Admin.",
+      "aria": "Integrações disponíveis",
+      "cta": "Ver todas as integrações",
       "trust": {
-        "invoicing": "{status, select, integrated {Facturación electrónica {authority}} other {Impuestos de {country} configurados}}",
-        "backups": "Datos cifrados y respaldos diarios",
-        "roles": "Roles y permisos por usuario",
-        "madeIn": "Hecho en Medellín, Colombia"
+        "invoicing": "{status, select, integrated {Nota fiscal eletrônica {authority}} other {Impostos de {country} configurados}}",
+        "backups": "Dados criptografados e backups diários",
+        "roles": "Perfis e permissões por usuário",
+        "madeIn": "Feito em Medellín, Colômbia"
       }
     },
     "plans": {
-      "eyebrow": "Planes",
-      "title": "Empieza hoy. Crece a tu ritmo.",
-      "subtitle": "{status, select, integrated {Todos los planes incluyen facturación electrónica, soporte en español y actualizaciones.} other {Todos los planes incluyen facturación, soporte y actualizaciones.}}",
+      "eyebrow": "Planos",
+      "title": "Comece hoje. Cresça no seu ritmo.",
+      "subtitle": "{status, select, integrated {Todos os planos incluem nota fiscal eletrônica, suporte e atualizações.} other {Todos os planos incluem faturamento, suporte e atualizações.}}",
       "steps": [
         {
-          "title": "Crea tu cuenta",
-          "text": "Sin tarjeta de crédito. Elige tu industria y GO Admin se configura con lo que necesitas."
+          "title": "Crie sua conta",
+          "text": "Sem cartão de crédito. Escolha seu setor e o GO Admin se configura com o que você precisa."
         },
         {
-          "title": "Carga tu información",
-          "text": "Importa productos, clientes y saldos desde tu hoja de cálculo. Te acompañamos en el proceso."
+          "title": "Carregue suas informações",
+          "text": "Importe produtos, clientes e saldos da sua planilha. Acompanhamos você no processo."
         },
         {
-          "title": "Vende y factura",
-          "text": "{status, select, integrated {Empieza a vender, facturar ante {theAuthority} y ver tus reportes desde el primer día.} other {Empieza a vender, facturar y ver tus reportes desde el primer día.}}"
+          "title": "Venda e fature",
+          "text": "{status, select, integrated {Comece a vender, emitir notas junto a {theAuthority} e ver seus relatórios desde o primeiro dia.} other {Comece a vender, faturar e ver seus relatórios desde o primeiro dia.}}"
         }
       ],
-      "cta": "Comparar todos los planes y complementos"
+      "cta": "Comparar todos os planos e complementos"
     },
     "support": {
-      "eyebrow": "Soporte",
-      "title": "No estás solo en esto.",
-      "subtitle": "Personas reales que conocen tu negocio y hablan tu idioma. Te acompañamos desde la configuración hasta el primer cierre de mes.",
-      "travelerTitle": "El viajero de GO Admin acompaña tu negocio"
+      "eyebrow": "Suporte",
+      "title": "Você não está sozinho nessa.",
+      "subtitle": "Pessoas reais que conhecem seu negócio. Acompanhamos você da configuração até o primeiro fechamento do mês.",
+      "travelerTitle": "O viajante do GO Admin acompanha seu negócio"
     },
     "ai": {
       "eyebrow": "GO Admin IA",
-      "title": "Pregúntale a tu negocio.",
-      "subtitle": "Escribe como le hablarías a tu contador. La IA consulta tus ventas, inventario y cartera y te responde con cifras y gráficos.",
-      "question": "¿Cuánto vendí esta semana frente a la anterior?",
-      "answer": "Esta semana vendiste {amount}, un 6 % más que la anterior. El jueves fue tu mejor día. Esto es lo que más salió:",
+      "title": "Pergunte ao seu negócio.",
+      "subtitle": "Escreva como falaria com seu contador. A IA consulta suas vendas, estoque e contas a receber e responde com números e gráficos.",
+      "question": "Quanto vendi esta semana em relação à anterior?",
+      "answer": "Esta semana você vendeu {amount}, 6 % a mais que na anterior. Quinta-feira foi seu melhor dia. Isto foi o que mais saiu:",
       "top": [
-        "Café de origen 500 g",
-        "Pan de bono x 6",
-        "Jugo natural 350 ml",
-        "Almojábana"
+        "Café especial 500 g",
+        "Pão de queijo x 6",
+        "Suco natural 350 ml",
+        "Croissant"
       ],
       "prompts": [
-        "¿Qué productos se están quedando sin stock?",
-        "¿Quién me debe más de 30 días?",
-        "Hazme el reporte de ventas de septiembre por sede"
+        "Quais produtos estão ficando sem estoque?",
+        "Quem me deve há mais de 30 dias?",
+        "Faça o relatório de vendas de setembro por filial"
       ],
-      "placeholder": "Pregunta lo que quieras de tu negocio…"
+      "placeholder": "Pergunte o que quiser sobre seu negócio…"
     }
   },
   "nav": {
     "main": "Principal",
-    "homeLabel": "GO Admin, inicio",
-    "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú",
-    "menu": "Menú",
+    "homeLabel": "GO Admin, início",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "menu": "Menu",
     "items": {
-      "product": "Producto",
-      "solutions": "Soluciones",
-      "pricing": "Precios",
-      "support": "Soporte",
+      "product": "Produto",
+      "solutions": "Soluções",
+      "pricing": "Preços",
+      "support": "Suporte",
       "resources": "Recursos",
-      "contact": "Contacto"
+      "contact": "Contato"
     },
-    "channelsEyebrow": "Canales digitales",
-    "channelsTitle": "Tu negocio en internet desde el primer día",
-    "channelsCta": "Conocer los canales digitales",
+    "channelsEyebrow": "Canais digitais",
+    "channelsTitle": "Seu negócio na internet desde o primeiro dia",
+    "channelsCta": "Conhecer os canais digitais",
     "resourceItems": {
       "help": {
-        "label": "Centro de ayuda",
-        "description": "Guías, canales y horarios de soporte."
+        "label": "Central de ajuda",
+        "description": "Guias, canais e horários de suporte."
       },
       "training": {
-        "label": "Capacitaciones",
-        "description": "Sesiones en vivo y rutas por rol."
+        "label": "Treinamentos",
+        "description": "Sessões ao vivo e trilhas por função."
       },
       "blog": {
         "label": "Blog",
-        "description": "Ideas para ordenar tu negocio."
+        "description": "Ideias para organizar seu negócio."
       },
       "integrations": {
-        "label": "Integraciones",
-        "description": "Pagos, reservas, domicilios y mensajería."
+        "label": "Integrações",
+        "description": "Pagamentos, reservas, delivery e mensagens."
       },
       "api": {
-        "label": "API para desarrolladores",
-        "description": "Conecta tus sistemas con GO Admin."
+        "label": "API para desenvolvedores",
+        "description": "Conecte seus sistemas ao GO Admin."
       },
       "security": {
-        "label": "Seguridad",
-        "description": "Cómo protegemos tu información."
+        "label": "Segurança",
+        "description": "Como protegemos suas informações."
       },
       "about": {
-        "label": "Acerca de GO Admin",
-        "description": "Quiénes somos y cómo trabajamos."
+        "label": "Sobre o GO Admin",
+        "description": "Quem somos e como trabalhamos."
       },
       "careers": {
-        "label": "Carreras",
-        "description": "Construye con nosotros desde Medellín."
+        "label": "Carreiras",
+        "description": "Construa com a gente a partir de Medellín."
       }
     }
   },
   "market": {
     "label": "País e idioma",
-    "title": "Elige tu país e idioma",
-    "subtitle": "Verás precios, impuestos, medios de pago y facturación de tu país.",
+    "title": "Escolha seu país e idioma",
+    "subtitle": "Você verá preços, impostos, formas de pagamento e faturamento do seu país.",
     "current": "{country} · {language}",
-    "close": "Cerrar",
-    "prices": "Precios en {currency}"
+    "close": "Fechar",
+    "prices": "Preços em {currency}"
   },
   "footer": {
-    "tagline": "Tu negocio, en un solo lugar. Inventario, ventas, facturación y equipo conectados para que puedas decidir con calma.",
+    "tagline": "Seu negócio, em um só lugar. Estoque, vendas, faturamento e equipe conectados para você decidir com calma.",
     "columns": {
-      "product": "Producto",
-      "channels": "Canales digitales",
-      "solutions": "Soluciones",
+      "product": "Produto",
+      "channels": "Canais digitais",
+      "solutions": "Soluções",
       "resources": "Recursos",
       "company": "Empresa"
     },
     "links": {
-      "allModules": "Todos los módulos",
-      "pos": "Ventas y POS",
+      "allModules": "Todos os módulos",
+      "pos": "Vendas e PDV",
       "invoicing": "{invoicing}",
-      "accounting": "Contabilidad",
-      "inventory": "Inventario",
-      "payroll": "Nómina y equipo",
+      "accounting": "Contabilidade",
+      "inventory": "Estoque",
+      "payroll": "Folha de pagamento e equipe",
       "crm": "Clientes (CRM)",
-      "reports": "Reportes",
+      "reports": "Relatórios",
       "ai": "GO Admin IA",
-      "pricing": "Precios",
-      "website": "Página web",
-      "store": "Tienda en línea",
+      "pricing": "Preços",
+      "website": "Site",
+      "store": "Loja on-line",
       "booking": "Motor de reservas",
-      "chat": "Chat omnicanal",
-      "integrations": "Integraciones",
-      "help": "Centro de ayuda",
-      "training": "Capacitaciones",
+      "chat": "Chat omnichannel",
+      "integrations": "Integrações",
+      "help": "Central de ajuda",
+      "training": "Treinamentos",
       "blog": "Blog",
-      "api": "API para desarrolladores",
-      "security": "Seguridad",
-      "contact": "Contacto",
-      "about": "Acerca de",
-      "careers": "Carreras",
-      "privacy": "Privacidad",
-      "deletion": "Eliminación de datos"
+      "api": "API para desenvolvedores",
+      "security": "Segurança",
+      "contact": "Contato",
+      "about": "Sobre",
+      "careers": "Carreiras",
+      "privacy": "Privacidade",
+      "deletion": "Exclusão de dados"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}"
   },
   "contact": {
-    "hours": "Lun a vie · 8:00 a. m. – 6:00 p. m.",
-    "hoursZone": "Lun a vie · 8:00 a. m. – 6:00 p. m. (hora de Colombia, UTC−5)"
+    "hours": "Seg a sex · 8h – 18h",
+    "hoursZone": "Seg a sex · 8h – 18h (horário da Colômbia, UTC−5)"
   },
   "pricing": {
     "plans": {
       "pro": {
-        "forWho": "Para empezar a ordenar",
+        "forWho": "Para começar a organizar",
         "features": [
           "12 módulos",
-          "1 sucursal · 10 usuarios",
-          "{status, select, integrated {1.000 facturas electrónicas al mes} other {1.000 facturas al mes}}",
-          "500 créditos de IA al mes",
-          "Reportes y asistente contable con IA"
+          "1 filial · 10 usuários",
+          "{status, select, integrated {1.000 notas fiscais eletrônicas por mês} other {1.000 notas por mês}}",
+          "500 créditos de IA por mês",
+          "Relatórios e assistente contábil com IA"
         ]
       },
       "business": {
-        "forWho": "Para negocios que crecen",
+        "forWho": "Para negócios que crescem",
         "features": [
           "16 módulos",
-          "5 sucursales · 20 usuarios",
-          "{status, select, integrated {3.000 facturas electrónicas al mes} other {3.000 facturas al mes}}",
-          "2.000 créditos de IA al mes",
-          "Cobros por QR y pagos inmediatos"
+          "5 filiais · 20 usuários",
+          "{status, select, integrated {3.000 notas fiscais eletrônicas por mês} other {3.000 notas por mês}}",
+          "2.000 créditos de IA por mês",
+          "Cobranças por QR e pagamentos instantâneos"
         ]
       },
       "ultimate": {
-        "forWho": "Para operaciones con varias sedes",
+        "forWho": "Para operações com várias filiais",
         "features": [
           "18 módulos (todos)",
-          "15 sucursales · 60 usuarios",
-          "{status, select, integrated {Facturas electrónicas ilimitadas} other {Facturas ilimitadas}}",
-          "10.000 créditos de IA al mes",
-          "Pagos en línea, nómina por lote y conciliación",
-          "Soporte dedicado"
+          "15 filiais · 60 usuários",
+          "{status, select, integrated {Notas fiscais eletrônicas ilimitadas} other {Notas ilimitadas}}",
+          "10.000 créditos de IA por mês",
+          "Pagamentos on-line, folha em lote e conciliação",
+          "Suporte dedicado"
         ]
       }
     },
     "toggle": {
-      "monthly": "Mensual",
+      "monthly": "Mensal",
       "annual": "Anual",
-      "save": "2 meses gratis",
-      "label": "Periodo de facturación"
+      "save": "2 meses grátis",
+      "label": "Período de cobrança"
     },
     "recommended": "Recomendado",
-    "perMonth": "/ mes",
-    "perYear": "/ año",
-    "equivalent": "Equivale a {price} al mes",
-    "perYearTotal": "{price} al año",
-    "trial": "{days} días gratis",
-    "cta": "Empezar prueba gratis",
-    "note": "{planCurrency, select, COP {Precios en pesos colombianos. Cancela cuando quieras.} other {Precios en dólares estadounidenses (USD). Cancela cuando quieras.}}",
+    "perMonth": "/ mês",
+    "perYear": "/ ano",
+    "equivalent": "Equivale a {price} por mês",
+    "perYearTotal": "{price} por ano",
+    "trial": "{days} dias grátis",
+    "cta": "Começar teste grátis",
+    "note": "{planCurrency, select, COP {Preços em pesos colombianos. Cancele quando quiser.} other {Preços em dólares americanos (USD). Cancele quando quiser.}}",
     "compare": {
-      "title": "Compara los planes",
-      "feature": "Función",
-      "yes": "Incluido",
-      "no": "No incluido",
+      "title": "Compare os planos",
+      "feature": "Recurso",
+      "yes": "Incluído",
+      "no": "Não incluído",
       "all": "{n} (todos)",
       "unlimited": "Ilimitadas",
-      "standard": "WhatsApp y correo",
+      "standard": "WhatsApp e e-mail",
       "dedicated": "Dedicado",
       "rows": {
         "modules": "Módulos",
-        "branches": "Sucursales",
-        "users": "Usuarios",
-        "invoices": "{status, select, integrated {Facturas electrónicas al mes} other {Facturas al mes}}",
-        "aiCredits": "Créditos de IA al mes",
-        "trialDays": "Días de prueba",
-        "aiReports": "Reportes y asistente contable con IA",
-        "integrations": "Integraciones externas",
-        "qr": "Cobros por QR y pagos inmediatos",
-        "payFromErp": "Paga y cobra desde el ERP",
-        "paymentLinks": "{status, select, integrated {Cobros por PSE y enlaces de pago por WhatsApp} other {Enlaces de pago por WhatsApp}}",
-        "batchPayroll": "Nómina por lote y anticipos a empleados",
-        "reconciliation": "Conciliación bancaria automática",
-        "support": "Soporte"
+        "branches": "Filiais",
+        "users": "Usuários",
+        "invoices": "{status, select, integrated {Notas fiscais eletrônicas por mês} other {Notas por mês}}",
+        "aiCredits": "Créditos de IA por mês",
+        "trialDays": "Dias de teste",
+        "aiReports": "Relatórios e assistente contábil com IA",
+        "integrations": "Integrações externas",
+        "qr": "Cobranças por QR e pagamentos instantâneos",
+        "payFromErp": "Pague e receba pelo ERP",
+        "paymentLinks": "{status, select, integrated {Cobranças por PSE e links de pagamento por WhatsApp} other {Links de pagamento por WhatsApp}}",
+        "batchPayroll": "Folha em lote e adiantamentos a funcionários",
+        "reconciliation": "Conciliação bancária automática",
+        "support": "Suporte"
       }
     },
     "addons": {
       "title": "Complementos",
-      "users": "Usuarios adicionales",
-      "branches": "Sucursales adicionales",
-      "ai": "Créditos de IA adicionales",
-      "invoices": "Facturas adicionales"
+      "users": "Usuários adicionais",
+      "branches": "Filiais adicionais",
+      "ai": "Créditos de IA adicionais",
+      "invoices": "Notas adicionais"
     },
     "faq": [
       {
-        "q": "¿Hay costos ocultos?",
-        "a": "No. Pagas el plan que eliges y, si los necesitas, los complementos que agregues. Todo aparece en tu factura."
+        "q": "Há custos ocultos?",
+        "a": "Não. Você paga o plano que escolhe e, se precisar, os complementos que adicionar. Tudo aparece na sua fatura."
       },
       {
-        "q": "¿Qué medios de pago aceptan?",
-        "a": "{planCurrency, select, COP {Tarjeta de crédito o débito, PSE y transferencia. Recibes factura electrónica de GO Admin en cada cobro.} other {Tarjeta de crédito o débito, con cobro en dólares estadounidenses. Recibes la factura de cada cobro por correo.}}"
+        "q": "Quais formas de pagamento vocês aceitam?",
+        "a": "{planCurrency, select, COP {Cartão de crédito ou débito, PSE e transferência. Você recebe a nota fiscal eletrônica do GO Admin a cada cobrança.} other {Cartão de crédito ou débito, com cobrança em dólares americanos. Você recebe a fatura de cada cobrança por e-mail.}}"
       },
       {
-        "q": "¿Puedo cambiar de plan?",
-        "a": "Sí, cuando quieras. El cobro se ajusta de forma proporcional desde el día del cambio."
+        "q": "Posso mudar de plano?",
+        "a": "Sim, quando quiser. A cobrança é ajustada de forma proporcional a partir do dia da mudança."
       },
       {
-        "q": "¿Qué pasa si cancelo?",
-        "a": "Tu cuenta sigue activa hasta el final del periodo pagado y puedes descargar tu información."
+        "q": "O que acontece se eu cancelar?",
+        "a": "Sua conta continua ativa até o fim do período pago e você pode baixar suas informações."
       }
     ],
-    "mostChosen": "Más elegido",
-    "annualNote": "{price} al año · 2 meses gratis",
-    "trialNote": "{days} días de prueba",
-    "tryPlan": "Probar {name} gratis"
+    "mostChosen": "Mais escolhido",
+    "annualNote": "{price} por ano · 2 meses grátis",
+    "trialNote": "{days} dias de teste",
+    "tryPlan": "Testar {name} grátis"
   },
   "faqHome": {
     "items": [
       {
-        "q": "¿Necesito instalar algo para usar GO Admin?",
-        "a": "No. GO Admin funciona en el navegador de tu computador, tableta o celular. Solo necesitas conexión a internet y tu usuario."
+        "q": "Preciso instalar algo para usar o GO Admin?",
+        "a": "Não. O GO Admin funciona no navegador do seu computador, tablet ou celular. Você só precisa de internet e do seu usuário."
       },
       {
-        "q": "{status, select, integrated {¿La facturación electrónica está incluida?} other {¿Cómo funciona la facturación {inCountry}?}}",
-        "a": "{status, select, integrated {Sí. Todos los planes incluyen facturación electrónica ante {theAuthority}. El certificado digital de firma se adquiere aparte si aún no lo tienes.} other {Emites facturas y notas crédito con {taxes} desde GO Admin. {einvoiceNote}}}"
+        "q": "{status, select, integrated {A nota fiscal eletrônica está incluída?} other {Como funciona o faturamento {inCountry}?}}",
+        "a": "{status, select, integrated {Sim. Todos os planos incluem nota fiscal eletrônica junto a {theAuthority}. O certificado digital de assinatura é adquirido à parte se você ainda não tiver.} other {Você emite notas e notas de crédito com {taxes} pelo GO Admin. {einvoiceNote}}}"
       },
       {
-        "q": "¿Puedo migrar la información que ya tengo?",
-        "a": "Sí. Importas productos, clientes y saldos desde Excel y te acompañamos en la primera carga."
+        "q": "Posso migrar as informações que já tenho?",
+        "a": "Sim. Você importa produtos, clientes e saldos do Excel e acompanhamos você na primeira carga."
       },
       {
-        "q": "¿Qué pasa cuando termina la prueba gratis?",
-        "a": "Eliges un plan para seguir. Si decides no continuar, puedes descargar tu información antes de cerrar la cuenta."
+        "q": "O que acontece quando o teste grátis termina?",
+        "a": "Você escolhe um plano para continuar. Se decidir não continuar, pode baixar suas informações antes de encerrar a conta."
       },
       {
-        "q": "¿Puedo cambiar de plan más adelante?",
-        "a": "Sí, subes o bajas de plan cuando lo necesites y el cobro se ajusta de forma proporcional."
+        "q": "Posso mudar de plano mais adiante?",
+        "a": "Sim, você sobe ou desce de plano quando precisar e a cobrança é ajustada de forma proporcional."
       },
       {
-        "q": "¿Mis datos están seguros?",
-        "a": "Tus datos viajan cifrados, se respaldan todos los días y cada usuario ve solo lo que su rol le permite."
+        "q": "Meus dados estão seguros?",
+        "a": "Seus dados trafegam criptografados, têm backup todos os dias e cada usuário vê só o que seu perfil permite."
       }
     ]
   },
   "support": {
     "channels": {
       "whatsapp": {
-        "title": "WhatsApp de soporte",
-        "text": "Escríbenos y una persona del equipo te responde con tu caso a la mano.",
+        "title": "WhatsApp de suporte",
+        "text": "Escreva para nós e uma pessoa da equipe responde com o seu caso em mãos.",
         "cta": "Abrir WhatsApp"
       },
       "help": {
-        "title": "Centro de ayuda",
-        "text": "Guías paso a paso, videos cortos y respuestas a las dudas más comunes.",
-        "meta": "Disponible siempre",
-        "cta": "Ir al centro de ayuda"
+        "title": "Central de ajuda",
+        "text": "Guias passo a passo, vídeos curtos e respostas às dúvidas mais comuns.",
+        "meta": "Sempre disponível",
+        "cta": "Ir para a central de ajuda"
       },
       "onboarding": {
-        "title": "Implementación acompañada",
-        "text": "Configuramos contigo empresa, sedes, productos y facturación.",
-        "meta": "Incluida en todos los planes",
-        "cta": "Agendar implementación"
+        "title": "Implantação acompanhada",
+        "text": "Configuramos com você empresa, filiais, produtos e faturamento.",
+        "meta": "Incluída em todos os planos",
+        "cta": "Agendar implantação"
       },
       "training": {
-        "title": "Capacitaciones en vivo",
-        "text": "Sesiones para tu equipo de caja, bodega y contabilidad.",
-        "meta": "Cada semana",
-        "cta": "Ver capacitaciones"
+        "title": "Treinamentos ao vivo",
+        "text": "Sessões para sua equipe de caixa, depósito e contabilidade.",
+        "meta": "Toda semana",
+        "cta": "Ver treinamentos"
       }
     },
     "guides": {
       "start": {
-        "title": "Primeros pasos",
+        "title": "Primeiros passos",
         "articles": [
-          "Crea tu empresa y tus sedes",
-          "Invita a tu equipo",
-          "Configura impuestos"
+          "Crie sua empresa e suas filiais",
+          "Convide sua equipe",
+          "Configure os impostos"
         ]
       },
       "invoicing": {
         "title": "{invoicing}",
         "articles": [
-          "{status, select, integrated {Habilítate ante {theAuthority}} other {Configura tu numeración}}",
-          "Emite tu primera factura",
-          "Notas crédito y débito"
+          "{status, select, integrated {Habilite-se junto a {theAuthority}} other {Configure sua numeração}}",
+          "Emita sua primeira nota",
+          "Notas de crédito e débito"
         ]
       },
       "inventory": {
-        "title": "Inventario",
+        "title": "Estoque",
         "articles": [
-          "Importa productos desde Excel",
-          "Traslados entre bodegas",
-          "Ajustes de inventario"
+          "Importe produtos do Excel",
+          "Transferências entre depósitos",
+          "Ajustes de estoque"
         ]
       },
       "pos": {
-        "title": "Punto de venta",
+        "title": "Ponto de venda",
         "articles": [
-          "Abre y cierra caja",
-          "Ventas por mesa",
-          "Medios de pago"
+          "Abra e feche o caixa",
+          "Vendas por mesa",
+          "Formas de pagamento"
         ]
       },
       "payroll": {
-        "title": "Nómina y equipo",
+        "title": "Folha de pagamento e equipe",
         "articles": [
-          "Registra empleados",
-          "Liquida la nómina",
-          "{ePayroll, select, yes {Nómina electrónica} other {Vacaciones y novedades}}"
+          "Cadastre funcionários",
+          "Calcule a folha de pagamento",
+          "{ePayroll, select, yes {Folha de pagamento eletrônica} other {Férias e ocorrências}}"
         ]
       },
       "integrations": {
-        "title": "Integraciones",
+        "title": "Integrações",
         "articles": [
-          "Conecta tu pasarela de pagos",
-          "Booking y canales de reserva",
+          "Conecte seu gateway de pagamento",
+          "Booking e canais de reserva",
           "WhatsApp Business"
         ]
       }
     },
     "hub": {
-      "eyebrow": "Centro de ayuda",
-      "title": "¿En qué te ayudamos?",
-      "subtitle": "Guías, personas y capacitaciones para que GO Admin trabaje a tu ritmo.",
-      "searchLabel": "Buscar en el centro de ayuda",
-      "placeholder": "Busca: “factura”, “cerrar caja”…",
-      "search": "Buscar",
+      "eyebrow": "Central de ajuda",
+      "title": "Como podemos ajudar?",
+      "subtitle": "Guias, pessoas e treinamentos para o GO Admin trabalhar no seu ritmo.",
+      "searchLabel": "Pesquisar na central de ajuda",
+      "placeholder": "Pesquise: “nota”, “fechar caixa”…",
+      "search": "Pesquisar",
       "popular": "Populares:",
       "popularItems": [
         {
-          "label": "Primer ingreso",
+          "label": "Primeiro acesso",
           "q": "empresa"
         },
         {
           "label": "{invoicing}",
-          "q": "factura"
+          "q": "nota"
         },
         {
-          "label": "Importar productos",
-          "q": "importa"
+          "label": "Importar produtos",
+          "q": "importe"
         },
         {
-          "label": "Cierre de caja",
-          "q": "caja"
+          "label": "Fechamento de caixa",
+          "q": "caixa"
         }
       ],
-      "guidesEyebrow": "Guías",
-      "guidesTitle": "Aprende a tu ritmo.",
-      "guidesSubtitle": "Artículos cortos con capturas y videos de menos de tres minutos.",
-      "notFound": "No encontramos “{q}”.",
-      "notFoundText": "Escríbenos y te respondemos con tu caso a la mano.",
-      "askWhatsapp": "Preguntar por WhatsApp",
-      "seeAll": "Ver todas las guías"
+      "guidesEyebrow": "Guias",
+      "guidesTitle": "Aprenda no seu ritmo.",
+      "guidesSubtitle": "Artigos curtos com capturas de tela e vídeos de menos de três minutos.",
+      "notFound": "Não encontramos “{q}”.",
+      "notFoundText": "Escreva para nós e respondemos com o seu caso em mãos.",
+      "askWhatsapp": "Perguntar pelo WhatsApp",
+      "seeAll": "Ver todos os guias"
     }
   },
   "mock": {
     "dashboard": {
-      "aria": "Vista de ejemplo del tablero de GO Admin con ventas del día, facturas emitidas, alertas de stock y actividad reciente",
+      "aria": "Visualização de exemplo do painel do GO Admin com vendas do dia, notas emitidas, alertas de estoque e atividade recente",
       "days": [
-        "Lun",
-        "Mar",
-        "Mié",
-        "Jue",
-        "Vie",
+        "Seg",
+        "Ter",
+        "Qua",
+        "Qui",
+        "Sex",
         "Sáb",
         "Dom"
       ],
       "side": [
-        "Inicio",
-        "Ventas",
-        "Inventario",
-        "Facturación",
+        "Início",
+        "Vendas",
+        "Estoque",
+        "Faturamento",
         "Clientes",
-        "Reportes",
+        "Relatórios",
         "IA"
       ],
-      "greeting": "Buenos días, Ana",
-      "where": "Jueves · Sede Laureles",
-      "salesToday": "Ventas de hoy",
-      "salesNote": "+8 % frente a ayer",
-      "invoices": "Facturas emitidas",
-      "invoicesNote": "{status, select, integrated {Aceptadas por {theAuthority}} other {Enviadas a tus clientes}}",
-      "lowStock": "Stock bajo",
-      "lowStockValue": "5 productos",
-      "lowStockNote": "Revisar antes del viernes",
-      "weekSales": "Ventas de la semana",
-      "weekUnit": "En {currency}",
-      "activity": "Actividad reciente",
-      "act1": "Factura FE-001234 {status, select, integrated {aceptada} other {enviada}}",
-      "act1Time": "Hace 2 min",
+      "greeting": "Bom dia, Ana",
+      "where": "Quinta-feira · Filial Laureles",
+      "salesToday": "Vendas de hoje",
+      "salesNote": "+8 % em relação a ontem",
+      "invoices": "Notas emitidas",
+      "invoicesNote": "{status, select, integrated {Aceitas por {theAuthority}} other {Enviadas aos seus clientes}}",
+      "lowStock": "Estoque baixo",
+      "lowStockValue": "5 produtos",
+      "lowStockNote": "Revisar antes de sexta",
+      "weekSales": "Vendas da semana",
+      "weekUnit": "Em {currency}",
+      "activity": "Atividade recente",
+      "act1": "Nota FE-001234 {status, select, integrated {aceita} other {enviada}}",
+      "act1Time": "Há 2 min",
       "act2": "Pedido #482 despachado",
-      "act2Time": "Hace 18 min",
-      "act3": "Cierre de caja · Laureles",
-      "act3Time": "Hace 1 h",
-      "act4": "Nuevo cliente: Café Aroma",
-      "act4Time": "Hace 3 h"
+      "act2Time": "Há 18 min",
+      "act3": "Fechamento de caixa · Laureles",
+      "act3Time": "Há 1 h",
+      "act4": "Novo cliente: Café Aroma",
+      "act4Time": "Há 3 h"
     },
-    "viewLabel": "Vista de ejemplo: {label}",
+    "viewLabel": "Visualização de exemplo: {label}",
     "labels": {
-      "pos": "punto de venta con cuenta de mesa",
-      "stock": "existencias por bodega",
-      "pms": "calendario de ocupación del hotel",
-      "invoice": "{status, select, integrated {factura electrónica aceptada por {theAuthority}} other {factura de venta}}",
-      "ledger": "asiento contable automático",
-      "payroll": "liquidación de nómina",
-      "pipeline": "embudo de oportunidades",
-      "chat": "bandeja de conversaciones",
-      "site": "página web de un negocio",
-      "store": "tienda en línea con carrito",
+      "pos": "ponto de venda com conta de mesa",
+      "stock": "saldos por depósito",
+      "pms": "calendário de ocupação do hotel",
+      "invoice": "{status, select, integrated {nota fiscal eletrônica aceita por {theAuthority}} other {nota de venda}}",
+      "ledger": "lançamento contábil automático",
+      "payroll": "cálculo da folha de pagamento",
+      "pipeline": "funil de oportunidades",
+      "chat": "caixa de conversas",
+      "site": "site de um negócio",
+      "store": "loja on-line com carrinho",
       "booking": "reserva de mesa",
-      "dashboard": "tablero de ventas",
-      "ai": "asistente de IA"
+      "dashboard": "painel de vendas",
+      "ai": "assistente de IA"
     },
     "pos": {
       "items": [
-        "Bandeja paisa",
-        "Limonada de coco",
-        "Arepa con queso"
+        "Prato feito",
+        "Suco de laranja",
+        "Tapioca com queijo"
       ],
       "tables": [
         "Mesa 1",
         "Mesa 2",
         "Mesa 3",
         "Mesa 4",
-        "Barra",
-        "Terraza"
+        "Balcão",
+        "Varanda"
       ],
-      "open": "Abierta · 3 pers.",
-      "free": "Libre",
+      "open": "Aberta · 3 pess.",
+      "free": "Livre",
       "busy": "Ocupada",
       "current": "Mesa 3",
-      "tip": "Propina sugerida",
+      "tip": "Gorjeta sugerida",
       "total": "Total",
       "methods": [
-        "Efectivo",
-        "Tarjeta",
+        "Dinheiro",
+        "Cartão",
         "QR"
       ]
     },
     "stock": {
-      "title": "Existencias · Sede Laureles",
-      "search": "Buscar",
+      "title": "Saldos · Filial Laureles",
+      "search": "Pesquisar",
       "head": [
-        "Producto",
-        "Bodega",
-        "Stock",
-        "Estado"
+        "Produto",
+        "Depósito",
+        "Estoque",
+        "Status"
       ],
       "rows": [
-        "Café de origen 500 g",
-        "Pan de bono x 6",
+        "Café especial 500 g",
+        "Pão de queijo x 6",
         "Camiseta básica · M · Azul",
-        "Vaso compostable 12 oz"
+        "Copo compostável 12 oz"
       ],
       "main": "Principal",
-      "kitchen": "Cocina",
+      "kitchen": "Cozinha",
       "ok": "Suficiente",
-      "low": "Stock bajo",
-      "out": "Agotado"
+      "low": "Estoque baixo",
+      "out": "Esgotado"
     },
     "pms": {
       "rooms": [
-        "101 · Doble",
-        "102 · Doble",
-        "201 · Suite",
-        "202 · Sencilla"
+        "101 · Duplo",
+        "102 · Duplo",
+        "201 · Suíte",
+        "202 · Individual"
       ],
-      "direct": "Directa",
+      "direct": "Direta",
       "group": "Grupo Andes"
     },
     "invoice": {
       "company": "Café Aroma S.A.S.",
-      "accepted": "{status, select, integrated {Aceptada {authority}} other {Enviada}}",
-      "docType": "{status, select, integrated {Factura electrónica de venta} other {Factura de venta}}",
+      "accepted": "{status, select, integrated {Aceita {authority}} other {Enviada}}",
+      "docType": "{status, select, integrated {Nota fiscal eletrônica de venda} other {Nota de venda}}",
       "subtotal": "Subtotal",
       "total": "Total",
-      "sent": "Enviada al cliente por correo"
+      "sent": "Enviada ao cliente por e-mail"
     },
     "ledger": {
-      "title": "Asiento automático · Venta FE-001234",
-      "generated": "Generado",
+      "title": "Lançamento automático · Venda FE-001234",
+      "generated": "Gerado",
       "head": [
-        "Cuenta",
+        "Conta",
         "Débito",
         "Crédito"
       ],
-      "cash": "Caja general",
-      "sales": "Ventas",
-      "taxPayable": "{tax} por pagar",
+      "cash": "Caixa geral",
+      "sales": "Vendas",
+      "taxPayable": "{tax} a pagar",
       "balance": "Débitos = Créditos · {amount}"
     },
     "payroll": {
-      "title": "Nómina · Primera quincena",
-      "ready": "Lista para pagar",
+      "title": "Folha · Primeira quinzena",
+      "ready": "Pronta para pagar",
       "head": [
-        "Empleado",
+        "Funcionário",
         "Cargo",
-        "Novedades",
-        "Neto"
+        "Ocorrências",
+        "Líquido"
       ],
       "roles": [
-        "Cajera",
-        "Cocinero",
-        "Administradora"
+        "Caixa",
+        "Cozinheiro",
+        "Gerente"
       ],
       "notes": [
-        "2 h extra",
+        "2 h extras",
         "—",
-        "Vacaciones 3 d"
+        "Férias 3 d"
       ]
     },
     "pipeline": {
       "cols": [
-        "Nuevo",
-        "Cotizado",
-        "Negociación",
-        "Ganado"
+        "Novo",
+        "Orçado",
+        "Negociação",
+        "Ganho"
       ]
     },
     "chat": {
       "list": [
-        "¿Tienen mesa para 4 hoy?",
-        "¿Hacen domicilios a Envigado?",
-        "¿A qué hora abren el domingo?"
+        "Tem mesa para 4 hoje?",
+        "Vocês entregam em Envigado?",
+        "Que horas abrem no domingo?"
       ],
       "visitor": "Visitante",
       "web": "Web",
-      "q": "¿Tienen mesa para 4 hoy a las 8?",
-      "a": "Sí, tenemos disponibilidad a las {time}. ¿Te la reservo a nombre de María?",
-      "yes": "Sí, por favor.",
-      "done": "Reserva creada · Mesa 6"
+      "q": "Tem mesa para 4 hoje às 8?",
+      "a": "Sim, temos disponibilidade às {time}. Reservo no nome da Maria?",
+      "yes": "Sim, por favor.",
+      "done": "Reserva criada · Mesa 6"
     },
     "site": {
-      "menu": "Menú",
+      "menu": "Cardápio",
       "bookings": "Reservas",
-      "about": "Nosotros",
-      "order": "Pedir en línea",
-      "since": "Desde 2012 en Laureles",
-      "headline": "Café de origen, pan del día.",
-      "open": "Abierto hoy · {from} – {to}",
-      "seeMenu": "Ver menú",
+      "about": "Sobre nós",
+      "order": "Pedir on-line",
+      "since": "Desde 2012 em Laureles",
+      "headline": "Café especial, pão do dia.",
+      "open": "Aberto hoje · {from} – {to}",
+      "seeMenu": "Ver cardápio",
       "book": "Reservar",
-      "template": "Plantilla Restaurante · Colores de tu marca",
-      "madeWith": "Hecho con GO Admin"
+      "template": "Modelo Restaurante · Cores da sua marca",
+      "madeWith": "Feito com GO Admin"
     },
     "store": {
       "products": [
-        "Café de origen 500 g",
-        "Pan de bono x 6",
-        "Taza de cerámica"
+        "Café especial 500 g",
+        "Pão de queijo x 6",
+        "Caneca de cerâmica"
       ],
-      "order": "Tu pedido",
+      "order": "Seu pedido",
       "item": "Café 500 g",
-      "delivery": "Domicilio",
-      "free": "Gratis",
+      "delivery": "Entrega",
+      "free": "Grátis",
       "total": "Total",
       "pay": "Pagar"
     },
     "booking": {
-      "title": "Reserva tu mesa",
-      "people": "Personas",
-      "times": "Horarios disponibles",
+      "title": "Reserve sua mesa",
+      "people": "Pessoas",
+      "times": "Horários disponíveis",
       "confirm": "Confirmar reserva",
-      "reminder": "Recordatorio por WhatsApp"
+      "reminder": "Lembrete por WhatsApp"
     },
     "ai": {
-      "q": "¿Qué productos se están quedando sin stock?",
-      "intro": "Estos 3 productos se agotan antes del viernes al ritmo de venta actual:",
+      "q": "Quais produtos estão ficando sem estoque?",
+      "intro": "Estes 3 produtos se esgotam antes de sexta no ritmo de venda atual:",
       "items": [
-        "Pan de bono x 6",
-        "Leche entera 1 L",
-        "Vaso 12 oz"
+        "Pão de queijo x 6",
+        "Leite integral 1 L",
+        "Copo 12 oz"
       ],
-      "days": "{n} días",
-      "out": "Agotado",
-      "cta": "Crear orden de compra"
+      "days": "{n} dias",
+      "out": "Esgotado",
+      "cta": "Criar pedido de compra"
     }
   },
   "channels": {
-    "aria": "Canales digitales",
+    "aria": "Canais digitais",
     "tabs": {
       "web": {
-        "label": "Página web",
-        "title": "Tu página, con tu marca",
+        "label": "Site",
+        "title": "Seu site, com sua marca",
         "points": [
-          "Plantillas por industria",
-          "Dirección de GO Admin o tu propio dominio",
-          "Productos, precios y horarios sincronizados"
+          "Modelos por setor",
+          "Endereço do GO Admin ou seu próprio domínio",
+          "Produtos, preços e horários sincronizados"
         ],
-        "cta": "Conocer la página web"
+        "cta": "Conhecer o site"
       },
       "tienda": {
-        "label": "Tienda en línea",
-        "title": "Vende con el inventario que ya tienes",
+        "label": "Loja on-line",
+        "title": "Venda com o estoque que você já tem",
         "points": [
-          "Carrito y pagos en línea",
-          "Domicilio, recogida y cupones",
-          "Cada pedido llega al ERP"
+          "Carrinho e pagamentos on-line",
+          "Entrega, retirada e cupons",
+          "Cada pedido chega ao ERP"
         ],
-        "cta": "Conocer la tienda en línea"
+        "cta": "Conhecer a loja on-line"
       },
       "reservas": {
         "label": "Motor de reservas",
-        "title": "Reservas directas, sin intermediarios",
+        "title": "Reservas diretas, sem intermediários",
         "points": [
-          "Habitaciones, mesas, citas y clases",
-          "Depósitos y recordatorios",
-          "Mismo calendario que tus canales"
+          "Quartos, mesas, horários e aulas",
+          "Depósitos e lembretes",
+          "O mesmo calendário dos seus canais"
         ],
-        "cta": "Conocer el motor de reservas"
+        "cta": "Conhecer o motor de reservas"
       }
     },
-    "included": "Incluido",
-    "ownDomain": "Tu dominio"
+    "included": "Incluído",
+    "ownDomain": "Seu domínio"
   },
   "nightCta": {
-    "eyebrow": "Desde 15 días gratis · Sin tarjeta de crédito",
-    "title": "Dale orden a lo que viene.",
-    "text": "Crea tu cuenta en minutos. Mañana, cuando abras el negocio, ya sabrás qué tienes, qué vendiste y qué te deben.",
-    "travelerTitle": "El viajero, sentado en su planeta, mira las estrellas"
+    "eyebrow": "A partir de 15 dias grátis · Sem cartão de crédito",
+    "title": "Coloque ordem no que vem por aí.",
+    "text": "Crie sua conta em minutos. Amanhã, quando abrir o negócio, você já vai saber o que tem, o que vendeu e o que devem a você.",
+    "travelerTitle": "O viajante, sentado em seu planeta, olha as estrelas"
   },
   "legal": {
-    "updated": "Última actualización: {date}",
-    "toc": "Contenido del documento",
-    "reference": "Traducción de referencia. La versión que rige es la publicada en español.",
-    "seeSpanish": "Ver versión en español"
+    "updated": "Última atualização: {date}",
+    "toc": "Conteúdo do documento",
+    "reference": "Tradução de referência. A versão que prevalece é a publicada em espanhol.",
+    "seeSpanish": "Ver versão em espanhol"
   },
   "contactForm": {
-    "hello": "Hola, soy {name}.",
-    "helloCompany": "Hola, soy {name} de {company}.",
-    "industryLine": "Industria: {value}.",
-    "branchesLine": "Sedes: {value}.",
+    "hello": "Olá, sou {name}.",
+    "helloCompany": "Olá, sou {name}, da {company}.",
+    "industryLine": "Setor: {value}.",
+    "branchesLine": "Filiais: {value}.",
     "countryLine": "País: {country}.",
-    "required": "Escribe tu nombre y cuéntanos en qué te ayudamos.",
-    "subject": "Quiero conocer GO Admin",
-    "name": "Nombre",
-    "namePh": "Tu nombre",
-    "company": "Negocio",
-    "companyPh": "Nombre de tu negocio",
-    "industry": "Tipo de negocio",
-    "select": "Selecciona",
-    "other": "Otro",
-    "branches": "¿Cuántas sedes tienes?",
+    "required": "Escreva seu nome e conte como podemos ajudar.",
+    "subject": "Quero conhecer o GO Admin",
+    "name": "Nome",
+    "namePh": "Seu nome",
+    "company": "Negócio",
+    "companyPh": "Nome do seu negócio",
+    "industry": "Tipo de negócio",
+    "select": "Selecione",
+    "other": "Outro",
+    "branches": "Quantas filiais você tem?",
     "b1": "1",
     "b2": "2 a 5",
     "b3": "6 a 15",
-    "b4": "Más de 15",
-    "message": "¿En qué te ayudamos?",
-    "messagePh": "Cuéntanos cómo trabajas hoy y qué te gustaría ordenar.",
+    "b4": "Mais de 15",
+    "message": "Como podemos ajudar?",
+    "messagePh": "Conte como você trabalha hoje e o que gostaria de organizar.",
     "whatsapp": "Enviar por WhatsApp",
-    "email": "Enviar por correo",
-    "consent": "Al enviar, abrimos tu WhatsApp o tu correo con el mensaje listo. Tratamos tus datos según nuestra",
-    "privacy": "política de privacidad"
+    "email": "Enviar por e-mail",
+    "consent": "Ao enviar, abrimos seu WhatsApp ou seu e-mail com a mensagem pronta. Tratamos seus dados de acordo com nossa",
+    "privacy": "política de privacidade"
   },
   "pages": {
     "productIndex": {
       "meta": {
-        "title": "Producto",
-        "description": "Ventas y POS, inventario, {invoicing}, contabilidad, nómina, CRM, chat omnicanal, página web, tienda en línea, motor de reservas, reportes e IA en GO Admin."
+        "title": "Produto",
+        "description": "Vendas e PDV, estoque, {invoicing}, contabilidade, folha de pagamento, CRM, chat omnichannel, site, loja on-line, motor de reservas, relatórios e IA no GO Admin."
       },
-      "eyebrow": "Producto",
-      "title": "Todos los módulos, una sola operación.",
-      "subtitle": "Lo que vendes, guardas, facturas y pagas vive en el mismo lugar. Y tu negocio sale a internet con su página, su tienda y sus reservas.",
-      "channelsEyebrow": "Canales digitales",
-      "channelsTitle": "Tu negocio en internet desde el primer día.",
-      "channelsSubtitle": "Cada organización que se registra recibe su página web, su tienda en línea y su motor de reservas, conectados al mismo inventario y al mismo calendario.",
-      "ctaTitle": "¿No sabes por dónde empezar?",
-      "ctaText": "Cuéntanos cómo trabajas y te mostramos qué módulos necesitas hoy."
+      "eyebrow": "Produto",
+      "title": "Todos os módulos, uma só operação.",
+      "subtitle": "O que você vende, guarda, fatura e paga fica no mesmo lugar. E seu negócio vai para a internet com seu site, sua loja e suas reservas.",
+      "channelsEyebrow": "Canais digitais",
+      "channelsTitle": "Seu negócio na internet desde o primeiro dia.",
+      "channelsSubtitle": "Cada organização que se cadastra recebe seu site, sua loja on-line e seu motor de reservas, conectados ao mesmo estoque e ao mesmo calendário.",
+      "ctaTitle": "Não sabe por onde começar?",
+      "ctaText": "Conte como você trabalha e mostramos quais módulos você precisa hoje."
     },
     "product": {
-      "breadcrumb": "Producto",
-      "includedTag": "Incluido al registrar tu organización",
-      "connectedTitle": "{name}, conectado con todo lo demás.",
-      "solvesEyebrow": "Lo que resuelve",
-      "solvesTitle": "De cómo es hoy a cómo puede ser.",
-      "featuresEyebrow": "Funciones",
-      "featuresTitle": "Todo lo que necesitas, sin módulos sueltos.",
-      "howEyebrow": "Cómo funciona",
-      "howTitle": "Empieza en cuatro pasos.",
+      "breadcrumb": "Produto",
+      "includedTag": "Incluído ao cadastrar sua organização",
+      "connectedTitle": "{name}, conectado com todo o resto.",
+      "solvesEyebrow": "O que resolve",
+      "solvesTitle": "De como é hoje a como pode ser.",
+      "featuresEyebrow": "Recursos",
+      "featuresTitle": "Tudo o que você precisa, sem módulos soltos.",
+      "howEyebrow": "Como funciona",
+      "howTitle": "Comece em quatro passos.",
       "connectsEyebrow": "Módulos conectados",
-      "connectsTitle": "La información fluye sin volver a digitarla.",
-      "solutionsEyebrow": "Soluciones",
-      "solutionsTitle": "Así lo usan distintos negocios.",
-      "ctaTitle": "Empieza con {name} hoy.",
+      "connectsTitle": "A informação flui sem digitar de novo.",
+      "solutionsEyebrow": "Soluções",
+      "solutionsTitle": "Assim diferentes negócios usam.",
+      "ctaTitle": "Comece com {name} hoje.",
       "fiscal": {
-        "eyebrow": "Facturación en cada país",
-        "title": "Tus facturas, con las reglas de tu país.",
-        "subtitle": "GO Admin trabaja en 10 países. Así está la facturación en cada uno.",
+        "eyebrow": "Faturamento em cada país",
+        "title": "Suas notas, com as regras do seu país.",
+        "subtitle": "O GO Admin funciona em 10 países. Veja como está o faturamento em cada um.",
         "country": "País",
-        "authority": "Autoridad",
+        "authority": "Autoridade",
         "system": "Sistema",
-        "statusLabel": "En GO Admin",
-        "taxes": "Impuestos",
+        "statusLabel": "No GO Admin",
+        "taxes": "Impostos",
         "status": {
-          "integrated": "Emisión y validación conectadas",
-          "not_integrated": "Facturas con impuestos locales; conexión con la autoridad pendiente",
-          "not_mandatory": "Facturas con impuestos locales; sin sistema nacional obligatorio"
+          "integrated": "Emissão e validação conectadas",
+          "not_integrated": "Notas com impostos locais; conexão com a autoridade pendente",
+          "not_mandatory": "Notas com impostos locais; sem sistema nacional obrigatório"
         },
-        "none": "No aplica",
-        "note": "Cuando conectemos un nuevo país lo anunciamos aquí. Si necesitas la emisión electrónica en tu país, escríbenos.",
-        "you": "Tu país"
+        "none": "Não se aplica",
+        "note": "Quando conectarmos um novo país, anunciamos aqui. Se você precisa da emissão eletrônica no seu país, escreva para nós.",
+        "you": "Seu país"
       }
     },
     "solution": {
       "metaTitle": "GO Admin para {name}",
-      "breadcrumb": "Soluciones",
-      "forEyebrow": "Para quién es",
-      "forTitle": "Hecho para negocios como el tuyo.",
-      "forSubtitle": "Estos son algunos ejemplos. Si tu negocio trabaja parecido, GO Admin se adapta: activas los módulos que usas y configuras tus productos, tarifas y roles.",
-      "changesTitle": "Lo que cambia en tu día a día.",
-      "dayEyebrow": "Un día contigo",
-      "dayTitle": "Un día en tu negocio con GO Admin.",
-      "featuresEyebrow": "Pensado para tu operación",
-      "featuresTitle": "Funciones que vas a usar todos los días.",
-      "channelTag": "Canal digital incluido",
-      "channelCta": "Conocer: {name}",
+      "breadcrumb": "Soluções",
+      "forEyebrow": "Para quem é",
+      "forTitle": "Feito para negócios como o seu.",
+      "forSubtitle": "Estes são alguns exemplos. Se seu negócio trabalha de forma parecida, o GO Admin se adapta: você ativa os módulos que usa e configura seus produtos, tarifas e perfis.",
+      "changesTitle": "O que muda no seu dia a dia.",
+      "dayEyebrow": "Um dia com você",
+      "dayTitle": "Um dia no seu negócio com o GO Admin.",
+      "featuresEyebrow": "Pensado para sua operação",
+      "featuresTitle": "Recursos que você vai usar todos os dias.",
+      "channelTag": "Canal digital incluído",
+      "channelCta": "Conhecer: {name}",
       "modulesEyebrow": "Módulos",
-      "modulesTitle": "Lo que incluye tu operación.",
-      "othersEyebrow": "Otras soluciones",
-      "othersTitle": "También trabajamos con…"
+      "modulesTitle": "O que sua operação inclui.",
+      "othersEyebrow": "Outras soluções",
+      "othersTitle": "Também trabalhamos com…"
     },
     "solutions": {
       "meta": {
-        "title": "Soluciones por tipo de negocio",
-        "description": "GO Admin para restaurantes, bares, hoteles, cabañas, tiendas, salones de belleza, consultorios, gimnasios, canchas, parqueaderos, transporte y empresas de servicios {inCountry}."
+        "title": "Soluções por tipo de negócio",
+        "description": "GO Admin para restaurantes, bares, hotéis, chalés, lojas, salões de beleza, consultórios, academias, quadras, estacionamentos, transporte e empresas de serviços {inCountry}."
       },
-      "eyebrow": "Soluciones",
-      "title": "Cada negocio es un pequeño planeta.",
-      "subtitle": "Un restaurante no se administra como un hotel. Elige la familia que más se parece a tu negocio y empieza con los módulos, reportes y canales que ya usas.",
-      "otherTitle": "¿Tu negocio no aparece?",
-      "otherText": "GO Admin se arma por módulos: activas lo que usas y configuras tus productos, tarifas y roles. Cuéntanos cómo trabajas y te mostramos cómo se vería.",
-      "channelsEyebrow": "Para todos los negocios",
-      "channelsTitle": "Tu página, tu tienda y tus reservas, incluidas."
+      "eyebrow": "Soluções",
+      "title": "Cada negócio é um pequeno planeta.",
+      "subtitle": "Um restaurante não se administra como um hotel. Escolha a família que mais se parece com seu negócio e comece com os módulos, relatórios e canais que você já usa.",
+      "otherTitle": "Seu negócio não aparece?",
+      "otherText": "O GO Admin é montado por módulos: você ativa o que usa e configura seus produtos, tarifas e perfis. Conte como você trabalha e mostramos como ficaria.",
+      "channelsEyebrow": "Para todos os negócios",
+      "channelsTitle": "Seu site, sua loja e suas reservas, incluídos."
     },
     "channels": {
       "meta": {
-        "title": "Canales digitales",
-        "description": "Cada organización en GO Admin recibe su página web, su tienda en línea y su motor de reservas, con subdominio incluido o dominio propio, conectados al inventario y al calendario."
+        "title": "Canais digitais",
+        "description": "Cada organização no GO Admin recebe seu site, sua loja on-line e seu motor de reservas, com subdomínio incluído ou domínio próprio, conectados ao estoque e ao calendário."
       },
-      "eyebrow": "Canales digitales",
-      "title": "Tu negocio en internet desde el primer día.",
-      "subtitle": "Cada organización que se registra en GO Admin recibe su página web, su tienda en línea y su motor de reservas, conectados al mismo inventario, al mismo calendario y a la misma caja.",
-      "stepsEyebrow": "Desde el registro",
-      "stepsTitle": "De registrarte a vender en línea.",
+      "eyebrow": "Canais digitais",
+      "title": "Seu negócio na internet desde o primeiro dia.",
+      "subtitle": "Cada organização que se cadastra no GO Admin recebe seu site, sua loja on-line e seu motor de reservas, conectados ao mesmo estoque, ao mesmo calendário e ao mesmo caixa.",
+      "stepsEyebrow": "Desde o cadastro",
+      "stepsTitle": "Do cadastro à venda on-line.",
       "steps": [
         {
-          "title": "Registra tu organización",
-          "text": "Recibes tu dirección tunegocio.goadmin.io."
+          "title": "Cadastre sua organização",
+          "text": "Você recebe seu endereço seunegocio.goadmin.io."
         },
         {
-          "title": "Elige una plantilla",
-          "text": "Por industria, con tus colores y tu logo."
+          "title": "Escolha um modelo",
+          "text": "Por setor, com suas cores e seu logo."
         },
         {
-          "title": "Activa lo que necesitas",
-          "text": "Tienda, reservas, citas o pedidos."
+          "title": "Ative o que você precisa",
+          "text": "Loja, reservas, agendamentos ou pedidos."
         },
         {
-          "title": "Conecta tu dominio",
-          "text": "Cuando quieras, sin perder lo publicado."
+          "title": "Conecte seu domínio",
+          "text": "Quando quiser, sem perder o que foi publicado."
         }
       ],
-      "templatesEyebrow": "Plantillas",
-      "templatesTitle": "Empieza con una plantilla hecha para tu industria.",
+      "templatesEyebrow": "Modelos",
+      "templatesTitle": "Comece com um modelo feito para seu setor.",
       "templates": {
         "modern": {
-          "name": "Moderna",
-          "for": "Cualquier negocio"
+          "name": "Moderno",
+          "for": "Qualquer negócio"
         },
         "classic": {
-          "name": "Clásica",
-          "for": "Servicios"
+          "name": "Clássico",
+          "for": "Serviços"
         },
         "elegant": {
           "name": "Elegante",
@@ -1007,359 +1007,359 @@
         },
         "restaurant": {
           "name": "Restaurante",
-          "for": "Carta, pedidos y mesas"
+          "for": "Cardápio, pedidos e mesas"
         },
         "hotel": {
           "name": "Hotel",
-          "for": "Habitaciones y reservas"
+          "for": "Quartos e reservas"
         },
         "ecommerce": {
-          "name": "Tienda",
-          "for": "Catálogo y carrito"
+          "name": "Loja",
+          "for": "Catálogo e carrinho"
         },
         "parking": {
-          "name": "Parqueadero",
-          "for": "Tarifas y mensualidades"
+          "name": "Estacionamento",
+          "for": "Tarifas e mensalidades"
         }
       },
-      "includedEyebrow": "Incluido",
-      "includedTitle": "Todo lo que tu página necesita para vender.",
+      "includedEyebrow": "Incluído",
+      "includedTitle": "Tudo o que seu site precisa para vender.",
       "features": [
         {
-          "title": "Subdominio incluido",
-          "text": "Una dirección tunegocio.goadmin.io desde el registro."
+          "title": "Subdomínio incluído",
+          "text": "Um endereço seunegocio.goadmin.io desde o cadastro."
         },
         {
-          "title": "Dominio propio",
-          "text": "Conecta el tuyo con verificación DNS o cómpralo desde GO Admin."
+          "title": "Domínio próprio",
+          "text": "Conecte o seu com verificação DNS ou compre pelo GO Admin."
         },
         {
-          "title": "Constructor de páginas",
-          "text": "Secciones editables, borradores, versiones y publicación."
+          "title": "Construtor de páginas",
+          "text": "Seções editáveis, rascunhos, versões e publicação."
         },
         {
-          "title": "Buscadores y redes",
-          "text": "Título, descripción, imagen para compartir y verificación de Google."
+          "title": "Buscadores e redes",
+          "text": "Título, descrição, imagem para compartilhar e verificação do Google."
         },
         {
-          "title": "Chat en tu sitio",
-          "text": "El widget llega a la bandeja omnicanal con asistente de IA."
+          "title": "Chat no seu site",
+          "text": "O widget chega à caixa omnichannel com assistente de IA."
         },
         {
-          "title": "Visitas y reseñas",
-          "text": "Estadísticas de visitas y reseñas moderadas de tus clientes."
+          "title": "Visitas e avaliações",
+          "text": "Estatísticas de visitas e avaliações moderadas dos seus clientes."
         }
       ],
-      "eachEyebrow": "Conoce cada canal",
-      "eachTitle": "Página, tienda, reservas y conversaciones.",
+      "eachEyebrow": "Conheça cada canal",
+      "eachTitle": "Site, loja, reservas e conversas.",
       "faq": [
         {
-          "q": "¿Tiene costo adicional la página web?",
-          "a": "La página con subdominio de GO Admin se crea al registrar tu organización. Consulta en Precios qué funciones incluye cada plan."
+          "q": "O site tem custo adicional?",
+          "a": "O site com subdomínio do GO Admin é criado ao cadastrar sua organização. Veja em Preços quais recursos cada plano inclui."
         },
         {
-          "q": "¿Puedo usar mi propio dominio?",
-          "a": "Sí. Conectas tu dominio con una verificación DNS o lo compras desde GO Admin."
+          "q": "Posso usar meu próprio domínio?",
+          "a": "Sim. Você conecta seu domínio com uma verificação DNS ou compra pelo GO Admin."
         },
         {
-          "q": "¿Las ventas en línea se facturan?",
-          "a": "Sí. Cada pedido llega al ERP y queda listo para facturar."
+          "q": "As vendas on-line são faturadas?",
+          "a": "Sim. Cada pedido chega ao ERP e fica pronto para faturar."
         },
         {
-          "q": "¿Puedo tener varias sedes con una sola página?",
-          "a": "Sí. La página puede mostrar información y reservas por sede."
+          "q": "Posso ter várias filiais com um só site?",
+          "a": "Sim. O site pode mostrar informações e reservas por filial."
         }
       ],
-      "ctaTitle": "Publica tu negocio hoy."
+      "ctaTitle": "Publique seu negócio hoje."
     },
     "pricing": {
       "meta": {
-        "title": "Precios",
-        "description": "{planCurrency, select, COP {Planes Pro, Business y Ultimate en pesos colombianos. Todos incluyen facturación electrónica {authority}, soporte y actualizaciones.} other {Planes Pro, Business y Ultimate en dólares estadounidenses. Todos incluyen facturación con los impuestos de tu país, soporte y actualizaciones.}}"
+        "title": "Preços",
+        "description": "{planCurrency, select, COP {Planos Pro, Business e Ultimate em pesos colombianos. Todos incluem nota fiscal eletrônica {authority}, suporte e atualizações.} other {Planos Pro, Business e Ultimate em dólares americanos. Todos incluem faturamento com os impostos do seu país, suporte e atualizações.}}"
       },
-      "eyebrow": "{planCurrency, select, COP {Precios en pesos colombianos} other {Precios en dólares (USD)}}",
-      "title": "Planes claros, sin letra pequeña.",
-      "subtitle": "{status, select, integrated {Todos incluyen facturación electrónica {authority}, soporte y actualizaciones. Elige según el tamaño de tu operación.} other {Todos incluyen facturación con {taxes}, soporte y actualizaciones. Elige según el tamaño de tu operación.}}",
+      "eyebrow": "{planCurrency, select, COP {Preços em pesos colombianos} other {Preços em dólares (USD)}}",
+      "title": "Planos claros, sem letras miúdas.",
+      "subtitle": "{status, select, integrated {Todos incluem nota fiscal eletrônica {authority}, suporte e atualizações. Escolha de acordo com o tamanho da sua operação.} other {Todos incluem faturamento com {taxes}, suporte e atualizações. Escolha de acordo com o tamanho da sua operação.}}",
       "compareEyebrow": "Comparativo",
-      "compareTitle": "Qué incluye cada plan.",
-      "compareCaption": "Comparativo de planes Pro, Business y Ultimate",
+      "compareTitle": "O que cada plano inclui.",
+      "compareCaption": "Comparativo dos planos Pro, Business e Ultimate",
       "feature": "Característica",
       "addonsEyebrow": "Complementos",
-      "addonsTitle": "¿Necesitas más capacidad?",
-      "addonsSubtitle": "Agrega solo lo que te falta, en cualquier plan.",
-      "certTitle": "Certificado digital de firma {authority}",
-      "certText": "Necesario para firmar tus facturas electrónicas. Vigencia de un año.",
-      "perYear": "/ año",
+      "addonsTitle": "Precisa de mais capacidade?",
+      "addonsSubtitle": "Adicione só o que falta, em qualquer plano.",
+      "certTitle": "Certificado digital de assinatura {authority}",
+      "certText": "Necessário para assinar suas notas fiscais eletrônicas. Validade de um ano.",
+      "perYear": "/ ano",
       "request": "Solicitar",
-      "faqEyebrow": "Preguntas de facturación",
-      "faqTitle": "Sobre pagos y planes.",
-      "ctaTitle": "¿No sabes qué plan elegir?",
-      "ctaText": "Cuéntanos cuántas sedes, usuarios y facturas manejas y te recomendamos el plan justo."
+      "faqEyebrow": "Perguntas sobre cobrança",
+      "faqTitle": "Sobre pagamentos e planos.",
+      "ctaTitle": "Não sabe qual plano escolher?",
+      "ctaText": "Conte quantas filiais, usuários e notas você tem e recomendamos o plano certo."
     },
     "support": {
       "meta": {
-        "title": "Soporte y centro de ayuda",
-        "description": "Habla con una persona por WhatsApp, consulta guías paso a paso y agenda tu implementación acompañada de GO Admin."
+        "title": "Suporte e central de ajuda",
+        "description": "Fale com uma pessoa pelo WhatsApp, consulte guias passo a passo e agende sua implantação acompanhada do GO Admin."
       },
-      "channelsEyebrow": "Canales",
-      "channelsTitle": "Habla con una persona.",
-      "channelsSubtitle": "Respondemos en español, con tu caso a la mano. Los horarios están en hora de Colombia.",
-      "implEyebrow": "Implementación",
-      "implTitle": "Así te acompañamos.",
-      "implSubtitle": "Del primer ingreso al primer cierre de mes, con una persona que conoce tu caso.",
+      "channelsEyebrow": "Canais",
+      "channelsTitle": "Fale com uma pessoa.",
+      "channelsSubtitle": "Respondemos com o seu caso em mãos. Os horários estão no fuso da Colômbia.",
+      "implEyebrow": "Implantação",
+      "implTitle": "É assim que acompanhamos você.",
+      "implSubtitle": "Do primeiro acesso ao primeiro fechamento do mês, com uma pessoa que conhece seu caso.",
       "steps": [
         {
-          "title": "Configuramos contigo",
-          "text": "Empresa, sedes, impuestos, numeración de facturas y usuarios."
+          "title": "Configuramos com você",
+          "text": "Empresa, filiais, impostos, numeração das notas e usuários."
         },
         {
-          "title": "Cargamos tu información",
-          "text": "Productos, clientes, proveedores y saldos iniciales."
+          "title": "Carregamos suas informações",
+          "text": "Produtos, clientes, fornecedores e saldos iniciais."
         },
         {
-          "title": "Capacitamos a tu equipo",
-          "text": "Caja, bodega y contabilidad, cada quien en lo suyo."
+          "title": "Treinamos sua equipe",
+          "text": "Caixa, depósito e contabilidade, cada um no que faz."
         },
         {
-          "title": "Te acompañamos al cierre",
-          "text": "Revisamos juntos tu primer cierre de mes."
+          "title": "Acompanhamos até o fechamento",
+          "text": "Revisamos juntos seu primeiro fechamento do mês."
         }
       ],
-      "directEyebrow": "Contacto directo",
-      "directTitle": "¿Prefieres escribir o llamar?",
+      "directEyebrow": "Contato direto",
+      "directTitle": "Prefere escrever ou ligar?",
       "whatsapp": "WhatsApp",
-      "email": "Correo",
-      "phone": "Teléfono"
+      "email": "E-mail",
+      "phone": "Telefone"
     },
     "contact": {
       "meta": {
-        "title": "Contacto",
-        "description": "Habla con el equipo de GO Admin por WhatsApp o correo. Te ayudamos a elegir el plan y a configurar tu negocio."
+        "title": "Contato",
+        "description": "Fale com a equipe do GO Admin pelo WhatsApp ou por e-mail. Ajudamos você a escolher o plano e a configurar seu negócio."
       },
-      "eyebrow": "Contacto",
-      "title": "Cuéntanos cómo trabajas.",
-      "subtitle": "Te mostramos cómo se vería tu negocio en GO Admin y te ayudamos a elegir el plan justo. Sin compromiso.",
+      "eyebrow": "Contato",
+      "title": "Conte como você trabalha.",
+      "subtitle": "Mostramos como seu negócio ficaria no GO Admin e ajudamos você a escolher o plano certo. Sem compromisso.",
       "whatsapp": "WhatsApp",
-      "email": "Correo",
-      "hours": "Horario",
-      "where": "Dónde estamos"
+      "email": "E-mail",
+      "hours": "Horário",
+      "where": "Onde estamos"
     },
     "integrations": {
       "meta": {
-        "title": "Integraciones",
-        "description": "Pagos, bancos, canales de reserva, domicilios, transportadoras, mensajería y redes conectados con GO Admin {inCountry}. API y webhooks para desarrolladores."
+        "title": "Integrações",
+        "description": "Pagamentos, bancos, canais de reserva, delivery, transportadoras, mensagens e redes conectados ao GO Admin {inCountry}. API e webhooks para desenvolvedores."
       },
-      "eyebrow": "Integraciones",
-      "title": "Conecta lo que ya usas.",
-      "subtitle": "Pasarelas de pago, bancos, canales de reserva, apps de domicilios, transportadoras y mensajería hablan con GO Admin. Te mostramos las disponibles {inCountry}.",
-      "categories": "Categorías de integraciones",
-      "devEyebrow": "Para desarrolladores",
-      "devTitle": "API, webhooks y sincronizaciones.",
-      "ctaTitle": "¿Necesitas otra integración?",
-      "ctaText": "Cuéntanos qué herramienta usas y evaluamos cómo conectarla.",
-      "cta": "Escribirnos"
+      "eyebrow": "Integrações",
+      "title": "Conecte o que você já usa.",
+      "subtitle": "Gateways de pagamento, bancos, canais de reserva, apps de delivery, transportadoras e mensagens conversam com o GO Admin. Mostramos as disponíveis {inCountry}.",
+      "categories": "Categorias de integrações",
+      "devEyebrow": "Para desenvolvedores",
+      "devTitle": "API, webhooks e sincronizações.",
+      "ctaTitle": "Precisa de outra integração?",
+      "ctaText": "Conte qual ferramenta você usa e avaliamos como conectá-la.",
+      "cta": "Escrever para nós"
     },
     "about": {
       "meta": {
-        "title": "Acerca de",
-        "description": "GO Admin reúne las herramientas para organizar la operación de las pequeñas y medianas empresas. Desde Medellín, para negocios de 10 países."
+        "title": "Sobre",
+        "description": "O GO Admin reúne as ferramentas para organizar a operação das pequenas e médias empresas. De Medellín, para negócios de 10 países."
       },
-      "eyebrow": "Acerca de GO Admin",
-      "title": "El negocio al centro.",
-      "subtitle": "Inventario, ventas, contabilidad, nómina, clientes y canales digitales forman parte de una misma historia: entender qué pasa en el negocio y poder actuar.",
-      "travelerTitle": "El viajero de GO Admin",
-      "missionEyebrow": "Misión",
-      "missionTitle": "Tu negocio, en un solo lugar.",
-      "valuesEyebrow": "Cómo somos",
-      "valuesTitle": "Así trabajamos y así te hablamos.",
-      "originEyebrow": "Desde Medellín",
-      "originTitle": "Hecho en Colombia, para negocios de 10 países.",
+      "eyebrow": "Sobre o GO Admin",
+      "title": "O negócio no centro.",
+      "subtitle": "Estoque, vendas, contabilidade, folha de pagamento, clientes e canais digitais fazem parte de uma mesma história: entender o que acontece no negócio e poder agir.",
+      "travelerTitle": "O viajante do GO Admin",
+      "missionEyebrow": "Missão",
+      "missionTitle": "Seu negócio, em um só lugar.",
+      "valuesEyebrow": "Como somos",
+      "valuesTitle": "É assim que trabalhamos e falamos com você.",
+      "originEyebrow": "De Medellín",
+      "originTitle": "Feito na Colômbia, para negócios de 10 países.",
       "originSubtitle": "{legalName} · NIT {nit} · {city}",
       "links": [
         {
-          "title": "Carreras",
-          "text": "Construye con nosotros."
+          "title": "Carreiras",
+          "text": "Construa com a gente."
         },
         {
           "title": "Blog",
-          "text": "Ideas para ordenar tu negocio."
+          "text": "Ideias para organizar seu negócio."
         },
         {
-          "title": "Contacto",
-          "text": "Hablemos de tu negocio."
+          "title": "Contato",
+          "text": "Vamos falar do seu negócio."
         }
       ]
     },
     "security": {
       "meta": {
-        "title": "Seguridad",
-        "description": "Roles y permisos por sede, aislamiento de datos entre organizaciones, auditoría de cambios, autenticación y respaldos en GO Admin."
+        "title": "Segurança",
+        "description": "Perfis e permissões por filial, isolamento de dados entre organizações, auditoria de alterações, autenticação e backups no GO Admin."
       },
-      "eyebrow": "Seguridad",
-      "title": "Tu información, en buenas manos.",
-      "subtitle": "Cómo protegemos los datos de tu negocio y cómo decides quién ve qué.",
+      "eyebrow": "Segurança",
+      "title": "Suas informações, em boas mãos.",
+      "subtitle": "Como protegemos os dados do seu negócio e como você decide quem vê o quê.",
       "controls": [
         {
-          "title": "Cada organización, aislada",
-          "text": "Las reglas de acceso de la base de datos impiden que una organización vea información de otra."
+          "title": "Cada organização, isolada",
+          "text": "As regras de acesso do banco de dados impedem que uma organização veja informações de outra."
         },
         {
-          "title": "Roles y permisos",
-          "text": "Permisos por módulo, página y sede. Una persona puede tener roles distintos en cada sucursal."
+          "title": "Perfis e permissões",
+          "text": "Permissões por módulo, página e filial. Uma pessoa pode ter perfis diferentes em cada filial."
         },
         {
-          "title": "Auditoría de cambios",
-          "text": "Registro de quién cambió qué en finanzas, productos, roles y operaciones."
+          "title": "Auditoria de alterações",
+          "text": "Registro de quem alterou o quê em finanças, produtos, perfis e operações."
         },
         {
-          "title": "Acceso seguro",
-          "text": "Inicio de sesión con verificación en dos pasos y sesiones por dispositivo."
+          "title": "Acesso seguro",
+          "text": "Login com verificação em duas etapas e sessões por dispositivo."
         },
         {
-          "title": "Conexión cifrada",
-          "text": "La información viaja cifrada entre tu navegador y GO Admin."
+          "title": "Conexão criptografada",
+          "text": "A informação trafega criptografada entre seu navegador e o GO Admin."
         },
         {
-          "title": "Respaldos",
-          "text": "Copias de seguridad de la base de datos para recuperar la información."
+          "title": "Backups",
+          "text": "Cópias de segurança do banco de dados para recuperar as informações."
         }
       ],
       "faq": [
         {
-          "q": "¿Quién puede ver la información de mi negocio?",
-          "a": "Solo los usuarios de tu organización, según los permisos de su rol. El equipo de soporte accede únicamente cuando lo solicitas para resolver un caso."
+          "q": "Quem pode ver as informações do meu negócio?",
+          "a": "Só os usuários da sua organização, de acordo com as permissões do perfil. A equipe de suporte acessa apenas quando você solicita, para resolver um caso."
         },
         {
-          "q": "¿Puedo descargar mi información?",
-          "a": "Sí. Los reportes se exportan a Excel y PDF, y puedes solicitar la entrega de tus datos."
+          "q": "Posso baixar minhas informações?",
+          "a": "Sim. Os relatórios são exportados para Excel e PDF, e você pode solicitar a entrega dos seus dados."
         },
         {
-          "q": "¿Cómo solicito eliminar mis datos?",
-          "a": "Sigue el proceso descrito en la página de eliminación de datos."
+          "q": "Como solicito a exclusão dos meus dados?",
+          "a": "Siga o processo descrito na página de exclusão de dados."
         }
       ],
-      "ctaTitle": "¿Tienes una pregunta de seguridad?",
-      "ctaText": "Escríbenos y te respondemos con el detalle técnico que necesites."
+      "ctaTitle": "Tem uma pergunta sobre segurança?",
+      "ctaText": "Escreva para nós e respondemos com o detalhe técnico que você precisar."
     },
     "careers": {
       "meta": {
-        "title": "Carreras",
-        "description": "Trabaja en GO Admin: construimos el software con el que los negocios organizan su operación."
+        "title": "Carreiras",
+        "description": "Trabalhe no GO Admin: construímos o software com o qual os negócios organizam sua operação."
       },
-      "eyebrow": "Carreras",
-      "title": "Construye lo que usa un negocio mañana.",
-      "subtitle": "Somos un equipo en Medellín que hace software para restaurantes, hoteles, tiendas y empresas de 10 países.",
-      "openEyebrow": "Vacantes",
-      "open": "Vacantes abiertas.",
-      "none": "Hoy no tenemos vacantes abiertas.",
-      "noneText": "Si quieres trabajar con nosotros, envíanos tu hoja de vida y cuéntanos qué te gustaría construir. Te escribimos cuando abramos un rol que encaje.",
-      "send": "Enviar hoja de vida",
-      "apply": "Aplicar",
-      "subject": "Hoja de vida · Carreras GO Admin",
-      "howEyebrow": "Cómo trabajamos",
-      "howTitle": "Lo que puedes esperar.",
-      "processEyebrow": "Proceso",
-      "processTitle": "Cómo es el proceso."
+      "eyebrow": "Carreiras",
+      "title": "Construa o que um negócio usa amanhã.",
+      "subtitle": "Somos uma equipe em Medellín que faz software para restaurantes, hotéis, lojas e empresas de 10 países.",
+      "openEyebrow": "Vagas",
+      "open": "Vagas abertas.",
+      "none": "Hoje não temos vagas abertas.",
+      "noneText": "Se você quer trabalhar com a gente, envie seu currículo e conte o que gostaria de construir. Escrevemos quando abrirmos uma vaga que combine com você.",
+      "send": "Enviar currículo",
+      "apply": "Candidatar-se",
+      "subject": "Currículo · Carreiras GO Admin",
+      "howEyebrow": "Como trabalhamos",
+      "howTitle": "O que você pode esperar.",
+      "processEyebrow": "Processo",
+      "processTitle": "Como é o processo."
     },
     "training": {
       "meta": {
-        "title": "Capacitaciones",
-        "description": "Implementación acompañada, sesiones en vivo y rutas de aprendizaje por rol para tu equipo de caja, bodega, contabilidad y administración."
+        "title": "Treinamentos",
+        "description": "Implantação acompanhada, sessões ao vivo e trilhas de aprendizagem por função para sua equipe de caixa, depósito, contabilidade e administração."
       },
-      "eyebrow": "Capacitaciones",
-      "title": "Que todo tu equipo sepa usarlo.",
-      "subtitle": "Acompañamiento al empezar, sesiones en vivo y rutas por rol para que cada persona aprenda lo que necesita.",
-      "pathsEyebrow": "Rutas por rol",
-      "pathsTitle": "Cada quien aprende lo suyo.",
-      "guides": "Guías con capturas en el centro de ayuda",
-      "ctaTitle": "Agenda una sesión para tu equipo",
-      "ctaText": "Escríbenos y coordinamos fecha y temas. Atendemos {hours}.",
-      "cta": "Agendar por WhatsApp"
+      "eyebrow": "Treinamentos",
+      "title": "Que toda a sua equipe saiba usar.",
+      "subtitle": "Acompanhamento no começo, sessões ao vivo e trilhas por função para que cada pessoa aprenda o que precisa.",
+      "pathsEyebrow": "Trilhas por função",
+      "pathsTitle": "Cada um aprende o seu.",
+      "guides": "Guias com capturas de tela na central de ajuda",
+      "ctaTitle": "Agende uma sessão para sua equipe",
+      "ctaText": "Escreva para nós e combinamos data e temas. Atendemos {hours}.",
+      "cta": "Agendar pelo WhatsApp"
     },
     "blog": {
       "meta": {
         "title": "Blog",
-        "description": "Ideas prácticas para ordenar tu negocio: caja, inventario, finanzas, facturación y canales digitales."
+        "description": "Ideias práticas para organizar seu negócio: caixa, estoque, finanças, faturamento e canais digitais."
       },
       "eyebrow": "Blog",
-      "title": "Ideas para ordenar tu negocio.",
-      "subtitle": "Listas, preguntas y guías cortas para el día a día.",
-      "read": "Leer",
+      "title": "Ideias para organizar seu negócio.",
+      "subtitle": "Listas, perguntas e guias curtos para o dia a dia.",
+      "read": "Ler",
       "minutes": "{n} min",
-      "readingTime": "{n} min de lectura",
+      "readingTime": "{n} min de leitura",
       "back": "Blog"
     },
     "privacy": {
       "meta": {
-        "title": "Política de privacidad",
-        "description": "Cómo GO Admin recopila, usa y protege tus datos personales."
+        "title": "Política de privacidade",
+        "description": "Como o GO Admin coleta, usa e protege seus dados pessoais."
       },
       "eyebrow": "Legal",
-      "principles": "Principios",
-      "principlesTitle": "Nuestros principios",
-      "contact": "Contacto",
-      "contactTitle": "¿Tienes preguntas sobre privacidad?"
+      "principles": "Princípios",
+      "principlesTitle": "Nossos princípios",
+      "contact": "Contato",
+      "contactTitle": "Tem dúvidas sobre privacidade?"
     },
     "deletion": {
       "meta": {
-        "title": "Eliminación de datos",
-        "description": "Cómo solicitar la eliminación de tus datos personales en GO Admin, plazos y qué pasa con cada tipo de dato."
+        "title": "Exclusão de dados",
+        "description": "Como solicitar a exclusão dos seus dados pessoais no GO Admin, prazos e o que acontece com cada tipo de dado."
       },
-      "eyebrow": "Tus derechos",
+      "eyebrow": "Seus direitos",
       "toc": {
-        "como": "Cómo solicitarla",
-        "proceso": "Proceso",
-        "datos": "Qué pasa con tus datos",
-        "plazos": "Plazos por normativa",
-        "preguntas": "Preguntas frecuentes"
+        "como": "Como solicitar",
+        "proceso": "Processo",
+        "datos": "O que acontece com seus dados",
+        "plazos": "Prazos por norma",
+        "preguntas": "Perguntas frequentes"
       },
-      "howTitle": "¿Cómo solicitar la eliminación?",
-      "processTitle": "Proceso de eliminación",
-      "dataTitle": "¿Qué sucede con mis datos?",
-      "termsTitle": "Plazos por normativa",
-      "faqTitle": "Preguntas frecuentes"
+      "howTitle": "Como solicitar a exclusão?",
+      "processTitle": "Processo de exclusão",
+      "dataTitle": "O que acontece com meus dados?",
+      "termsTitle": "Prazos por norma",
+      "faqTitle": "Perguntas frequentes"
     },
     "api": {
       "meta": {
-        "title": "API para desarrolladores",
-        "description": "Conecta tus sistemas con GO Admin: API con llaves de acceso, webhooks de eventos y sincronizaciones programadas."
+        "title": "API para desenvolvedores",
+        "description": "Conecte seus sistemas ao GO Admin: API com chaves de acesso, webhooks de eventos e sincronizações programadas."
       },
-      "eyebrow": "API para desarrolladores",
-      "title": "Conecta tus sistemas con GO Admin.",
-      "subtitle": "Consulta y crea información de tu organización, recibe eventos en tiempo real y programa sincronizaciones.",
-      "toolsEyebrow": "Herramientas",
-      "toolsTitle": "Lo que puedes usar hoy.",
-      "stepsEyebrow": "Cómo empezar",
-      "stepsTitle": "De la llave al primer evento.",
+      "eyebrow": "API para desenvolvedores",
+      "title": "Conecte seus sistemas ao GO Admin.",
+      "subtitle": "Consulte e crie informações da sua organização, receba eventos em tempo real e programe sincronizações.",
+      "toolsEyebrow": "Ferramentas",
+      "toolsTitle": "O que você pode usar hoje.",
+      "stepsEyebrow": "Como começar",
+      "stepsTitle": "Da chave ao primeiro evento.",
       "steps": [
         {
-          "title": "Crea una llave",
-          "text": "Desde la configuración de tu organización, con los permisos que necesites."
+          "title": "Crie uma chave",
+          "text": "Nas configurações da sua organização, com as permissões que você precisar."
         },
         {
-          "title": "Consulta la documentación",
-          "text": "Te compartimos la referencia de recursos y ejemplos para tu caso."
+          "title": "Consulte a documentação",
+          "text": "Compartilhamos a referência de recursos e exemplos para o seu caso."
         },
         {
-          "title": "Suscríbete a eventos",
-          "text": "Recibe ventas, reservas o pagos en tu propio sistema."
+          "title": "Assine os eventos",
+          "text": "Receba vendas, reservas ou pagamentos no seu próprio sistema."
         },
         {
-          "title": "Prueba y publica",
-          "text": "Revisa el registro de cada llamada y cada entrega."
+          "title": "Teste e publique",
+          "text": "Revise o registro de cada chamada e de cada entrega."
         }
       ],
-      "docsTitle": "¿Necesitas la documentación técnica?",
-      "docsText": "Escríbenos con lo que quieres conectar y te compartimos la referencia de la API y el acceso de prueba.",
-      "docsCta": "Pedir acceso"
+      "docsTitle": "Precisa da documentação técnica?",
+      "docsText": "Escreva para nós com o que você quer conectar e compartilhamos a referência da API e o acesso de teste.",
+      "docsCta": "Pedir acesso"
     }
   },
   "notFound": {
-    "meta": "Página no encontrada",
-    "eyebrow": "Error 404",
-    "title": "Este planeta todavía no existe.",
-    "text": "La página que buscas cambió de lugar o nunca estuvo aquí. Volvamos a un lugar conocido.",
-    "home": "Volver al inicio",
-    "help": "Ir al centro de ayuda"
+    "meta": "Página não encontrada",
+    "eyebrow": "Erro 404",
+    "title": "Este planeta ainda não existe.",
+    "text": "A página que você procura mudou de lugar ou nunca esteve aqui. Vamos voltar a um lugar conhecido.",
+    "home": "Voltar ao início",
+    "help": "Ir para a central de ajuda"
   }
 }

@@ -15,6 +15,9 @@ import { allPostSlugs, findPost } from '@/lib/data'
 
 type Props = PageProps<{ slug: string }>
 
+// Solo las rutas generadas: cualquier otra es 404.
+export const dynamicParams = false
+
 /** Solo los artículos publicados en el país del mercado (algunos son guías de un trámite local). */
 export function generateStaticParams({ params }: { params: { locale: string } }) {
   const country = getMarket(params.locale).country

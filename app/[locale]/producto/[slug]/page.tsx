@@ -21,6 +21,9 @@ import { SIGNUP_URL } from '@/lib/site'
 
 type Props = PageProps<{ slug: string }>
 
+// Solo las rutas generadas: cualquier otra es 404.
+export const dynamicParams = false
+
 // El layout genera los mercados; aquí, un producto por mercado.
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }))

@@ -47,7 +47,10 @@ Los tres proyectos web comparten los tokens de marca: colores, Inter e íconos. 
 | Productos (13) y canales digitales | `lib/catalog/products.ts` |
 | Soluciones por tipo de negocio (8 familias) | `lib/catalog/solutions.ts` |
 | Integraciones | `lib/catalog/integrations.ts` |
-| Planes, navegación, soporte y contacto | `lib/site.ts` |
+| Planes (COP y USD), navegación y contacto | `lib/site.ts` |
+| Países, impuestos, autoridad tributaria y medios de pago | `i18n/markets.ts` (ver `docs/multipais.md`) |
+| Textos de la interfaz en 4 idiomas | `messages/{es,en,pt,fr}.json` |
+| Traducciones de catálogos, empresa y legal | `content/{en,pt,fr}/` |
 | Acerca de, carreras, capacitaciones y blog | `lib/content/company.ts` |
 | Privacidad y eliminación de datos | `lib/content/legal.ts` |
 
