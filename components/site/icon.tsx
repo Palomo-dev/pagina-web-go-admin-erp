@@ -1,5 +1,7 @@
 import {
   BarChart3,
+  Scissors,
+  Ticket,
   Boxes,
   CreditCard,
   FileText,
@@ -104,6 +106,8 @@ const MAP: Record<IconName, React.ComponentType<LucideProps>> = {
   wine: Wine,
   palette: Palette,
   link: Link2,
+  scissors: Scissors,
+  ticket: Ticket,
 }
 
 /** Ícono de trazo (Manual › Iconografía: 1,5 px sobre grilla de 24 px, remates redondeados). */

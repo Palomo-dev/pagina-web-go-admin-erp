@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronRight } from 'lucide-react'
-import { CardLinkGrid, DayTimeline, FaqSection, FeatureGrid, PainPoints, Section, Split } from '@/components/sections/blocks'
+import { CardLinkGrid, DayTimeline, FaqSection, FeatureGrid, PainPoints, Section, Split, TypeChips } from '@/components/sections/blocks'
 import { ProductMock } from '@/components/sections/product-mock'
 import { SiteFooter } from '@/components/site/footer'
 import { Icon } from '@/components/site/icon'
@@ -54,6 +54,10 @@ export default async function SolutionPage({ params }: { params: { slug: string 
           primary={{ label: 'Crear mi cuenta gratis', href: SIGNUP_URL }}
         />
 
+        <Section tone="wash" eyebrow="Para quién es" title="Hecho para negocios como el tuyo." subtitle="Estos son algunos ejemplos. Si tu negocio trabaja parecido, GO Admin se adapta: activas los módulos que usas y configuras tus productos, tarifas y roles.">
+          <TypeChips items={s.types} className="mx-auto max-w-4xl" />
+        </Section>
+
         <Section eyebrow={s.name} title="Lo que cambia en tu día a día.">
           <div className="mx-auto max-w-4xl">
             <PainPoints items={s.pains} />
@@ -90,7 +94,7 @@ export default async function SolutionPage({ params }: { params: { slug: string 
         <FaqSection items={s.faq} tone="wash" />
 
         <Section eyebrow="Otras soluciones" title="También trabajamos con…">
-          <CardLinkGrid items={others.map((o) => ({ href: `/soluciones/${o.slug}`, title: o.name, text: o.short, icon: o.icon }))} columns={4} />
+          <CardLinkGrid items={others.map((o) => ({ href: `/soluciones/${o.slug}`, title: o.name, text: o.short, icon: o.icon, tags: o.types.slice(0, 3) }))} columns={4} />
         </Section>
 
         <NightCta />

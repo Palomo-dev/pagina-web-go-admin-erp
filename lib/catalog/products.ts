@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     mock: 'pos',
     highlights: ['Ventas por sede y por cajero', 'Comandas a cocina y barra', 'Facturación en el mismo flujo'],
     connects: ['inventario', 'facturacion-electronica', 'clientes-crm', 'reportes'],
-    solutions: ['restaurantes', 'bares', 'cafeterias', 'tiendas', 'gimnasios'],
+    solutions: ['gastronomia', 'comercio', 'belleza-y-salud', 'espacios-y-eventos', 'gimnasios-y-academias'],
     faq: [
       { q: '¿Funciona en tableta o celular?', a: 'Sí. GO Admin funciona en el navegador del computador, la tableta o el celular.' },
       { q: '¿Puedo tener varias cajas en la misma sede?', a: 'Sí. Cada caja tiene su apertura, sus movimientos y su cierre.' },
@@ -112,7 +112,7 @@ export const PRODUCTS: Product[] = [
     mock: 'stock',
     highlights: ['Multibodega y multisede', 'Variantes y códigos de barras', 'Costo promedio y FIFO'],
     connects: ['ventas-pos', 'tienda-en-linea', 'contabilidad', 'reportes'],
-    solutions: ['tiendas', 'restaurantes', 'cafeterias', 'bares'],
+    solutions: ['comercio', 'gastronomia'],
     faq: [
       { q: '¿Puedo manejar tallas y colores?', a: 'Sí. Creas tipos de variante y cada combinación tiene su propio stock y código.' },
       { q: '¿Sirve para restaurantes?', a: 'Sí. Con recetas, cada plato vendido descuenta sus ingredientes.' },
@@ -150,7 +150,7 @@ export const PRODUCTS: Product[] = [
     mock: 'pms',
     highlights: ['Motor de reservas propio', 'Booking.com y Expedia', 'Folios y facturación'],
     connects: ['motor-de-reservas', 'facturacion-electronica', 'ventas-pos', 'reportes'],
-    solutions: ['hoteles'],
+    solutions: ['hospedaje'],
     faq: [
       { q: '¿Se conecta con Booking.com?', a: 'Sí. Mapeas tus tipos de habitación y tarifas, y las reservas llegan al calendario.' },
       { q: '¿Puedo cargar consumos del restaurante a la habitación?', a: 'Sí. Los cargos del punto de venta pueden ir al folio del huésped.' },
@@ -191,7 +191,7 @@ export const PRODUCTS: Product[] = [
     mock: 'invoice',
     highlights: ['Incluida en todos los planes', 'Factura, notas y documento soporte', 'Estado DIAN en tiempo real'],
     connects: ['ventas-pos', 'contabilidad', 'clientes-crm', 'reportes'],
-    solutions: ['restaurantes', 'hoteles', 'tiendas', 'servicios', 'parqueaderos'],
+    solutions: ['gastronomia', 'hospedaje', 'comercio', 'servicios', 'movilidad'],
     faq: [
       { q: '¿Necesito un certificado digital?', a: 'Sí, para firmar los documentos. Si no lo tienes, puedes adquirirlo como complemento.' },
       { q: '¿Cuántas facturas puedo emitir?', a: 'Depende del plan: 1.000, 3.000 o ilimitadas al mes. Puedes agregar facturas adicionales.' },
@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
     mock: 'ledger',
     highlights: ['PUC y reglas contables', 'Conciliación bancaria', 'Centros de costo y presupuestos'],
     connects: ['facturacion-electronica', 'nomina', 'ventas-pos', 'reportes'],
-    solutions: ['servicios', 'hoteles', 'tiendas', 'restaurantes'],
+    solutions: ['servicios', 'hospedaje', 'comercio', 'gastronomia'],
     faq: [
       { q: '¿Mi contador puede trabajar en GO Admin?', a: 'Sí. Le das un usuario con el rol y los permisos que necesita.' },
       { q: '¿Qué pasa si un asiento falla?', a: 'Queda registrado para revisarlo y corregirlo, sin perder el documento de origen.' },
@@ -266,7 +266,7 @@ export const PRODUCTS: Product[] = [
     mock: 'payroll',
     highlights: ['Turnos y asistencia', 'Vacaciones y licencias', 'Nómina conectada con contabilidad'],
     connects: ['contabilidad', 'reportes'],
-    solutions: ['restaurantes', 'hoteles', 'gimnasios', 'transporte', 'servicios'],
+    solutions: ['gastronomia', 'hospedaje', 'gimnasios-y-academias', 'movilidad', 'servicios'],
     faq: [
       { q: '¿Los empleados pueden ver sus turnos?', a: 'Sí, con un usuario y los permisos que definas para su cargo.' },
       { q: '¿La nómina genera los asientos contables?', a: 'Sí. Cada liquidación queda contabilizada.' },
@@ -307,7 +307,7 @@ export const PRODUCTS: Product[] = [
     mock: 'pipeline',
     highlights: ['Ficha 360°', 'Embudos y cotizaciones', 'Campañas por WhatsApp y correo'],
     connects: ['chat-omnicanal', 'ventas-pos', 'facturacion-electronica', 'reportes'],
-    solutions: ['servicios', 'hoteles', 'gimnasios', 'tiendas'],
+    solutions: ['servicios', 'belleza-y-salud', 'hospedaje', 'gimnasios-y-academias', 'comercio'],
     faq: [
       { q: '¿Puedo importar mis clientes actuales?', a: 'Sí, desde Excel. También se crean al vender o al reservar.' },
       { q: '¿Las campañas salen por WhatsApp?', a: 'Sí, conectando tu WhatsApp Business. También por correo y SMS.' },
@@ -344,7 +344,7 @@ export const PRODUCTS: Product[] = [
     mock: 'chat',
     highlights: ['WhatsApp, Instagram y web', 'Asistente entrenado con tu información', 'Historial en el CRM'],
     connects: ['clientes-crm', 'sitio-web', 'tienda-en-linea', 'inteligencia-artificial'],
-    solutions: ['restaurantes', 'hoteles', 'tiendas', 'servicios'],
+    solutions: ['gastronomia', 'hospedaje', 'comercio', 'belleza-y-salud', 'servicios'],
     faq: [
       { q: '¿El asistente responde solo?', a: 'Responde lo frecuente con la información que le das; tu equipo puede tomar la conversación en cualquier momento.' },
       { q: '¿Necesito WhatsApp Business?', a: 'Sí, para conectar WhatsApp a la bandeja compartida.' },
@@ -385,7 +385,7 @@ export const PRODUCTS: Product[] = [
     mock: 'site',
     highlights: ['Subdominio incluido o dominio propio', 'Plantillas por industria', 'Contenido conectado al ERP'],
     connects: ['tienda-en-linea', 'motor-de-reservas', 'chat-omnicanal', 'clientes-crm'],
-    solutions: ['restaurantes', 'hoteles', 'tiendas', 'gimnasios', 'parqueaderos', 'servicios'],
+    solutions: ['gastronomia', 'hospedaje', 'comercio', 'belleza-y-salud', 'espacios-y-eventos', 'gimnasios-y-academias', 'movilidad', 'servicios'],
     faq: [
       { q: '¿Puedo usar mi propio dominio?', a: 'Sí. Conectas tu dominio con una verificación DNS; también puedes comprarlo desde GO Admin.' },
       { q: '¿Necesito saber programar?', a: 'No. Editas secciones, textos e imágenes desde el constructor.' },
@@ -424,7 +424,7 @@ export const PRODUCTS: Product[] = [
     mock: 'store',
     highlights: ['Mismo inventario que la tienda física', 'Pagos en línea en Colombia', 'Domicilio, recogida y cupones'],
     connects: ['inventario', 'ventas-pos', 'facturacion-electronica', 'sitio-web'],
-    solutions: ['tiendas', 'restaurantes', 'cafeterias'],
+    solutions: ['comercio', 'gastronomia'],
     faq: [
       { q: '¿Qué pasarelas de pago puedo usar?', a: 'Wompi, PayU, Mercado Pago, Bold, Stripe y PayPal, entre otras.' },
       { q: '¿Sirve para pedidos de restaurante?', a: 'Sí. Con domicilio o recogida, propinas y pedidos programados.' },
@@ -462,7 +462,7 @@ export const PRODUCTS: Product[] = [
     mock: 'booking',
     highlights: ['Habitaciones, mesas y citas', 'Depósitos y recordatorios', 'Mismo calendario que tus canales'],
     connects: ['hoteleria', 'sitio-web', 'clientes-crm', 'facturacion-electronica'],
-    solutions: ['hoteles', 'restaurantes', 'bares', 'gimnasios', 'servicios'],
+    solutions: ['hospedaje', 'espacios-y-eventos', 'belleza-y-salud', 'gastronomia', 'gimnasios-y-academias', 'servicios'],
     faq: [
       { q: '¿Funciona junto con Booking.com?', a: 'Sí. Las reservas directas y las de canales comparten el mismo calendario.' },
       { q: '¿Puedo pedir un depósito?', a: 'Sí. Defines si es fijo o por persona.' },
@@ -504,7 +504,7 @@ export const PRODUCTS: Product[] = [
     mock: 'dashboard',
     highlights: ['Tableros listos', 'Reportes programados', 'Alertas por indicador'],
     connects: ['inteligencia-artificial', 'ventas-pos', 'contabilidad', 'inventario'],
-    solutions: ['restaurantes', 'hoteles', 'tiendas', 'gimnasios', 'parqueaderos', 'transporte', 'servicios'],
+    solutions: ['gastronomia', 'hospedaje', 'comercio', 'belleza-y-salud', 'espacios-y-eventos', 'gimnasios-y-academias', 'movilidad', 'servicios'],
     faq: [
       { q: '¿Puedo ver varias sedes juntas?', a: 'Sí, y también compararlas entre sí.' },
       { q: '¿Quién puede ver los reportes?', a: 'Lo defines por rol: cada persona ve lo que le corresponde.' },
@@ -541,7 +541,7 @@ export const PRODUCTS: Product[] = [
     mock: 'ai',
     highlights: ['Respuestas con tus datos', 'Asistente contable', 'Textos e imágenes para productos'],
     connects: ['reportes', 'contabilidad', 'inventario', 'chat-omnicanal'],
-    solutions: ['restaurantes', 'hoteles', 'tiendas', 'servicios'],
+    solutions: ['gastronomia', 'hospedaje', 'comercio', 'servicios'],
     faq: [
       { q: '¿La IA ve datos de otros negocios?', a: 'No. Consulta solo la información de tu organización y respeta los permisos de cada usuario.' },
       { q: '¿Qué son los créditos de IA?', a: 'Cada consulta o generación consume créditos. Cada plan incluye una cantidad mensual y puedes comprar más.' },

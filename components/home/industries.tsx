@@ -13,7 +13,7 @@ export function Industries() {
         <SectionHeader
           eyebrow="Soluciones"
           title={<span id="industrias-title">Hecho para cómo trabaja tu negocio.</span>}
-          subtitle="Elige tu industria y GO Admin llega configurado con los módulos, reportes y flujos que usas todos los días."
+          subtitle="Restaurantes, hospedajes, tiendas, consultorios, canchas o empresas de servicios: elige lo que más se parece a tu negocio y GO Admin llega con los módulos, reportes y flujos que usas todos los días."
         />
         <RevealGroup className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {INDUSTRIES.map((i) => (
@@ -28,6 +28,7 @@ export function Industries() {
                   </span>
                   <span className="text-h4 text-ink">{i.name}</span>
                   <span className="text-sm text-ink-body">{i.description}</span>
+                  <span className="text-xs text-ink-muted">{i.examples.slice(0, 4).join(' · ')} y más</span>
                 </span>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-go-deep">
                   Ver solución
@@ -36,13 +37,13 @@ export function Industries() {
               </Link>
             </RevealItem>
           ))}
-          <RevealItem>
-            <div className="flex h-full min-h-[200px] flex-col justify-between rounded-[20px] bg-go p-6 text-white">
+          <RevealItem className="sm:col-span-2 lg:col-span-4">
+            <div className="flex h-full flex-col justify-between gap-4 rounded-[20px] bg-go p-6 text-white sm:flex-row sm:items-center sm:p-8">
               <span className="flex flex-col gap-2">
-                <span className="text-h4">¿Tu negocio es distinto?</span>
-                <span className="text-sm text-go-50">Cuéntanos cómo trabajas y te mostramos cómo se vería en GO Admin.</span>
+                <span className="text-h4">¿Tu negocio no aparece?</span>
+                <span className="text-sm text-go-50">GO Admin se arma por módulos: activas lo que usas y lo configuras a tu medida. Cuéntanos cómo trabajas y te mostramos cómo se vería.</span>
               </span>
-              <LinkArrow href="/contacto" tone="light" className="mt-4">
+              <LinkArrow href="/contacto" tone="light" className="shrink-0">
                 Hablar con ventas
               </LinkArrow>
             </div>

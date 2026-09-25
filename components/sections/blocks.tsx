@@ -110,7 +110,7 @@ export function CardLinkGrid({
   items,
   columns = 3,
 }: {
-  items: { href: string; title: string; text: string; icon?: IconName; meta?: string }[]
+  items: { href: string; title: string; text: string; icon?: IconName; meta?: string; tags?: string[] }[]
   columns?: 2 | 3 | 4
 }) {
   return (
@@ -126,6 +126,15 @@ export function CardLinkGrid({
             {c.meta ? <span className="text-eyebrow uppercase text-go-deep">{c.meta}</span> : null}
             <span className="text-h4 text-ink">{c.title}</span>
             <span className="text-sm text-ink-body">{c.text}</span>
+            {c.tags?.length ? (
+              <span className="flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <span key={t} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-ink-body">
+                    {t}
+                  </span>
+                ))}
+              </span>
+            ) : null}
             <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-go-deep">
               Conocer más
               <ArrowRight className="h-4 w-4 transition-transform duration-fast group-hover:translate-x-1" strokeWidth={1.75} aria-hidden />
@@ -134,6 +143,20 @@ export function CardLinkGrid({
         </RevealItem>
       ))}
     </RevealGroup>
+  )
+}
+
+/** TypeChips: ejemplos de negocios a los que aplica una solución (sin enlace). */
+export function TypeChips({ items, className }: { items: string[]; className?: string }) {
+  return (
+    <ul className={cn('flex flex-wrap justify-center gap-2.5', className)}>
+      {items.map((t) => (
+        <li key={t} className="flex items-center gap-2 rounded-full border border-ink-line bg-white py-2 pl-3 pr-4 text-sm font-medium text-ink">
+          <Check className="h-4 w-4 text-go" strokeWidth={2} aria-hidden />
+          {t}
+        </li>
+      ))}
+    </ul>
   )
 }
 

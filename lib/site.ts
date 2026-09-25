@@ -34,7 +34,7 @@ export type IconName =
   | 'calendar' | 'plug' | 'shield' | 'lock' | 'building' | 'layout' | 'message' | 'book'
   | 'heart-handshake' | 'graduation' | 'mail' | 'database' | 'map-pin' | 'trending' | 'sparkles'
   | 'rocket' | 'key' | 'workflow' | 'file-check' | 'qr' | 'wallet' | 'history'
-  | 'boxes' | 'truck' | 'file-text' | 'landmark' | 'zap' | 'globe' | 'search' | 'credit-card' | 'star' | 'wine' | 'palette' | 'link'
+  | 'boxes' | 'truck' | 'file-text' | 'landmark' | 'zap' | 'globe' | 'search' | 'credit-card' | 'star' | 'wine' | 'palette' | 'link' | 'scissors' | 'ticket'
 
 // ---------------------------------------------------------------------------
 // Navegación
@@ -137,9 +137,10 @@ export const MODULES_MENU: { name: string; description: string; href: string; ic
 // ---------------------------------------------------------------------------
 // Industrias
 // ---------------------------------------------------------------------------
-export const INDUSTRIES: { name: string; description: string; href: string; icon: IconName }[] = SOLUTIONS.map((s) => ({
+export const INDUSTRIES: { name: string; description: string; examples: string[]; href: string; icon: IconName }[] = SOLUTIONS.map((s) => ({
   name: s.name,
   description: s.short,
+  examples: s.types,
   href: `/soluciones/${s.slug}`,
   icon: s.icon,
 }))

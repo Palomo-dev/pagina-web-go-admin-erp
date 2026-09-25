@@ -1,8 +1,10 @@
 # Arquitectura de la plataforma web de GO Admin
 
-Plan para conectar el sitio público con el ERP y organizar el centro de ayuda, las capacitaciones y el estado del servicio.
+Cómo se organizan los datos del sitio público, el centro de ayuda, las capacitaciones y el estado del servicio.
 
-Estado: **propuesta**. Nada de lo descrito en las secciones 3 a 6 está aplicado todavía. El SQL es un borrador para revisar y aplicar como migración en el repositorio del ERP.
+**Decisión:** el sitio público **no se conecta a la base de datos del ERP** (Supabase del proyecto GO Admin ERP), ni para leer ni para escribir. Tampoco usa otra base de datos (Neon u otra). Todo su contenido vive en este repositorio.
+
+Estado de las secciones 4 a 6: **propuesta**, nada aplicado todavía.
 
 ---
 
@@ -10,12 +12,12 @@ Estado: **propuesta**. Nada de lo descrito en las secciones 3 a 6 está aplicado
 
 | Tema | Recomendación | Por qué |
 | --- | --- | --- |
-| Base de datos del sitio | **No agregar Neon.** Usar el mismo proyecto Supabase del ERP (`Go Admin ERP`, Postgres 15) con un esquema nuevo `web`. | El ERP ya tiene planes, integraciones, testimonios y el CRM. Otra base obligaría a sincronizar planes y a reenviar leads al ERP. |
-| Acceso desde el sitio | Solo desde el servidor de Next.js (Server Components y Route Handlers), leyendo **vistas** de `web` y escribiendo por **funciones RPC**. | El navegador nunca toca la base. Las tablas del ERP no quedan expuestas. |
-| Leads del formulario de contacto | Entran al **CRM de la organización GO Admin dentro del mismo ERP**. | El equipo comercial usa GO Admin para vender GO Admin. |
+| Base de datos del sitio | **Ninguna.** Sin conexión con el Supabase del ERP y sin Neon. Contenido tipado en `lib/catalog/` y `lib/content/`. | El sitio queda aislado del ERP: una falla o un cambio en uno no afecta al otro, y no hay credenciales del ERP en el sitio. |
+| Precios y planes | En `lib/site.ts` (`PLANS`). Se actualizan a mano cuando cambian en el ERP. | Cambian pocas veces al año; un pull request es suficiente. |
+| Formulario de contacto | Arma el mensaje y lo abre en **WhatsApp o en el correo** (ya construido). | Ningún mensaje se pierde y no hace falta backend. |
 | Blog | MDX en este repositorio. Un CMS solo cuando escriban personas que no usan git. | Sin costo ni infraestructura adicional. |
 | Centro de ayuda | **Proyecto aparte:** `ayuda.goadmin.io`, con Fumadocs (Next.js + MDX) o Mintlify. | Tiene otro ritmo de publicación, otros autores, búsqueda propia y muchas capturas. |
-| Capacitaciones | Página `/capacitaciones` en este sitio y sesiones en `web.trainings`. Las grabaciones van en la sección Academia de `ayuda.goadmin.io`. | La inscripción es marketing; el contenido es documentación. |
+| Capacitaciones | Página `/capacitaciones` en este sitio, con agendamiento por WhatsApp. Las grabaciones van en la sección Academia de `ayuda.goadmin.io`. | La inscripción es marketing; el contenido es documentación. |
 | Estado del servicio | **Servicio externo** en `estado.goadmin.io` (Better Stack, Instatus u OpenStatus). | Debe seguir en línea cuando la infraestructura propia falle. |
 
 ---
@@ -36,130 +38,31 @@ Los tres proyectos web comparten los tokens de marca: colores, Inter e íconos. 
 
 ---
 
-## 3. Base de datos: Supabase con esquema `web`
+## 3. Datos del sitio: sin base de datos
 
-### 3.1 ¿Por qué no Neon?
+### 3.1 Dónde vive cada contenido
 
-Neon es un buen Postgres serverless con ramas por preview. Tendría sentido si el sitio necesitara **aislamiento total** del ERP.
-
-El sitio necesita sobre todo datos que **ya viven en el ERP**:
-
-| Dato del sitio | Ya existe en el ERP |
+| Contenido | Archivo |
 | --- | --- |
-| Planes y precios | `public.plans` (`price_cop_month`, `price_cop_year`, `trial_days`, `max_users`, `max_branches`, `ai_credits_monthly`, `max_invoices_monthly`) y `public.addon_pricing` |
-| Integraciones | `public.integration_providers` (nombre y categoría) |
-| Testimonios | `public.testimonials` (de la organización GO Admin) |
-| Módulos | `public.modules` (código, nombre, descripción, orden) |
-| Leads | `public.customers`, `public.opportunities`, `public.crm_events` y `public.contact_consents` del CRM |
+| Productos (13) y canales digitales | `lib/catalog/products.ts` |
+| Soluciones por tipo de negocio (8 familias) | `lib/catalog/solutions.ts` |
+| Integraciones | `lib/catalog/integrations.ts` |
+| Planes, navegación, soporte y contacto | `lib/site.ts` |
+| Acerca de, carreras, capacitaciones y blog | `lib/content/company.ts` |
+| Privacidad y eliminación de datos | `lib/content/legal.ts` |
 
-Con Neon habría que copiar esos datos y mantenerlos sincronizados, y además enviar los leads de vuelta al ERP. Supabase también ofrece ramas de base de datos para pruebas.
+Las páginas leen todo a través de `lib/data/index.ts`. Si algún día se quiere cambiar la fuente (por ejemplo, MDX para el blog o un CMS), se cambia solo ese archivo.
 
-**Decisión:** un esquema `web` dentro del proyecto actual, con permisos mínimos.
+### 3.2 Reglas
 
-### 3.2 Principios de acceso
+- No instalar `@supabase/supabase-js` ni guardar URL o llaves del ERP en las variables de Vercel de este proyecto.
+- No consultar la API del ERP desde el sitio. Si un dato del ERP debe aparecer en el sitio (por ejemplo, un precio nuevo), se copia al catálogo con un pull request.
+- Los formularios no guardan datos: abren WhatsApp o el correo con el mensaje armado.
+- Si más adelante se necesita recibir formularios sin salir de la página, usar un servicio de correo transaccional desde un Route Handler, sin base de datos y sin tocar el ERP.
 
-1. `web` expone **vistas de solo lectura** y **funciones RPC**. Nunca tablas del esquema `public`.
-2. El sitio consulta con la llave anónima desde el servidor. En Supabase se agrega `web` a *Exposed schemas*, con `GRANT` solo sobre las vistas y funciones.
-3. Las escrituras (lead, inscripción, postulación, boletín) pasan por funciones `security definer` que validan los datos y aplican límites de frecuencia. El ERP ya tiene `public.rate_limit_buckets`.
-4. El formulario valida un captcha (Cloudflare Turnstile) en el Route Handler antes de llamar a la RPC.
-5. Caché: las páginas se generan de forma estática con `revalidate`. Cuando cambia un plan, el ERP llama un webhook que ejecuta `revalidateTag('plans')`.
+### 3.3 Por qué no Neon ni otra base
 
-### 3.3 Borrador de migración (revisar antes de aplicar)
-
-```sql
-create schema if not exists web;
-
--- Organización dueña del sitio (GO Admin S.A.S. dentro del ERP)
-create table web.settings (
-  key text primary key,
-  value jsonb not null
-);
--- insert into web.settings values ('owner_organization_id', '"<uuid de GO Admin>"');
-
--- Vistas públicas ------------------------------------------------------------
-create view web.plans_public as
-  select code, name, price_cop_month, price_cop_year, trial_days,
-         max_modules, max_branches, max_users, ai_credits_monthly, max_invoices_monthly, features
-  from public.plans
-  where is_active and not coalesce(is_custom_enterprise, false);
-
-create view web.integrations_public as
-  select name, category from public.integration_providers;
-
-create view web.testimonials_public as
-  select author_name, author_role, author_company, content, rating, sort_order
-  from public.testimonials t
-  where t.is_active and t.is_featured
-    and t.organization_id = (select (value #>> '{}')::uuid from web.settings where key = 'owner_organization_id');
-
--- Contenido propio del sitio ------------------------------------------------
-create table web.job_openings (
-  id uuid primary key default gen_random_uuid(),
-  title text not null, area text not null, location text not null, employment_type text not null,
-  summary text not null, description_md text, is_open boolean not null default true,
-  created_at timestamptz not null default now()
-);
-
-create table web.job_applications (
-  id uuid primary key default gen_random_uuid(),
-  opening_id uuid references web.job_openings(id),
-  full_name text not null, email text not null, phone text, cv_url text, message text,
-  created_at timestamptz not null default now()
-);
-
-create table web.trainings (
-  id uuid primary key default gen_random_uuid(),
-  title text not null, topic text not null, role text,          -- caja, bodega, contabilidad, administración
-  starts_at timestamptz not null, duration_minutes int not null default 60,
-  seats int, meeting_url text, recording_url text, is_published boolean not null default false
-);
-
-create table web.training_registrations (
-  id uuid primary key default gen_random_uuid(),
-  training_id uuid not null references web.trainings(id),
-  full_name text not null, email text not null, organization_name text,
-  created_at timestamptz not null default now(),
-  unique (training_id, email)
-);
-
-create table web.newsletter_subscribers (
-  email text primary key, consent_at timestamptz not null default now(), source text
-);
-
-create view web.job_openings_public as select id, title, area, location, employment_type, summary from web.job_openings where is_open;
-create view web.trainings_public as select id, title, topic, role, starts_at, duration_minutes, seats from web.trainings where is_published and starts_at > now();
-
--- Escritura por RPC -----------------------------------------------------------
--- Lead del formulario de contacto → CRM de la organización GO Admin
-create or replace function web.submit_lead(p_name text, p_email text, p_phone text, p_company text,
-                                           p_industry text, p_branches text, p_message text, p_source text)
-returns void language plpgsql security definer set search_path = public, web as $$
-declare v_org uuid := (select (value #>> '{}')::uuid from web.settings where key = 'owner_organization_id');
-begin
-  -- 1) validar longitudes y formato de correo; 2) límite de frecuencia con rate_limit_buckets
-  -- 3) insertar o reutilizar el cliente en public.customers (organization_id = v_org)
-  -- 4) crear la oportunidad en la primera etapa del embudo comercial
-  -- 5) registrar el consentimiento en public.contact_consents y el evento en public.crm_events
-  -- (completar con las columnas reales de esas tablas en el repositorio del ERP)
-  null;
-end $$;
-
-revoke all on all tables in schema web from anon, authenticated;
-grant usage on schema web to anon;
-grant select on web.plans_public, web.integrations_public, web.testimonials_public,
-               web.job_openings_public, web.trainings_public to anon;
-grant execute on function web.submit_lead(text,text,text,text,text,text,text,text) to anon;
--- Agregar funciones equivalentes: web.register_training, web.apply_job, web.subscribe_newsletter
-```
-
-### 3.4 Cambio en este repositorio
-
-Toda lectura pasa por `lib/data/index.ts`. Para conectar:
-
-1. Instalar `@supabase/supabase-js` y crear `lib/data/supabase.ts` con un cliente de servidor (`db: { schema: 'web' }`).
-2. Reemplazar el cuerpo de `listPlans`, `listOpenPositions`, etc. Las páginas no cambian.
-3. Cambiar el formulario de contacto (`components/support/contact-form.tsx`) para que llame a `POST /api/leads`. Ese Route Handler valida Turnstile y ejecuta `web.submit_lead`. WhatsApp queda como segunda opción.
-4. Variables en Vercel: `SUPABASE_URL`, `SUPABASE_ANON_KEY` (solo servidor, sin `NEXT_PUBLIC_`), `TURNSTILE_SECRET_KEY` y `REVALIDATE_SECRET`.
+El sitio no tiene datos propios que cambien a diario: productos, soluciones, planes y artículos cambian con poca frecuencia y se revisan antes de publicar. Una base de datos añadiría costo, credenciales y un punto de falla sin beneficio.
 
 ---
 
@@ -229,8 +132,7 @@ Ejemplo de índice para *Crear una factura electrónica*:
 
 ## 5. Capacitaciones
 
-- **Sitio (`/capacitaciones`):** formatos y rutas por rol (ya construido). Próximo paso: listar `web.trainings_public` e inscribir con `web.register_training`.
-- **Recordatorios:** el ERP ya tiene notificaciones por correo y WhatsApp (`notification_templates`, `delivery_logs`). La inscripción puede disparar la plantilla de recordatorio.
+- **Sitio (`/capacitaciones`):** formatos y rutas por rol (ya construido). Las sesiones se agendan por WhatsApp; si se publican fechas, se agregan en `lib/content/company.ts`.
 - **Grabaciones:** van en la sección Academia de `ayuda.goadmin.io`, organizadas por rol, con el video embebido y la guía escrita debajo.
 
 ---
@@ -261,8 +163,7 @@ Ejemplo de índice para *Crear una factura electrónica*:
 
 | Fase | Entregable |
 | --- | --- |
-| 1 | Esquema `web` con vistas de planes, integraciones y testimonios. El sitio lee planes desde el ERP con revalidación. |
-| 2 | `POST /api/leads` con Turnstile y `web.submit_lead` hacia el CRM de GO Admin. |
-| 3 | Proyecto `ayuda.goadmin.io` con Fumadocs: primeros pasos, facturación, ventas e inventario, con capturas automatizadas. |
-| 4 | Página de estado externa con monitores y enlaces desde el sitio y el ERP. |
-| 5 | Vacantes, capacitaciones e inscripciones desde `web`; botón de ayuda contextual en el ERP. |
+| 1 | Proyecto `ayuda.goadmin.io` con Fumadocs: primeros pasos, facturación, ventas e inventario, con capturas automatizadas. |
+| 2 | Página de estado externa con monitores y enlaces desde el sitio y el ERP. |
+| 3 | Botón de ayuda contextual en el ERP que abre el artículo de cada pantalla. |
+| 4 | Blog en MDX dentro de este repositorio, si el volumen de artículos lo justifica. |

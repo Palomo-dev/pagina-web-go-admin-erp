@@ -1,12 +1,13 @@
 /**
  * Capa de acceso a datos del sitio.
  *
- * Las páginas SOLO leen a través de estas funciones. Hoy devuelven contenido estático;
- * cuando se active la integración con el ERP (ver docs/arquitectura-plataforma-web.md),
- * se cambia la implementación aquí —por ejemplo, leyendo las vistas `web.plans_public`,
- * `web.job_openings` o `web.trainings` en Supabase— sin tocar componentes ni páginas.
+ * Las páginas SOLO leen a través de estas funciones, que devuelven el contenido del repositorio
+ * (lib/catalog, lib/content, lib/site).
  *
- * Todas son async para que el cambio a una fuente remota no requiera modificar a quien las usa.
+ * Decisión: el sitio NO se conecta a la base de datos del ERP (Supabase) ni a otra base.
+ * Ver docs/arquitectura-plataforma-web.md, sección 3.
+ *
+ * Son async para poder cambiar la fuente (p. ej. MDX para el blog) sin tocar las páginas.
  */
 import { CHANNELS, PRODUCTS, getProduct, productsByCategory } from '@/lib/catalog/products'
 import { SOLUTIONS, getSolution } from '@/lib/catalog/solutions'
@@ -38,12 +39,11 @@ export async function listIntegrationGroups() {
   return { groups: INTEGRATION_GROUPS, developer: DEVELOPER_TOOLS }
 }
 
-/** Futuro: vista `web.plans_public` (tabla `plans` del ERP, columnas price_cop_*). */
+/** Se actualizan a mano en lib/site.ts cuando cambian los planes del ERP. */
 export async function listPlans() {
   return PLANS
 }
 
-/** Futuro: vista `web.job_openings`. */
 export async function listOpenPositions() {
   return POSITIONS
 }

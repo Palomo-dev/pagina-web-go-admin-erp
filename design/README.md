@@ -11,7 +11,7 @@ Base: _GO Admin — Manual de marca v2.0_ (septiembre 2026) y la estructura del 
 | --- | --- |
 | `01 Sistema` | Portada, color (variables), tipografía (estilos de texto), retícula y espaciado, radios y elevación, marca y favicon, recursos gráficos, ilustración, movimiento, arquitectura de información y voz |
 | `02 Componentes` | Fundamentos (71 íconos, isotipo, firma, ilustraciones con variantes Claro/Azul/Tinta), átomos (Button, Eyebrow, NavLink, LinkArrow, Tag, IntegrationPill), moléculas (Navbar, MegaMenu, SectionHeader, FeatureCard, IndustryCard, ModuleStop, ChatBubble, TrustItem, StepItem, SupportCard, FAQItem, BillingToggle, PricingCard) y organismos (Fondo/Cielo, DashboardMock, Footer). Sección **Secciones web**: PainPoint, DayMoment, CardLink, ChannelTabs (Página web / Tienda en línea / Motor de reservas), DomainPill y LegalTOC |
-| `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla), 404, Producto · Facturación electrónica (plantilla de `/producto/[slug]`), Solución · Restaurantes (plantilla de `/soluciones/[slug]`) y Canales digitales |
+| `03 Pantallas` | Inicio · Escritorio, Inicio · Móvil, Precios, Soporte, Módulo (plantilla), 404, Producto · Facturación electrónica (plantilla de `/producto/[slug]`), Solución · Restaurantes, bares y cafés (plantilla de `/soluciones/[slug]`, con la sección «Para quién es») y Canales digitales |
 
 ## Equivalencias Figma ↔ código
 

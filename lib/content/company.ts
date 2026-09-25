@@ -1,10 +1,8 @@
 /**
  * Contenido de empresa: acerca de, carreras, capacitaciones y blog.
  *
- * Hoy es contenido estático. Según docs/arquitectura-plataforma-web.md, vacantes y
- * capacitaciones pasarán a leerse del esquema `web` en Supabase y el blog a MDX o CMS.
- * Las funciones de lib/data/* son la única puerta de entrada: al cambiar la fuente,
- * las páginas no cambian.
+ * Contenido estático del repositorio; el sitio no se conecta a la base de datos del ERP.
+ * Las funciones de lib/data/* son la única puerta de entrada.
  */
 import type { IconName } from '@/lib/site'
 

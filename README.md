@@ -6,7 +6,7 @@ Diseñado en Figma a partir del **Manual de marca v2.0** y construido con Next.j
 
 - Figma: [GO Admin — Sitio web](https://www.figma.com/design/4EZbbgItq1AK5IhS81LwRL) · páginas `01 Sistema`, `02 Componentes`, `03 Pantallas`
 - Guía de diseño y equivalencias Figma ↔ código: [`design/README.md`](design/README.md)
-- Base de datos, centro de ayuda, capacitaciones y estado del servicio: [`docs/arquitectura-plataforma-web.md`](docs/arquitectura-plataforma-web.md)
+- Datos del sitio (sin conexión a la base del ERP), centro de ayuda, capacitaciones y estado del servicio: [`docs/arquitectura-plataforma-web.md`](docs/arquitectura-plataforma-web.md)
 
 ## Stack
 
@@ -27,9 +27,9 @@ components/sections/  Bloques reutilizables: FeatureGrid, PainPoints, StepList, 
 components/home/      Secciones del inicio (hero, ¿Todo pasa por ti?, recorrido, canales, IA…)
 components/illustrations/  El viajero, cohete, planeta, luna, estrella y nube (SVG en React)
 components/brand/     Isotipo y firma GO Admin
-lib/catalog/          Catálogos tipados: 13 productos, 9 soluciones, integraciones
+lib/catalog/          Catálogos tipados: 13 productos, 8 familias de negocio, integraciones
 lib/content/          Contenido de empresa (acerca de, carreras, capacitaciones, blog) y textos legales
-lib/data/             Capa de acceso a datos (hoy lee los catálogos; mañana el esquema `web` en Supabase)
+lib/data/             Capa de acceso a datos (lee los catálogos; el sitio no se conecta a la base del ERP)
 lib/site.ts           Navegación, footer, planes, soporte, FAQ y contacto
 design/               Fuentes de ilustraciones y notas del sistema de diseño
 docs/                 Arquitectura de datos y proyectos satélite
