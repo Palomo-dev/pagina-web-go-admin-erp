@@ -80,18 +80,17 @@ export function MarketDialog() {
   }, [open])
 
   /**
-   * Guarda la elección en la cookie GOADMIN_MARKET y recarga la página en el mercado elegido.
-   * Carga completa (no navegación del cliente): cambian idioma, moneda y textos fiscales, y así
-   * funciona igual en Safari de iPhone. La cookie evita que el middleware devuelva a la persona
-   * al mercado anterior o al de su país (p. ej. al volver a Colombia, que no lleva prefijo).
+   * Cada opción es un enlace normal: el navegador carga la página del mercado elegido por sí solo
+   * (no depende de la navegación de Next ni de JavaScript para cambiar de página). Antes de salir,
+   * se guarda la elección en la cookie GOADMIN_MARKET para que el middleware no devuelva a la
+   * persona al mercado anterior o al de su país (p. ej. al volver a Colombia, que no lleva prefijo).
    */
   const choose = (e: React.MouseEvent<HTMLAnchorElement>, id: MarketId) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
-    e.preventDefault()
     document.cookie = `GOADMIN_MARKET=${id}; path=/; max-age=31536000; SameSite=Lax`
-    setOpen(false)
-    if (id === locale) return
-    window.location.assign(e.currentTarget.href)
+    if (id === locale) {
+      e.preventDefault()
+      setOpen(false)
+    }
   }
 
   return (
@@ -101,7 +100,7 @@ export function MarketDialog() {
             <AnimatePresence>
               {open ? (
                 <motion.div
-                  className="fixed inset-0 z-[70] grid place-items-end bg-ink/40 sm:place-items-center"
+                  className="fixed inset-0 z-[90] grid place-items-end bg-ink/40 sm:place-items-center"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
