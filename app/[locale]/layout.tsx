@@ -5,6 +5,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { CookieConsent } from '@/components/site/cookie-consent'
+import { MarketDialog } from '@/components/site/market-switcher'
 import { MARKETS, type MarketId } from '@/i18n/markets'
 import { getT } from '@/i18n/t-server'
 import { SITE_URL, alternates } from '@/lib/seo'
@@ -56,6 +57,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           {children}
           {/* La analítica solo se carga con el consentimiento (ver /cookies) */}
           <CookieConsent />
+          <MarketDialog />
         </NextIntlClientProvider>
       </body>
     </html>

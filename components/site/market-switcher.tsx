@@ -18,7 +18,43 @@ const COUNTRY_ORDER: CountryCode[] = ['COL', 'MEX', 'CHL', 'ESP', 'BRA', 'USA', 
  * Cambia de mercado conservando la página actual: /precios → /es-mx/precios.
  * La elección se recuerda en la cookie GOADMIN_MARKET (next-intl).
  */
-export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' | 'sky' | 'night'; className?: string }) {
+const OPEN_EVENT = 'goadmin:market-open'
+
+/**
+ * Botón del selector (navbar, menú móvil y pie de página). Solo abre el diálogo único del sitio
+ * (MarketDialog, montado una vez en el layout). `onOpen` permite cerrar antes el menú móvil:
+ * en Safari de iPhone un diálogo abierto encima del menú fijo dejaba pasar los toques al menú.
+ */
+export function MarketSwitcher({ tone = 'light', className, onOpen }: { tone?: 'light' | 'sky' | 'night'; className?: string; onOpen?: () => void }) {
+  const t = useT('market')
+  const current = getMarket(useLocale())
+  const lang = current.language
+  const label = `${current.countryData.iso2} · ${lang.toUpperCase()}`
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        onOpen?.()
+        window.dispatchEvent(new Event(OPEN_EVENT))
+      }}
+      aria-haspopup="dialog"
+      aria-label={`${t('label')}: ${t('current', { country: current.countryData.name[lang], language: LANGUAGE_NAMES[lang] })}`}
+      className={cn(
+        'inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-sm font-medium transition-colors duration-fast',
+        tone === 'sky' && 'text-white hover:bg-white/15',
+        tone === 'light' && 'text-ink-body hover:bg-go-tint hover:text-ink',
+        tone === 'night' && 'border border-white/20 text-night-line hover:bg-white/10',
+        className,
+      )}
+    >
+      <Globe className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+      <span className="tabular">{label}</span>
+    </button>
+  )
+}
+
+/** Diálogo de país e idioma (Figma › MarketSwitcher · diálogo). Uno solo por página, en el layout. */
+export function MarketDialog() {
   const t = useT('market')
   const locale = useLocale() as MarketId
   const pathname = usePathname()
@@ -27,7 +63,13 @@ export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' |
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const panel = useRef<HTMLDivElement>(null)
-  useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+    setMounted(true)
+    const onOpen = () => setOpen(true)
+    window.addEventListener(OPEN_EVENT, onOpen)
+    return () => window.removeEventListener(OPEN_EVENT, onOpen)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -36,8 +78,6 @@ export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' |
     panel.current?.focus()
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
-
-  const label = `${current.countryData.iso2} · ${lang.toUpperCase()}`
 
   /**
    * Guarda la elección en la cookie GOADMIN_MARKET y recarga la página en el mercado elegido.
@@ -56,23 +96,6 @@ export function MarketSwitcher({ tone = 'light', className }: { tone?: 'light' |
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        aria-haspopup="dialog"
-        aria-label={`${t('label')}: ${t('current', { country: current.countryData.name[lang], language: LANGUAGE_NAMES[lang] })}`}
-        className={cn(
-          'inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-sm font-medium transition-colors duration-fast',
-          tone === 'sky' && 'text-white hover:bg-white/15',
-          tone === 'light' && 'text-ink-body hover:bg-go-tint hover:text-ink',
-          tone === 'night' && 'border border-white/20 text-night-line hover:bg-white/10',
-          className,
-        )}
-      >
-        <Globe className="h-4 w-4" strokeWidth={1.75} aria-hidden />
-        <span className="tabular">{label}</span>
-      </button>
-
       {mounted
         ? createPortal(
             <AnimatePresence>
