@@ -18,7 +18,9 @@
     "home": "Inicio",
     "breadcrumb": "Migas de pan",
     "included": "Incluido",
-    "seePlans": "Ver planes"
+    "seePlans": "Ver planes",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "home": {
     "hero": {
@@ -385,7 +387,7 @@
       "ultimate": {
         "forWho": "Para operaciones con varias sedes",
         "features": [
-          "18 módulos (todos)",
+          "{modules} módulos (todos)",
           "15 sucursales · 60 usuarios",
           "{status, select, integrated {Facturas electrónicas ilimitadas} other {Facturas ilimitadas}}",
           "10.000 créditos de IA al mes",

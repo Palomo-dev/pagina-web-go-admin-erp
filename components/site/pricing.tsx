@@ -7,7 +7,7 @@ import { CtaLink, Tag } from '@/components/site/primitives'
 import { useLocale } from 'next-intl'
 import { getMarket } from '@/i18n/markets'
 import { useT } from '@/i18n/t'
-import { PLANS, SIGNUP_URL, formatPrice } from '@/lib/site'
+import { MODULE_COUNT, PLANS, SIGNUP_URL, formatPrice } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 /**
@@ -45,7 +45,7 @@ export function PricingCards({ className }: { className?: string }) {
       <div className="grid w-full items-center gap-6 lg:grid-cols-3">
         {PLANS.map((p) => {
           const price = annual ? p.prices[currency].annual : p.prices[currency].monthly
-          const features = Array.from({ length: p.featureCount }, (_, i) => t(`plans.${p.id}.features.${i}`))
+          const features = Array.from({ length: p.featureCount }, (_, i) => t(`plans.${p.id}.features.${i}`, { modules: MODULE_COUNT }))
           return (
             <article
               key={p.id}

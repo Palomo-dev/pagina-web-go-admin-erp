@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Traveler } from '@/components/illustrations/art'
 import { Icon } from '@/components/site/icon'
 import { LinkArrow, SectionHeader } from '@/components/site/primitives'
@@ -21,9 +21,11 @@ const LINE_W = (JOURNEY.length - 1) * (STOP_W + GAP)
  */
 export function Journey() {
   const desktop = useMediaQuery('(min-width: 1024px)')
+  // Con movimiento reducido no se fija el scroll: carrusel con flechas (no ensancha la página).
+  const reduce = useReducedMotion()
   return (
-    <section id="recorrido" className="relative bg-white" aria-labelledby="recorrido-title">
-      {desktop ? <PinnedTrack /> : <SwipeTrack />}
+    <section id="recorrido" className="relative overflow-hidden bg-white" aria-labelledby="recorrido-title">
+      {desktop && !reduce ? <PinnedTrack /> : <SwipeTrack />}
     </section>
   )
 }
@@ -106,21 +108,53 @@ function wave(w: number) {
   return d
 }
 
+/** Carrusel: deslizar con el dedo o el trackpad, o avanzar con las flechas. */
 function SwipeTrack() {
   const t = useT('home.journey')
+  const c = useT('common')
+  const list = useRef<HTMLOListElement>(null)
+  const [edge, setEdge] = useState({ start: true, end: false })
+  const update = () => {
+    const el = list.current
+    if (!el) return
+    setEdge({ start: el.scrollLeft < 8, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 8 })
+  }
+  useLayoutEffect(update, [])
+  const move = (dir: 1 | -1) => {
+    const el = list.current
+    const card = el?.querySelector('li')
+    if (el && card) el.scrollBy({ left: dir * (card.getBoundingClientRect().width + 20), behavior: 'smooth' })
+  }
+  const arrow = 'grid h-11 w-11 place-items-center rounded-full border border-ink-line bg-white text-ink transition-colors hover:border-go hover:text-go-deep disabled:cursor-default disabled:opacity-40'
   return (
     <div className="py-20 sm:py-28">
-      <div className="container">
+      <div className="container flex items-end justify-between gap-6">
         <Intro />
+        <div className="hidden shrink-0 gap-2 sm:flex">
+          <button type="button" className={arrow} onClick={() => move(-1)} disabled={edge.start} aria-label={c('previous')}>
+            <ChevronLeft className="h-5 w-5" strokeWidth={1.75} />
+          </button>
+          <button type="button" className={arrow} onClick={() => move(1)} disabled={edge.end} aria-label={c('next')}>
+            <ChevronRight className="h-5 w-5" strokeWidth={1.75} />
+          </button>
+        </div>
       </div>
-      <ol className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 sm:px-10">
+      <ol ref={list} onScroll={update} className="no-scrollbar mt-10 flex snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 pb-4 sm:scroll-px-10 sm:px-10 lg:scroll-px-[max(2rem,calc((100vw-1200px)/2))] lg:px-[max(2rem,calc((100vw-1200px)/2))]">
         {JOURNEY.map((m, i) => (
-          <li key={m.slug} className="w-[82vw] max-w-[360px] shrink-0 snap-center">
+          <li key={m.slug} className="w-[82vw] max-w-[360px] shrink-0 snap-start [&>article]:!w-full">
             <Stop m={m} i={i} />
           </li>
         ))}
       </ol>
-      <p className="mt-2 text-center text-xs text-ink-muted">{t('swipe')}</p>
+      <div className="mt-4 flex items-center justify-center gap-3 sm:hidden">
+        <button type="button" className={arrow} onClick={() => move(-1)} disabled={edge.start} aria-label={c('previous')}>
+          <ChevronLeft className="h-5 w-5" strokeWidth={1.75} />
+        </button>
+        <p className="text-center text-xs text-ink-muted">{t('swipe')}</p>
+        <button type="button" className={arrow} onClick={() => move(1)} disabled={edge.end} aria-label={c('next')}>
+          <ChevronRight className="h-5 w-5" strokeWidth={1.75} />
+        </button>
+      </div>
     </div>
   )
 }

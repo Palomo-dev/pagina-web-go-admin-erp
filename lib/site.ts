@@ -102,6 +102,9 @@ export const TRUST: { key: string; icon: IconName }[] = [
 // anual = 10 meses, «2 meses gratis». La tabla `plans` aún tiene USD 20/49/199: actualizarla desde admin.goadmin.io)
 // Textos en messages › pricing.plans.<id>. Confirmar con comercial si los precios incluyen impuestos.
 // ---------------------------------------------------------------------------
+/** Módulos del ERP (todos incluidos en Ultimate). Actualizar al lanzar un módulo nuevo. */
+export const MODULE_COUNT = 19
+
 export type Plan = {
   id: 'pro' | 'business' | 'ultimate'
   name: string

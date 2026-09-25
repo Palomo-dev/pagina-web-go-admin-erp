@@ -12,7 +12,7 @@ import { getMarket } from '@/i18n/markets'
 import { tl, type T } from '@/i18n/t'
 import { getT } from '@/i18n/t-server'
 import { pageMetadata, type PageProps } from '@/lib/page'
-import { ADDONS, PLANS, PLAN_COMPARISON, formatNumber, formatPrice } from '@/lib/site'
+import { ADDONS, MODULE_COUNT, PLANS, PLAN_COMPARISON, formatNumber, formatPrice } from '@/lib/site'
 
 export async function generateMetadata({ params }: PageProps) {
   return pageMetadata(params.locale, '/precios', 'pages.pricing')
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps) {
 function Cell({ v, t, locale }: { v: string; t: T; locale: string }) {
   if (v === 'yes') return <Check className="mx-auto h-5 w-5 text-go" strokeWidth={2} aria-label={t('compare.yes')} />
   if (v === 'no') return <Minus className="mx-auto h-5 w-5 text-slate-300" strokeWidth={2} aria-label={t('compare.no')} />
-  if (v === 'all') return <span className="tabular">{t('compare.all', { n: 18 })}</span>
+  if (v === 'all') return <span className="tabular">{t('compare.all', { n: MODULE_COUNT })}</span>
   if (v === 'unlimited' || v === 'standard' || v === 'dedicated') return <span>{t(`compare.${v}`)}</span>
   return <span className="tabular">{formatNumber(Number(v), locale)}</span>
 }
