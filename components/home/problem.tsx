@@ -1,11 +1,12 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { SectionHeader } from '@/components/site/primitives'
 import { useMediaQuery } from '@/hooks/use-media-query'
 import { useT } from '@/i18n/t'
+import { cn } from '@/lib/utils'
 
 type ChipSpec = { messy: string; tidy: string; from: [number, number, number]; to: [number, number] }
 
@@ -29,12 +30,26 @@ export function Problem() {
     target: ref,
     offset: desktop ? ['start start', 'end end'] : ['start 0.9', 'center 0.45'],
   })
-  const p = useTransform(scrollYProgress, (v) => (reduce ? 1 : v))
+  // Con movimiento reducido no se fija la sección al hacer scroll (se sentía atascado): la
+  // transformación se reproduce sola, dentro de la tarjeta, cuando la sección entra en pantalla.
+  const inView = useInView(ref, { once: true, amount: 0.35 })
+  const auto = useMotionValue(0)
+  useEffect(() => {
+    if (!reduce || !inView) return
+    const controls = animate(auto, 1, { duration: 2.6, ease: [0.4, 0, 0.2, 1], delay: 0.2 })
+    return () => controls.stop()
+  }, [reduce, inView, auto])
+  const p = reduce ? auto : scrollYProgress
+  // El servidor no conoce la preferencia: la clase se decide ya montado (React no corrige
+  // clases distintas al hidratar).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const pinned = !(mounted && reduce)
 
   return (
-    <section ref={ref} className="relative bg-go-wash lg:h-[230vh]" aria-labelledby="problema-title">
-      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center">
-        <div className="container grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20 lg:py-0">
+    <section ref={ref} className={cn('relative bg-go-wash', pinned && 'lg:h-[230vh]')} aria-labelledby="problema-title">
+      <div className={cn(pinned && 'lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center')}>
+        <div className={cn('container grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20', pinned && 'lg:py-0')}>
           <div className="flex flex-col gap-10">
             <SectionHeader
               align="left"
