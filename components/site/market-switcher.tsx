@@ -12,9 +12,9 @@ import { cn } from '@/lib/utils'
 
 /**
  * Mercados en el orden del selector (una tarjeta cada uno). Las dos de Canadá quedan en la misma
- * fila y Japón, último, ocupa la fila completa.
+ * fila y Estados Unidos, último, ocupa la fila completa.
  */
-const MARKET_ORDER: MarketId[] = ['es-CO', 'es-MX', 'es-CL', 'es-ES', 'pt-BR', 'en-US', 'en-CA', 'fr-CA', 'en-GB', 'en-AU', 'en-JP']
+const MARKET_ORDER: MarketId[] = ['es-CO', 'es-MX', 'es-CL', 'es-ES', 'pt-BR', 'en-AU', 'en-CA', 'fr-CA', 'en-GB', 'en-JP', 'en-US']
 
 /**
  * Selector de país e idioma (Figma › MarketSwitcher).
