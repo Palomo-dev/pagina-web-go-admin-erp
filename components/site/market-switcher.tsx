@@ -6,12 +6,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Globe, X } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import { getPathname, usePathname } from '@/i18n/navigation'
-import { COUNTRIES, LANGUAGE_NAMES, MARKETS, MARKET_IDS, getMarket, type CountryCode, type MarketId } from '@/i18n/markets'
+import { COUNTRIES, LANGUAGE_NAMES, MARKETS, getMarket, type MarketId } from '@/i18n/markets'
 import { useT } from '@/i18n/t'
 import { cn } from '@/lib/utils'
 
-/** Países en el orden del selector; cada uno con sus idiomas disponibles. */
-const COUNTRY_ORDER: CountryCode[] = ['COL', 'MEX', 'CHL', 'ESP', 'BRA', 'USA', 'CAN', 'GBR', 'AUS', 'JPN']
+/**
+ * Mercados en el orden del selector (una tarjeta cada uno). Las dos de Canadá quedan en la misma
+ * fila y Japón, último, ocupa la fila completa.
+ */
+const MARKET_ORDER: MarketId[] = ['es-CO', 'es-MX', 'es-CL', 'es-ES', 'pt-BR', 'en-US', 'en-CA', 'fr-CA', 'en-GB', 'en-AU', 'en-JP']
 
 /**
  * Selector de país e idioma (Figma › MarketSwitcher).
@@ -136,55 +139,35 @@ export function MarketDialog() {
                       </button>
                     </div>
 
+                    {/* Una tarjeta por mercado (país + idioma): todas se eligen con un clic. Canadá tiene dos. */}
                     <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-                      {COUNTRY_ORDER.map((code) => {
-                        const country = COUNTRIES[code]
-                        const markets = MARKET_IDS.filter((id) => MARKETS[id].country === code)
-                        const active = current.country === code
+                      {MARKET_ORDER.map((id) => {
+                        const market = MARKETS[id]
+                        const country = COUNTRIES[market.country]
+                        const selected = id === locale
                         return (
-                          <li
-                            key={code}
-                            // Toda la tarjeta lleva al país: un clic fuera de los botones de idioma sigue el primero.
-                            onClick={(e) => {
-                              if ((e.target as HTMLElement).closest('a')) return
-                              e.currentTarget.querySelector<HTMLAnchorElement>('a[hreflang]')?.click()
-                            }}
-                            className={cn(
-                              'cursor-pointer rounded-2xl border p-4 transition-colors',
-                              active ? 'border-go bg-go-wash' : 'border-ink-line hover:border-go hover:bg-go-wash',
-                            )}
-                          >
-                            <p className="flex items-center justify-between text-sm font-semibold text-ink">
-                              <span>
-                                {country.name[lang]} <span className="font-normal text-ink-muted">· {country.iso2}</span>
+                          <li key={id} className="sm:last:col-span-2">
+                            <a
+                              href={getPathname({ href: pathname, locale: id })}
+                              hrefLang={id}
+                              onClick={(e) => choose(e, id)}
+                              aria-current={selected ? 'true' : undefined}
+                              className={cn(
+                                'flex h-full flex-col gap-2 rounded-2xl border p-4 transition-colors',
+                                selected ? 'border-go bg-go-wash' : 'border-ink-line hover:border-go hover:bg-go-wash',
+                              )}
+                            >
+                              <span className="flex items-center justify-between gap-3 text-sm font-semibold text-ink">
+                                <span>
+                                  {country.name[lang]} <span className="font-normal text-ink-muted">· {country.iso2}</span>
+                                </span>
+                                <span className="text-xs font-normal text-ink-muted">{t('prices', { currency: country.planCurrency })}</span>
                               </span>
-                              <span className="text-xs font-normal text-ink-muted">
-                                {t('prices', {
-                                  currency: country.planCurrency,
-                                })}
+                              <span className={cn('flex items-center gap-1.5 text-sm', selected ? 'font-semibold text-go-deep' : 'text-ink-body')}>
+                                {selected ? <Check className="h-4 w-4" strokeWidth={2} aria-hidden /> : null}
+                                <span lang={market.language}>{LANGUAGE_NAMES[market.language]}</span>
                               </span>
-                            </p>
-                            <div className="mt-3 flex flex-wrap gap-2">
-                              {markets.map((id) => {
-                                const selected = id === locale
-                                return (
-                                  <a
-                                    key={id}
-                                    href={getPathname({ href: pathname, locale: id })}
-                                    hrefLang={id}
-                                    onClick={(e) => choose(e, id)}
-                                    aria-current={selected ? 'true' : undefined}
-                                    className={cn(
-                                      'inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors',
-                                      selected ? 'bg-go text-white' : 'bg-slate-100 text-ink hover:bg-go-tint',
-                                    )}
-                                  >
-                                    {selected ? <Check className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> : null}
-                                    <span lang={MARKETS[id].language}>{LANGUAGE_NAMES[MARKETS[id].language]}</span>
-                                  </a>
-                                )
-                              })}
-                            </div>
+                            </a>
                           </li>
                         )
                       })}
