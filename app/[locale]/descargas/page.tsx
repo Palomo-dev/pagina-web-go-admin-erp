@@ -1,13 +1,12 @@
 import { setRequestLocale } from 'next-intl/server'
-import { Download, ExternalLink } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { FeatureGrid, Section, StepList } from '@/components/sections/blocks'
 import { SiteFooter } from '@/components/site/footer'
 import { SiteNavbar } from '@/components/site/navbar'
 import { PageHero } from '@/components/site/page-hero'
-import { Tag } from '@/components/site/primitives'
 import { tl } from '@/i18n/t'
 import { getT } from '@/i18n/t-server'
-import { DESKTOP_LATEST_URL, DESKTOP_RELEASES_URL } from '@/lib/content/desktop'
+import { DESKTOP_LATEST_URL } from '@/lib/content/desktop'
 import { listDesktopReleases } from '@/lib/data'
 import { pageMetadata, type PageProps } from '@/lib/page'
 import { APP_URL, type IconName } from '@/lib/site'
@@ -25,7 +24,7 @@ const newer = (a: string, b: string) => {
   return 0
 }
 
-/** Descargas: GO Admin para Windows y su historial de versiones (Figma › Descargas). */
+/** Descargas: GO Admin para Windows, última versión (Figma › Descargas). */
 export default async function DescargasPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.download')
@@ -61,35 +60,24 @@ export default async function DescargasPage({ params }: PageProps) {
           <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-go-wash px-5 py-4 text-center text-sm text-ink-body">{t('smartscreen')}</p>
         </Section>
 
-        <Section tone="wash" id="versiones" eyebrow={t('versionsEyebrow')} title={t('versionsTitle')} subtitle={t('versionsSubtitle')}>
-          <ol className="mx-auto grid max-w-4xl gap-3">
-            {releases.map((r, i) => (
-              <li key={r.version} className="flex flex-col gap-3 rounded-[20px] border border-ink-line bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                <div className="min-w-0">
-                  <p className="flex flex-wrap items-center gap-2">
-                    <span className="text-h4 tabular text-ink">{t('version', { version: r.version })}</span>
-                    {i === 0 ? <Tag kind="success">{t('latest')}</Tag> : null}
-                    <span className="text-sm text-ink-muted">{date(r.date)}</span>
-                  </p>
-                  <p className="mt-1 text-sm text-ink-body">{r.notes ?? t('noNotes')}</p>
-                </div>
-                <a
-                  href={r.url}
-                  className="inline-flex h-10 shrink-0 items-center justify-center gap-2 self-start rounded-xl border border-slate-300 bg-white px-4 text-sm font-semibold text-ink transition-colors hover:border-go hover:text-go-deep sm:self-center"
-                  aria-label={t('downloadVersion', { version: r.version })}
-                >
-                  <Download className="h-4 w-4" strokeWidth={1.75} aria-hidden />
-                  {t('size', { size: r.sizeMb })}
-                </a>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 text-center">
-            <a href={DESKTOP_RELEASES_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-go-deep underline">
-              {t('allOnGithub')}
-              <ExternalLink className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+        {/* Por ahora solo se muestra la última versión (el historial sigue en GitHub Releases). */}
+        <Section tone="wash" id="version" eyebrow={t('versionsEyebrow')} title={t('versionsTitle')}>
+          <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-[20px] border border-ink-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <div className="min-w-0">
+              <p className="flex flex-wrap items-center gap-2">
+                <span className="text-h4 tabular text-ink">{t('version', { version: latest.version })}</span>
+                <span className="text-sm text-ink-muted">{date(latest.date)}</span>
+              </p>
+              <p className="mt-1 text-sm text-ink-body">{latest.notes ?? t('noNotes')}</p>
+            </div>
+            <a
+              href={DESKTOP_LATEST_URL}
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 self-start rounded-xl bg-go-action px-5 text-sm font-semibold text-white transition-colors hover:bg-go-deep sm:self-center"
+            >
+              <Download className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+              {t('size', { size: latest.sizeMb })}
             </a>
-          </p>
+          </div>
         </Section>
 
         <Section eyebrow={t('otherEyebrow')} title={t('otherTitle')} subtitle={t('otherText')}>
