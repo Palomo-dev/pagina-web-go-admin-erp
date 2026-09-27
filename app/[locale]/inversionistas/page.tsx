@@ -1,5 +1,4 @@
 import { setRequestLocale } from 'next-intl/server'
-import { Mail } from 'lucide-react'
 import { FeatureGrid, Section, StepList } from '@/components/sections/blocks'
 import { SiteFooter } from '@/components/site/footer'
 import { SiteNavbar } from '@/components/site/navbar'
@@ -11,19 +10,22 @@ import { pageMetadata, type PageProps } from '@/lib/page'
 import { CONTACT, INVESTORS_URL, type IconName } from '@/lib/site'
 
 export async function generateMetadata({ params }: PageProps) {
-  return pageMetadata(params.locale, '/inversionistas', 'pages.investors')
+  // Sin indexar ni enlazar desde el sitio: el portal es solo por invitación privada (Decreto 2555
+  // de 2010, oferta pública de valores). Se entra con el enlace que envía el equipo.
+  const meta = await pageMetadata(params.locale, '/inversionistas', 'pages.investors')
+  return { ...meta, robots: { index: false, follow: false } }
 }
 
 const PORTAL_ICONS: IconName[] = ['chart', 'file-text', 'lock', 'bell']
 
 /**
- * Inversionistas (Figma › Inversionistas). Página informativa: el portal investors.goadmin.io es
- * solo por invitación. No publica cifras, rondas ni valoraciones (no es una oferta pública).
+ * Inversionistas (Figma › Inversionistas). Página para personas ya invitadas: no se enlaza desde el
+ * sitio ni se indexa, no invita a invertir y no publica cifras, rondas ni valoraciones. El acceso al
+ * portal investors.goadmin.io es solo por invitación privada.
  */
 export default async function InversionistasPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.investors')
-  const mail = `mailto:${CONTACT.email}?subject=${encodeURIComponent(t('subject'))}`
   const portal = tl<{ title: string; text: string }[]>(t, 'portal').map((p, i) => ({ ...p, icon: PORTAL_ICONS[i] }))
   return (
     <>
@@ -33,9 +35,6 @@ export default async function InversionistasPage({ params }: PageProps) {
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <CtaLink href={INVESTORS_URL} kind="light" size="lg">
               {t('login')}
-            </CtaLink>
-            <CtaLink href={mail} kind="outline-light" size="lg" arrow={false}>
-              {t('contact')}
             </CtaLink>
           </div>
         </PageHero>
@@ -49,13 +48,7 @@ export default async function InversionistasPage({ params }: PageProps) {
         </Section>
 
         <Section tone="wash">
-          <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-3xl border border-dashed border-go-200 bg-white p-10 text-center">
-            <Mail className="h-8 w-8 text-go" strokeWidth={1.5} aria-hidden />
-            <h2 className="text-h3 text-ink">{t('inviteTitle')}</h2>
-            <p className="text-ink-body">{t('inviteText')}</p>
-            <CtaLink href={mail}>{CONTACT.email}</CtaLink>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-2 text-center text-sm text-ink-muted">
+          <div className="mx-auto grid max-w-3xl gap-2 text-center text-sm text-ink-muted">
             <p>{t('company', { legalName: CONTACT.legalName, nit: CONTACT.nit, city: CONTACT.city })}</p>
             <p>{t('disclaimer')}</p>
           </div>

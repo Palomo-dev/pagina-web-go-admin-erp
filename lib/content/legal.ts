@@ -1,6 +1,11 @@
 /**
- * Textos legales. Migrados sin cambios de redacción desde las páginas anteriores
- * (app/privacidad y app/eliminacion-datos). Cualquier cambio de fondo debe pasar por revisión legal.
+ * Textos legales. Migrados desde las páginas anteriores (app/privacidad y app/eliminacion-datos).
+ * Cualquier cambio de fondo debe pasar por revisión legal.
+ *
+ * PRIVACY (27-sep-2026): ajuste provisional mientras el abogado revisa la nueva política de
+ * tratamiento de datos (borradores de Marketing). Se agregó el responsable del tratamiento y se
+ * quitaron afirmaciones de seguridad no verificables (certificaciones SOC 2 / ISO 27001, cifrado de
+ * extremo a extremo, monitoreo 24/7, auditorías independientes). Reemplazar por el texto aprobado.
  */
 import { CONTACT } from '@/lib/site'
 
@@ -8,7 +13,7 @@ export type LegalSection = { title: string; items: string[] }
 
 export const PRIVACY = {
   title: 'Política de privacidad',
-  updated: '15 de enero de 2024',
+  updated: '27 de septiembre de 2026',
   intro:
     'En GO Admin protegemos tu información personal con los más altos estándares de seguridad y transparencia. Conoce cómo recopilamos, usamos y protegemos tus datos.',
   principles: [
@@ -18,6 +23,13 @@ export const PRIVACY = {
     { title: 'Minimización de datos', text: 'Solo recopilamos la información necesaria para el servicio.' },
   ],
   sections: [
+    {
+      title: 'Responsable del tratamiento',
+      items: [
+        `GO Admin S.A.S., identificada con NIT ${CONTACT.nit}, con domicilio en ${CONTACT.city}.`,
+        `Correo: ${CONTACT.email} · Teléfono: ${CONTACT.phoneDisplay}.`,
+      ],
+    },
     {
       "title": "1. Información que Recopilamos",
       "items": [
@@ -54,13 +66,10 @@ export const PRIVACY = {
     {
       "title": "4. Seguridad de Datos",
       "items": [
-        "Cifrado end-to-end de todos los datos sensibles (AES-256, TLS 1.3)",
-        "Servidores seguros con certificaciones SOC 2, ISO 27001:2022",
-        "Acceso restringido solo a personal autorizado con autenticación multi-factor",
-        "Monitoreo continuo de seguridad 24/7 con IDS/IPS avanzados",
-        "Backups automáticos y planes de recuperación ante desastres",
-        "Auditorías de seguridad regulares e independientes (cumplimiento GDPR Art. 32)",
-        "Controles de acceso físico en centros de datos certificados"
+        'Conexiones cifradas (HTTPS/TLS) entre tu navegador y GO Admin.',
+        'Acceso por roles: cada usuario ve solo lo que su rol le permite.',
+        'Copias de respaldo automáticas de la información.',
+        'Acceso a los datos restringido a personal autorizado.',
       ]
     },
     {

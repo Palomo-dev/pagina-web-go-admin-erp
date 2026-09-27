@@ -357,7 +357,6 @@
       "countries": "Países",
       "terms": "Términos y condiciones",
       "cookies": "Cookies",
-      "investors": "Inversionistas",
       "download": "Descargas"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
@@ -1686,8 +1685,6 @@
       "title": "Construimos el software con el que los negocios se organizan.",
       "subtitle": "Esta sección es para inversionistas y personas invitadas por GO Admin. El portal de inversionistas funciona solo por invitación.",
       "login": "Ingresar al portal",
-      "contact": "Escribirnos",
-      "subject": "Inversionistas GO Admin",
       "portalEyebrow": "Portal de inversionistas",
       "portalTitle": "La información, en un lugar seguro.",
       "portalSubtitle": "Quienes reciben una invitación encuentran en investors.goadmin.io:",
@@ -1729,8 +1726,6 @@
           "text": "Ves las métricas, los documentos y los informes que se comparten contigo."
         }
       ],
-      "inviteTitle": "¿Te interesa invertir en GO Admin?",
-      "inviteText": "Escríbenos, cuéntanos quién eres y te contactamos.",
       "company": "{legalName} · NIT {nit} · {city}",
       "disclaimer": "Esta página es informativa y no constituye una oferta pública de valores. La información sobre inversión se entrega únicamente a personas invitadas, a través del portal."
     },

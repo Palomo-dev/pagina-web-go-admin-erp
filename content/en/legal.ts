@@ -7,7 +7,7 @@ import { CONTACT } from '@/lib/site'
 
 export const PRIVACY: typeof Es.PRIVACY = {
   title: 'Privacy policy',
-  updated: 'January 15, 2024',
+  updated: 'September 27, 2026',
   intro:
     'At GO Admin, we protect your personal information with the highest standards of security and transparency. Learn how we collect, use and protect your data.',
   principles: [
@@ -17,6 +17,13 @@ export const PRIVACY: typeof Es.PRIVACY = {
     { title: 'Data minimization', text: 'We only collect the information needed for the service.' },
   ],
   sections: [
+    {
+      title: 'Data controller',
+      items: [
+        `GO Admin S.A.S., tax ID (NIT) ${CONTACT.nit}, domiciled in ${CONTACT.city}.`,
+        `Email: ${CONTACT.email} · Phone: ${CONTACT.phoneDisplay}.`,
+      ],
+    },
     {
       title: '1. Information We Collect',
       items: [
@@ -53,13 +60,10 @@ export const PRIVACY: typeof Es.PRIVACY = {
     {
       title: '4. Data Security',
       items: [
-        'End-to-end encryption of all sensitive data (AES-256, TLS 1.3)',
-        'Secure servers with SOC 2 and ISO 27001:2022 certifications',
-        'Access restricted to authorized personnel only, with multi-factor authentication',
-        'Continuous 24/7 security monitoring with advanced IDS/IPS',
-        'Automatic backups and disaster recovery plans',
-        'Regular, independent security audits (GDPR Art. 32 compliance)',
-        'Physical access controls in certified data centers',
+        'Encrypted connections (HTTPS/TLS) between your browser and GO Admin.',
+        'Role-based access: each user sees only what their role allows.',
+        'Automatic backups of the information.',
+        'Access to data restricted to authorized staff.',
       ],
     },
     {
