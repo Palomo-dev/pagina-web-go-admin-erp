@@ -1,5 +1,11 @@
 import {
   BarChart3,
+  Download,
+  Monitor,
+  MonitorSmartphone,
+  Printer,
+  RefreshCw,
+  WifiOff,
   Scissors,
   Ticket,
   Boxes,
@@ -108,6 +114,12 @@ const MAP: Record<IconName, React.ComponentType<LucideProps>> = {
   link: Link2,
   scissors: Scissors,
   ticket: Ticket,
+  download: Download,
+  monitor: Monitor,
+  'monitor-smartphone': MonitorSmartphone,
+  printer: Printer,
+  refresh: RefreshCw,
+  'wifi-off': WifiOff,
 }
 
 /** Ícono de trazo (Manual › Iconografía: 1,5 px sobre grilla de 24 px, remates redondeados). */

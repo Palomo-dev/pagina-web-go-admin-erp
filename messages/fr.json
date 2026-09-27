@@ -301,6 +301,10 @@
       "partners": {
         "label": "Programme de partenaires",
         "description": "Recommandez GO Admin et touchez une commission."
+      },
+      "download": {
+        "label": "Téléchargements",
+        "description": "GO Admin pour Windows."
       }
     }
   },
@@ -353,7 +357,8 @@
       "countries": "Pays",
       "terms": "Conditions d’utilisation",
       "cookies": "Témoins",
-      "investors": "Investisseurs"
+      "investors": "Investisseurs",
+      "download": "Téléchargements"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Paramètres des témoins"
@@ -1728,6 +1733,71 @@
       "inviteText": "Écrivez-nous, dites-nous qui vous êtes et nous communiquerons avec vous.",
       "company": "{legalName} · NIT {nit} · {city}",
       "disclaimer": "Cette page est informative et ne constitue pas une offre publique de valeurs mobilières. L’information sur l’investissement est transmise uniquement aux personnes invitées, par l’entremise du portail."
+    },
+    "download": {
+      "meta": {
+        "title": "Télécharger GO Admin pour Windows",
+        "description": "Téléchargez l’application de bureau GO Admin pour Windows : impression directe, ventes sans Internet et écran client. Toutes les versions."
+      },
+      "eyebrow": "Téléchargements",
+      "title": "GO Admin pour Windows.",
+      "subtitle": "L’application de bureau pour votre point de vente : elle imprime directement, continue de vendre si Internet tombe et montre l’addition au client sur un autre écran.",
+      "cta": "Télécharger pour Windows",
+      "ctaMeta": "Version {version} · {size} Mo · Windows 10 et 11, 64 bits",
+      "featuresEyebrow": "Ce qu’elle ajoute",
+      "featuresTitle": "Ce que fait l’application de bureau.",
+      "features": [
+        {
+          "title": "Imprime directement",
+          "text": "Reçus, bons de commande et factures sur des imprimantes thermiques USB, réseau et Bluetooth. Ouvre le tiroir-caisse à l’encaissement."
+        },
+        {
+          "title": "Vend sans Internet",
+          "text": "Si la connexion tombe, le point de vente continue d’encaisser et synchronise les ventes à son retour."
+        },
+        {
+          "title": "Écran client",
+          "text": "Sur un deuxième moniteur, votre client voit ce que vous encaissez, le total et la monnaie."
+        },
+        {
+          "title": "Se met à jour seule",
+          "text": "Elle télécharge les nouvelles versions et les installe à la fermeture de l’application."
+        }
+      ],
+      "installEyebrow": "Installation",
+      "installTitle": "Prête en quelques minutes.",
+      "steps": [
+        {
+          "title": "Téléchargez",
+          "text": "Obtenez l’installateur avec le bouton ci-dessus."
+        },
+        {
+          "title": "Installez",
+          "text": "Ouvrez-le et suivez les étapes. Il s’installe pour votre utilisateur, sans demander de droits d’administrateur."
+        },
+        {
+          "title": "Connectez-vous",
+          "text": "Utilisez le même compte que dans le navigateur."
+        },
+        {
+          "title": "Configurez vos imprimantes",
+          "text": "Dans le point de vente, allez dans Configuration › Imprimantes et choisissez celles de votre entreprise."
+        }
+      ],
+      "smartscreen": "Si Windows affiche l’avertissement « Windows a protégé votre ordinateur », choisissez « Informations complémentaires », puis « Exécuter quand même ». L’installateur provient des publications officielles de GO Admin sur GitHub.",
+      "versionsEyebrow": "Versions",
+      "versionsTitle": "Toutes les versions.",
+      "versionsSubtitle": "Nous vous recommandons la plus récente. Les précédentes restent disponibles au besoin.",
+      "version": "Version {version}",
+      "latest": "La plus récente",
+      "size": "{size} Mo",
+      "downloadVersion": "Télécharger la version {version}",
+      "noNotes": "Améliorations et corrections.",
+      "allOnGithub": "Voir les publications sur GitHub",
+      "otherEyebrow": "Autres appareils",
+      "otherTitle": "Vous utilisez un Mac, Linux, un téléphone ou une tablette ?",
+      "otherText": "GO Admin fonctionne dans le navigateur, sans rien installer. Pour l’instant, l’application de bureau est offerte seulement pour Windows.",
+      "openWeb": "Ouvrir GO Admin dans le navigateur"
     }
   },
   "notFound": {

@@ -301,6 +301,10 @@
       "partners": {
         "label": "Programa de aliados",
         "description": "Recomienda GO Admin y gana comisión."
+      },
+      "download": {
+        "label": "Descargas",
+        "description": "GO Admin para Windows."
       }
     }
   },
@@ -353,7 +357,8 @@
       "countries": "Países",
       "terms": "Términos y condiciones",
       "cookies": "Cookies",
-      "investors": "Inversionistas"
+      "investors": "Inversionistas",
+      "download": "Descargas"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Configurar cookies"
@@ -1728,6 +1733,71 @@
       "inviteText": "Escríbenos, cuéntanos quién eres y te contactamos.",
       "company": "{legalName} · NIT {nit} · {city}",
       "disclaimer": "Esta página es informativa y no constituye una oferta pública de valores. La información sobre inversión se entrega únicamente a personas invitadas, a través del portal."
+    },
+    "download": {
+      "meta": {
+        "title": "Descargar GO Admin para Windows",
+        "description": "Descarga la app de escritorio de GO Admin para Windows: impresión directa, ventas sin internet y pantalla para el cliente. Todas las versiones."
+      },
+      "eyebrow": "Descargas",
+      "title": "GO Admin para Windows.",
+      "subtitle": "La app de escritorio para tu punto de venta: imprime directo, sigue vendiendo si se cae el internet y muestra la cuenta al cliente en otra pantalla.",
+      "cta": "Descargar para Windows",
+      "ctaMeta": "Versión {version} · {size} MB · Windows 10 y 11 de 64 bits",
+      "featuresEyebrow": "Qué suma",
+      "featuresTitle": "Lo que hace la app de escritorio.",
+      "features": [
+        {
+          "title": "Imprime directo",
+          "text": "Tickets, comandas y facturas en impresoras térmicas USB, de red y Bluetooth. Abre el cajón de dinero al cobrar."
+        },
+        {
+          "title": "Vende sin internet",
+          "text": "Si se cae la conexión, el POS sigue cobrando y sincroniza las ventas cuando vuelve."
+        },
+        {
+          "title": "Pantalla para el cliente",
+          "text": "En un segundo monitor, tu cliente ve lo que vas cobrando, el total y el cambio."
+        },
+        {
+          "title": "Se actualiza sola",
+          "text": "Descarga las versiones nuevas y las instala al cerrar la app."
+        }
+      ],
+      "installEyebrow": "Instalación",
+      "installTitle": "Lista en pocos minutos.",
+      "steps": [
+        {
+          "title": "Descarga",
+          "text": "Baja el instalador con el botón de arriba."
+        },
+        {
+          "title": "Instala",
+          "text": "Ábrelo y sigue los pasos. Se instala para tu usuario, sin pedir permisos de administrador."
+        },
+        {
+          "title": "Inicia sesión",
+          "text": "Entra con la misma cuenta que usas en el navegador."
+        },
+        {
+          "title": "Configura tus impresoras",
+          "text": "En el POS, entra a Configuración › Impresoras y elige las de tu negocio."
+        }
+      ],
+      "smartscreen": "Si Windows muestra el aviso «Windows protegió su PC», elige «Más información» y luego «Ejecutar de todas formas». El instalador se descarga de las publicaciones oficiales de GO Admin en GitHub.",
+      "versionsEyebrow": "Versiones",
+      "versionsTitle": "Todas las versiones.",
+      "versionsSubtitle": "Te recomendamos la más reciente. Las anteriores quedan disponibles por si necesitas volver a una.",
+      "version": "Versión {version}",
+      "latest": "Más reciente",
+      "size": "{size} MB",
+      "downloadVersion": "Descargar la versión {version}",
+      "noNotes": "Mejoras y correcciones.",
+      "allOnGithub": "Ver las publicaciones en GitHub",
+      "otherEyebrow": "Otros equipos",
+      "otherTitle": "¿Usas Mac, Linux, celular o tablet?",
+      "otherText": "GO Admin funciona en el navegador, sin instalar nada. La app de escritorio por ahora es solo para Windows.",
+      "openWeb": "Abrir GO Admin en el navegador"
     }
   },
   "notFound": {

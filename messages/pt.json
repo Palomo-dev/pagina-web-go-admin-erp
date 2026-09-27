@@ -301,6 +301,10 @@
       "partners": {
         "label": "Programa de parceiros",
         "description": "Recomende o GO Admin e ganhe comissão."
+      },
+      "download": {
+        "label": "Downloads",
+        "description": "GO Admin para Windows."
       }
     }
   },
@@ -353,7 +357,8 @@
       "countries": "Países",
       "terms": "Termos e condições",
       "cookies": "Cookies",
-      "investors": "Investidores"
+      "investors": "Investidores",
+      "download": "Downloads"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Configurar cookies"
@@ -1728,6 +1733,71 @@
       "inviteText": "Escreva para nós, conte quem você é e entraremos em contato.",
       "company": "{legalName} · NIT {nit} · {city}",
       "disclaimer": "Esta página é informativa e não constitui uma oferta pública de valores mobiliários. As informações sobre investimento são entregues somente a pessoas convidadas, por meio do portal."
+    },
+    "download": {
+      "meta": {
+        "title": "Baixar o GO Admin para Windows",
+        "description": "Baixe o aplicativo de desktop do GO Admin para Windows: impressão direta, vendas sem internet e tela para o cliente. Todas as versões."
+      },
+      "eyebrow": "Downloads",
+      "title": "GO Admin para Windows.",
+      "subtitle": "O aplicativo de desktop para o seu ponto de venda: imprime direto, continua vendendo se a internet cair e mostra a conta ao cliente em outra tela.",
+      "cta": "Baixar para Windows",
+      "ctaMeta": "Versão {version} · {size} MB · Windows 10 e 11 de 64 bits",
+      "featuresEyebrow": "O que ele soma",
+      "featuresTitle": "O que o aplicativo de desktop faz.",
+      "features": [
+        {
+          "title": "Imprime direto",
+          "text": "Recibos, comandas e notas em impressoras térmicas USB, de rede e Bluetooth. Abre a gaveta de dinheiro ao receber."
+        },
+        {
+          "title": "Vende sem internet",
+          "text": "Se a conexão cair, o PDV continua cobrando e sincroniza as vendas quando ela volta."
+        },
+        {
+          "title": "Tela para o cliente",
+          "text": "Em um segundo monitor, o cliente vê o que você está cobrando, o total e o troco."
+        },
+        {
+          "title": "Atualiza sozinho",
+          "text": "Baixa as novas versões e as instala ao fechar o aplicativo."
+        }
+      ],
+      "installEyebrow": "Instalação",
+      "installTitle": "Pronto em poucos minutos.",
+      "steps": [
+        {
+          "title": "Baixe",
+          "text": "Baixe o instalador com o botão acima."
+        },
+        {
+          "title": "Instale",
+          "text": "Abra e siga os passos. Ele é instalado para o seu usuário, sem pedir permissões de administrador."
+        },
+        {
+          "title": "Entre",
+          "text": "Use a mesma conta que você usa no navegador."
+        },
+        {
+          "title": "Configure suas impressoras",
+          "text": "No PDV, vá em Configuração › Impressoras e escolha as do seu negócio."
+        }
+      ],
+      "smartscreen": "Se o Windows mostrar o aviso “O Windows protegeu o computador”, escolha “Mais informações” e depois “Executar assim mesmo”. O instalador é baixado das publicações oficiais do GO Admin no GitHub.",
+      "versionsEyebrow": "Versões",
+      "versionsTitle": "Todas as versões.",
+      "versionsSubtitle": "Recomendamos a mais recente. As anteriores continuam disponíveis caso você precise voltar a alguma.",
+      "version": "Versão {version}",
+      "latest": "Mais recente",
+      "size": "{size} MB",
+      "downloadVersion": "Baixar a versão {version}",
+      "noNotes": "Melhorias e correções.",
+      "allOnGithub": "Ver as publicações no GitHub",
+      "otherEyebrow": "Outros dispositivos",
+      "otherTitle": "Usa Mac, Linux, celular ou tablet?",
+      "otherText": "O GO Admin funciona no navegador, sem instalar nada. Por enquanto, o aplicativo de desktop é só para Windows.",
+      "openWeb": "Abrir o GO Admin no navegador"
     }
   },
   "notFound": {

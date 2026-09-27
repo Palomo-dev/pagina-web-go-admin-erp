@@ -3,6 +3,7 @@
  * Same shape as lib/content/company.ts (Spanish source).
  */
 import type * as Es from '@/lib/content/company'
+import type * as EsDesktop from '@/lib/content/desktop'
 import type { IconName } from '@/lib/site'
 
 // ---------------------------------------------------------------------------
@@ -164,3 +165,18 @@ export const CHANGELOG: typeof Es.CHANGELOG = [
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// GO Admin para Windows: notas de cada versión (mismas claves que lib/content/desktop.ts)
+// ---------------------------------------------------------------------------
+export const DESKTOP_NOTES: typeof EsDesktop.DESKTOP_NOTES = {
+  "0.2.6": "Customer display on a second monitor: shows what you are ringing up, the total and the change.",
+  "0.2.5": "The customer display remembers which monitor it opens on.",
+  "0.2.4": "Several carts at once and barcode scanner in the POS. Calls from the CRM.",
+  "0.2.3": "Installer and screens with the GO Admin brand. The light or dark theme follows the app.",
+  "0.2.2": "Safer checkout without internet: the sale, the payment and the cash register are saved together. More protection for the app.",
+  "0.2.1": "Browse every module, customers and images without internet. First version of the customer display.",
+  "0.2.0": "Sell without internet: local catalog, queued sales that sync when the connection returns, and receipts printed offline.",
+  "0.1.2": "More reliable printing on USB printers and the same printer set up on several stations.",
+  "0.1.1": "USB and Bluetooth printer detection, and the cash drawer opens on cash payments."
+}

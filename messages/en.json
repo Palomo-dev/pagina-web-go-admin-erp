@@ -301,6 +301,10 @@
       "partners": {
         "label": "Partner program",
         "description": "Recommend GO Admin and earn a commission."
+      },
+      "download": {
+        "label": "Downloads",
+        "description": "GO Admin for Windows."
       }
     }
   },
@@ -353,7 +357,8 @@
       "countries": "Countries",
       "terms": "Terms and conditions",
       "cookies": "Cookies",
-      "investors": "Investors"
+      "investors": "Investors",
+      "download": "Downloads"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Cookie settings"
@@ -1728,6 +1733,71 @@
       "inviteText": "Write to us, tell us who you are and we will get in touch.",
       "company": "{legalName} · NIT {nit} · {city}",
       "disclaimer": "This page is informational and is not a public offering of securities. Investment information is provided only to invited people, through the portal."
+    },
+    "download": {
+      "meta": {
+        "title": "Download GO Admin for Windows",
+        "description": "Download the GO Admin desktop app for Windows: direct printing, sales without internet and a customer display. Every version."
+      },
+      "eyebrow": "Downloads",
+      "title": "GO Admin for Windows.",
+      "subtitle": "The desktop app for your point of sale: print directly, keep selling if the internet goes down and show the bill to your customer on another screen.",
+      "cta": "Download for Windows",
+      "ctaMeta": "Version {version} · {size} MB · Windows 10 and 11, 64-bit",
+      "featuresEyebrow": "What it adds",
+      "featuresTitle": "What the desktop app does.",
+      "features": [
+        {
+          "title": "Prints directly",
+          "text": "Receipts, kitchen tickets and invoices on USB, network and Bluetooth thermal printers. Opens the cash drawer when you get paid."
+        },
+        {
+          "title": "Sells without internet",
+          "text": "If the connection drops, the POS keeps taking payments and syncs the sales when it comes back."
+        },
+        {
+          "title": "Customer display",
+          "text": "On a second monitor, your customer sees what you are ringing up, the total and the change."
+        },
+        {
+          "title": "Updates itself",
+          "text": "It downloads new versions and installs them when you close the app."
+        }
+      ],
+      "installEyebrow": "Installation",
+      "installTitle": "Ready in a few minutes.",
+      "steps": [
+        {
+          "title": "Download",
+          "text": "Get the installer with the button above."
+        },
+        {
+          "title": "Install",
+          "text": "Open it and follow the steps. It installs for your user, without asking for administrator permissions."
+        },
+        {
+          "title": "Sign in",
+          "text": "Use the same account you use in the browser."
+        },
+        {
+          "title": "Set up your printers",
+          "text": "In the POS, go to Settings › Printers and choose your business's printers."
+        }
+      ],
+      "smartscreen": "If Windows shows the “Windows protected your PC” warning, choose “More info” and then “Run anyway”. The installer downloads from GO Admin's official releases on GitHub.",
+      "versionsEyebrow": "Versions",
+      "versionsTitle": "Every version.",
+      "versionsSubtitle": "We recommend the latest one. Earlier versions stay available in case you need to go back to one.",
+      "version": "Version {version}",
+      "latest": "Latest",
+      "size": "{size} MB",
+      "downloadVersion": "Download version {version}",
+      "noNotes": "Improvements and fixes.",
+      "allOnGithub": "See the releases on GitHub",
+      "otherEyebrow": "Other devices",
+      "otherTitle": "Using a Mac, Linux, a phone or a tablet?",
+      "otherText": "GO Admin works in the browser, with nothing to install. The desktop app is only for Windows for now.",
+      "openWeb": "Open GO Admin in the browser"
     }
   },
   "notFound": {

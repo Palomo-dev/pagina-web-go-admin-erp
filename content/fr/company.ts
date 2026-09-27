@@ -2,6 +2,7 @@
  * Contenu d’entreprise en français (même forme que lib/content/company.ts).
  */
 import type * as Es from '@/lib/content/company'
+import type * as EsDesktop from '@/lib/content/desktop'
 import type { IconName } from '@/lib/site'
 
 export const ABOUT: typeof Es.ABOUT = {
@@ -147,3 +148,18 @@ export const CHANGELOG: typeof Es.CHANGELOG = [
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// GO Admin para Windows: notas de cada versión (mismas claves que lib/content/desktop.ts)
+// ---------------------------------------------------------------------------
+export const DESKTOP_NOTES: typeof EsDesktop.DESKTOP_NOTES = {
+  "0.2.6": "Écran client sur un deuxième moniteur : il affiche ce que vous encaissez, le total et la monnaie.",
+  "0.2.5": "L’écran client se souvient du moniteur sur lequel il s’ouvre.",
+  "0.2.4": "Plusieurs paniers à la fois et lecteur de codes-barres au point de vente. Appels depuis le CRM.",
+  "0.2.3": "Installateur et écrans aux couleurs de GO Admin. Le thème clair ou sombre suit celui de l’application.",
+  "0.2.2": "Encaissement plus sûr sans Internet : la vente, le paiement et la caisse sont enregistrés ensemble. Meilleure protection de l’application.",
+  "0.2.1": "Consultation de tous les modules, des clients et des images sans Internet. Première version de l’écran client.",
+  "0.2.0": "Vendez sans Internet : catalogue local, ventes en file d’attente synchronisées au retour de la connexion et reçu imprimé hors ligne.",
+  "0.1.2": "Impression plus fiable sur les imprimantes USB et même imprimante configurée sur plusieurs postes.",
+  "0.1.1": "Détection des imprimantes USB et Bluetooth, et ouverture du tiroir-caisse lors d’un paiement en espèces."
+}
