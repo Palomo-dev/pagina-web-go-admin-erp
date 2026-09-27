@@ -15,6 +15,7 @@ import { SOLUTIONS, type Solution, type SolutionText } from '@/lib/catalog/solut
 import { DEVELOPER_TOOLS, INTEGRATION_GROUPS } from '@/lib/catalog/integrations'
 import * as esCompany from '@/lib/content/company'
 import * as esLegal from '@/lib/content/legal'
+import { DESKTOP_NOTES, DESKTOP_RELEASES, DESKTOP_REPO, desktopAssetUrl, type DesktopRelease } from '@/lib/content/desktop'
 import { applyFiscal, fiscalValues, getMarket, type CountryCode, type Language } from '@/i18n/markets'
 import { CONTENT, type CatalogText } from '@/content'
 
@@ -179,4 +180,42 @@ export async function getLegal(locale: string) {
   const m = getMarket(locale)
   const l = m.language === 'es' ? esLegal : CONTENT[m.language].legal
   return { PRIVACY: l.PRIVACY, DATA_DELETION: l.DATA_DELETION, TERMS: l.TERMS, COOKIES: l.COOKIES, isReferenceTranslation: m.language !== 'es' }
+}
+
+// ---------------------------------------------------------------------------
+// GO Admin para Windows: versiones publicadas
+// ---------------------------------------------------------------------------
+type GithubRelease = { tag_name: string; draft: boolean; prerelease: boolean; published_at: string; assets: { name: string; size: number; browser_download_url: string }[] }
+
+/**
+ * Versiones de la app de escritorio, de la más reciente a la más antigua, con su nota en el idioma
+ * del mercado. Lee GitHub Releases (repositorio público, sin token) y se revalida cada hora; si
+ * GitHub no responde, usa la lista guardada en lib/content/desktop.ts.
+ * No es la base de datos del ERP: es la página pública de releases del instalador.
+ */
+export async function listDesktopReleases(locale: string): Promise<(DesktopRelease & { notes: string | null })[]> {
+  const m = getMarket(locale)
+  const notes = m.language === 'es' ? DESKTOP_NOTES : CONTENT[m.language].company.DESKTOP_NOTES
+  let releases: DesktopRelease[] = DESKTOP_RELEASES
+  try {
+    const res = await fetch(`https://api.github.com/repos/${DESKTOP_REPO}/releases?per_page=50`, {
+      headers: { Accept: 'application/vnd.github+json' },
+      next: { revalidate: 3600 },
+    })
+    if (res.ok) {
+      const data = (await res.json()) as GithubRelease[]
+      const live = data
+        .filter((r) => !r.draft && !r.prerelease && /^v\d+\.\d+\.\d+$/.test(r.tag_name))
+        .map((r) => {
+          const version = r.tag_name.slice(1)
+          const asset = r.assets.find((a) => a.name === `GoAdminERP-Setup-${version}.exe`) ?? r.assets.find((a) => a.name === 'GoAdminERP-Setup.exe')
+          return asset ? { version, date: r.published_at.slice(0, 10), sizeMb: Math.round(asset.size / 1048576), url: asset.browser_download_url } : null
+        })
+        .filter((r): r is DesktopRelease => r !== null)
+      if (live.length) releases = live
+    }
+  } catch {
+    // Sin conexión con GitHub: se muestra la lista guardada.
+  }
+  return releases.map((r) => ({ ...r, url: r.url || desktopAssetUrl(r.version), notes: notes[r.version] ?? null }))
 }

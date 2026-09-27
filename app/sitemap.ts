@@ -5,7 +5,7 @@ import { SOLUTIONS } from '@/lib/catalog/solutions'
 import { allPostSlugs } from '@/lib/data'
 import { SITE_URL, marketPath } from '@/lib/seo'
 
-const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/eliminacion-datos', '/cookies', '/aliados', '/clientes', '/novedades', '/paises', '/inversionistas']
+const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/eliminacion-datos', '/cookies', '/aliados', '/clientes', '/novedades', '/paises', '/inversionistas', '/descargas']
 // /terminos queda fuera mientras sea borrador (noindex).
 
 /** Mapa del sitio con las páginas de los 11 mercados y sus versiones alternas (hreflang). */

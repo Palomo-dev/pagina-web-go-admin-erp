@@ -3,6 +3,7 @@
  * Mesma forma que lib/content/company.ts (texto base em espanhol).
  */
 import type * as Es from '@/lib/content/company'
+import type * as EsDesktop from '@/lib/content/desktop'
 import type { IconName } from '@/lib/site'
 
 // ---------------------------------------------------------------------------
@@ -164,3 +165,18 @@ export const CHANGELOG: typeof Es.CHANGELOG = [
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// GO Admin para Windows: notas de cada versión (mismas claves que lib/content/desktop.ts)
+// ---------------------------------------------------------------------------
+export const DESKTOP_NOTES: typeof EsDesktop.DESKTOP_NOTES = {
+  "0.2.6": "Tela para o cliente em um segundo monitor: mostra o que você está cobrando, o total e o troco.",
+  "0.2.5": "A tela do cliente lembra em qual monitor ela abre.",
+  "0.2.4": "Vários carrinhos ao mesmo tempo e leitor de código de barras no PDV. Chamadas pelo CRM.",
+  "0.2.3": "Instalador e telas com a marca GO Admin. O tema claro ou escuro acompanha o do aplicativo.",
+  "0.2.2": "Cobrança mais segura sem internet: a venda, o pagamento e o caixa são salvos juntos. Mais proteção para o aplicativo.",
+  "0.2.1": "Consulta de todos os módulos, clientes e imagens sem internet. Primeira versão da tela do cliente.",
+  "0.2.0": "Venda sem internet: catálogo local, vendas em fila que sincronizam quando a conexão volta e recibo impresso sem rede.",
+  "0.1.2": "Impressão mais estável em impressoras USB e a mesma impressora configurada em várias estações.",
+  "0.1.1": "Detecção de impressoras USB e Bluetooth, e abertura da gaveta de dinheiro ao receber em dinheiro."
+}

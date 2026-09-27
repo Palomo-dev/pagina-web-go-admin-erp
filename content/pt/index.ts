@@ -14,6 +14,7 @@ const pt: LanguageContent = {
     LEARNING_PATHS: company.LEARNING_PATHS,
     POSTS: company.POSTS,
     CHANGELOG: company.CHANGELOG,
+    DESKTOP_NOTES: company.DESKTOP_NOTES,
   },
   legal: { PRIVACY: legal.PRIVACY, DATA_DELETION: legal.DATA_DELETION, TERMS: legal.TERMS, COOKIES: legal.COOKIES },
 }

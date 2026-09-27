@@ -38,6 +38,7 @@ export type IconName =
   | 'heart-handshake' | 'graduation' | 'mail' | 'database' | 'map-pin' | 'trending' | 'sparkles'
   | 'rocket' | 'key' | 'workflow' | 'file-check' | 'qr' | 'wallet' | 'history'
   | 'boxes' | 'truck' | 'file-text' | 'landmark' | 'zap' | 'globe' | 'search' | 'credit-card' | 'star' | 'wine' | 'palette' | 'link' | 'scissors' | 'ticket'
+  | 'download' | 'monitor' | 'monitor-smartphone' | 'printer' | 'refresh' | 'wifi-off'
 
 // ---------------------------------------------------------------------------
 // Navegación (etiquetas en messages › nav)
@@ -59,6 +60,7 @@ export const RESOURCES: { key: string; href: string; icon: IconName }[] = [
   { key: 'training', href: '/capacitaciones', icon: 'graduation' },
   { key: 'blog', href: '/blog', icon: 'book' },
   { key: 'changelog', href: '/novedades', icon: 'sparkles' },
+  { key: 'download', href: '/descargas', icon: 'download' },
   { key: 'customers', href: '/clientes', icon: 'star' },
   { key: 'partners', href: '/aliados', icon: 'heart-handshake' },
   { key: 'integrations', href: '/integraciones', icon: 'plug' },
@@ -247,6 +249,7 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
       { key: 'training', href: '/capacitaciones' },
       { key: 'blog', href: '/blog' },
       { key: 'changelog', href: '/novedades' },
+      { key: 'download', href: '/descargas' },
       { key: 'api', href: '/api' },
       { key: 'security', href: '/seguridad' },
       { key: 'contact', href: '/contacto' },

@@ -6,6 +6,7 @@ import type { ProductCategory, ProductText, ProductTextPatch, ProductVariant } f
 import type { SolutionText } from '@/lib/catalog/solutions'
 import type * as Company from '@/lib/content/company'
 import type * as Legal from '@/lib/content/legal'
+import type * as Desktop from '@/lib/content/desktop'
 
 export type CatalogText = {
   categories: Record<ProductCategory, { name: string; text: string }>
@@ -30,6 +31,7 @@ export type CompanyContent = {
   POSTS: Company.Post[]
   /** Mismo orden de meses y novedades que el español */
   CHANGELOG: Company.Release[]
+  DESKTOP_NOTES: typeof Desktop.DESKTOP_NOTES
 }
 
 export type LegalContent = {

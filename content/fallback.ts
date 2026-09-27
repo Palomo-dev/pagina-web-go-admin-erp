@@ -7,6 +7,7 @@ import { SOLUTIONS } from '@/lib/catalog/solutions'
 import { DEVELOPER_TOOLS, INTEGRATION_GROUPS } from '@/lib/catalog/integrations'
 import * as company from '@/lib/content/company'
 import * as legal from '@/lib/content/legal'
+import * as desktop from '@/lib/content/desktop'
 import type { LanguageContent } from './types'
 
 export function fromSpanish(): LanguageContent {
@@ -62,6 +63,7 @@ export function fromSpanish(): LanguageContent {
       LEARNING_PATHS: company.LEARNING_PATHS,
       POSTS: company.POSTS,
       CHANGELOG: company.CHANGELOG,
+      DESKTOP_NOTES: desktop.DESKTOP_NOTES,
     },
     legal: { PRIVACY: legal.PRIVACY, DATA_DELETION: legal.DATA_DELETION, TERMS: legal.TERMS, COOKIES: legal.COOKIES },
   }
