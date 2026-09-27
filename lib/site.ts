@@ -261,7 +261,6 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
       { key: 'about', href: '/acerca-de' },
       { key: 'customers', href: '/clientes' },
       { key: 'partners', href: '/aliados' },
-      { key: 'investors', href: '/inversionistas' },
       { key: 'careers', href: '/carreras' },
       { key: 'countries', href: '/paises' },
       { key: 'terms', href: '/terminos' },

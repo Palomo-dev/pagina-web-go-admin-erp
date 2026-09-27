@@ -7,7 +7,7 @@ import { CONTACT } from '@/lib/site'
 
 export const PRIVACY: typeof Es.PRIVACY = {
   title: 'Política de privacidade',
-  updated: '15 de janeiro de 2024',
+  updated: '27 de setembro de 2026',
   intro:
     'No GO Admin, protegemos suas informações pessoais com os mais altos padrões de segurança e transparência. Saiba como coletamos, usamos e protegemos seus dados.',
   principles: [
@@ -17,6 +17,13 @@ export const PRIVACY: typeof Es.PRIVACY = {
     { title: 'Minimização de dados', text: 'Só coletamos as informações necessárias para o serviço.' },
   ],
   sections: [
+    {
+      title: 'Responsável pelo tratamento',
+      items: [
+        `GO Admin S.A.S., NIT ${CONTACT.nit}, com sede em ${CONTACT.city}.`,
+        `E-mail: ${CONTACT.email} · Telefone: ${CONTACT.phoneDisplay}.`,
+      ],
+    },
     {
       title: '1. Informações que coletamos',
       items: [
@@ -53,13 +60,10 @@ export const PRIVACY: typeof Es.PRIVACY = {
     {
       title: '4. Segurança dos dados',
       items: [
-        'Criptografia end-to-end de todos os dados sensíveis (AES-256, TLS 1.3)',
-        'Servidores seguros com certificações SOC 2, ISO 27001:2022',
-        'Acesso restrito somente a pessoal autorizado com autenticação multifator',
-        'Monitoramento contínuo de segurança 24/7 com IDS/IPS avançados',
-        'Backups automáticos e planos de recuperação de desastres',
-        'Auditorias de segurança regulares e independentes (cumprimento do GDPR Art. 32)',
-        'Controles de acesso físico em data centers certificados',
+        'Conexões criptografadas (HTTPS/TLS) entre o seu navegador e o GO Admin.',
+        'Acesso por funções: cada usuário vê apenas o que sua função permite.',
+        'Cópias de segurança automáticas das informações.',
+        'Acesso aos dados restrito a pessoal autorizado.',
       ],
     },
     {

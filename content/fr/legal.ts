@@ -7,7 +7,7 @@ import { CONTACT } from '@/lib/site'
 
 export const PRIVACY: typeof Es.PRIVACY = {
   title: 'Politique de confidentialité',
-  updated: '15 janvier 2024',
+  updated: '27 septembre 2026',
   intro:
     'Chez GO Admin, nous protégeons vos renseignements personnels selon les normes les plus élevées de sécurité et de transparence. Découvrez comment nous recueillons, utilisons et protégeons vos données.',
   principles: [
@@ -17,6 +17,13 @@ export const PRIVACY: typeof Es.PRIVACY = {
     { title: 'Minimisation des données', text: 'Nous recueillons uniquement les renseignements nécessaires au service.' },
   ],
   sections: [
+    {
+      title: 'Responsable du traitement',
+      items: [
+        `GO Admin S.A.S., NIT ${CONTACT.nit}, dont le siège est à ${CONTACT.city}.`,
+        `Courriel : ${CONTACT.email} · Téléphone : ${CONTACT.phoneDisplay}.`,
+      ],
+    },
     {
       title: '1. Renseignements que nous recueillons',
       items: [
@@ -53,13 +60,10 @@ export const PRIVACY: typeof Es.PRIVACY = {
     {
       title: '4. Sécurité des données',
       items: [
-        'Chiffrement de bout en bout de toutes les données sensibles (AES-256, TLS 1.3)',
-        'Serveurs sécurisés certifiés SOC 2 et ISO 27001:2022',
-        'Accès restreint au seul personnel autorisé, avec authentification multifacteur',
-        'Surveillance continue de la sécurité 24 h sur 24, 7 jours sur 7, avec IDS/IPS avancés',
-        'Sauvegardes automatiques et plans de reprise après sinistre',
-        'Audits de sécurité réguliers et indépendants (conformité au RGPD, art. 32)',
-        'Contrôles d’accès physique dans des centres de données certifiés',
+        'Connexions chiffrées (HTTPS/TLS) entre votre navigateur et GO Admin.',
+        'Accès par rôle : chaque utilisateur voit seulement ce que son rôle permet.',
+        'Copies de sauvegarde automatiques des renseignements.',
+        'Accès aux données limité au personnel autorisé.',
       ],
     },
     {
