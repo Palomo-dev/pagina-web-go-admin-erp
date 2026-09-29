@@ -128,7 +128,6 @@ export const PLAN_COMPARISON: { key: string; values: [string, string, string] }[
   { key: 'modules', values: ['11', '16', 'all'] },
   { key: 'branches', values: ['1', '5', '15'] },
   { key: 'users', values: ['10', '20', '60'] },
-  { key: 'invoices', values: ['1000', '3000', 'unlimited'] },
   { key: 'aiCredits', values: ['500', '2000', '10000'] },
   { key: 'trialDays', values: ['15', '30', '30'] },
   { key: 'aiReports', values: ['yes', 'yes', 'yes'] },

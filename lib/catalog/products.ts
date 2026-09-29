@@ -219,7 +219,6 @@ export const PRODUCTS: Product[] = [
     solutions: ['gastronomia', 'hospedaje', 'comercio', 'servicios', 'movilidad'],
     faq: [
       { q: '¿Necesito un certificado digital?', a: 'Sí, para firmar los documentos. Si no lo tienes, puedes adquirirlo como complemento.' },
-      { q: '¿Cuántas facturas puedo emitir?', a: 'Depende del plan: 1.000, 3.000 o ilimitadas al mes. Puedes agregar facturas adicionales.' },
       { q: '¿Puedo facturar desde el celular?', a: 'Sí. La facturación funciona desde el navegador en cualquier dispositivo.' },
     ],
     variants: {
@@ -248,7 +247,6 @@ export const PRODUCTS: Product[] = [
         highlights: ['Impuestos de tu país configurados', 'Facturas y notas crédito', 'Conectada con ventas y contabilidad'],
         faq: [
           { q: '¿Cómo funciona la facturación electrónica {inCountry}?', a: '{einvoiceNote}' },
-          { q: '¿Cuántas facturas puedo emitir?', a: 'Depende del plan: 1.000, 3.000 o ilimitadas al mes.' },
           { q: '¿Puedo facturar desde el celular?', a: 'Sí. La facturación funciona desde el navegador en cualquier dispositivo.' },
         ],
       },

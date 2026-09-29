@@ -373,7 +373,6 @@
         "features": [
           "11 módulos",
           "1 sucursal · 10 usuarios",
-          "{status, select, integrated {1.000 facturas electrónicas al mes} other {1.000 facturas al mes}}",
           "500 créditos de IA al mes",
           "Reportes y asistente contable con IA"
         ]
@@ -383,7 +382,6 @@
         "features": [
           "16 módulos",
           "5 sucursales · 20 usuarios",
-          "{status, select, integrated {3.000 facturas electrónicas al mes} other {3.000 facturas al mes}}",
           "2.000 créditos de IA al mes",
           "Cobros por QR y pagos inmediatos"
         ]
@@ -393,7 +391,6 @@
         "features": [
           "{modules} módulos (todos)",
           "15 sucursales · 60 usuarios",
-          "{status, select, integrated {Facturas electrónicas ilimitadas} other {Facturas ilimitadas}}",
           "10.000 créditos de IA al mes",
           "Pagos en línea, nómina por lote y conciliación",
           "Soporte dedicado"
@@ -427,7 +424,6 @@
         "modules": "Módulos",
         "branches": "Sucursales",
         "users": "Usuarios",
-        "invoices": "{status, select, integrated {Facturas electrónicas al mes} other {Facturas al mes}}",
         "aiCredits": "Créditos de IA al mes",
         "trialDays": "Días de prueba",
         "aiReports": "Reportes y asistente contable con IA",
