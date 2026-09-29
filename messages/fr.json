@@ -1676,59 +1676,6 @@
       "perMonth": "par mois",
       "seePricing": "Voir les tarifs et comparer les forfaits"
     },
-    "investors": {
-      "meta": {
-        "title": "Investisseurs",
-        "description": "Information pour les investisseurs de GO Admin. L’accès au portail se fait uniquement sur invitation."
-      },
-      "eyebrow": "Investisseurs",
-      "title": "Nous créons le logiciel qui aide les entreprises à s’organiser.",
-      "subtitle": "Cette section s’adresse aux investisseurs et aux personnes invitées par GO Admin. Le portail des investisseurs fonctionne uniquement sur invitation.",
-      "login": "Accéder au portail",
-      "portalEyebrow": "Portail des investisseurs",
-      "portalTitle": "L’information, dans un endroit sécurisé.",
-      "portalSubtitle": "Les personnes invitées trouvent sur investors.goadmin.io :",
-      "portal": [
-        {
-          "title": "Indicateurs de l’entreprise",
-          "text": "Clients, revenus et rétention, mis à jour chaque mois."
-        },
-        {
-          "title": "Documents",
-          "text": "États financiers, ententes et présentations, avec un registre de chaque consultation."
-        },
-        {
-          "title": "Accès protégé",
-          "text": "Connexion avec vérification en deux étapes et permissions par personne."
-        },
-        {
-          "title": "Rapports périodiques",
-          "text": "Nouvelles de l’équipe, du produit et des résultats."
-        }
-      ],
-      "accessEyebrow": "Comment fonctionne l’accès",
-      "accessTitle": "Uniquement sur invitation.",
-      "steps": [
-        {
-          "title": "Nous vous invitons",
-          "text": "L’équipe de GO Admin envoie une invitation personnelle à votre courriel."
-        },
-        {
-          "title": "Vous créez votre accès",
-          "text": "Vous choisissez votre mot de passe et activez la vérification en deux étapes."
-        },
-        {
-          "title": "Nous vérifions votre identité",
-          "text": "Vous remplissez les renseignements exigés par la loi pour connaître nos investisseurs."
-        },
-        {
-          "title": "Vous consultez l’information",
-          "text": "Vous voyez les indicateurs, les documents et les rapports partagés avec vous."
-        }
-      ],
-      "company": "{legalName} · NIT {nit} · {city}",
-      "disclaimer": "Cette page est informative et ne constitue pas une offre publique de valeurs mobilières. L’information sur l’investissement est transmise uniquement aux personnes invitées, par l’entremise du portail."
-    },
     "download": {
       "meta": {
         "title": "Télécharger GO Admin pour Windows",
