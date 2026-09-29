@@ -13,6 +13,7 @@ import { tl, type T } from '@/i18n/t'
 import { getT } from '@/i18n/t-server'
 import { pageMetadata, type PageProps } from '@/lib/page'
 import { ADDONS, MODULE_COUNT, PLANS, PLAN_COMPARISON, formatNumber, formatPrice } from '@/lib/site'
+import { PricingViewTracker } from './pricing-view-tracker'
 
 export async function generateMetadata({ params }: PageProps) {
   return pageMetadata(params.locale, '/precios', 'pages.pricing')
@@ -37,6 +38,7 @@ export default async function PreciosPage({ params }: PageProps) {
   const integrated = market.countryData.fiscal.status === 'integrated'
   return (
     <>
+      <PricingViewTracker />
       <SiteNavbar tone="sky" currentPage="/precios" />
       <main id="contenido">
         <PageHero eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
