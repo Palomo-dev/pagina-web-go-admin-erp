@@ -182,9 +182,9 @@ export async function getLegal(locale: string) {
   return {
     PRIVACY: m.language === 'es' ? l.PRIVACY : esLegal.PRIVACY,
     PRIVACY_NOTICE: m.language === 'es' ? l.PRIVACY_NOTICE : esLegal.PRIVACY_NOTICE,
-    DATA_DELETION: l.DATA_DELETION,
+    DATA_DELETION: m.language === 'es' ? l.DATA_DELETION : esLegal.DATA_DELETION,
     TERMS: l.TERMS,
-    COOKIES: l.COOKIES,
+    COOKIES: m.language === 'es' ? l.COOKIES : esLegal.COOKIES,
     isReferenceTranslation: m.language !== 'es',
   }
 }

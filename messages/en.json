@@ -1335,16 +1335,25 @@
       "eyebrow": "Your rights",
       "toc": {
         "como": "How to request it",
-        "proceso": "Process",
-        "datos": "What happens to your data",
-        "plazos": "Timelines by regulation",
-        "preguntas": "FAQ"
+        "plazos": "Response time",
+        "que-borramos": "What we delete",
+        "conservamos": "What we keep and why",
+        "erp": "If you are a customer of a company using GO Admin ERP",
+        "queja": "If you disagree",
+        "ley": "Applicable law"
       },
-      "howTitle": "How do I request deletion?",
+      "howTitle": "How to request it",
       "processTitle": "Deletion process",
       "dataTitle": "What happens to my data?",
       "termsTitle": "Timelines by regulation",
-      "faqTitle": "Frequently asked questions"
+      "faqTitle": "Frequently asked questions",
+      "timelineTitle": "Response time",
+      "weDeleteTitle": "What we delete",
+      "retentionTitle": "What we keep and why",
+      "retentionIntro": "There is data we cannot delete immediately because a law or contract requires us to keep it. In those cases we block it, use it only for that purpose, and delete it when the deadline expires:",
+      "erpTitle": "If you are a customer or employee of a company using GO Admin ERP",
+      "complaintTitle": "If you disagree with our response",
+      "lawTitle": "Applicable law"
     },
     "api": {
       "meta": {
@@ -1396,17 +1405,20 @@
       },
       "eyebrow": "Legal",
       "toc": {
-        "que-son": "What they are",
-        "tipos": "Types",
-        "lista": "Cookie list",
-        "gestionar": "Change your choice",
-        "contacto": "Contact"
+        "que-son": "What cookies are",
+        "antes": "Before you choose",
+        "tipos": "Categories",
+        "lista": "Cookies we use",
+        "erp": "Inside GO Admin ERP",
+        "gestionar": "How to change your preferences",
+        "ley": "Applicable law",
+        "contacto": "Questions"
       },
-      "whatTitle": "What are cookies?",
-      "typesTitle": "Types of cookies we use",
+      "whatTitle": "What cookies are",
+      "typesTitle": "Categories",
       "always": "Always on",
       "optional": "With your permission",
-      "listTitle": "Cookie list",
+      "listTitle": "Cookies we use",
       "table": {
         "name": "Name",
         "category": "Type",
@@ -1414,8 +1426,11 @@
         "duration": "Duration",
         "provider": "Provider"
       },
-      "manageTitle": "Change your choice",
-      "settings": "Cookie settings"
+      "manageTitle": "How to change your preferences",
+      "settings": "Cookie settings",
+      "beforeTitle": "Before you choose, we only load what's necessary",
+      "erpTitle": "Inside GO Admin ERP",
+      "lawTitle": "Applicable law"
     },
     "partners": {
       "meta": {
