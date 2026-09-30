@@ -389,7 +389,7 @@ export const PRIVACY_NOTICE = {
   updated: '2 de octubre de 2026',
   version: 'Versión 1.0',
   vigente: 'Vigente desde el 2 de octubre de 2026',
-  intro: 'Este aviso resume nuestra Política de Tratamiento de Datos Personales. Para información completa, consulta la política en https://goadmin.io/privacidad.',
+  intro: '',
   sections: [
     {
       title: 'Quién trata tus datos',
