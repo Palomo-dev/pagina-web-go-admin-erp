@@ -79,8 +79,10 @@ function initGoogleTags(hasAnalytics: boolean, hasMarketing: boolean) {
   
   // Inicializar dataLayer
   window.dataLayer = window.dataLayer || []
-  window.gtag = function(...args: any[]) {
-    window.dataLayer!.push(args)
+  
+  // FIX #3: Forma estándar de gtag que preserva arguments
+  window.gtag = function() {
+    window.dataLayer!.push(arguments)
   }
   
   // Configurar Consent Mode v2 (básico)
@@ -91,16 +93,17 @@ function initGoogleTags(hasAnalytics: boolean, hasMarketing: boolean) {
     analytics_storage: hasAnalytics ? 'granted' : 'denied',
   })
   
-  // Configurar GA4
-  if (GA4_ID) {
-    window.gtag('js', new Date())
+  window.gtag('js', new Date())
+  
+  // FIX #4: Configurar GA4 solo si analytics es true
+  if (GA4_ID && hasAnalytics) {
     window.gtag('config', GA4_ID, {
       anonymize_ip: true,
       cookie_flags: 'SameSite=Lax;Secure',
     })
   }
   
-  // Configurar Google Ads
+  // FIX #4: Configurar Google Ads solo si marketing es true
   if (GADS_ID && hasMarketing) {
     window.gtag('config', GADS_ID)
   }
@@ -167,18 +170,18 @@ export function MarketingTags() {
   // No cargar nada si no hay consentimiento
   if (!consent) return null
   
-  const shouldLoadGA4 = consent.analytics && GA4_ID
-  const shouldLoadGAds = consent.marketing && GADS_ID
+  // FIX #4: Cargar gtag.js cuando analytics O marketing es true
+  const shouldLoadGtag = (consent.analytics || consent.marketing) && (GA4_ID || GADS_ID)
   const shouldLoadMetaPixel = consent.marketing && META_PIXEL_ID
   
   return (
     <>
-      {/* Google Analytics (requiere consentimiento de medición) */}
-      {shouldLoadGA4 && (
+      {/* Google Tag (gtag.js) - se carga si hay consentimiento de Medición O Publicidad */}
+      {shouldLoadGtag && (
         <Script
           id="gtag-base"
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID || GADS_ID}`}
           onLoad={() => {
             initGoogleTags(consent.analytics, consent.marketing)
             setScriptsLoaded(true)
