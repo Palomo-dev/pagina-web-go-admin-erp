@@ -17,8 +17,16 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 
-// Detectar si un item es un subtítulo (7.1, 8.1, etc. o a), b), c), d))
-const isSubheading = (item: string) => /^\d+\.\d+\s/.test(item) || /^[a-d]\)\s/.test(item)
+// Detectar si un item es un subtítulo (7.1, 8.1, etc. o a), b), c), d) solo en sección 6)
+const isSubheading = (item: string, sectionTitle: string) => {
+  // Siempre detecta formato numérico (7.1, 8.1, etc.)
+  if (/^\d+\.\d+\s/.test(item)) return true
+  
+  // Solo detecta a) b) c) d) en la sección 6
+  if (sectionTitle === '6. Cómo ejercer tus derechos' && /^[a-d]\)\s/.test(item)) return true
+  
+  return false
+}
 
 // Convertir enlaces en el texto
 const linkify = (text: string, locale: string) => {
@@ -100,7 +108,7 @@ export default async function PrivacidadPage({ params }: PageProps) {
           {s.items && s.items.length > 0 && (
             <div className="grid gap-3 leading-relaxed">
               {s.items.map((item, idx) => {
-                if (isSubheading(item)) {
+                if (isSubheading(item, s.title)) {
                   return (
                     <h3 key={idx} className="mt-3 text-base font-semibold text-ink">
                       {item}

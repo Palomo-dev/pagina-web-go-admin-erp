@@ -42,7 +42,7 @@ export default async function TerminosPage({ params }: PageProps) {
           {spanishNotice}
         </div>
       )}
-      {TERMS.draft ? <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">Borrador. Pendiente de revisión legal.</p> : null}
+      {TERMS.draft ? <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">Versión preliminar en revisión legal. Puede cambiar antes de su publicación definitiva.</p> : null}
       {TERMS.sections.map((s, i) => (
         <LegalSection key={s.title} id={id(i)} title={s.title}>
           <Bullets items={s.items} />
