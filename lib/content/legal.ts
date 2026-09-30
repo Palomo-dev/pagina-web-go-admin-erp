@@ -176,10 +176,10 @@ export const PRIVACY = {
         rows: [
           [
             'Necesarias',
-            'Que el sitio y la aplicación funcionen, sean seguros y recuerden tu elección de cookies',
-            'goadmin_consent; cookies de sesión e inicio de sesión de app.goadmin.io (autenticación de Supabase); cookies de seguridad y enrutamiento de Vercel',
+            'Que el sitio y la aplicación funcionen, sean seguros y recuerden tu país, tu idioma y tu elección de cookies',
+            'GOADMIN_MARKET (recuerda el país e idioma del sitio); goadmin_consent; cookies de sesión e inicio de sesión de app.goadmin.io (autenticación de Supabase); cookies de seguridad y enrutamiento de Vercel',
             'Propias y de nuestros encargados',
-            'goadmin_consent: hasta 12 meses; sesión: mientras dure la sesión',
+            'GOADMIN_MARKET: 12 meses; goadmin_consent: hasta 12 meses; sesión: mientras dure la sesión',
             'No se pueden desactivar porque sin ellas el servicio no funciona. No se usan para publicidad ni para seguirte en otros sitios',
           ],
           [
@@ -441,32 +441,42 @@ export const PRIVACY_NOTICE = {
 }
 
 export const DATA_DELETION = {
-  title: 'Eliminación de datos',
+  title: 'Eliminación de datos y de cuenta en GO Admin',
+  updated: '2 de octubre de 2026',
   intro:
-    'Respetamos tu derecho a la privacidad. Puedes solicitar la eliminación completa de tus datos personales en cualquier momento. Aquí te mostramos cómo.',
+    'Puedes pedir en cualquier momento que borremos tus datos personales o tu cuenta de GO Admin ERP. Aquí te explicamos cómo hacerlo, qué borramos, qué debemos conservar por ley y en cuánto tiempo te respondemos. Esta página complementa nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
   methods: [
-    { title: 'Correo', text: 'Envía tu solicitud a', contact: CONTACT.email, href: `mailto:${CONTACT.email}`, details: 'Incluye: nombre completo, correo de la cuenta y razón de la solicitud.' },
-    { title: 'Teléfono', text: 'Llama a nuestro equipo', contact: CONTACT.phoneDisplay, href: 'tel:+573113195711', details: 'Lunes a viernes, 8:00 a. m. – 6:00 p. m. (hora de Colombia).' },
-    { title: 'En tu cuenta', text: 'Desde tu perfil en', contact: 'app.goadmin.io/perfil', href: 'https://app.goadmin.io/perfil', details: 'Selecciona «Solicitar eliminación de datos» en configuración.' },
+    { title: 'Desde la aplicación', text: 'Si tienes usuario en GO Admin ERP', contact: 'app.goadmin.io/perfil', href: 'https://app.goadmin.io/perfil', details: 'Abre «Mi perfil» y elige «Eliminar cuenta». Confirma con tu contraseña.' },
+    { title: 'Por correo', text: 'Escribe con el asunto «Eliminación de datos»', contact: CONTACT.email, href: `mailto:${CONTACT.email}`, details: 'Para prospectos, candidatos, contactos o para cerrar la cuenta de toda la empresa.' },
+    { title: 'Otros canales', text: 'WhatsApp, teléfono o escrito', contact: CONTACT.phoneDisplay, href: CONTACT.phoneHref, details: 'De lunes a viernes, 8:00 a. m. – 6:00 p. m. (hora de Colombia). Dirección: Carrera 87 B # 45 B - 8, Medellín.' },
   ],
-  steps: [
-    { title: 'Solicitar eliminación', text: 'Contacta a nuestro equipo de privacidad por correo, teléfono o WhatsApp en servicio@goadmin.io o +57 311 319 5711 con tu solicitud de eliminación de datos.' },
-    { title: 'Verificación de identidad', text: 'Verificaremos tu identidad y que seas el propietario de la cuenta para proteger tu seguridad.' },
-    { title: 'Procesamiento', text: 'Respondemos consultas en máximo 10 días hábiles y reclamos en máximo 15 días hábiles, según los artículos 14 y 15 de la Ley 1581 de 2012.' },
-    { title: 'Confirmación', text: 'Recibirás confirmación de que tus datos han sido eliminados permanentemente de nuestros sistemas, salvo los que debamos conservar por ley.' },
+  include: 'Tu nombre, número de documento, datos de contacto, el correo o teléfono con el que te conocemos y qué quieres que borremos. Si actúas por otra persona, adjunta el documento que lo acredite. Puedes pedirlo: tú, tus causahabientes, tu representante o apoderado, o quien estipule a tu favor (artículo 20 del Decreto 1377 de 2013). La persona responsable de atender las solicitudes es Juan Camilo Gallego Aguirre, representante legal de Go Admin S.A.S.',
+  timeline: [
+    'Pedir que borremos tus datos o revocar tu autorización es un reclamo. Te respondemos en máximo 15 días hábiles desde el día siguiente a su recibo. Si no es posible, te diremos por qué y la nueva fecha, que no superará 8 días hábiles adicionales (artículo 15 de la Ley 1581).',
+    'Si tu solicitud está incompleta, te pediremos completarla dentro de los 5 días siguientes. Si pasan 2 meses sin que la completes, se entenderá que desististe.',
+    'Mientras resolvemos, marcaremos el dato como «reclamo en trámite».',
+    'Si solo quieres saber qué datos tenemos de ti o cómo los usamos, es una consulta. Te respondemos en máximo 10 días hábiles desde que la recibimos, con una prórroga máxima de 5 días hábiles si hace falta (artículo 14 de la Ley 1581).',
+    'Si solo quieres dejar de recibir mensajes comerciales, lo aplicamos de inmediato en nuestra lista de «no contactar».',
+    'Cuando terminemos, te confirmaremos por el mismo canal qué borramos y, si conservamos algo, qué es y por qué.',
+  ],
+  weDelete: [
+    'tu perfil, tus datos de contacto, tus preferencias y tu acceso a GO Admin ERP;',
+    'los datos que tenemos de ti como prospecto en nuestro CRM (registro de llamadas, mensajes y reuniones);',
+    'las grabaciones y transcripciones de tus llamadas con nosotros, salvo en los casos de conservación que se indican abajo;',
+    'tu hoja de vida y los datos de tus procesos de selección, si fuiste candidato;',
+    'los identificadores de navegación y medición asociados a ti.',
+    'Si eres el representante de una empresa cliente y cierras la cuenta de toda la empresa, devolvemos o suprimimos los datos cargados en GO Admin ERP según los Términos y Condiciones, salvo lo que la ley nos obligue a conservar.',
   ],
   retention: [
-    { type: 'Datos de cuenta', period: 'Eliminados de forma segura (30 días de eliminación lógica)' },
-    { type: 'Datos de facturación', period: 'Conservados por 10 años (artículo 28 de la Ley 962 de 2005)' },
-    { type: 'Datos de negocio', period: 'Eliminados completamente' },
-    { type: 'Logs de seguridad', period: 'Purgados después de 30 días (auditoría completada)' },
-    { type: 'Copias de respaldo', period: 'Eliminados en el siguiente ciclo de respaldo (máx. 90 días)' },
+    { type: 'Datos contables, de facturación y sus soportes', period: '10 años (artículo 28 de la Ley 962 de 2005)' },
+    { type: 'Tu solicitud de «no contactar»', period: 'Mientras GO Admin haga actividades comerciales, solo con el dato mínimo (por ejemplo, tu número o correo) para respetar tu decisión' },
+    { type: 'Prueba de tu autorización, grabaciones ligadas a una venta o a un reclamo, y el trámite de tu solicitud', period: 'Mientras dure esa relación o el trámite, y durante el tiempo necesario para atender reclamaciones' },
+    { type: 'Datos que una autoridad nos ordene conservar', period: 'El tiempo que indique la orden' },
   ],
-  faq: [
-    { q: '¿Puedo recuperar mis datos después de solicitar la eliminación?', a: 'No. Una vez iniciado el proceso de eliminación, los datos se borran permanentemente. No podrán ser recuperados.' },
-    { q: '¿Se eliminarán mis datos de facturación?', a: 'Los datos de facturación se conservan por 10 años conforme al artículo 28 de la Ley 962 de 2005. El resto de datos se elimina completamente.' },
-    { q: '¿Cuánto tiempo tarda la eliminación?', a: 'Respondemos consultas en máximo 10 días hábiles y reclamos en máximo 15 días hábiles, según los artículos 14 y 15 de la Ley 1581 de 2012. Recibirás confirmación cuando se complete.' },
-  ],
+  retentionNote: 'Si no pides la eliminación, estos son los plazos máximos que aplicamos de todos modos: prospectos que no se convierten en clientes, hasta 24 meses desde el último contacto; audio de las llamadas, hasta 90 días; transcripciones y resúmenes, hasta 180 días; candidatos no seleccionados, hasta 12 meses desde el cierre del proceso. El resto de plazos está en la sección 14 de la Política de Tratamiento de Datos Personales.',
+  erp: 'Cuando una empresa registra en GO Admin ERP datos de sus clientes, trabajadores o proveedores, esa empresa es la responsable de esos datos y GO Admin los trata por su cuenta. Para pedir que los borren, dirígete primero a esa empresa. Si nos escribes a nosotros, le trasladaremos tu solicitud sin demora.',
+  complaint: 'Si ya presentaste tu consulta o reclamo ante GO Admin y no quedaste satisfecho, o no te respondimos a tiempo, puedes presentar una queja ante la Superintendencia de Industria y Comercio (SIC), la autoridad de protección de datos personales en Colombia, en www.sic.gov.co (artículo 16 de la Ley 1581).',
+  law: 'Estas solicitudes se rigen por la ley colombiana, en especial la Ley 1581 de 2012 y sus decretos reglamentarios, aunque vivas o uses GO Admin desde otro país.',
 }
 
 /**
@@ -618,49 +628,52 @@ export const TERMS = {
  * idioma, el registro del consentimiento y la analítica de Vercel (solo si la aceptas).
  */
 export const COOKIES = {
-  title: 'Política de cookies',
+  title: 'Política de cookies de GO Admin',
   updated: '2 de octubre de 2026',
   intro:
-    'Explicamos qué cookies usa goadmin.io, para qué sirven y cómo cambiar tu elección. Esta página cumple la sección 8 de la Política de Tratamiento de Datos Personales.',
-  what: 'Una cookie es un archivo pequeño que el sitio guarda en tu navegador para recordar algo, como tu país o idioma. Tecnologías parecidas, como el almacenamiento local del navegador, se tratan igual en esta política.',
+    'Esta página explica qué cookies usa goadmin.io, para qué sirve cada una, cuánto duran y cómo cambiar tu elección. Complementa la sección 8 de nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
+  what: 'Una cookie es un archivo pequeño que un sitio web guarda en tu navegador. Sirve para que el sitio funcione, recuerde tus elecciones o mida cómo se usa. Algunas cookies y tecnologías parecidas (píxeles, etiquetas, almacenamiento del navegador) permiten reconocer tu navegador o dispositivo; por eso pueden ser datos personales y las tratamos como tales. Las cookies pueden ser propias (las pone GO Admin) o de terceros (las pone otra empresa, como Google o Meta, cuando su herramienta está activa en nuestro sitio).',
+  beforeChoose: 'Cuando entras a goadmin.io te mostramos un aviso de cookies. Hasta que elijas, el sitio solo usa las cookies necesarias. Las cookies de medición y de publicidad no se instalan ni se activan hasta que las aceptes, y las herramientas de Google y Meta no se cargan antes de tu consentimiento. En el aviso puedes aceptarlas todas, rechazar las opcionales con un solo clic o elegir por categoría. Seguir navegando o cerrar el aviso no cuenta como aceptación.',
   categories: [
     {
       id: 'necessary',
       title: 'Necesarias',
-      text: 'Hacen que el sitio funcione, sean seguros y recuerden tu elección de cookies. No se pueden desactivar porque sin ellas el servicio no funciona.',
+      text: 'Hacen que el sitio y la aplicación funcionen, sean seguros y recuerden tu país, tu idioma y tu elección de cookies. No se pueden desactivar porque sin ellas el servicio no funciona. No se usan para publicidad ni para seguirte en otros sitios.',
       always: true,
     },
     {
       id: 'analytics',
       title: 'Medición',
-      text: 'Nos ayudan a saber cuántas personas visitan el sitio, qué páginas ven y de qué campaña llegaron. Solo se activan si las aceptas.',
+      text: 'Nos dicen cuántas personas visitan el sitio, qué páginas ven y de qué campaña llegaron. Se activan solo si aceptas esta categoría.',
       always: false,
     },
     {
       id: 'advertising',
       title: 'Publicidad',
-      text: 'Miden las conversiones de nuestros anuncios y permiten mostrarte anuncios de GO Admin en Meta y Google. Solo se activan si las aceptas.',
+      text: 'Miden las conversiones de nuestros anuncios y permiten mostrarte anuncios de GO Admin en Meta (Facebook e Instagram) y Google. Se activan solo si aceptas esta categoría.',
       always: false,
     },
   ],
   table: [
-    { name: 'goadmin_consent', category: 'Necesarias', purpose: 'Guarda tu elección sobre cookies para no volver a preguntarte.', duration: 'Hasta 12 meses', provider: 'GO Admin' },
-    { name: 'Cookies de sesión de app.goadmin.io', category: 'Necesarias', purpose: 'Autenticación de Supabase para mantenerte conectado.', duration: 'Mientras dure la sesión', provider: 'GO Admin (Supabase)' },
-    { name: 'Cookies de seguridad y enrutamiento de Vercel', category: 'Necesarias', purpose: 'Proteger el sitio y enrutar las peticiones.', duration: 'Varía', provider: 'Vercel' },
-    { name: '_ga', category: 'Medición', purpose: 'Identificador de Google Analytics 4 para medir visitas.', duration: 'Hasta 2 años', provider: 'Google' },
-    { name: '_ga_<ID>', category: 'Medición', purpose: 'Identificador de sesión de Google Analytics 4.', duration: 'Hasta 2 años', provider: 'Google' },
-    { name: 'Vercel Analytics', category: 'Medición', purpose: 'Mide visitas a páginas de forma agregada, sin cookies de seguimiento.', duration: 'No guarda cookies', provider: 'Vercel' },
-    { name: 'goadmin_attr', category: 'Medición', purpose: 'Cookie propia de atribución que guarda los UTM, fbclid y gclid con los que llegaste y tu página de entrada.', duration: '90 días', provider: 'GO Admin' },
-    { name: '_fbp', category: 'Publicidad', purpose: 'Píxel de Meta para medir conversiones de anuncios.', duration: 'Hasta 90 días', provider: 'Meta Platforms' },
-    { name: '_fbc', category: 'Publicidad', purpose: 'Píxel de Meta para medir conversiones de anuncios.', duration: 'Hasta 90 días', provider: 'Meta Platforms' },
-    { name: '_gcl_au', category: 'Publicidad', purpose: 'Etiqueta de Google Ads para medir conversiones.', duration: 'Hasta 90 días', provider: 'Google' },
-    { name: '_gcl_aw', category: 'Publicidad', purpose: 'Etiqueta de Google Ads y conversiones mejoradas.', duration: 'Hasta 90 días', provider: 'Google' },
+    { name: 'GOADMIN_MARKET', category: 'Necesaria', purpose: 'Recordar el país e idioma del sitio que elegiste o que te asignamos según tu ubicación, para no volver a preguntarte', duration: '12 meses', provider: 'GO Admin (propia)' },
+    { name: 'goadmin_consent', category: 'Necesaria', purpose: 'Guardar tu elección de cookies. Se comparte entre goadmin.io y app.goadmin.io para que no tengas que elegir dos veces', duration: 'Hasta 12 meses', provider: 'GO Admin (propia)' },
+    { name: 'Cookies de sesión de app.goadmin.io (autenticación de Supabase)', category: 'Necesaria', purpose: 'Mantener tu sesión abierta y proteger tu cuenta cuando entras a GO Admin ERP', duration: 'Mientras dure tu sesión', provider: 'GO Admin, con Supabase como encargado' },
+    { name: 'Cookies de seguridad y enrutamiento de Vercel', category: 'Necesaria', purpose: 'Proteger el sitio contra tráfico malicioso y entregar las páginas', duration: 'Duración corta, según Vercel', provider: 'Vercel, como encargado' },
+    { name: 'Vercel Analytics', category: 'Medición. Se activa solo si aceptas esa categoría', purpose: 'Contar visitas a las páginas de forma agregada. No guarda cookies en tu navegador', duration: 'No aplica (sin cookies)', provider: 'Vercel' },
+    { name: 'goadmin_attr', category: 'Medición. Se activa solo si aceptas esa categoría', purpose: 'Guardar los parámetros de campaña (UTM), los identificadores de clic (fbclid y gclid) y la página por la que entraste, para saber qué campaña te trajo', duration: '90 días', provider: 'GO Admin (propia)' },
+    { name: '_ga', category: 'Medición. Se activa solo si aceptas esa categoría', purpose: 'Distinguir visitantes y medir el uso del sitio', duration: 'Hasta 2 años', provider: 'Google (Google Analytics 4)' },
+    { name: '_ga_<ID>', category: 'Medición. Se activa solo si aceptas esa categoría', purpose: 'Mantener el estado de la sesión de medición', duration: 'Hasta 2 años', provider: 'Google (Google Analytics 4)' },
+    { name: '_fbp', category: 'Publicidad. Se activa solo si aceptas esa categoría', purpose: 'Medir las conversiones de nuestros anuncios en Facebook e Instagram y mostrarte anuncios de GO Admin', duration: '90 días', provider: 'Meta Platforms (píxel de Meta)' },
+    { name: '_fbc', category: 'Publicidad. Se activa solo si aceptas esa categoría', purpose: 'Guardar el identificador del clic en un anuncio de Meta para atribuir la conversión', duration: '90 días', provider: 'Meta Platforms (píxel de Meta)' },
+    { name: '_gcl_au', category: 'Publicidad. Se activa solo si aceptas esa categoría', purpose: 'Medir las conversiones de nuestros anuncios en Google', duration: '90 días', provider: 'Google (Google Ads)' },
+    { name: '_gcl_aw', category: 'Publicidad. Se activa solo si aceptas esa categoría', purpose: 'Guardar el identificador del clic en un anuncio de Google para atribuir la conversión', duration: '90 días', provider: 'Google (Google Ads, conversiones mejoradas)' },
   ],
-  notUsed: 'La duración indicada para cookies de terceros es la que informa cada proveedor y puede cambiar. En esta página publicamos la lista actualizada.',
+  notUsed: 'La duración de las cookies de terceros es la que informa cada proveedor y puede cambiar. Cuando cambiemos las cookies que usamos, actualizaremos esta tabla. Si aceptas la medición y la publicidad, también podemos enviar a Meta y a Google, desde nuestros servidores, eventos como «formulario enviado» o «registro completado», con tu correo y teléfono convertidos en códigos irreversibles (hash SHA-256). Si no lo aceptas, no enviamos nada sobre ti. El detalle está en la sección 8.3 de la Política de Tratamiento de Datos Personales.',
   app: 'No usamos cookies de publicidad ni píxeles dentro de la aplicación una vez inicias sesión. La medición se limita a las páginas de registro y bienvenida, y siempre según tu elección de cookies.',
   manage: [
-    'Puedes cambiar o retirar tu consentimiento en cualquier momento desde el enlace «Preferencias de cookies», en el pie de cada página, o borrando las cookies en tu navegador.',
-    'Retirar el consentimiento no afecta lo tratado antes de retirarlo. Si bloqueas las necesarias, el sitio puede no recordar tu país e idioma.',
+    'Puedes cambiar o retirar tu consentimiento cuando quieras desde el enlace «Preferencias de cookies», en el pie de cada página. Al retirarlo, dejamos de activar las cookies de medición y de publicidad desde ese momento; lo tratado antes de retirarlo no se ve afectado.',
+    'También puedes borrar o bloquear las cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país, tu idioma ni tu elección, y la aplicación puede no mantener tu sesión.',
   ],
-  contact: { title: '¿Tienes preguntas sobre cookies?', text: 'Escríbenos y te respondemos.', email: CONTACT.email },
+  law: 'Esta política se rige por la ley colombiana, en especial la Ley 1581 de 2012 y sus decretos reglamentarios, aunque visites el sitio desde otro país.',
+  contact: { title: 'Preguntas', text: 'Si tienes preguntas sobre las cookies o quieres ejercer tus derechos sobre tus datos, escríbenos a servicio@goadmin.io. Te respondemos las consultas en máximo 10 días hábiles y los reclamos en máximo 15 días hábiles, como explica la Política de Tratamiento de Datos Personales.', email: CONTACT.email },
 }

@@ -2,7 +2,6 @@ import { setRequestLocale } from 'next-intl/server'
 import { getT } from '@/i18n/t-server'
 import { getLegal } from '@/lib/data'
 import { pageMetadata, type PageProps } from '@/lib/page'
-import { Faq } from '@/components/site/faq'
 import { LegalLayout, LegalSection } from '@/components/sections/legal-layout'
 
 export async function generateMetadata({ params }: PageProps) {
@@ -12,7 +11,7 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function EliminacionDatosPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.deletion')
-  const { DATA_DELETION: d, isReferenceTranslation } = await getLegal(params.locale)
+  const { DATA_DELETION: d } = await getLegal(params.locale)
   
   // Mensaje para idiomas no españoles
   const showSpanishOnlyNotice = !params.locale.startsWith('es')
@@ -24,9 +23,9 @@ export default async function EliminacionDatosPage({ params }: PageProps) {
         ? 'Ce document juridique est disponible uniquement en espagnol.'
         : ''
   
-  const toc = ['como', 'proceso', 'datos', 'preguntas'].map((id) => ({ id, label: t(`toc.${id}`) }))
+  const toc = ['como', 'plazos', 'que-borramos', 'conservamos', 'erp', 'queja', 'ley'].map((id) => ({ id, label: t(`toc.${id}`) }))
   return (
-    <LegalLayout eyebrow={t('eyebrow')} title={d.title} intro={d.intro} toc={toc} currentPage="/eliminacion-datos" reference={false}>
+    <LegalLayout eyebrow={t('eyebrow')} title={d.title} intro={d.intro} updated={d.updated} toc={toc} currentPage="/eliminacion-datos" reference={false}>
       {showSpanishOnlyNotice && (
         <div className="mb-8 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
           {spanishNotice}
@@ -43,21 +42,30 @@ export default async function EliminacionDatosPage({ params }: PageProps) {
             </a>
           ))}
         </div>
+        <p className="mt-4 leading-relaxed">{d.include}</p>
       </LegalSection>
-      <LegalSection id="proceso" title={t('processTitle')}>
-        <ol className="grid gap-5">
-          {d.steps.map((s, i) => (
-            <li key={s.title} className="flex gap-4">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-go text-sm font-semibold text-white">{i + 1}</span>
-              <span>
-                <span className="block font-semibold text-ink">{s.title}</span>
-                <span className="block">{s.text}</span>
-              </span>
-            </li>
+      <LegalSection id="plazos" title={t('timelineTitle')}>
+        <div className="grid gap-2.5 leading-relaxed">
+          {d.timeline.map((item, idx) => (
+            <div key={idx} className="flex gap-3">
+              <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-go" />
+              <span>{item}</span>
+            </div>
           ))}
-        </ol>
+        </div>
       </LegalSection>
-      <LegalSection id="datos" title={t('dataTitle')}>
+      <LegalSection id="que-borramos" title={t('weDeleteTitle')}>
+        <div className="grid gap-2.5 leading-relaxed">
+          {d.weDelete.map((item, idx) => (
+            <div key={idx} className="flex gap-3">
+              <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-go" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </LegalSection>
+      <LegalSection id="conservamos" title={t('retentionTitle')}>
+        <p className="mb-4 leading-relaxed">{t('retentionIntro')}</p>
         <div className="overflow-hidden rounded-2xl border border-ink-line">
           {d.retention.map((r, i) => (
             <div key={r.type} className={`flex flex-col gap-1 px-5 py-4 sm:flex-row sm:justify-between ${i ? 'border-t border-ink-line' : ''}`}>
@@ -66,9 +74,16 @@ export default async function EliminacionDatosPage({ params }: PageProps) {
             </div>
           ))}
         </div>
+        <p className="mt-4 text-sm text-ink-muted">{d.retentionNote}</p>
       </LegalSection>
-      <LegalSection id="preguntas" title={t('faqTitle')}>
-        <Faq items={d.faq} defaultOpen={-1} />
+      <LegalSection id="erp" title={t('erpTitle')}>
+        <p className="leading-relaxed">{d.erp}</p>
+      </LegalSection>
+      <LegalSection id="queja" title={t('complaintTitle')}>
+        <p className="leading-relaxed">{d.complaint}</p>
+      </LegalSection>
+      <LegalSection id="ley" title={t('lawTitle')}>
+        <p className="leading-relaxed">{d.law}</p>
       </LegalSection>
     </LegalLayout>
   )
