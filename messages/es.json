@@ -1421,21 +1421,16 @@
       "listTitle": "Cookies que usamos",
       "table": {
         "name": "Nombre",
-        "category": "Categoría",
-        "purpose": "Finalidad",
+        "category": "Tipo",
+        "purpose": "Para qué sirve",
         "duration": "Duración",
         "provider": "Proveedor"
       },
-<<<<<<< HEAD
-      "manageTitle": "Cómo cambiar tus preferencias",
-      "settings": "Preferencias de cookies",
-      "beforeTitle": "Antes de que elijas, solo cargamos lo necesario",
+      "beforeTitle": "Antes de que elijas",
       "erpTitle": "Dentro de GO Admin ERP",
-      "lawTitle": "Ley aplicable"
-=======
       "manageTitle": "Cambiar tu elección",
-      "settings": "Preferencias de cookies"
->>>>>>> 0e2e692 (Ajustar banner de cookies según política aprobada por Legal)
+      "settings": "Preferencias de cookies",
+      "lawTitle": "Ley aplicable"
     },
     "partners": {
       "meta": {
