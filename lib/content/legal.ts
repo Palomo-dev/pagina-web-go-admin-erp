@@ -323,50 +323,66 @@ export const TERMS = {
 }
 
 /**
- * Política de cookies. Refleja lo que el sitio usa: cookies necesarias, de medición (Vercel Analytics) 
- * y de publicidad (Meta y Google), estas últimas solo con consentimiento explícito.
+ * Política de cookies de GO Admin.
+ * Texto aprobado por Legal el 2 de octubre de 2026 (pagina_cookies_publicar_ef7d.html).
  */
 export const COOKIES = {
-  title: 'Política de cookies',
-  updated: '29 de septiembre de 2026',
+  title: 'Política de cookies de GO Admin',
+  version: 'Versión 1.0',
+  published: '2 de octubre de 2026',
+  updated: '2 de octubre de 2026',
   intro:
-    'Usamos cookies para que el sitio funcione, para mejorar tu experiencia y, con tu permiso, para medir el desempeño de nuestras campañas. Aquí te contamos cuáles, para qué sirven y cómo cambiar tu elección.',
-  what: 'Una cookie es un archivo pequeño que el sitio guarda en tu navegador para recordar algo, como tu país, idioma o tu elección sobre cookies. Tecnologías parecidas, como el almacenamiento local del navegador (sessionStorage, localStorage), se tratan igual en esta política.',
+    'Esta página explica qué cookies usa goadmin.io, para qué sirve cada una, cuánto duran y cómo cambiar tu elección. Complementa la sección 8 de nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
+  what:
+    'Una cookie es un archivo pequeño que un sitio web guarda en tu navegador. Sirve para que el sitio funcione, recuerde tus elecciones o mida cómo se usa. Algunas cookies y tecnologías parecidas (píxeles, etiquetas, almacenamiento del navegador) permiten reconocer tu navegador o dispositivo; por eso pueden ser datos personales y las tratamos como tales. Las cookies pueden ser propias (las pone GO Admin) o de terceros (las pone otra empresa, como Google o Meta, cuando su herramienta está activa en nuestro sitio).',
+  beforeConsent:
+    'Cuando entras a goadmin.io te mostramos un aviso de cookies. Hasta que elijas, el sitio solo usa las cookies necesarias. Las cookies de medición y de publicidad no se instalan ni se activan hasta que las aceptes, y las herramientas de Google y Meta no se cargan antes de tu consentimiento. En el aviso puedes aceptarlas todas, rechazar las opcionales con un solo clic o elegir por categoría. Seguir navegando o cerrar el aviso no cuenta como aceptación.',
   categories: [
     {
       id: 'necessary',
       title: 'Necesarias',
-      text: 'Hacen que el sitio funcione y recuerdan tus elecciones (país, idioma, consentimiento). No se pueden desactivar.',
+      text: 'Hacen que el sitio y la aplicación funcionen, sean seguros y recuerden tu país, tu idioma y tu elección de cookies. No se pueden desactivar porque sin ellas el servicio no funciona. No se usan para publicidad ni para seguirte en otros sitios.',
       always: true,
     },
     {
       id: 'analytics',
       title: 'Medición',
-      text: 'Nos ayudan a saber qué páginas se visitan para mejorar el sitio. Los datos son agregados y no te identifican. Solo se activan si las aceptas.',
+      text: 'Nos dicen cuántas personas visitan el sitio, qué páginas ven y de qué campaña llegaron. Se activan solo si aceptas esta categoría.',
       always: false,
     },
     {
       id: 'marketing',
       title: 'Publicidad',
-      text: 'Nos permiten medir el desempeño de nuestras campañas en Meta y Google, y mejorar nuestros anuncios. Se envían datos a Meta (Facebook, Instagram) y Google. Solo se activan si las aceptas.',
+      text: 'Miden las conversiones de nuestros anuncios y permiten mostrarte anuncios de GO Admin en Meta (Facebook e Instagram) y Google. Se activan solo si aceptas esta categoría.',
       always: false,
     },
   ],
   table: [
-    { name: 'GOADMIN_MARKET', category: 'Necesarias', purpose: 'Recuerda el país e idioma que elegiste.', duration: '1 año', provider: 'GO Admin' },
-    { name: 'goadmin_consent', category: 'Necesarias', purpose: 'Guarda tu elección sobre cookies (necesarias, medición, publicidad) para no volver a preguntarte.', duration: '180 días', provider: 'GO Admin' },
-    { name: 'goadmin_attr', category: 'Medición', purpose: 'Guarda el origen de tu visita (campaña, medio, fuente) para saber qué campañas traen visitantes. Solo con tu consentimiento de medición.', duration: '90 días', provider: 'GO Admin' },
-    { name: 'Vercel Web Analytics', category: 'Medición', purpose: 'Mide visitas a páginas de forma agregada, sin cookies de seguimiento ni identificadores personales. Solo con tu consentimiento de medición.', duration: 'No guarda cookies', provider: 'Vercel Inc.' },
-    { name: 'Google Analytics (_ga, _ga_<ID>)', category: 'Medición', purpose: 'Mide visitas y eventos en el sitio para reportes de Google Analytics. Solo con tu consentimiento de medición.', duration: '2 años', provider: 'Google LLC' },
-    { name: 'Meta Pixel (_fbp, _fbc)', category: 'Publicidad', purpose: 'Mide conversiones y optimiza campañas en Facebook e Instagram. Solo con tu consentimiento de publicidad.', duration: '90 días', provider: 'Meta Platforms Inc.' },
-    { name: 'Google Ads (_gcl_au, _gcl_aw)', category: 'Publicidad', purpose: 'Mide conversiones de campañas de Google Ads. Solo con tu consentimiento de publicidad.', duration: '90 días', provider: 'Google LLC' },
+    { name: 'GOADMIN_MARKET', provider: 'GO Admin (propia)', purpose: 'Recordar el país e idioma del sitio que elegiste o que te asignamos según tu ubicación, para no volver a preguntarte', duration: '12 meses', category: 'Necesaria' },
+    { name: 'goadmin_consent', provider: 'GO Admin (propia)', purpose: 'Guardar tu elección de cookies. Se comparte entre goadmin.io y app.goadmin.io para que no tengas que elegir dos veces', duration: 'Hasta 12 meses', category: 'Necesaria' },
+    { name: 'Cookies de sesión de app.goadmin.io (autenticación de Supabase)', provider: 'GO Admin, con Supabase como encargado', purpose: 'Mantener tu sesión abierta y proteger tu cuenta cuando entras a GO Admin ERP', duration: 'Mientras dure tu sesión', category: 'Necesaria' },
+    { name: 'Cookies de seguridad y enrutamiento de Vercel', provider: 'Vercel, como encargado', purpose: 'Proteger el sitio contra tráfico malicioso y entregar las páginas', duration: 'Duración corta, según Vercel', category: 'Necesaria' },
+    { name: 'Vercel Analytics', provider: 'Vercel', purpose: 'Contar visitas a las páginas de forma agregada. No guarda cookies en tu navegador', duration: 'No aplica (sin cookies)', category: 'Medición. Se activa solo si aceptas esa categoría' },
+    { name: 'goadmin_attr', provider: 'GO Admin (propia)', purpose: 'Guardar los parámetros de campaña (UTM), los identificadores de clic (fbclid y gclid) y la página por la que entraste, para saber qué campaña te trajo', duration: '90 días', category: 'Medición. Se activa solo si aceptas esa categoría' },
+    { name: '_ga', provider: 'Google (Google Analytics 4)', purpose: 'Distinguir visitantes y medir el uso del sitio', duration: 'Hasta 2 años', category: 'Medición. Se activa solo si aceptas esa categoría' },
+    { name: '_ga_<ID>', provider: 'Google (Google Analytics 4)', purpose: 'Mantener el estado de la sesión de medición', duration: 'Hasta 2 años', category: 'Medición. Se activa solo si aceptas esa categoría' },
+    { name: '_fbp', provider: 'Meta Platforms (píxel de Meta)', purpose: 'Medir las conversiones de nuestros anuncios en Facebook e Instagram y mostrarte anuncios de GO Admin', duration: '90 días', category: 'Publicidad. Se activa solo si aceptas esa categoría' },
+    { name: '_fbc', provider: 'Meta Platforms (píxel de Meta)', purpose: 'Guardar el identificador del clic en un anuncio de Meta para atribuir la conversión', duration: '90 días', category: 'Publicidad. Se activa solo si aceptas esa categoría' },
+    { name: '_gcl_au', provider: 'Google (Google Ads)', purpose: 'Medir las conversiones de nuestros anuncios en Google', duration: '90 días', category: 'Publicidad. Se activa solo si aceptas esa categoría' },
+    { name: '_gcl_aw', provider: 'Google (Google Ads, conversiones mejoradas)', purpose: 'Guardar el identificador del clic en un anuncio de Google para atribuir la conversión', duration: '90 días', category: 'Publicidad. Se activa solo si aceptas esa categoría' },
   ],
-  notUsed: 'No usamos cookies de redes publicitarias de terceros más allá de Meta y Google. Tampoco compartimos datos de navegación con otras empresas publicitarias ni usamos fingerprinting.',
-  app: 'La aplicación GO Admin (app.goadmin.io) usa sus propias cookies de sesión, necesarias para mantenerte conectado y proteger tu cuenta. Esas cookies no se usan para publicidad.',
+  thirdPartyNote: 'La duración de las cookies de terceros es la que informa cada proveedor y puede cambiar. Cuando cambiemos las cookies que usamos, actualizaremos esta tabla.',
+  serverEvents: 'Si aceptas la medición y la publicidad, también podemos enviar a Meta y a Google, desde nuestros servidores, eventos como «formulario enviado» o «registro completado», con tu correo y teléfono convertidos en códigos irreversibles (hash SHA-256). Si no lo aceptas, no enviamos nada sobre ti. El detalle está en la sección 8.3 de la Política de Tratamiento de Datos Personales.',
+  notUsed: 'No usamos cookies de publicidad ni píxeles dentro de la aplicación una vez inicias sesión. La medición se limita a las páginas de registro y bienvenida, y siempre según tu elección de cookies.',
+  app: 'No usamos cookies de publicidad ni píxeles dentro de la aplicación una vez inicias sesión. La medición se limita a las páginas de registro y bienvenida, y siempre según tu elección de cookies.',
   manage: [
-    'Puedes cambiar tu elección en cualquier momento con el botón «Preferencias de cookies» de esta página o del pie de página.',
-    'También puedes borrar o bloquear cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país e idioma.',
-    'Para las cookies de Meta y Google, al aceptarlas también autorizas la transferencia de tus datos de navegación a Estados Unidos, donde tienen su infraestructura. Ambas empresas cumplen marcos de transferencia internacional reconocidos.',
+    'Puedes cambiar o retirar tu consentimiento cuando quieras desde el enlace «Preferencias de cookies», en el pie de cada página. Al retirarlo, dejamos de activar las cookies de medición y de publicidad desde ese momento; lo tratado antes de retirarlo no se ve afectado.',
+    'También puedes borrar o bloquear las cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país, tu idioma ni tu elección, y la aplicación puede no mantener tu sesión.',
   ],
-  contact: { title: '¿Tienes preguntas sobre cookies?', text: 'Escríbenos y te respondemos.', email: CONTACT.email },
+  law: 'Esta política se rige por la ley colombiana, en especial la Ley 1581 de 2012 y sus decretos reglamentarios, aunque visites el sitio desde otro país.',
+  contact: {
+    title: 'Preguntas',
+    text: 'Si tienes preguntas sobre las cookies o quieres ejercer tus derechos sobre tus datos, escríbenos a servicio@goadmin.io. Te respondemos las consultas en máximo 10 días hábiles y los reclamos en máximo 15 días hábiles, como explica la Política de Tratamiento de Datos Personales.',
+    email: CONTACT.email,
+  },
 }

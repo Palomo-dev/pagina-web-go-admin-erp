@@ -1,13 +1,16 @@
 /**
  * Atribución de marketing según el contrato compartido con el ERP.
  *
- * - Sin consentimiento de medición: SOLO utm_* en sessionStorage.
- * - Con consentimiento de medición: cookie goadmin_attr con primer y último toque (90 días).
- * - Enlaces al registro: agregar UTM vigentes; gclid/fbclid SOLO con consentimiento de medición.
+ * DECISIÓN LEGAL (30-sep-2026): Antes del consentimiento NO se guarda nada, ni en sessionStorage.
+ * - Sin consentimiento de medición: mantener solo en memoria (no persistir).
+ * - Con consentimiento de medición: escribir en sessionStorage Y cookie goadmin_attr (90 días).
  */
 
 const ATTR_COOKIE = 'goadmin_attr'
 const ATTR_SESSION_KEY = 'goadmin_attr_session'
+
+// Variable en memoria para mantener la atribución antes del consentimiento
+let attributionInMemory: Attribution | null = null
 
 export type Attribution = {
   utm_source?: string
@@ -87,13 +90,12 @@ function readFbc(): string | undefined {
 }
 
 /**
- * Guarda atribución en sessionStorage (sin consentimiento).
- * Solo guarda UTM, landing y referrer. NO guarda gclid, fbclid ni IDs.
+ * Guarda atribución en sessionStorage (solo CON consentimiento de medición).
  */
 function saveToSession(attr: Attribution) {
   if (typeof sessionStorage === 'undefined') return
-  const { utm_source, utm_medium, utm_campaign, utm_content, utm_term, landing, referrer } = attr
-  const sessionAttr = { utm_source, utm_medium, utm_campaign, utm_content, utm_term, landing, referrer }
+  const { utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid, landing, referrer } = attr
+  const sessionAttr = { utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid, landing, referrer }
   
   // Eliminar undefined
   Object.keys(sessionAttr).forEach(key => {
@@ -136,28 +138,38 @@ function readAttrCookie(): AttributionData | null {
 }
 
 /**
- * Guarda la cookie de atribución (domain=.goadmin.io, 90 días).
+ * Guarda la cookie de atribución (domain=.goadmin.io solo en producción, 90 días).
  */
 function saveAttrCookie(data: AttributionData) {
   if (typeof document === 'undefined') return
   const value = encodeURIComponent(JSON.stringify(data))
-  document.cookie = `${ATTR_COOKIE}=${value}; max-age=${90 * 86400}; path=/; domain=.goadmin.io; SameSite=Lax; Secure`
+  
+  // Domain=.goadmin.io solo en producción
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
+  const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
+  
+  document.cookie = `${ATTR_COOKIE}=${value}; max-age=${90 * 86400}; path=/${domainAttr}; SameSite=Lax; Secure`
 }
 
 /**
  * Captura la atribución según el consentimiento.
- * - Sin consentimiento de medición: solo sessionStorage con UTM.
- * - Con consentimiento de medición: cookie goadmin_attr con primer y último toque, incluye gclid/fbclid.
+ * - Sin consentimiento de medición: mantiene en memoria, NO persiste.
+ * - Con consentimiento de medición: escribe en sessionStorage Y cookie goadmin_attr.
  */
 export function captureAttribution(hasAnalyticsConsent: boolean) {
   const urlAttr = readUrlParams()
   if (Object.keys(urlAttr).length === 0) return // No hay parámetros de campaña
   
-  // Siempre guardar UTM en sessionStorage
-  saveToSession(urlAttr)
+  // Guardar en memoria siempre (no requiere consentimiento)
+  attributionInMemory = urlAttr
   
-  // Con consentimiento de medición: guardar cookie completa
+  // Solo con consentimiento de medición: persistir en sessionStorage y cookie
   if (hasAnalyticsConsent) {
+    // Guardar en sessionStorage
+    saveToSession(urlAttr)
+    
+    // Guardar en cookie
     const current = readAttrCookie()
     
     // Agregar _fbp y _fbc si existen
@@ -179,12 +191,17 @@ export function captureAttribution(hasAnalyticsConsent: boolean) {
 }
 
 /**
- * Lee la atribución completa (cookie o sessionStorage).
+ * Lee la atribución: primero cookie, luego sessionStorage, luego memoria.
  */
 export function readAttribution(): AttributionData | Attribution | null {
   const cookie = readAttrCookie()
   if (cookie) return cookie
-  return readSessionAttribution()
+  
+  const session = readSessionAttribution()
+  if (session) return session
+  
+  // Si no hay nada persistido, devolver lo que está en memoria
+  return attributionInMemory
 }
 
 /**
@@ -196,7 +213,7 @@ export function decorateSignupUrl(baseUrl: string, hasAnalyticsConsent: boolean)
   const attr = readAttribution()
   if (!attr) return baseUrl
   
-  // Si es AttributionData (cookie), usar last; si es Attribution (session), usar directo
+  // Si es AttributionData (cookie), usar last; si es Attribution (session/memoria), usar directo
   const data = 'last' in attr ? attr.last : attr
   
   // Siempre agregar UTM
