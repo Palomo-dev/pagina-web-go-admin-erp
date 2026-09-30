@@ -13,9 +13,25 @@ export default async function EliminacionDatosPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.deletion')
   const { DATA_DELETION: d, isReferenceTranslation } = await getLegal(params.locale)
-  const toc = ['como', 'proceso', 'datos', 'plazos', 'preguntas'].map((id) => ({ id, label: t(`toc.${id}`) }))
+  
+  // Mensaje para idiomas no españoles
+  const showSpanishOnlyNotice = !params.locale.startsWith('es')
+  const spanishNotice = params.locale.startsWith('en')
+    ? 'This legal document is available only in Spanish.'
+    : params.locale.startsWith('pt')
+      ? 'Este documento legal está disponível apenas em espanhol.'
+      : params.locale.startsWith('fr')
+        ? 'Ce document juridique est disponible uniquement en espagnol.'
+        : ''
+  
+  const toc = ['como', 'proceso', 'datos', 'preguntas'].map((id) => ({ id, label: t(`toc.${id}`) }))
   return (
-    <LegalLayout eyebrow={t('eyebrow')} title={d.title} intro={d.intro} toc={toc} currentPage="/eliminacion-datos" reference={isReferenceTranslation}>
+    <LegalLayout eyebrow={t('eyebrow')} title={d.title} intro={d.intro} toc={toc} currentPage="/eliminacion-datos" reference={false}>
+      {showSpanishOnlyNotice && (
+        <div className="mb-8 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          {spanishNotice}
+        </div>
+      )}
       <LegalSection id="como" title={t('howTitle')}>
         <div className="grid gap-4 sm:grid-cols-3">
           {d.methods.map((m) => (
@@ -47,16 +63,6 @@ export default async function EliminacionDatosPage({ params }: PageProps) {
             <div key={r.type} className={`flex flex-col gap-1 px-5 py-4 sm:flex-row sm:justify-between ${i ? 'border-t border-ink-line' : ''}`}>
               <span className="font-semibold text-ink">{r.type}</span>
               <span className="text-sm">{r.period}</span>
-            </div>
-          ))}
-        </div>
-      </LegalSection>
-      <LegalSection id="plazos" title={t('termsTitle')}>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {d.frameworks.map((f) => (
-            <div key={f.title} className="rounded-2xl bg-go-wash p-5">
-              <p className="font-semibold text-ink">{f.title}</p>
-              <p className="mt-1 text-sm">{f.text}</p>
             </div>
           ))}
         </div>

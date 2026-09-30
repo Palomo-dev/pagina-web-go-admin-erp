@@ -13,15 +13,31 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function CookiesPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.cookies')
-  const { COOKIES: c, isReferenceTranslation } = await getLegal(params.locale)
+  const { COOKIES: c } = await getLegal(params.locale)
+  
+  // Mensaje para idiomas no españoles
+  const showSpanishOnlyNotice = !params.locale.startsWith('es')
+  const spanishNotice = params.locale.startsWith('en')
+    ? 'This legal document is available only in Spanish.'
+    : params.locale.startsWith('pt')
+      ? 'Este documento legal está disponível apenas em espanhol.'
+      : params.locale.startsWith('fr')
+        ? 'Ce document juridique est disponible uniquement en espagnol.'
+        : ''
+  
   const toc = ['que-son', 'tipos', 'lista', 'gestionar', 'contacto'].map((id) => ({ id, label: t(`toc.${id}`) }))
   return (
-    <LegalLayout eyebrow={t('eyebrow')} title={c.title} intro={c.intro} updated={c.updated} toc={toc} currentPage="/cookies" reference={isReferenceTranslation}>
+    <LegalLayout eyebrow={t('eyebrow')} title={c.title} intro={c.intro} updated={c.updated} toc={toc} currentPage="/cookies" reference={false}>
+      {showSpanishOnlyNotice && (
+        <div className="mb-8 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          {spanishNotice}
+        </div>
+      )}
       <LegalSection id="que-son" title={t('whatTitle')}>
         <p>{c.what}</p>
       </LegalSection>
       <LegalSection id="tipos" title={t('typesTitle')}>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           {c.categories.map((k) => (
             <div key={k.id} className="rounded-2xl bg-go-wash p-5">
               <p className="flex items-center justify-between gap-3 font-semibold text-ink">
@@ -32,7 +48,7 @@ export default async function CookiesPage({ params }: PageProps) {
             </div>
           ))}
         </div>
-        <p>{c.notUsed}</p>
+        <p className="mt-4">{c.notUsed}</p>
       </LegalSection>
       <LegalSection id="lista" title={t('listTitle')}>
         <div className="overflow-x-auto rounded-2xl border border-ink-line">
@@ -59,7 +75,7 @@ export default async function CookiesPage({ params }: PageProps) {
             </tbody>
           </table>
         </div>
-        <p className="text-sm text-ink-muted">{c.app}</p>
+        <p className="mt-4 text-sm text-ink-muted">{c.app}</p>
       </LegalSection>
       <LegalSection id="gestionar" title={t('manageTitle')}>
         <Bullets items={c.manage} />
