@@ -15,8 +15,8 @@ export type LegalTable = { cols: string[]; rows: (string | { content: string; li
 
 export const PRIVACY = {
   title: 'Política de Tratamiento de Datos Personales de Go Admin S.A.S.',
+  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
   updated: '2 de octubre de 2026',
-  version: 'Versión 1.0',
   vigente: 'Vigente desde el 2 de octubre de 2026',
   intro:
     'Esta política explica cómo Go Admin S.A.S. («GO Admin», «nosotros») recoge, usa, guarda, comparte y protege tus datos personales, y cómo puedes ejercer tus derechos. Se expide conforme a la Ley Estatutaria 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto Único Reglamentario 1074 de 2015, Parte 2, Título 2, Capítulo 25) y las instrucciones de la Superintendencia de Industria y Comercio (SIC). Reemplaza la «Política de privacidad» del 15 de enero de 2024.',
@@ -386,8 +386,8 @@ export const PRIVACY = {
 
 export const PRIVACY_NOTICE = {
   title: 'Aviso de privacidad de Go Admin S.A.S.',
+  version: 'Versión 1.0 · Publicado el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
   updated: '2 de octubre de 2026',
-  version: 'Versión 1.0',
   vigente: 'Vigente desde el 2 de octubre de 2026',
   intro: '',
   sections: [
@@ -442,31 +442,40 @@ export const PRIVACY_NOTICE = {
 
 export const DATA_DELETION = {
   title: 'Eliminación de datos y de cuenta en GO Admin',
-  updated: '2 de octubre de 2026',
+  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
   intro:
     'Puedes pedir en cualquier momento que borremos tus datos personales o tu cuenta de GO Admin ERP. Aquí te explicamos cómo hacerlo, qué borramos, qué debemos conservar por ley y en cuánto tiempo te respondemos. Esta página complementa nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
+  howTitle: 'Cómo pedirlo',
   methods: [
-    { title: 'Desde la aplicación', text: 'Si tienes usuario en GO Admin ERP', contact: 'app.goadmin.io/perfil', href: 'https://app.goadmin.io/perfil', details: 'Abre «Mi perfil» y elige «Eliminar cuenta». Confirma con tu contraseña.' },
-    { title: 'Por correo', text: 'Escribe con el asunto «Eliminación de datos»', contact: CONTACT.email, href: `mailto:${CONTACT.email}`, details: 'Para prospectos, candidatos, contactos o para cerrar la cuenta de toda la empresa.' },
-    { title: 'Otros canales', text: 'WhatsApp, teléfono o escrito', contact: CONTACT.phoneDisplay, href: CONTACT.phoneHref, details: 'De lunes a viernes, 8:00 a. m. – 6:00 p. m. (hora de Colombia). Dirección: Carrera 87 B # 45 B - 8, Medellín.' },
+    'Desde la aplicación (si tienes usuario en GO Admin ERP). Entra a app.goadmin.io, abre «Mi perfil» y elige «Eliminar cuenta». Confirma con tu contraseña y pulsa «Eliminar mi cuenta». Así solicitas la eliminación de tu usuario: tu perfil, tus preferencias y tu acceso a las organizaciones.',
+    'Por correo. Escribe a servicio@goadmin.io con el asunto «Eliminación de datos». Usa este canal si no tienes usuario, si quieres que borremos datos que tenemos de ti como prospecto, candidato o contacto, o si eres el representante de una empresa cliente y quieres cerrar la cuenta de toda la empresa.',
+    'Otros canales. También puedes pedirlo por WhatsApp o teléfono al +57 311 319 5711, de lunes a viernes de 8:00 a. m. a 6:00 p. m., o por escrito en la Carrera 87 B # 45 B - 8, Medellín, Antioquia.',
   ],
-  include: 'Tu nombre, número de documento, datos de contacto, el correo o teléfono con el que te conocemos y qué quieres que borremos. Si actúas por otra persona, adjunta el documento que lo acredite. Puedes pedirlo: tú, tus causahabientes, tu representante o apoderado, o quien estipule a tu favor (artículo 20 del Decreto 1377 de 2013). La persona responsable de atender las solicitudes es Juan Camilo Gallego Aguirre, representante legal de Go Admin S.A.S.',
+  include: 'Qué incluir: tu nombre, número de documento, datos de contacto, el correo o teléfono con el que te conocemos y qué quieres que borremos. Si actúas por otra persona, adjunta el documento que lo acredite.',
+  who: 'Quién puede pedirlo: tú, tus causahabientes, tu representante o apoderado, o quien estipule a tu favor (artículo 20 del Decreto 1377 de 2013).',
+  responsible: 'La persona responsable de atender las solicitudes es Juan Camilo Gallego Aguirre, representante legal de Go Admin S.A.S.',
+  timelineTitle: 'En cuánto tiempo te respondemos',
+  timelineIntro: 'Seguimos los plazos de la Ley 1581 de 2012:',
   timeline: [
     'Pedir que borremos tus datos o revocar tu autorización es un reclamo. Te respondemos en máximo 15 días hábiles desde el día siguiente a su recibo. Si no es posible, te diremos por qué y la nueva fecha, que no superará 8 días hábiles adicionales (artículo 15 de la Ley 1581).',
     'Si tu solicitud está incompleta, te pediremos completarla dentro de los 5 días siguientes. Si pasan 2 meses sin que la completes, se entenderá que desististe.',
     'Mientras resolvemos, marcaremos el dato como «reclamo en trámite».',
     'Si solo quieres saber qué datos tenemos de ti o cómo los usamos, es una consulta. Te respondemos en máximo 10 días hábiles desde que la recibimos, con una prórroga máxima de 5 días hábiles si hace falta (artículo 14 de la Ley 1581).',
     'Si solo quieres dejar de recibir mensajes comerciales, lo aplicamos de inmediato en nuestra lista de «no contactar».',
-    'Cuando terminemos, te confirmaremos por el mismo canal qué borramos y, si conservamos algo, qué es y por qué.',
   ],
+  timelineEnd: 'Cuando terminemos, te confirmaremos por el mismo canal qué borramos y, si conservamos algo, qué es y por qué.',
+  weDeleteTitle: 'Qué borramos',
+  weDeleteIntro: 'Al atender tu solicitud suprimimos o anonimizamos los datos personales que ya no tengamos el deber de conservar, por ejemplo:',
   weDelete: [
     'tu perfil, tus datos de contacto, tus preferencias y tu acceso a GO Admin ERP;',
     'los datos que tenemos de ti como prospecto en nuestro CRM (registro de llamadas, mensajes y reuniones);',
     'las grabaciones y transcripciones de tus llamadas con nosotros, salvo en los casos de conservación que se indican abajo;',
     'tu hoja de vida y los datos de tus procesos de selección, si fuiste candidato;',
     'los identificadores de navegación y medición asociados a ti.',
-    'Si eres el representante de una empresa cliente y cierras la cuenta de toda la empresa, devolvemos o suprimimos los datos cargados en GO Admin ERP según los Términos y Condiciones, salvo lo que la ley nos obligue a conservar.',
   ],
+  weDeleteEnd: 'Si eres el representante de una empresa cliente y cierras la cuenta de toda la empresa, devolvemos o suprimimos los datos cargados en GO Admin ERP según los Términos y Condiciones, salvo lo que la ley nos obligue a conservar.',
+  retentionTitle: 'Qué conservamos y por qué',
+  retentionIntro: 'Hay datos que no podemos borrar de inmediato porque una ley o un contrato nos obliga a guardarlos (literal e del artículo 8 de la Ley 1581 y artículo 9 del Decreto 1377 de 2013). En esos casos los bloqueamos, solo los usamos para cumplir esa obligación y los suprimimos al vencer el plazo:',
   retention: [
     { type: 'Datos contables, de facturación y sus soportes', period: '10 años (artículo 28 de la Ley 962 de 2005)' },
     { type: 'Tu solicitud de «no contactar»', period: 'Mientras GO Admin haga actividades comerciales, solo con el dato mínimo (por ejemplo, tu número o correo) para respetar tu decisión' },
@@ -474,8 +483,11 @@ export const DATA_DELETION = {
     { type: 'Datos que una autoridad nos ordene conservar', period: 'El tiempo que indique la orden' },
   ],
   retentionNote: 'Si no pides la eliminación, estos son los plazos máximos que aplicamos de todos modos: prospectos que no se convierten en clientes, hasta 24 meses desde el último contacto; audio de las llamadas, hasta 90 días; transcripciones y resúmenes, hasta 180 días; candidatos no seleccionados, hasta 12 meses desde el cierre del proceso. El resto de plazos está en la sección 14 de la Política de Tratamiento de Datos Personales.',
+  erpTitle: 'Si eres cliente o trabajador de una empresa que usa GO Admin ERP',
   erp: 'Cuando una empresa registra en GO Admin ERP datos de sus clientes, trabajadores o proveedores, esa empresa es la responsable de esos datos y GO Admin los trata por su cuenta. Para pedir que los borren, dirígete primero a esa empresa. Si nos escribes a nosotros, le trasladaremos tu solicitud sin demora.',
+  complaintTitle: 'Si no estás de acuerdo con nuestra respuesta',
   complaint: 'Si ya presentaste tu consulta o reclamo ante GO Admin y no quedaste satisfecho, o no te respondimos a tiempo, puedes presentar una queja ante la Superintendencia de Industria y Comercio (SIC), la autoridad de protección de datos personales en Colombia, en www.sic.gov.co (artículo 16 de la Ley 1581).',
+  lawTitle: 'Ley aplicable',
   law: 'Estas solicitudes se rigen por la ley colombiana, en especial la Ley 1581 de 2012 y sus decretos reglamentarios, aunque vivas o uses GO Admin desde otro país.',
 }
 
@@ -629,6 +641,7 @@ export const TERMS = {
  */
 export const COOKIES = {
   title: 'Política de cookies de GO Admin',
+  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
   updated: '2 de octubre de 2026',
   intro:
     'Esta página explica qué cookies usa goadmin.io, para qué sirve cada una, cuánto duran y cómo cambiar tu elección. Complementa la sección 8 de nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',

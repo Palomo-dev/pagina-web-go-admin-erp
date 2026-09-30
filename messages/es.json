@@ -361,7 +361,7 @@
       "privacyNotice": "Aviso de privacidad"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Configurar cookies"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Lun a vie · 8:00 a. m. – 6:00 p. m.",
@@ -1421,13 +1421,13 @@
       "listTitle": "Cookies que usamos",
       "table": {
         "name": "Nombre",
-        "category": "Tipo",
-        "purpose": "Para qué sirve",
+        "category": "Categoría",
+        "purpose": "Finalidad",
         "duration": "Duración",
         "provider": "Proveedor"
       },
       "manageTitle": "Cómo cambiar tus preferencias",
-      "settings": "Configurar cookies",
+      "settings": "Preferencias de cookies",
       "beforeTitle": "Antes de que elijas, solo cargamos lo necesario",
       "erpTitle": "Dentro de GO Admin ERP",
       "lawTitle": "Ley aplicable"

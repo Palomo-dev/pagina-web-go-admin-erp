@@ -79,7 +79,7 @@ export default async function AvisoPrivacidadPage({ params }: PageProps) {
       eyebrow={t('eyebrow')}
       title={PRIVACY_NOTICE.title}
       intro={PRIVACY_NOTICE.intro}
-      updated={`Publicado el ${PRIVACY_NOTICE.updated}`}
+      updated={PRIVACY_NOTICE.version}
       toc={toc}
       currentPage="/aviso-privacidad"
       reference={false}

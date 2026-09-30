@@ -19,7 +19,7 @@ export function LegalLayout({
 }: {
   eyebrow: string
   title: string
-  intro: string
+  intro: string | React.ReactNode
   updated?: string
   toc: { id: string; label: string }[]
   currentPage: string
@@ -35,8 +35,8 @@ export function LegalLayout({
         <header className="container max-w-5xl border-b border-ink-line pb-10">
           <p className="text-eyebrow uppercase text-go-deep">{eyebrow}</p>
           <h1 className="mt-3 text-[2.5rem] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:text-display-l">{title}</h1>
-          <p className="mt-4 max-w-3xl text-lead text-ink-body">{intro}</p>
-          {updated ? <p className="mt-4 text-sm text-ink-muted">{t('updated', { date: updated })}</p> : null}
+          <div className="mt-4 max-w-3xl text-lead text-ink-body">{intro}</div>
+          {updated ? <p className="mt-4 text-sm text-ink-muted">{updated}</p> : null}
           {reference ? (
             <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">
               {t('reference')}{' '}

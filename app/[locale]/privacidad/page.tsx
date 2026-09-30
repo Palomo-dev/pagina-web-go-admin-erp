@@ -85,7 +85,7 @@ export default async function PrivacidadPage({ params }: PageProps) {
       eyebrow={t('eyebrow')}
       title={PRIVACY.title}
       intro={PRIVACY.intro}
-      updated={`Publicada el ${PRIVACY.updated}`}
+      updated={PRIVACY.version}
       toc={toc}
       currentPage="/privacidad"
       reference={false}
