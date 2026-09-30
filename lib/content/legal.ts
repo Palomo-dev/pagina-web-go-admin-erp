@@ -686,6 +686,7 @@ export const COOKIES = {
   manage: [
     'Puedes cambiar o retirar tu consentimiento cuando quieras desde el enlace «Preferencias de cookies», en el pie de cada página. Al retirarlo, dejamos de activar las cookies de medición y de publicidad desde ese momento; lo tratado antes de retirarlo no se ve afectado.',
     'También puedes borrar o bloquear las cookies desde la configuración de tu navegador. Si bloqueas las necesarias, el sitio puede no recordar tu país, tu idioma ni tu elección, y la aplicación puede no mantener tu sesión.',
+    'Cuando retiras tu consentimiento, dejamos de activar esas herramientas y borramos las cookies que están en nuestro dominio. Las cookies que Google o Meta guardan en sus propios dominios (por ejemplo, facebook.com o doubleclick.net) solo las pueden borrar ellos o tú desde tu navegador; su uso se rige por las políticas de privacidad de esas empresas.',
   ],
   law: 'Esta política se rige por la ley colombiana, en especial la Ley 1581 de 2012 y sus decretos reglamentarios, aunque visites el sitio desde otro país.',
   contact: { title: 'Preguntas', text: 'Si tienes preguntas sobre las cookies o quieres ejercer tus derechos sobre tus datos, escríbenos a servicio@goadmin.io. Te respondemos las consultas en máximo 10 días hábiles y los reclamos en máximo 15 días hábiles, como explica la Política de Tratamiento de Datos Personales.', email: CONTACT.email },

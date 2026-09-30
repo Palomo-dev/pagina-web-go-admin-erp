@@ -192,6 +192,14 @@ export function CookieConsent() {
                 <ConsentButton onClick={() => setShowConfig(false)} kind="secondary">
                   {t('back')}
                 </ConsentButton>
+                <ConsentButton onClick={() => { 
+                  const rejected = rejectAll(); 
+                  setChoice(rejected); 
+                  setOpen(false); 
+                  setShowConfig(false); 
+                }}>
+                  Rechazar todas
+                </ConsentButton>
                 <ConsentButton onClick={saveConfig}>
                   {t('saveConfig')}
                 </ConsentButton>
