@@ -65,6 +65,12 @@ export function fromSpanish(): LanguageContent {
       CHANGELOG: company.CHANGELOG,
       DESKTOP_NOTES: desktop.DESKTOP_NOTES,
     },
-    legal: { PRIVACY: legal.PRIVACY, DATA_DELETION: legal.DATA_DELETION, TERMS: legal.TERMS, COOKIES: legal.COOKIES },
+    legal: {
+      PRIVACY: legal.PRIVACY,
+      PRIVACY_NOTICE: legal.PRIVACY_NOTICE,
+      DATA_DELETION: legal.DATA_DELETION,
+      TERMS: legal.TERMS,
+      COOKIES: legal.COOKIES,
+    },
   }
 }

@@ -357,7 +357,8 @@
       "countries": "Pays",
       "terms": "Conditions d’utilisation",
       "cookies": "Témoins",
-      "download": "Téléchargements"
+      "download": "Téléchargements",
+      "privacyNotice": "Privacy Notice"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Paramètres des témoins"
@@ -1789,6 +1790,13 @@
       "otherTitle": "Vous utilisez un Mac, Linux, un téléphone ou une tablette ?",
       "otherText": "GO Admin fonctionne dans le navigateur, sans rien installer. Pour l’instant, l’application de bureau est offerte seulement pour Windows.",
       "openWeb": "Ouvrir GO Admin dans le navigateur"
+    },
+    "privacyNotice": {
+      "meta": {
+        "title": "Privacy Notice",
+        "description": "Summary of how GO Admin processes your personal data."
+      },
+      "eyebrow": "Legal"
     }
   },
   "notFound": {

@@ -3,6 +3,7 @@ import { getT } from '@/i18n/t-server'
 import { getLegal } from '@/lib/data'
 import { pageMetadata, type PageProps } from '@/lib/page'
 import { Bullets, LegalLayout, LegalSection } from '@/components/sections/legal-layout'
+import { Link } from '@/i18n/navigation'
 
 export async function generateMetadata({ params }: PageProps) {
   return pageMetadata(params.locale, '/privacidad', 'pages.privacy')
@@ -22,7 +23,15 @@ export default async function PrivacidadPage({ params }: PageProps) {
   const { PRIVACY, isReferenceTranslation } = await getLegal(params.locale)
   const toc = [{ id: 'principios', label: t('principles') }, ...PRIVACY.sections.map((s) => ({ id: slug(s.title), label: s.title.replace(/^\d+\.\s*/, '') })), { id: 'contacto', label: t('contact') }]
   return (
-    <LegalLayout eyebrow={t('eyebrow')} title={PRIVACY.title} intro={PRIVACY.intro} updated={PRIVACY.updated} toc={toc} currentPage="/privacidad" reference={isReferenceTranslation}>
+    <LegalLayout
+      eyebrow={t('eyebrow')}
+      title={PRIVACY.title}
+      intro={PRIVACY.intro}
+      updated={`${PRIVACY.version} · ${PRIVACY.updated} · ${PRIVACY.vigente}`}
+      toc={toc}
+      currentPage="/privacidad"
+      reference={isReferenceTranslation}
+    >
       <LegalSection id="principios" title={t('principlesTitle')}>
         <div className="grid gap-4 sm:grid-cols-2">
           {PRIVACY.principles.map((p) => (
@@ -35,7 +44,46 @@ export default async function PrivacidadPage({ params }: PageProps) {
       </LegalSection>
       {PRIVACY.sections.map((s) => (
         <LegalSection key={s.title} id={slug(s.title)} title={s.title}>
-          <Bullets items={s.items} />
+          {s.table ? (
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="border-b border-ink-line">
+                    {s.table.cols.map((col) => (
+                      <th key={col} className="px-4 py-3 text-left font-semibold text-ink">
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {s.table.rows.map((row, i) => (
+                    <tr key={i} className="border-b border-ink-line/50">
+                      {row.map((cell, j) => (
+                        <td key={j} className="px-4 py-3">
+                          {typeof cell === 'string' ? (
+                            cell
+                          ) : cell.link ? (
+                            <a href={cell.link} className="text-go-deep hover:underline">
+                              {cell.content}
+                            </a>
+                          ) : (
+                            cell.content
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+          {s.items ? <Bullets items={s.items} /> : null}
+          {s.extraItems ? (
+            <div className="mt-4">
+              <Bullets items={s.extraItems} />
+            </div>
+          ) : null}
         </LegalSection>
       ))}
       <LegalSection id="contacto" title={t('contactTitle')}>

@@ -357,7 +357,8 @@
       "countries": "Countries",
       "terms": "Terms and conditions",
       "cookies": "Cookies",
-      "download": "Downloads"
+      "download": "Downloads",
+      "privacyNotice": "Privacy Notice"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
     "cookieSettings": "Cookie settings"
@@ -1789,6 +1790,13 @@
       "otherTitle": "Using a Mac, Linux, a phone or a tablet?",
       "otherText": "GO Admin works in the browser, with nothing to install. The desktop app is only for Windows for now.",
       "openWeb": "Open GO Admin in the browser"
+    },
+    "privacyNotice": {
+      "meta": {
+        "title": "Privacy Notice",
+        "description": "Summary of how GO Admin processes your personal data."
+      },
+      "eyebrow": "Legal"
     }
   },
   "notFound": {

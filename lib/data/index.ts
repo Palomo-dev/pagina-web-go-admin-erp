@@ -179,7 +179,14 @@ export function allPostSlugs() {
 export async function getLegal(locale: string) {
   const m = getMarket(locale)
   const l = m.language === 'es' ? esLegal : CONTENT[m.language].legal
-  return { PRIVACY: l.PRIVACY, DATA_DELETION: l.DATA_DELETION, TERMS: l.TERMS, COOKIES: l.COOKIES, isReferenceTranslation: m.language !== 'es' }
+  return {
+    PRIVACY: l.PRIVACY,
+    PRIVACY_NOTICE: l.PRIVACY_NOTICE,
+    DATA_DELETION: l.DATA_DELETION,
+    TERMS: l.TERMS,
+    COOKIES: l.COOKIES,
+    isReferenceTranslation: m.language !== 'es',
+  }
 }
 
 // ---------------------------------------------------------------------------

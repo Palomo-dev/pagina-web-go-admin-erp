@@ -265,6 +265,7 @@ export const FOOTER_COLUMNS: { key: string; links: { key: string; href: string }
       { key: 'countries', href: '/paises' },
       { key: 'terms', href: '/terminos' },
       { key: 'privacy', href: '/privacidad' },
+      { key: 'privacyNotice', href: '/aviso-privacidad' },
       { key: 'cookies', href: '/cookies' },
       { key: 'deletion', href: '/eliminacion-datos' },
     ],
