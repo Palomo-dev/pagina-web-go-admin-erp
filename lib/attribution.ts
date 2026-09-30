@@ -161,33 +161,44 @@ export function captureAttribution(hasAnalyticsConsent: boolean) {
   const urlAttr = readUrlParams()
   if (Object.keys(urlAttr).length === 0) return // No hay parámetros de campaña
   
-  // Guardar en memoria siempre (no requiere consentimiento)
+  // BLOQUEANTE #5: Con "Rechazar", no guardar en ningún lado (ni memoria)
+  if (!hasAnalyticsConsent) {
+    attributionInMemory = null
+    return
+  }
+  
+  // Guardar en memoria
   attributionInMemory = urlAttr
   
-  // Solo con consentimiento de medición: persistir en sessionStorage y cookie
-  if (hasAnalyticsConsent) {
-    // Guardar en sessionStorage
-    saveToSession(urlAttr)
-    
-    // Guardar en cookie
-    const current = readAttrCookie()
-    
-    // Agregar _fbp y _fbc si existen
-    const fbp = readFbp()
-    if (fbp) urlAttr._fbp = fbp
-    
-    if (urlAttr.fbclid) {
-      const existingFbc = readFbc()
-      urlAttr._fbc = existingFbc || buildFbc(urlAttr.fbclid)
-    }
-    
-    const newData: AttributionData = {
-      first: current?.first || urlAttr,
-      last: urlAttr,
-    }
-    
-    saveAttrCookie(newData)
+  // Con consentimiento de medición: persistir en sessionStorage y cookie
+  // Guardar en sessionStorage
+  saveToSession(urlAttr)
+  
+  // Guardar en cookie
+  const current = readAttrCookie()
+  
+  // Agregar _fbp y _fbc si existen
+  const fbp = readFbp()
+  if (fbp) urlAttr._fbp = fbp
+  
+  if (urlAttr.fbclid) {
+    const existingFbc = readFbc()
+    urlAttr._fbc = existingFbc || buildFbc(urlAttr.fbclid)
   }
+  
+  const newData: AttributionData = {
+    first: current?.first || urlAttr,
+    last: urlAttr,
+  }
+  
+  saveAttrCookie(newData)
+}
+
+/**
+ * BLOQUEANTE #5: Limpiar toda la atribución de memoria y storage.
+ */
+export function clearAttribution() {
+  attributionInMemory = null
 }
 
 /**
@@ -207,8 +218,11 @@ export function readAttribution(): AttributionData | Attribution | null {
 /**
  * Decora una URL de registro con los parámetros de atribución vigentes.
  * Agrega: UTM, y solo con consentimiento de medición: gclid/fbclid.
+ * BLOQUEANTE #5: Si no hay consentimiento, no agregar nada.
  */
 export function decorateSignupUrl(baseUrl: string, hasAnalyticsConsent: boolean): string {
+  if (!hasAnalyticsConsent) return baseUrl // BLOQUEANTE #5: Sin consentimiento, URL sin decorar
+  
   const url = new URL(baseUrl)
   const attr = readAttribution()
   if (!attr) return baseUrl
@@ -222,11 +236,9 @@ export function decorateSignupUrl(baseUrl: string, hasAnalyticsConsent: boolean)
     if (data[key]) url.searchParams.set(key, data[key]!)
   })
   
-  // Solo con consentimiento de medición: gclid y fbclid
-  if (hasAnalyticsConsent) {
-    if (data.gclid) url.searchParams.set('gclid', data.gclid)
-    if (data.fbclid) url.searchParams.set('fbclid', data.fbclid)
-  }
+  // Siempre agregar gclid y fbclid si hay consentimiento
+  if (data.gclid) url.searchParams.set('gclid', data.gclid)
+  if (data.fbclid) url.searchParams.set('fbclid', data.fbclid)
   
   return url.toString()
 }

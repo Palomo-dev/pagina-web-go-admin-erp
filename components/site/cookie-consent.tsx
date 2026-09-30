@@ -36,20 +36,18 @@ function readChoice(): ConsentChoice | null {
   try {
     const decoded = decodeURIComponent(match[1])
     
-    // Manejar formato heredado 'all' o 'necessary'
-    if (decoded === 'all') {
-      return { v: CONSENT_VERSION, analytics: true, marketing: true, ts: Date.now() }
-    }
-    if (decoded === 'necessary') {
-      return { v: CONSENT_VERSION, analytics: false, marketing: false, ts: Date.now() }
+    // BLOQUEANTE #4: Formato heredado 'all' NO cuenta como Publicidad - debe mostrar banner de nuevo
+    if (decoded === 'all' || decoded === 'necessary') {
+      return null // Volver a mostrar el banner
     }
     
     // Formato nuevo JSON
     const parsed = JSON.parse(decoded)
-    if (typeof parsed === 'object' && parsed !== null && 'v' in parsed) {
+    if (typeof parsed === 'object' && parsed !== null && 'v' in parsed && 'marketing' in parsed) {
       return parsed as ConsentChoice
     }
     
+    // Si el formato no tiene campo marketing explícito, volver a mostrar el banner
     return null
   } catch {
     // Si falla el parsing, asumir que no hay consentimiento válido
@@ -77,6 +75,38 @@ function saveChoice(choice: ConsentChoice) {
   }))
 }
 
+// BLOQUEANTE #6: Borrar cookies y storage, revocar consentimientos de terceros
+function clearAllConsent() {
+  // Borrar cookie goadmin_consent
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
+  const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
+  document.cookie = `${CONSENT_COOKIE}=; max-age=0; path=/${domainAttr}`
+  
+  // Borrar cookie goadmin_attr
+  document.cookie = `goadmin_attr=; max-age=0; path=/${domainAttr}`
+  
+  // Borrar sessionStorage
+  if (typeof sessionStorage !== 'undefined') {
+    sessionStorage.removeItem('goadmin_attr_session')
+  }
+  
+  // Revocar consentimiento de Google (gtag)
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('consent', 'update', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+    })
+  }
+  
+  // Revocar consentimiento de Meta (fbq)
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('consent', 'revoke')
+  }
+}
+
 export function CookieConsent() {
   const t = useT('consent')
   const [choice, setChoice] = useState<ConsentChoice | null>(null)
@@ -90,13 +120,15 @@ export function CookieConsent() {
     setChoice(saved)
     setOpen(!saved)
     
-    // Escuchar eventos para abrir el panel de configuración
+    // BLOQUEANTE #3: Escuchar eventos para abrir el panel de configuración SIEMPRE
     const handleOpenPreferences = () => {
-      if (saved) {
-        // Si ya hay una elección guardada, abrir directamente el panel de configuración
-        setTempAnalytics(saved.analytics)
-        setTempMarketing(saved.marketing)
+      const current = readChoice()
+      if (current) {
+        // Si ya hay una elección, abrir el panel de configuración
+        setTempAnalytics(current.analytics)
+        setTempMarketing(current.marketing)
         setShowConfig(true)
+        setOpen(true) // BLOQUEANTE #3: Abrir el banner para mostrar el panel
       } else {
         // Si no hay elección, abrir el banner inicial
         setOpen(true)
@@ -115,6 +147,40 @@ export function CookieConsent() {
   }, [])
 
   const decide = (analytics: boolean, marketing: boolean) => {
+    // BLOQUEANTE #5 y #6: Si se rechazan ambos, limpiar todo
+    if (!analytics && !marketing) {
+      clearAllConsent()
+      // BLOQUEANTE #5: Limpiar atribución de memoria también
+      const { clearAttribution } = require('@/lib/attribution')
+      clearAttribution()
+      setChoice({ v: CONSENT_VERSION, analytics: false, marketing: false, ts: Date.now() })
+      setOpen(false)
+      setShowConfig(false)
+      // Emitir evento con consentimiento denegado
+      window.dispatchEvent(new CustomEvent('goadmin:consent', {
+        detail: { analytics: false, marketing: false }
+      }))
+      return
+    }
+    
+    // BLOQUEANTE #6: Si se retira consentimiento previamente otorgado, limpiar
+    const previous = choice
+    if (previous) {
+      // Si se desmarca Medición, borrar goadmin_attr y sessionStorage
+      if (previous.analytics && !analytics) {
+        const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
+        const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
+        const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
+        document.cookie = `goadmin_attr=; max-age=0; path=/${domainAttr}`
+        if (typeof sessionStorage !== 'undefined') {
+          sessionStorage.removeItem('goadmin_attr_session')
+        }
+        // Limpiar atribución de memoria
+        const { clearAttribution } = require('@/lib/attribution')
+        clearAttribution()
+      }
+    }
+    
     const newChoice: ConsentChoice = {
       v: CONSENT_VERSION,
       analytics,
