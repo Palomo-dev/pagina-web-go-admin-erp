@@ -133,7 +133,7 @@ export function MarketingTags() {
     const currentConsent = choice ? { analytics: choice.analytics, marketing: choice.marketing } : null
     setConsent(currentConsent)
     
-    // MENOR: Inicializar stub de Meta Pixel ANTES de cargar el script
+    // MENOR REVISIÓN 4: Inicializar stub de Meta Pixel en la primera aceptación
     if (currentConsent?.marketing && META_PIXEL_ID) {
       initMetaPixelStub()
     }
@@ -142,6 +142,11 @@ export function MarketingTags() {
     const handleConsentChange = (e: CustomEvent) => {
       const newConsent = e.detail as ConsentState
       setConsent(newConsent)
+      
+      // MENOR REVISIÓN 4: Inicializar stub si se acepta marketing por primera vez
+      if (newConsent.marketing && META_PIXEL_ID && !window.fbq) {
+        initMetaPixelStub()
+      }
       
       if (scriptsLoaded) {
         updateConsent(newConsent.analytics, newConsent.marketing)

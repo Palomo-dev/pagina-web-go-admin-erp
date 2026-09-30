@@ -18,6 +18,7 @@ export type ConsentChoice = {
  * Lee el consentimiento de la cookie goadmin_consent.
  * Retorna null para formatos viejos (string "all") o sin campo marketing explícito.
  * Solo acepta formato JSON {"v":1,"analytics":bool,"marketing":bool,"ts":epoch}.
+ * MENOR: Valida v===1 y que analytics/marketing sean booleans.
  */
 export function readChoice(): ConsentChoice | null {
   if (typeof document === 'undefined') return null
@@ -36,8 +37,14 @@ export function readChoice(): ConsentChoice | null {
     // Formato nuevo JSON
     const parsed = JSON.parse(decoded)
     
-    // BLOQUEANTE #1: Sin campo marketing explícito, no es válido
-    if (typeof parsed === 'object' && parsed !== null && 'v' in parsed && 'marketing' in parsed && 'analytics' in parsed) {
+    // MENOR: Validar v===1 y que analytics/marketing sean booleans
+    if (
+      typeof parsed === 'object' && 
+      parsed !== null && 
+      parsed.v === 1 &&
+      typeof parsed.analytics === 'boolean' &&
+      typeof parsed.marketing === 'boolean'
+    ) {
       return parsed as ConsentChoice
     }
     
@@ -189,10 +196,17 @@ export function revokeConsent(previous: ConsentChoice | null, current: ConsentCh
 }
 
 /**
- * BLOQUEANTE #2: "Rechazar" guarda {"v":1,"analytics":false,"marketing":false,"ts":...}
- * y borra goadmin_attr, sessionStorage, y revoca Google y Meta.
+ * BLOQUEANTE #2 y REVISIÓN 4 BLOQUEANTE #1: 
+ * "Rechazar" guarda {"v":1,"analytics":false,"marketing":false,"ts":...}
+ * y borra TODAS las cookies de terceros (_ga*, _fbp, _fbc, _gcl_*), 
+ * goadmin_attr, sessionStorage, y revoca Google y Meta.
  */
 export function rejectAll() {
+  // REVISIÓN 4 BLOQUEANTE #1: Borrar TODAS las cookies de terceros
+  deleteGoogleAnalyticsCookies()
+  deleteMetaCookies()
+  deleteGoogleAdsCookies()
+  
   // Borrar goadmin_attr
   deleteCookie('goadmin_attr')
   

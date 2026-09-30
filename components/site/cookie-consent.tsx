@@ -117,7 +117,7 @@ export function CookieConsent() {
                 </Link>
               </p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-                <ConsentButton onClick={() => decide(false, false)} kind="secondary">
+                <ConsentButton onClick={() => decide(false, false)}>
                   {t('reject')}
                 </ConsentButton>
                 <ConsentButton onClick={openConfig} kind="secondary">
