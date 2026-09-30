@@ -1421,15 +1421,15 @@
       "listTitle": "Cookies que usamos",
       "table": {
         "name": "Nombre",
-        "category": "Tipo",
-        "purpose": "Para qué sirve",
+        "category": "Categoría",
+        "purpose": "Finalidad",
         "duration": "Duración",
         "provider": "Proveedor"
       },
-      "beforeTitle": "Antes de que elijas",
-      "erpTitle": "Dentro de GO Admin ERP",
-      "manageTitle": "Cambiar tu elección",
+      "manageTitle": "Cómo cambiar tus preferencias",
       "settings": "Preferencias de cookies",
+      "beforeTitle": "Antes de que elijas, solo cargamos lo necesario",
+      "erpTitle": "Dentro de GO Admin ERP",
       "lawTitle": "Ley aplicable"
     },
     "partners": {
