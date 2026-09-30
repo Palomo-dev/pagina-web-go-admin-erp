@@ -89,6 +89,29 @@ export function CookieConsent() {
     const saved = readChoice()
     setChoice(saved)
     setOpen(!saved)
+    
+    // Escuchar eventos para abrir el panel de configuración
+    const handleOpenPreferences = () => {
+      if (saved) {
+        // Si ya hay una elección guardada, abrir directamente el panel de configuración
+        setTempAnalytics(saved.analytics)
+        setTempMarketing(saved.marketing)
+        setShowConfig(true)
+      } else {
+        // Si no hay elección, abrir el banner inicial
+        setOpen(true)
+      }
+    }
+    
+    // Evento desde el pie de página
+    window.addEventListener('goadmin:consent-open', handleOpenPreferences)
+    // Evento desde la página /cookies (PR #22)
+    window.addEventListener('goadmin:open-cookie-preferences', handleOpenPreferences)
+    
+    return () => {
+      window.removeEventListener('goadmin:consent-open', handleOpenPreferences)
+      window.removeEventListener('goadmin:open-cookie-preferences', handleOpenPreferences)
+    }
   }, [])
 
   const decide = (analytics: boolean, marketing: boolean) => {
