@@ -7,7 +7,8 @@ import { captureAttribution } from '@/lib/attribution'
 /**
  * Etiquetas de marketing: píxel de Meta y Google Analytics/Ads.
  * 
- * - Solo se cargan con consentimiento de marketing.
+ * - Google Analytics se carga con consentimiento de medición (analytics).
+ * - Meta Pixel y Google Ads se cargan con consentimiento de publicidad (marketing).
  * - Implementa Consent Mode v2 básico (default denied).
  * - Escucha cambios de consentimiento para activarse sin recargar.
  * - Si las variables de entorno no existen, no se carga nada.
@@ -101,7 +102,7 @@ function updateConsent(hasAnalytics: boolean, hasMarketing: boolean) {
   }
   
   // Capturar atribución
-  captureAttribution(hasMarketing)
+  captureAttribution(hasAnalytics)
 }
 
 export function MarketingTags() {
@@ -161,20 +162,21 @@ export function MarketingTags() {
   // Capturar atribución al cargar la página
   useEffect(() => {
     if (consent) {
-      captureAttribution(consent.marketing)
+      captureAttribution(consent.analytics)
     }
   }, [consent])
   
   // No cargar nada si no hay consentimiento
   if (!consent) return null
   
-  const shouldLoadAnalytics = consent.analytics && (GA4_ID || GADS_ID)
-  const shouldLoadMarketing = consent.marketing && META_PIXEL_ID
+  const shouldLoadGA4 = consent.analytics && GA4_ID
+  const shouldLoadGAds = consent.marketing && GADS_ID
+  const shouldLoadMetaPixel = consent.marketing && META_PIXEL_ID
   
   return (
     <>
-      {/* Google Analytics y Google Ads */}
-      {shouldLoadAnalytics && GA4_ID && (
+      {/* Google Analytics (requiere consentimiento de medición) */}
+      {shouldLoadGA4 && (
         <Script
           id="gtag-base"
           strategy="afterInteractive"
@@ -186,8 +188,8 @@ export function MarketingTags() {
         />
       )}
       
-      {/* Meta Pixel */}
-      {shouldLoadMarketing && META_PIXEL_ID && (
+      {/* Meta Pixel (requiere consentimiento de publicidad) */}
+      {shouldLoadMetaPixel && (
         <>
           <Script
             id="meta-pixel"

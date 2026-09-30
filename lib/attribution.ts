@@ -1,9 +1,9 @@
 /**
  * Atribución de marketing según el contrato compartido con el ERP.
  *
- * - Sin consentimiento de marketing: SOLO utm_* en sessionStorage.
- * - Con consentimiento de marketing: cookie goadmin_attr con primer y último toque (90 días).
- * - Enlaces al registro: agregar UTM vigentes; gclid/fbclid SOLO con consentimiento.
+ * - Sin consentimiento de medición: SOLO utm_* en sessionStorage.
+ * - Con consentimiento de medición: cookie goadmin_attr con primer y último toque (90 días).
+ * - Enlaces al registro: agregar UTM vigentes; gclid/fbclid SOLO con consentimiento de medición.
  */
 
 const ATTR_COOKIE = 'goadmin_attr'
@@ -146,18 +146,18 @@ function saveAttrCookie(data: AttributionData) {
 
 /**
  * Captura la atribución según el consentimiento.
- * - Sin consentimiento de marketing: solo sessionStorage con UTM.
- * - Con consentimiento de marketing: cookie con primer y último toque, incluye gclid/fbclid.
+ * - Sin consentimiento de medición: solo sessionStorage con UTM.
+ * - Con consentimiento de medición: cookie goadmin_attr con primer y último toque, incluye gclid/fbclid.
  */
-export function captureAttribution(hasMarketingConsent: boolean) {
+export function captureAttribution(hasAnalyticsConsent: boolean) {
   const urlAttr = readUrlParams()
   if (Object.keys(urlAttr).length === 0) return // No hay parámetros de campaña
   
   // Siempre guardar UTM en sessionStorage
   saveToSession(urlAttr)
   
-  // Con consentimiento de marketing: guardar cookie completa
-  if (hasMarketingConsent) {
+  // Con consentimiento de medición: guardar cookie completa
+  if (hasAnalyticsConsent) {
     const current = readAttrCookie()
     
     // Agregar _fbp y _fbc si existen
@@ -189,9 +189,9 @@ export function readAttribution(): AttributionData | Attribution | null {
 
 /**
  * Decora una URL de registro con los parámetros de atribución vigentes.
- * Agrega: UTM, y solo con consentimiento de marketing: gclid/fbclid.
+ * Agrega: UTM, y solo con consentimiento de medición: gclid/fbclid.
  */
-export function decorateSignupUrl(baseUrl: string, hasMarketingConsent: boolean): string {
+export function decorateSignupUrl(baseUrl: string, hasAnalyticsConsent: boolean): string {
   const url = new URL(baseUrl)
   const attr = readAttribution()
   if (!attr) return baseUrl
@@ -205,8 +205,8 @@ export function decorateSignupUrl(baseUrl: string, hasMarketingConsent: boolean)
     if (data[key]) url.searchParams.set(key, data[key]!)
   })
   
-  // Solo con consentimiento: gclid y fbclid
-  if (hasMarketingConsent) {
+  // Solo con consentimiento de medición: gclid y fbclid
+  if (hasAnalyticsConsent) {
     if (data.gclid) url.searchParams.set('gclid', data.gclid)
     if (data.fbclid) url.searchParams.set('fbclid', data.fbclid)
   }

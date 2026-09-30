@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
  * 
  * - 3 botones del mismo peso: Aceptar todas, Rechazar, Configurar.
  * - Cookie goadmin_consent con formato JSON: {"v":1,"analytics":bool,"marketing":bool,"ts":epoch}
- * - domain=.goadmin.io, 180 días.
+ * - Domain=.goadmin.io solo en producción, Path=/, SameSite=Lax, Secure, 180 días.
  * - Emite evento window.dispatchEvent(new CustomEvent('goadmin:consent', {detail}))
  * - Vercel Analytics solo se carga con analytics=true.
  */
@@ -60,7 +60,13 @@ function readChoice(): ConsentChoice | null {
 function saveChoice(choice: ConsentChoice) {
   const value = encodeURIComponent(JSON.stringify(choice))
   const maxAge = MAX_AGE_DAYS * 86400 // 180 días en segundos
-  document.cookie = `${CONSENT_COOKIE}=${value}; max-age=${maxAge}; path=/; domain=.goadmin.io; SameSite=Lax; Secure`
+  
+  // Domain=.goadmin.io solo en producción (goadmin.io), no en localhost ni previews
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
+  const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
+  
+  document.cookie = `${CONSENT_COOKIE}=${value}; max-age=${maxAge}; path=/${domainAttr}; SameSite=Lax; Secure`
   
   // Emitir evento para que MarketingTags se active sin recargar
   window.dispatchEvent(new CustomEvent('goadmin:consent', {
