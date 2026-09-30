@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server'
+import { redirect } from 'next/navigation'
 import { getT } from '@/i18n/t-server'
 import { getLegal } from '@/lib/data'
 import { pageMetadata, type PageProps } from '@/lib/page'
@@ -21,6 +22,27 @@ export default async function PrivacidadPage({ params }: PageProps) {
   setRequestLocale(params.locale)
   const t = await getT('pages.privacy')
   const { PRIVACY, isReferenceTranslation } = await getLegal(params.locale)
+
+  // Para locales no españoles, mostrar página mínima con enlace a versión es-CO
+  if (isReferenceTranslation) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4">
+        <div className="max-w-2xl text-center">
+          <p className="text-lg text-ink-body">
+            {params.locale.startsWith('en') && 'This legal document is available in Spanish.'}
+            {params.locale.startsWith('pt') && 'Este documento legal está disponível em espanhol.'}
+            {params.locale.startsWith('fr') && 'Ce document juridique est disponible en espagnol.'}
+          </p>
+          <Link href="/privacidad" locale="es-CO" className="mt-6 inline-block rounded-xl bg-go-action px-6 py-3 font-semibold text-white transition-colors hover:bg-go-deep">
+            {params.locale.startsWith('en') && 'View in Spanish'}
+            {params.locale.startsWith('pt') && 'Ver em espanhol'}
+            {params.locale.startsWith('fr') && 'Voir en espagnol'}
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
   const toc = [{ id: 'principios', label: t('principles') }, ...PRIVACY.sections.map((s) => ({ id: slug(s.title), label: s.title.replace(/^\d+\.\s*/, '') })), { id: 'contacto', label: t('contact') }]
   return (
     <LegalLayout
@@ -30,7 +52,7 @@ export default async function PrivacidadPage({ params }: PageProps) {
       updated={`${PRIVACY.version} · ${PRIVACY.updated} · ${PRIVACY.vigente}`}
       toc={toc}
       currentPage="/privacidad"
-      reference={isReferenceTranslation}
+      reference={false}
     >
       <LegalSection id="principios" title={t('principlesTitle')}>
         <div className="grid gap-4 sm:grid-cols-2">

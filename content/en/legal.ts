@@ -344,3 +344,4 @@ export const COOKIES: typeof Es.COOKIES = {
   ],
   contact: { title: 'Questions about cookies?', text: 'Write to us and we will get back to you.', email: CONTACT.email },
 }
+

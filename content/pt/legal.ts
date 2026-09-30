@@ -350,3 +350,4 @@ export const COOKIES: typeof Es.COOKIES = {
   ],
   contact: { title: 'Tem dúvidas sobre cookies?', text: 'Escreva para nós e responderemos.', email: CONTACT.email },
 }
+

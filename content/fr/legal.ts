@@ -347,3 +347,4 @@ export const COOKIES: typeof Es.COOKIES = {
   ],
   contact: { title: 'Vous avez des questions sur les témoins ?', text: 'Écrivez-nous et nous vous répondrons.', email: CONTACT.email },
 }
+
