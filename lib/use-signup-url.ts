@@ -3,33 +3,20 @@
 import { useEffect, useState } from 'react'
 import { decorateSignupUrl } from '@/lib/attribution'
 import { SIGNUP_URL as BASE_SIGNUP_URL } from '@/lib/site'
+import { readChoice } from '@/lib/consent'
 
 /**
  * Hook para obtener la URL de registro decorada con parámetros de atribución.
- * Agrega UTM y, solo con consentimiento de medición, gclid/fbclid.
+ * BLOQUEANTE #1: Usa readChoice() centralizada que rechaza formatos viejos.
+ * Solo decora con UTMs/gclid/fbclid cuando hay consentimiento de medición.
  */
 export function useSignupUrl(): string {
   const [url, setUrl] = useState(BASE_SIGNUP_URL)
   
   useEffect(() => {
-    // Leer consentimiento
-    const readConsent = (): { analytics: boolean } => {
-      const match = document.cookie.match(/(?:^|; )goadmin_consent=([^;]+)/)
-      if (!match) return { analytics: false }
-      
-      try {
-        const decoded = decodeURIComponent(match[1])
-        if (decoded === 'all') return { analytics: true }
-        
-        const data = JSON.parse(decoded)
-        return { analytics: data.analytics === true }
-      } catch {
-        return { analytics: false }
-      }
-    }
-    
-    const consent = readConsent()
-    const decorated = decorateSignupUrl(BASE_SIGNUP_URL, consent.analytics)
+    const choice = readChoice()
+    const hasAnalytics = choice?.analytics === true
+    const decorated = decorateSignupUrl(BASE_SIGNUP_URL, hasAnalytics)
     setUrl(decorated)
   }, [])
   

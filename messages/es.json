@@ -1825,7 +1825,7 @@
   "consent": {
     "label": "Aviso de cookies",
     "title": "Cookies y privacidad",
-    "text": "Usamos cookies necesarias para que el sitio funcione, y con tu permiso también cookies de medición (para mejorar el sitio) y de publicidad (Meta y Google, para medir campañas).",
+    "text": "Usamos cookies necesarias para que el sitio funcione. Con tu permiso, también usamos cookies de medición, para saber cómo se usa el sitio y de qué campaña llegaste, y de publicidad, para medir nuestros anuncios y mostrarte anuncios de GO Admin en Meta y Google.",
     "policy": "Política de cookies",
     "necessary": "Necesarias",
     "analytics": "Medición",
@@ -1834,10 +1834,10 @@
     "reject": "Rechazar",
     "configure": "Configurar",
     "configTitle": "Preferencias de cookies",
-    "configText": "Elige qué categorías de cookies quieres activar. Puedes cambiar tu elección en cualquier momento.",
-    "necessaryText": "Esenciales para el funcionamiento del sitio: recuerdan tu país, idioma y tu elección sobre cookies.",
-    "analyticsText": "Nos ayudan a medir de forma agregada qué páginas se visitan para mejorar el sitio.",
-    "marketingText": "Nos permiten medir campañas de Meta y Google, mostrar contenido relevante y mejorar nuestros anuncios.",
+    "configText": "Elige qué categorías de cookies quieres activar. Puedes cambiar tu elección cuando quieras en «Preferencias de cookies», al pie de cada página.",
+    "necessaryText": "Hacen que el sitio funcione, sea seguro y recuerde tu país, tu idioma y tu elección de cookies. No se pueden desactivar.",
+    "analyticsText": "Nos dicen cuántas personas visitan el sitio, qué páginas ven y de qué campaña llegaron.",
+    "marketingText": "Miden las conversiones de nuestros anuncios y permiten mostrarte anuncios de GO Admin en Meta (Facebook e Instagram) y Google.",
     "alwaysActive": "Siempre activas",
     "back": "Volver",
     "saveConfig": "Guardar configuración"

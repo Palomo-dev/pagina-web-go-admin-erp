@@ -1824,10 +1824,22 @@
   },
   "consent": {
     "label": "Aviso de cookies",
-    "title": "Usamos poucos cookies",
-    "text": "Os necessários lembram seu país e idioma. Com sua permissão, também medimos de forma agregada quais páginas são visitadas para melhorar o site.",
+    "title": "Cookies y privacidad",
+    "text": "Usamos cookies necesarias para que el sitio funcione. Con tu permiso, también usamos cookies de medición, para saber cómo se usa el sitio y de qué campaña llegaste, y de publicidad, para medir nuestros anuncios y mostrarte anuncios de GO Admin en Meta y Google.",
     "policy": "Política de cookies",
-    "necessary": "Somente necessários",
-    "accept": "Aceitar todos"
+    "necessary": "Necesarias",
+    "analytics": "Medición",
+    "marketing": "Publicidad",
+    "accept": "Aceptar todas",
+    "reject": "Rechazar",
+    "configure": "Configurar",
+    "configTitle": "Preferencias de cookies",
+    "configText": "Elige qué categorías de cookies quieres activar. Puedes cambiar tu elección cuando quieras en «Preferencias de cookies», al pie de cada página.",
+    "necessaryText": "Hacen que el sitio funcione, sea seguro y recuerde tu país, tu idioma y tu elección de cookies. No se pueden desactivar.",
+    "analyticsText": "Nos dicen cuántas personas visitan el sitio, qué páginas ven y de qué campaña llegaron.",
+    "marketingText": "Miden las conversiones de nuestros anuncios y permiten mostrarte anuncios de GO Admin en Meta (Facebook e Instagram) y Google.",
+    "alwaysActive": "Siempre activas",
+    "back": "Volver",
+    "saveConfig": "Guardar configuración"
   }
 }

@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Link } from '@/i18n/navigation'
 import { useT } from '@/i18n/t'
 import { cn } from '@/lib/utils'
+import { readChoice, saveChoice, rejectAll, revokeConsent, type ConsentChoice, CONSENT_VERSION } from '@/lib/consent'
 
 /**
  * Banner de consentimiento de cookies según el contrato compartido con el ERP.
@@ -14,98 +15,8 @@ import { cn } from '@/lib/utils'
  * - Domain=.goadmin.io solo en producción, Path=/, SameSite=Lax, Secure, 180 días.
  * - Emite evento window.dispatchEvent(new CustomEvent('goadmin:consent', {detail}))
  * - Vercel Analytics solo se carga con analytics=true.
+ * - BLOQUEANTE #2: "Rechazar" GUARDA la elección (no borra la cookie).
  */
-
-export const CONSENT_COOKIE = 'goadmin_consent'
-const CONSENT_VERSION = 1
-const MAX_AGE_DAYS = 180
-
-type ConsentChoice = {
-  v: number
-  analytics: boolean
-  marketing: boolean
-  ts: number
-}
-
-type LegacyChoice = 'all' | 'necessary'
-
-function readChoice(): ConsentChoice | null {
-  const match = document.cookie.match(new RegExp(`(?:^|; )${CONSENT_COOKIE}=([^;]+)`))
-  if (!match) return null
-  
-  try {
-    const decoded = decodeURIComponent(match[1])
-    
-    // BLOQUEANTE #4: Formato heredado 'all' NO cuenta como Publicidad - debe mostrar banner de nuevo
-    if (decoded === 'all' || decoded === 'necessary') {
-      return null // Volver a mostrar el banner
-    }
-    
-    // Formato nuevo JSON
-    const parsed = JSON.parse(decoded)
-    if (typeof parsed === 'object' && parsed !== null && 'v' in parsed && 'marketing' in parsed) {
-      return parsed as ConsentChoice
-    }
-    
-    // Si el formato no tiene campo marketing explícito, volver a mostrar el banner
-    return null
-  } catch {
-    // Si falla el parsing, asumir que no hay consentimiento válido
-    return null
-  }
-}
-
-function saveChoice(choice: ConsentChoice) {
-  const value = encodeURIComponent(JSON.stringify(choice))
-  const maxAge = MAX_AGE_DAYS * 86400 // 180 días en segundos
-  
-  // Domain=.goadmin.io solo en producción (goadmin.io), no en localhost ni previews
-  const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
-  const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
-  const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
-  
-  document.cookie = `${CONSENT_COOKIE}=${value}; max-age=${maxAge}; path=/${domainAttr}; SameSite=Lax; Secure`
-  
-  // Emitir evento para que MarketingTags se active sin recargar
-  window.dispatchEvent(new CustomEvent('goadmin:consent', {
-    detail: {
-      analytics: choice.analytics,
-      marketing: choice.marketing,
-    }
-  }))
-}
-
-// BLOQUEANTE #6: Borrar cookies y storage, revocar consentimientos de terceros
-function clearAllConsent() {
-  // Borrar cookie goadmin_consent
-  const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
-  const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
-  const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
-  document.cookie = `${CONSENT_COOKIE}=; max-age=0; path=/${domainAttr}`
-  
-  // Borrar cookie goadmin_attr
-  document.cookie = `goadmin_attr=; max-age=0; path=/${domainAttr}`
-  
-  // Borrar sessionStorage
-  if (typeof sessionStorage !== 'undefined') {
-    sessionStorage.removeItem('goadmin_attr_session')
-  }
-  
-  // Revocar consentimiento de Google (gtag)
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('consent', 'update', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-    })
-  }
-  
-  // Revocar consentimiento de Meta (fbq)
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('consent', 'revoke')
-  }
-}
 
 export function CookieConsent() {
   const t = useT('consent')
@@ -147,46 +58,28 @@ export function CookieConsent() {
   }, [])
 
   const decide = (analytics: boolean, marketing: boolean) => {
-    // BLOQUEANTE #5 y #6: Si se rechazan ambos, limpiar todo
+    // BLOQUEANTE #2: "Rechazar" GUARDA la elección (no borra)
     if (!analytics && !marketing) {
-      clearAllConsent()
-      // BLOQUEANTE #5: Limpiar atribución de memoria también
-      const { clearAttribution } = require('@/lib/attribution')
-      clearAttribution()
-      setChoice({ v: CONSENT_VERSION, analytics: false, marketing: false, ts: Date.now() })
+      const rejectedChoice = rejectAll()
+      setChoice(rejectedChoice)
       setOpen(false)
       setShowConfig(false)
-      // Emitir evento con consentimiento denegado
-      window.dispatchEvent(new CustomEvent('goadmin:consent', {
-        detail: { analytics: false, marketing: false }
-      }))
       return
     }
     
-    // BLOQUEANTE #6: Si se retira consentimiento previamente otorgado, limpiar
+    // BLOQUEANTE #3: Revocar categorías específicas si se retira consentimiento
     const previous = choice
-    if (previous) {
-      // Si se desmarca Medición, borrar goadmin_attr y sessionStorage
-      if (previous.analytics && !analytics) {
-        const hostname = typeof window !== 'undefined' ? window.location.hostname : ''
-        const isProduction = hostname === 'goadmin.io' || hostname === 'www.goadmin.io'
-        const domainAttr = isProduction ? '; domain=.goadmin.io' : ''
-        document.cookie = `goadmin_attr=; max-age=0; path=/${domainAttr}`
-        if (typeof sessionStorage !== 'undefined') {
-          sessionStorage.removeItem('goadmin_attr_session')
-        }
-        // Limpiar atribución de memoria
-        const { clearAttribution } = require('@/lib/attribution')
-        clearAttribution()
-      }
-    }
-    
     const newChoice: ConsentChoice = {
       v: CONSENT_VERSION,
       analytics,
       marketing,
       ts: Date.now(),
     }
+    
+    if (previous) {
+      revokeConsent(previous, newChoice)
+    }
+    
     saveChoice(newChoice)
     setChoice(newChoice)
     setOpen(false)
@@ -335,3 +228,6 @@ export function CookieSettingsButton({ className, children }: { className?: stri
     </button>
   )
 }
+
+// Re-exportar para compatibilidad
+export { CONSENT_COOKIE } from '@/lib/consent'

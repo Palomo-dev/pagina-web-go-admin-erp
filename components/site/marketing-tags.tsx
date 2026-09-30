@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { captureAttribution } from '@/lib/attribution'
+import { readChoice, type ConsentChoice } from '@/lib/consent'
 
 /**
  * Etiquetas de marketing: píxel de Meta y Google Analytics/Ads.
@@ -11,7 +12,8 @@ import { captureAttribution } from '@/lib/attribution'
  * - Meta Pixel y Google Ads se cargan con consentimiento de publicidad (marketing).
  * - Implementa Consent Mode v2 básico (default denied).
  * - Escucha cambios de consentimiento para activarse sin recargar.
- * - Si las variables de entorno no existen, no se carga nada.
+ * - BLOQUEANTE #1: Usa readChoice() centralizada que rechaza formatos viejos.
+ * - MENOR: Meta Pixel usa stub estándar (fbq.queue, callMethod, _fbq).
  */
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
@@ -25,35 +27,51 @@ type ConsentState = {
 
 declare global {
   interface Window {
-    fbq?: (action: string, event: string, params?: Record<string, any>) => void
+    fbq?: ((action: string, event: string, params?: Record<string, any>, options?: Record<string, any>) => void) & {
+      callMethod?: (...args: any[]) => void
+      queue: any[]
+      push: (...args: any[]) => void
+      loaded: boolean
+      version: string
+    }
     _fbq?: Window['fbq']
     dataLayer?: any[]
     gtag?: (...args: any[]) => void
   }
 }
 
+/**
+ * MENOR: Stub estándar de Meta Pixel (fbq.queue, callMethod, _fbq).
+ * Se ejecuta ANTES de cargar fbevents.js.
+ */
+function initMetaPixelStub() {
+  if (typeof window === 'undefined' || window.fbq) return
+  
+  const fbq = function(...args: any[]) {
+    if (fbq.callMethod) {
+      fbq.callMethod.apply(fbq, args)
+    } else {
+      fbq.queue.push(args)
+    }
+  } as Window['fbq']
+  
+  fbq!.push = fbq as any
+  fbq!.loaded = true
+  fbq!.version = '2.0'
+  fbq!.queue = []
+  
+  window.fbq = fbq
+  window._fbq = fbq
+}
+
 function initMetaPixel() {
   if (!META_PIXEL_ID || typeof window === 'undefined') return
   
-  // Inicializar Meta Pixel
-  const fbq = function(...args: any[]) {
-    if (window.fbq?.callMethod) {
-      window.fbq.callMethod.apply(window.fbq, args as any)
-    } else {
-      window.fbq!.queue.push(args)
-    }
-  } as any
-  
-  if (!window.fbq) {
-    window.fbq = fbq
-    fbq.push = fbq
-    fbq.loaded = true
-    fbq.version = '2.0'
-    fbq.queue = []
+  // El stub ya está inicializado, solo llamar init y track
+  if (window.fbq) {
+    window.fbq('init', META_PIXEL_ID)
+    window.fbq('track', 'PageView')
   }
-  
-  window.fbq('init', META_PIXEL_ID)
-  window.fbq('track', 'PageView')
 }
 
 function initGoogleTags(hasAnalytics: boolean, hasMarketing: boolean) {
@@ -110,40 +128,15 @@ export function MarketingTags() {
   const [scriptsLoaded, setScriptsLoaded] = useState(false)
   
   useEffect(() => {
-    // Leer consentimiento de la cookie
-    const readConsent = (): ConsentState | null => {
-      const match = document.cookie.match(/(?:^|; )goadmin_consent=([^;]+)/)
-      if (!match) return null
-      
-      try {
-        const decoded = decodeURIComponent(match[1])
-        const data = JSON.parse(decoded)
-        
-        // Manejar formato heredado 'all'
-        if (decoded === 'all') {
-          return { analytics: true, marketing: true }
-        }
-        
-        // Manejar formato nuevo JSON
-        if (typeof data === 'object' && data !== null) {
-          return {
-            analytics: data.analytics === true,
-            marketing: data.marketing === true,
-          }
-        }
-        
-        return null
-      } catch {
-        // Formato heredado 'all' sin JSON
-        if (match[1] === 'all') {
-          return { analytics: true, marketing: true }
-        }
-        return null
-      }
-    }
-    
-    const currentConsent = readConsent()
+    // BLOQUEANTE #1: Usar readChoice() centralizada
+    const choice = readChoice()
+    const currentConsent = choice ? { analytics: choice.analytics, marketing: choice.marketing } : null
     setConsent(currentConsent)
+    
+    // MENOR: Inicializar stub de Meta Pixel ANTES de cargar el script
+    if (currentConsent?.marketing && META_PIXEL_ID) {
+      initMetaPixelStub()
+    }
     
     // Escuchar cambios de consentimiento
     const handleConsentChange = (e: CustomEvent) => {
