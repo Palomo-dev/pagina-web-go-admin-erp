@@ -361,7 +361,7 @@
       "privacyNotice": "Avis de confidentialité"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Paramètres des témoins"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Lun au ven · 8 h – 18 h",
@@ -1809,7 +1809,7 @@
     "privacyNotice": {
       "meta": {
         "title": "Aviso de privacidad",
-        "description": "Summary of how GO Admin processes your personal data."
+        "description": "Resumen de cómo GO Admin trata tus datos personales."
       },
       "eyebrow": "Legal"
     }

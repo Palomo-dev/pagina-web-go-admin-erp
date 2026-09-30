@@ -47,11 +47,11 @@ export const PRIVACY = {
       title: '2. A quién aplica esta política',
       items: [
         'Aplica a los datos personales que GO Admin trata como responsable, es decir, cuando decide para qué y cómo se usan. Esto incluye a:',
-        'personas que visitan goadmin.io y las páginas públicas de app.goadmin.io;',
-        'personas que llenan formularios de GO Admin en el sitio, en la aplicación o en anuncios de Facebook e Instagram (formularios de clientes potenciales), o que nos escriben por WhatsApp o correo;',
-        'prospectos a quienes contactamos por llamada, WhatsApp o correo, incluidas las llamadas de nuestro asistente virtual con inteligencia artificial;',
-        'usuarios, clientes y representantes de las empresas que usan GO Admin ERP (datos de la cuenta, facturación y soporte);',
-        'proveedores, aliados comerciales, contadores referidores, candidatos a empleo, trabajadores e inversionistas.',
+        '• personas que visitan goadmin.io y las páginas públicas de app.goadmin.io;',
+        '• personas que llenan formularios de GO Admin en el sitio, en la aplicación o en anuncios de Facebook e Instagram (formularios de clientes potenciales), o que nos escriben por WhatsApp o correo;',
+        '• prospectos a quienes contactamos por llamada, WhatsApp o correo, incluidas las llamadas de nuestro asistente virtual con inteligencia artificial;',
+        '• usuarios, clientes y representantes de las empresas que usan GO Admin ERP (datos de la cuenta, facturación y soporte);',
+        '• proveedores, aliados comerciales, contadores referidores, candidatos a empleo, trabajadores e inversionistas.',
       ],
     },
     {

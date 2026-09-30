@@ -361,7 +361,7 @@
       "privacyNotice": "Aviso de privacidade"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Configurar cookies"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Seg a sex · 8h – 18h",
@@ -1809,7 +1809,7 @@
     "privacyNotice": {
       "meta": {
         "title": "Aviso de privacidad",
-        "description": "Summary of how GO Admin processes your personal data."
+        "description": "Resumen de cómo GO Admin trata tus datos personales."
       },
       "eyebrow": "Legal"
     }

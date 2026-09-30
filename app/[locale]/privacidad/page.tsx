@@ -17,8 +17,8 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 
-// Detectar si un item es un subtítulo (7.1, 8.1, etc.)
-const isSubheading = (item: string) => /^\d+\.\d+\s/.test(item) || ['a)', 'b)', 'c)', 'd)'].includes(item)
+// Detectar si un item es un subtítulo (7.1, 8.1, etc. o a), b), c), d))
+const isSubheading = (item: string) => /^\d+\.\d+\s/.test(item) || /^[a-d]\)\s/.test(item)
 
 // Convertir enlaces en el texto
 const linkify = (text: string, locale: string) => {
