@@ -23,7 +23,7 @@ const isSubheading = (item: string, sectionTitle: string) => {
   if (/^\d+\.\d+\s/.test(item)) return true
   
   // Solo detecta a) b) c) d) en la sección 6
-  if (sectionTitle === '6. Cómo ejercer tus derechos' && /^[a-d]\)\s/.test(item)) return true
+  if (sectionTitle.startsWith('6. ') && /^[a-d]\)\s/.test(item)) return true
   
   return false
 }
