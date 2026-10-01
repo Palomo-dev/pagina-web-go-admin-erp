@@ -7,6 +7,7 @@ import type { PageProps } from '@/lib/page'
 import { SOLUTIONS } from '@/lib/catalog/solutions'
 import { notFound } from 'next/navigation'
 import { ChevronRight } from 'lucide-react'
+import { SolutionViewTracker } from './solution-view-tracker'
 import { CardLinkGrid, DayTimeline, FaqSection, FeatureGrid, PainPoints, Section, Split, TypeChips } from '@/components/sections/blocks'
 import { ProductMock } from '@/components/sections/product-mock'
 import { SiteFooter } from '@/components/site/footer'
@@ -49,6 +50,7 @@ export default async function SolutionPage({ params }: Props) {
 
   return (
     <>
+      <SolutionViewTracker name={s.name} slug={s.slug} />
       <SiteNavbar tone="sky" currentPage="/soluciones" />
       <main id="contenido">
         <PageHeroSplit

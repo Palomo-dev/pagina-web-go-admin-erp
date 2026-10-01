@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { CookieConsent } from '@/components/site/cookie-consent'
 import { MarketDialog } from '@/components/site/market-switcher'
+import { MarketingTags } from '@/components/site/marketing-tags'
 import { MARKETS, type MarketId } from '@/i18n/markets'
 import { getT } from '@/i18n/t-server'
 import { SITE_URL, alternates } from '@/lib/seo'
@@ -55,7 +56,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         </a>
         <NextIntlClientProvider>
           {children}
-          {/* La analítica solo se carga con el consentimiento (ver /cookies) */}
+          {/* La analítica y las etiquetas de marketing solo se cargan con el consentimiento (ver /cookies) */}
+          <MarketingTags />
           <CookieConsent />
           <MarketDialog />
         </NextIntlClientProvider>
