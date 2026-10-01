@@ -7,7 +7,7 @@ import { CtaLink, Tag } from '@/components/site/primitives'
 import { useLocale } from 'next-intl'
 import { getMarket } from '@/i18n/markets'
 import { useT } from '@/i18n/t'
-import { MODULE_COUNT, PLANS, SIGNUP_URL, formatPrice } from '@/lib/site'
+import { MODULE_COUNT, PLANS, buildSignupUrl, formatPrice } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 /**
@@ -79,7 +79,7 @@ export function PricingCards({ className }: { className?: string }) {
                   {annual ? t('equivalent', { price: fmt(Math.round(p.prices[currency].annual / 12)) }) : t('annualNote', { price: fmt(p.prices[currency].annual) })} · {t('trialNote', { days: p.trialDays })}
                 </p>
               </div>
-              <CtaLink href={SIGNUP_URL} kind={p.recommended ? 'primary' : 'secondary'} className="w-full">
+              <CtaLink href={buildSignupUrl({ plan: p.id, cycle: annual ? 'yearly' : 'monthly' })} kind={p.recommended ? 'primary' : 'secondary'} className="w-full">
                 {t('tryPlan', { name: p.name })}
               </CtaLink>
               <hr className="border-ink-line" />

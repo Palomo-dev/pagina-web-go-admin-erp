@@ -16,6 +16,25 @@ export const LOGIN_URL = `${APP_URL}/auth/login`
 export const SELLERS_URL = 'https://sellers.goadmin.io'
 export const SELLERS_SIGNUP_URL = `${SELLERS_URL}/register`
 
+/**
+ * Construye la URL de registro con parámetros de plan y ciclo de facturación.
+ * Conserva parámetros UTM y de atribución existentes si se pasan en la base.
+ *
+ * @param options - Opciones de plan y ciclo de facturación
+ * @returns URL de registro con parámetros agregados
+ *
+ * @example
+ * buildSignupUrl({ plan: 'business', cycle: 'yearly' })
+ * // => 'https://app.goadmin.io/auth/signup?plan=business&cycle=yearly'
+ */
+export function buildSignupUrl(options?: { plan?: 'pro' | 'business' | 'ultimate'; cycle?: 'monthly' | 'yearly' }): string {
+  if (!options?.plan && !options?.cycle) return SIGNUP_URL
+  const params = new URLSearchParams()
+  if (options.plan) params.set('plan', options.plan)
+  if (options.cycle) params.set('cycle', options.cycle)
+  return `${SIGNUP_URL}?${params.toString()}`
+}
+
 // Portal de inversionistas (solo por invitación)
 export const INVESTORS_URL = 'https://investors.goadmin.io'
 
