@@ -357,10 +357,11 @@
       "countries": "Países",
       "terms": "Termos e condições",
       "cookies": "Cookies",
-      "download": "Downloads"
+      "download": "Downloads",
+      "privacyNotice": "Aviso de privacidade"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Configurar cookies"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Seg a sex · 8h – 18h",
@@ -1334,16 +1335,25 @@
       "eyebrow": "Seus direitos",
       "toc": {
         "como": "Como solicitar",
-        "proceso": "Processo",
-        "datos": "O que acontece com seus dados",
-        "plazos": "Prazos por norma",
-        "preguntas": "Perguntas frequentes"
+        "plazos": "Tempo de resposta",
+        "que-borramos": "O que apagamos",
+        "conservamos": "O que conservamos e por quê",
+        "erp": "Se você é cliente de uma empresa que usa GO Admin ERP",
+        "queja": "Se você não concorda",
+        "ley": "Lei aplicável"
       },
-      "howTitle": "Como solicitar a exclusão?",
+      "howTitle": "Como solicitar",
       "processTitle": "Processo de exclusão",
       "dataTitle": "O que acontece com meus dados?",
       "termsTitle": "Prazos por norma",
-      "faqTitle": "Perguntas frequentes"
+      "faqTitle": "Perguntas frequentes",
+      "timelineTitle": "Tempo de resposta",
+      "weDeleteTitle": "O que apagamos",
+      "retentionTitle": "O que conservamos e por quê",
+      "retentionIntro": "Há dados que não podemos apagar imediatamente porque uma lei ou contrato nos obriga a guardá-los. Nesses casos os bloqueamos, usamos apenas para cumprir essa obrigação e os apagamos ao vencer o prazo:",
+      "erpTitle": "Se você é cliente ou funcionário de uma empresa que usa GO Admin ERP",
+      "complaintTitle": "Se você não concorda com nossa resposta",
+      "lawTitle": "Lei aplicável"
     },
     "api": {
       "meta": {
@@ -1395,17 +1405,20 @@
       },
       "eyebrow": "Legal",
       "toc": {
-        "que-son": "O que são",
-        "tipos": "Tipos",
-        "lista": "Lista de cookies",
-        "gestionar": "Alterar sua escolha",
-        "contacto": "Contato"
+        "que-son": "O que são cookies",
+        "antes": "Antes de escolher",
+        "tipos": "Categorias",
+        "lista": "Cookies que usamos",
+        "erp": "Dentro de GO Admin ERP",
+        "gestionar": "Como alterar suas preferências",
+        "ley": "Lei aplicável",
+        "contacto": "Perguntas"
       },
-      "whatTitle": "O que são cookies?",
-      "typesTitle": "Tipos de cookies que usamos",
+      "whatTitle": "O que são cookies",
+      "typesTitle": "Categorias",
       "always": "Sempre ativos",
       "optional": "Com sua permissão",
-      "listTitle": "Lista de cookies",
+      "listTitle": "Cookies que usamos",
       "table": {
         "name": "Nome",
         "category": "Tipo",
@@ -1413,8 +1426,11 @@
         "duration": "Duração",
         "provider": "Fornecedor"
       },
-      "manageTitle": "Alterar sua escolha",
-      "settings": "Configurar cookies"
+      "manageTitle": "Como alterar suas preferências",
+      "settings": "Configurar cookies",
+      "beforeTitle": "Antes de escolher, só carregamos o necessário",
+      "erpTitle": "Dentro de GO Admin ERP",
+      "lawTitle": "Lei aplicável"
     },
     "partners": {
       "meta": {
@@ -1789,6 +1805,13 @@
       "otherTitle": "Usa Mac, Linux, celular ou tablet?",
       "otherText": "O GO Admin funciona no navegador, sem instalar nada. Por enquanto, o aplicativo de desktop é só para Windows.",
       "openWeb": "Abrir o GO Admin no navegador"
+    },
+    "privacyNotice": {
+      "meta": {
+        "title": "Aviso de privacidad",
+        "description": "Resumen de cómo GO Admin trata tus datos personales."
+      },
+      "eyebrow": "Legal"
     }
   },
   "notFound": {

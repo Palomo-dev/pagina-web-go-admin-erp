@@ -5,7 +5,7 @@ import { SOLUTIONS } from '@/lib/catalog/solutions'
 import { allPostSlugs } from '@/lib/data'
 import { SITE_URL, marketPath } from '@/lib/seo'
 
-const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/eliminacion-datos', '/cookies', '/aliados', '/clientes', '/novedades', '/paises', '/descargas']
+const STATIC = ['/', '/producto', '/soluciones', '/canales-digitales', '/precios', '/integraciones', '/seguridad', '/soporte', '/capacitaciones', '/contacto', '/blog', '/carreras', '/acerca-de', '/api', '/privacidad', '/aviso-privacidad', '/eliminacion-datos', '/cookies', '/aliados', '/clientes', '/novedades', '/paises', '/descargas']
 // /inversionistas no se enlaza ni se indexa: el portal es solo por invitación (Decreto 2555 de 2010).
 // /terminos queda fuera mientras sea borrador (noindex).
 

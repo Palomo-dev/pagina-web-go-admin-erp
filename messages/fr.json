@@ -357,10 +357,11 @@
       "countries": "Pays",
       "terms": "Conditions d’utilisation",
       "cookies": "Témoins",
-      "download": "Téléchargements"
+      "download": "Téléchargements",
+      "privacyNotice": "Avis de confidentialité"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Paramètres des témoins"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Lun au ven · 8 h – 18 h",
@@ -1333,17 +1334,26 @@
       },
       "eyebrow": "Vos droits",
       "toc": {
-        "como": "Comment la demander",
-        "proceso": "Processus",
-        "datos": "Ce qu’il advient de vos données",
-        "plazos": "Délais selon la réglementation",
-        "preguntas": "Questions fréquentes"
+        "como": "Comment le demander",
+        "plazos": "Délai de réponse",
+        "que-borramos": "Ce que nous supprimons",
+        "conservamos": "Ce que nous conservons et pourquoi",
+        "erp": "Si vous êtes client d'une entreprise qui utilise GO Admin ERP",
+        "queja": "Si vous n'êtes pas d'accord",
+        "ley": "Loi applicable"
       },
-      "howTitle": "Comment demander la suppression ?",
+      "howTitle": "Comment le demander",
       "processTitle": "Processus de suppression",
       "dataTitle": "Qu’advient-il de mes données ?",
       "termsTitle": "Délais selon la réglementation",
-      "faqTitle": "Questions fréquentes"
+      "faqTitle": "Questions fréquentes",
+      "timelineTitle": "Délai de réponse",
+      "weDeleteTitle": "Ce que nous supprimons",
+      "retentionTitle": "Ce que nous conservons et pourquoi",
+      "retentionIntro": "Il y a des données que nous ne pouvons pas supprimer immédiatement car une loi ou un contrat nous oblige à les conserver. Dans ces cas, nous les bloquons, les utilisons uniquement à cette fin et les supprimons à l'expiration du délai:",
+      "erpTitle": "Si vous êtes client ou employé d'une entreprise qui utilise GO Admin ERP",
+      "complaintTitle": "Si vous n'êtes pas d'accord avec notre réponse",
+      "lawTitle": "Loi applicable"
     },
     "api": {
       "meta": {
@@ -1395,17 +1405,20 @@
       },
       "eyebrow": "Juridique",
       "toc": {
-        "que-son": "Définition",
-        "tipos": "Types",
-        "lista": "Liste des témoins",
-        "gestionar": "Modifier votre choix",
-        "contacto": "Contact"
+        "que-son": "Ce que sont les cookies",
+        "antes": "Avant de choisir",
+        "tipos": "Catégories",
+        "lista": "Cookies que nous utilisons",
+        "erp": "Dans GO Admin ERP",
+        "gestionar": "Comment modifier vos préférences",
+        "ley": "Loi applicable",
+        "contacto": "Questions"
       },
-      "whatTitle": "Qu’est-ce qu’un témoin ?",
-      "typesTitle": "Types de témoins que nous utilisons",
+      "whatTitle": "Ce que sont les cookies",
+      "typesTitle": "Catégories",
       "always": "Toujours actifs",
       "optional": "Avec votre permission",
-      "listTitle": "Liste des témoins",
+      "listTitle": "Cookies que nous utilisons",
       "table": {
         "name": "Nom",
         "category": "Type",
@@ -1413,8 +1426,11 @@
         "duration": "Durée",
         "provider": "Fournisseur"
       },
-      "manageTitle": "Modifier votre choix",
-      "settings": "Paramètres des témoins"
+      "manageTitle": "Comment modifier vos préférences",
+      "settings": "Paramètres des témoins",
+      "beforeTitle": "Avant de choisir, nous ne chargeons que le nécessaire",
+      "erpTitle": "Dans GO Admin ERP",
+      "lawTitle": "Loi applicable"
     },
     "partners": {
       "meta": {
@@ -1789,6 +1805,13 @@
       "otherTitle": "Vous utilisez un Mac, Linux, un téléphone ou une tablette ?",
       "otherText": "GO Admin fonctionne dans le navigateur, sans rien installer. Pour l’instant, l’application de bureau est offerte seulement pour Windows.",
       "openWeb": "Ouvrir GO Admin dans le navigateur"
+    },
+    "privacyNotice": {
+      "meta": {
+        "title": "Aviso de privacidad",
+        "description": "Resumen de cómo GO Admin trata tus datos personales."
+      },
+      "eyebrow": "Legal"
     }
   },
   "notFound": {

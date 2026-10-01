@@ -179,7 +179,14 @@ export function allPostSlugs() {
 export async function getLegal(locale: string) {
   const m = getMarket(locale)
   const l = m.language === 'es' ? esLegal : CONTENT[m.language].legal
-  return { PRIVACY: l.PRIVACY, DATA_DELETION: l.DATA_DELETION, TERMS: l.TERMS, COOKIES: l.COOKIES, isReferenceTranslation: m.language !== 'es' }
+  return {
+    PRIVACY: m.language === 'es' ? l.PRIVACY : esLegal.PRIVACY,
+    PRIVACY_NOTICE: m.language === 'es' ? l.PRIVACY_NOTICE : esLegal.PRIVACY_NOTICE,
+    DATA_DELETION: m.language === 'es' ? l.DATA_DELETION : esLegal.DATA_DELETION,
+    TERMS: l.TERMS,
+    COOKIES: m.language === 'es' ? l.COOKIES : esLegal.COOKIES,
+    isReferenceTranslation: m.language !== 'es',
+  }
 }
 
 // ---------------------------------------------------------------------------

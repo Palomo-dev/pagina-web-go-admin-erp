@@ -357,10 +357,11 @@
       "countries": "Países",
       "terms": "Términos y condiciones",
       "cookies": "Cookies",
-      "download": "Descargas"
+      "download": "Descargas",
+      "privacyNotice": "Aviso de privacidad"
     },
     "legal": "© {year} {legalName} · NIT {nit} · {city}",
-    "cookieSettings": "Configurar cookies"
+    "cookieSettings": "Preferencias de cookies"
   },
   "contact": {
     "hours": "Lun a vie · 8:00 a. m. – 6:00 p. m.",
@@ -1333,17 +1334,26 @@
       },
       "eyebrow": "Tus derechos",
       "toc": {
-        "como": "Cómo solicitarla",
-        "proceso": "Proceso",
-        "datos": "Qué pasa con tus datos",
-        "plazos": "Plazos por normativa",
-        "preguntas": "Preguntas frecuentes"
+        "como": "Cómo pedirlo",
+        "plazos": "En cuánto tiempo te respondemos",
+        "que-borramos": "Qué borramos",
+        "conservamos": "Qué conservamos y por qué",
+        "erp": "Si eres cliente de una empresa que usa GO Admin ERP",
+        "queja": "Si no estás de acuerdo",
+        "ley": "Ley aplicable"
       },
-      "howTitle": "¿Cómo solicitar la eliminación?",
+      "howTitle": "Cómo pedirlo",
       "processTitle": "Proceso de eliminación",
       "dataTitle": "¿Qué sucede con mis datos?",
       "termsTitle": "Plazos por normativa",
-      "faqTitle": "Preguntas frecuentes"
+      "faqTitle": "Preguntas frecuentes",
+      "timelineTitle": "En cuánto tiempo te respondemos",
+      "weDeleteTitle": "Qué borramos",
+      "retentionTitle": "Qué conservamos y por qué",
+      "retentionIntro": "Hay datos que no podemos borrar de inmediato porque una ley o un contrato nos obliga a guardarlos (literal e del artículo 8 de la Ley 1581 y artículo 9 del Decreto 1377 de 2013). En esos casos los bloqueamos, solo los usamos para cumplir esa obligación y los suprimimos al vencer el plazo:",
+      "erpTitle": "Si eres cliente o trabajador de una empresa que usa GO Admin ERP",
+      "complaintTitle": "Si no estás de acuerdo con nuestra respuesta",
+      "lawTitle": "Ley aplicable"
     },
     "api": {
       "meta": {
@@ -1395,26 +1405,32 @@
       },
       "eyebrow": "Legal",
       "toc": {
-        "que-son": "Qué son",
-        "tipos": "Tipos",
-        "lista": "Lista de cookies",
-        "gestionar": "Cambiar tu elección",
-        "contacto": "Contacto"
+        "que-son": "Qué son las cookies",
+        "antes": "Antes de que elijas",
+        "tipos": "Categorías",
+        "lista": "Cookies que usamos",
+        "erp": "Dentro de GO Admin ERP",
+        "gestionar": "Cómo cambiar tus preferencias",
+        "ley": "Ley aplicable",
+        "contacto": "Preguntas"
       },
-      "whatTitle": "¿Qué son las cookies?",
-      "typesTitle": "Tipos de cookies que usamos",
+      "whatTitle": "Qué son las cookies",
+      "typesTitle": "Categorías",
       "always": "Siempre activas",
       "optional": "Con tu permiso",
-      "listTitle": "Lista de cookies",
+      "listTitle": "Cookies que usamos",
       "table": {
         "name": "Nombre",
-        "category": "Tipo",
-        "purpose": "Para qué sirve",
+        "category": "Categoría",
+        "purpose": "Finalidad",
         "duration": "Duración",
         "provider": "Proveedor"
       },
-      "manageTitle": "Cambiar tu elección",
-      "settings": "Configurar cookies"
+      "manageTitle": "Cómo cambiar tus preferencias",
+      "settings": "Preferencias de cookies",
+      "beforeTitle": "Antes de que elijas, solo cargamos lo necesario",
+      "erpTitle": "Dentro de GO Admin ERP",
+      "lawTitle": "Ley aplicable"
     },
     "partners": {
       "meta": {
@@ -1789,6 +1805,13 @@
       "otherTitle": "¿Usas Mac, Linux, celular o tablet?",
       "otherText": "GO Admin funciona en el navegador, sin instalar nada. La app de escritorio por ahora es solo para Windows.",
       "openWeb": "Abrir GO Admin en el navegador"
+    },
+    "privacyNotice": {
+      "meta": {
+        "title": "Aviso de privacidad",
+        "description": "Resumen de cómo GO Admin trata tus datos personales."
+      },
+      "eyebrow": "Legal"
     }
   },
   "notFound": {
