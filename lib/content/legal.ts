@@ -1,6 +1,6 @@
 /**
  * Textos legales. VERSIÓN FINAL aprobada por Juan el 29 de septiembre de 2026,
- * para publicar el 2 de octubre de 2026.
+ * para publicar el 30 de septiembre de 2026.
  *
  * Estos textos NO deben editarse sin aprobación legal. El contenido legal va TAL CUAL
  * fue entregado por el equipo legal. Solo se convirtió de HTML a TypeScript estructurado
@@ -15,9 +15,9 @@ export type LegalTable = { cols: string[]; rows: (string | { content: string; li
 
 export const PRIVACY = {
   title: 'Política de Tratamiento de Datos Personales de Go Admin S.A.S.',
-  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
-  updated: '2 de octubre de 2026',
-  vigente: 'Vigente desde el 2 de octubre de 2026',
+  version: 'Versión 1.0 · Publicada el 30 de septiembre de 2026 · Vigente desde el 30 de septiembre de 2026',
+  updated: '30 de septiembre de 2026',
+  vigente: 'Vigente desde el 30 de septiembre de 2026',
   intro:
     'Esta política explica cómo Go Admin S.A.S. («GO Admin», «nosotros») recoge, usa, guarda, comparte y protege tus datos personales, y cómo puedes ejercer tus derechos. Se expide conforme a la Ley Estatutaria 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto Único Reglamentario 1074 de 2015, Parte 2, Título 2, Capítulo 25) y las instrucciones de la Superintendencia de Industria y Comercio (SIC). Reemplaza la «Política de privacidad» del 15 de enero de 2024.',
   principles: [
@@ -370,7 +370,7 @@ export const PRIVACY = {
     {
       title: '17. Vigencia',
       items: [
-        'Esta política fue publicada el 2 de octubre de 2026 y rige desde esa fecha. Las bases de datos estarán vigentes mientras GO Admin desarrolle su objeto social y durante los plazos de la sección 14.',
+        'Esta política fue publicada el 30 de septiembre de 2026 y rige desde esa fecha. Las bases de datos estarán vigentes mientras GO Admin desarrolle su objeto social y durante los plazos de la sección 14.',
         'Versiones anteriores: «Política de privacidad», 15 de enero de 2024.',
       ],
     },
@@ -386,9 +386,9 @@ export const PRIVACY = {
 
 export const PRIVACY_NOTICE = {
   title: 'Aviso de privacidad de Go Admin S.A.S.',
-  version: 'Versión 1.0 · Publicado el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
-  updated: '2 de octubre de 2026',
-  vigente: 'Vigente desde el 2 de octubre de 2026',
+  version: 'Versión 1.0 · Publicado el 30 de septiembre de 2026 · Vigente desde el 30 de septiembre de 2026',
+  updated: '30 de septiembre de 2026',
+  vigente: 'Vigente desde el 30 de septiembre de 2026',
   intro: '',
   sections: [
     {
@@ -431,7 +431,7 @@ export const PRIVACY_NOTICE = {
     },
     {
       title: 'Vigencia',
-      items: ['Este aviso fue publicado el 2 de octubre de 2026 y rige desde esa fecha.'],
+      items: ['Este aviso fue publicado el 30 de septiembre de 2026 y rige desde esa fecha.'],
     },
     {
       title: 'Política completa',
@@ -442,7 +442,7 @@ export const PRIVACY_NOTICE = {
 
 export const DATA_DELETION = {
   title: 'Eliminación de datos y de cuenta en GO Admin',
-  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
+  version: 'Versión 1.0 · Publicada el 30 de septiembre de 2026 · Vigente desde el 30 de septiembre de 2026',
   intro:
     'Puedes pedir en cualquier momento que borremos tus datos personales o tu cuenta de GO Admin ERP. Aquí te explicamos cómo hacerlo, qué borramos, qué debemos conservar por ley y en cuánto tiempo te respondemos. Esta página complementa nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
   howTitle: 'Cómo pedirlo',
@@ -641,8 +641,8 @@ export const TERMS = {
  */
 export const COOKIES = {
   title: 'Política de cookies de GO Admin',
-  version: 'Versión 1.0 · Publicada el 2 de octubre de 2026 · Vigente desde el 2 de octubre de 2026',
-  updated: '2 de octubre de 2026',
+  version: 'Versión 1.0 · Publicada el 30 de septiembre de 2026 · Vigente desde el 30 de septiembre de 2026',
+  updated: '30 de septiembre de 2026',
   intro:
     'Esta página explica qué cookies usa goadmin.io, para qué sirve cada una, cuánto duran y cómo cambiar tu elección. Complementa la sección 8 de nuestra Política de Tratamiento de Datos Personales. El responsable es Go Admin S.A.S., NIT 901.479.683-5, con domicilio en Medellín, Colombia.',
   what: 'Una cookie es un archivo pequeño que un sitio web guarda en tu navegador. Sirve para que el sitio funcione, recuerde tus elecciones o mida cómo se usa. Algunas cookies y tecnologías parecidas (píxeles, etiquetas, almacenamiento del navegador) permiten reconocer tu navegador o dispositivo; por eso pueden ser datos personales y las tratamos como tales. Las cookies pueden ser propias (las pone GO Admin) o de terceros (las pone otra empresa, como Google o Meta, cuando su herramienta está activa en nuestro sitio).',
