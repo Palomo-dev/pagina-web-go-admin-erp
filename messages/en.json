@@ -372,9 +372,8 @@
       "pro": {
         "forWho": "To start getting organized",
         "features": [
-          "12 modules",
+          "11 modules",
           "1 branch · 10 users",
-          "{status, select, integrated {1,000 e-invoices per month} other {1,000 invoices per month}}",
           "500 AI credits per month",
           "Reports and AI accounting assistant"
         ]
@@ -384,7 +383,6 @@
         "features": [
           "16 modules",
           "5 branches · 20 users",
-          "{status, select, integrated {3,000 e-invoices per month} other {3,000 invoices per month}}",
           "2,000 AI credits per month",
           "QR collections and instant payments"
         ]
@@ -394,7 +392,6 @@
         "features": [
           "{modules} modules (all)",
           "15 branches · 60 users",
-          "{status, select, integrated {Unlimited e-invoices} other {Unlimited invoices}}",
           "10,000 AI credits per month",
           "Online payments, batch payroll and reconciliation",
           "Dedicated support"
@@ -428,7 +425,6 @@
         "modules": "Modules",
         "branches": "Branches",
         "users": "Users",
-        "invoices": "{status, select, integrated {E-invoices per month} other {Invoices per month}}",
         "aiCredits": "AI credits per month",
         "trialDays": "Trial days",
         "aiReports": "Reports and AI accounting assistant",

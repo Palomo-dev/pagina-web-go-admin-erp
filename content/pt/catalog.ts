@@ -144,7 +144,6 @@ export const catalog: CatalogText = {
       highlights: ['Incluída em todos os planos', 'Nota fiscal, notas de crédito e documento de suporte', 'Status junto a {theAuthority} em tempo real'],
       faq: [
         { q: 'Preciso de um certificado digital?', a: 'Sim, para assinar os documentos. Se você não tiver, pode adquiri-lo como complemento.' },
-        { q: 'Quantas notas posso emitir?', a: 'Depende do plano: 1.000, 3.000 ou ilimitadas por mês. Você pode adicionar notas extras.' },
         { q: 'Posso emitir nota pelo celular?', a: 'Sim. O faturamento funciona no navegador de qualquer dispositivo.' },
       ],
       variants: {
@@ -173,7 +172,6 @@ export const catalog: CatalogText = {
           highlights: ['Impostos do seu país configurados', 'Notas fiscais e notas de crédito', 'Conectada com vendas e contabilidade'],
           faq: [
             { q: 'Como funciona a nota fiscal eletrônica {inCountry}?', a: '{einvoiceNote}' },
-            { q: 'Quantas notas posso emitir?', a: 'Depende do plano: 1.000, 3.000 ou ilimitadas por mês.' },
             { q: 'Posso emitir nota pelo celular?', a: 'Sim. O faturamento funciona no navegador de qualquer dispositivo.' },
           ],
         },

@@ -144,7 +144,6 @@ export const catalog: CatalogText = {
       highlights: ['Included in every plan', 'Invoices, notes and supporting documents', 'Real-time status with {theAuthority}'],
       faq: [
         { q: 'Do I need a digital certificate?', a: 'Yes, to sign documents. If you don’t have one, you can get it as an add-on.' },
-        { q: 'How many invoices can I issue?', a: 'It depends on your plan: 1,000, 3,000 or unlimited per month. You can add extra invoices.' },
         { q: 'Can I invoice from my phone?', a: 'Yes. Invoicing works in the browser on any device.' },
       ],
       variants: {
@@ -173,7 +172,6 @@ export const catalog: CatalogText = {
           highlights: ['Your country’s taxes set up', 'Invoices and credit notes', 'Connected to sales and accounting'],
           faq: [
             { q: 'How does e-invoicing work {inCountry}?', a: '{einvoiceNote}' },
-            { q: 'How many invoices can I issue?', a: 'It depends on your plan: 1,000, 3,000 or unlimited per month.' },
             { q: 'Can I invoice from my phone?', a: 'Yes. Invoicing works in the browser on any device.' },
           ],
         },

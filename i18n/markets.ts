@@ -71,7 +71,7 @@ export const COUNTRIES: Record<CountryCode, Country> = {
     name: { es: 'Colombia', en: 'Colombia', pt: 'Colômbia', fr: 'Colombie' },
     inCountry: { es: 'en Colombia', en: 'in Colombia', pt: 'na Colômbia', fr: 'en Colombie' },
     fiscal: {
-      status: 'integrated',
+      status: 'not_integrated',
       authority: { es: 'DIAN', en: 'DIAN', pt: 'DIAN', fr: 'DIAN' },
       theAuthority: { es: 'la DIAN', en: 'DIAN', pt: 'a DIAN', fr: 'la DIAN' },
       system: { es: 'factura electrónica', en: 'electronic invoice', pt: 'fatura eletrônica', fr: 'facture électronique' },

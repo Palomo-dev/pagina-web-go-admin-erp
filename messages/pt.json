@@ -372,9 +372,8 @@
       "pro": {
         "forWho": "Para começar a organizar",
         "features": [
-          "12 módulos",
+          "11 módulos",
           "1 filial · 10 usuários",
-          "{status, select, integrated {1.000 notas fiscais eletrônicas por mês} other {1.000 notas por mês}}",
           "500 créditos de IA por mês",
           "Relatórios e assistente contábil com IA"
         ]
@@ -384,7 +383,6 @@
         "features": [
           "16 módulos",
           "5 filiais · 20 usuários",
-          "{status, select, integrated {3.000 notas fiscais eletrônicas por mês} other {3.000 notas por mês}}",
           "2.000 créditos de IA por mês",
           "Cobranças por QR e pagamentos instantâneos"
         ]
@@ -394,7 +392,6 @@
         "features": [
           "{modules} módulos (todos)",
           "15 filiais · 60 usuários",
-          "{status, select, integrated {Notas fiscais eletrônicas ilimitadas} other {Notas ilimitadas}}",
           "10.000 créditos de IA por mês",
           "Pagamentos on-line, folha em lote e conciliação",
           "Suporte dedicado"
@@ -428,7 +425,6 @@
         "modules": "Módulos",
         "branches": "Filiais",
         "users": "Usuários",
-        "invoices": "{status, select, integrated {Notas fiscais eletrônicas por mês} other {Notas por mês}}",
         "aiCredits": "Créditos de IA por mês",
         "trialDays": "Dias de teste",
         "aiReports": "Relatórios e assistente contábil com IA",
